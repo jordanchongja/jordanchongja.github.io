@@ -1,14 +1,21 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/Fama-French LASSO/index.html",
+      "/projects/gap-challenge-solver/index.html"
+    ]
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/book-review-1/bookreview1.html"
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/reading stats/index.html",
     "items": [
-      "/projects/gap-challenge-solver/index.html"
+      "/reading stats/posts/book-review-1/bookreview1.html"
     ]
   }
 ]
