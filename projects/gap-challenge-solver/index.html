@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-11-02">
-<meta name="description" content="An interactive web tool to solve the Gap Challenge puzzle using Python and OpenCV.">
+<meta name="author" content="Jordan Chong">
+<meta name="dcterms.date" content="2025-02-03">
+<meta name="description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
 
 <title>Gap Challenge Solver – Jordan Chong</title>
 <style>
@@ -21,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -39,10 +75,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3ee09d218e5cb07634f343b39aada8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,8 +117,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jordan Chong</span>
     </a>
@@ -94,8 +128,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../blog/index.html"> 
@@ -106,24 +140,9 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../assets/Jordan Chong_Resume.pdf"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books-read" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books Read</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books-read">    
-        <li>
-    <a class="dropdown-item" href="../../reading stats/index.html">
- <span class="dropdown-text">Reviews</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../reading stats/reading_stats_dashboard.html">
- <span class="dropdown-text">Dashboard</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -135,8 +154,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">Technical Implementation</a>
+  <ul class="collapse">
+  <li><a href="#computer-vision-pipeline-opencv" id="toc-computer-vision-pipeline-opencv" class="nav-link" data-scroll-target="#computer-vision-pipeline-opencv">1. Computer Vision Pipeline (OpenCV)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -145,26 +174,33 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title">
 <h1 class="title">Gap Challenge Solver</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Python</div>
     <div class="quarto-category">Computer Vision</div>
-    <div class="quarto-category">Web App</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Streamlit</div>
+    <div class="quarto-category">Algorithms</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    An interactive web tool to solve the Gap Challenge puzzle using Python and OpenCV.
+    A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jordan Chong </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 2, 2024</p>
+      <p class="date">February 3, 2025</p>
     </div>
   </div>
   
@@ -176,9 +212,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is where you write the main content describing your project…</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I built this application to solve the “Gap” puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.</p>
+<p>The tool allows users to simply paste a screenshot of the puzzle. It then uses <strong>Computer Vision</strong> to “read” the grid and a <strong>Recursive Backtracking</strong> algorithm to solve it mathematically.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Live Demo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can interact with the embedded app below or view it in full screen <a href="https://gap-solver-app.streamlit.app/">here</a>.</p>
+</div>
+</div>
+<iframe src="https://gap-solver-app.streamlit.app/?embed=true" height="850" style="width:100%; border:none;">
+</iframe>
+<hr>
+</section>
+<section id="technical-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h2>
+<p>The solution is a two-step pipeline: <strong>Digitization</strong> (turning pixels into data) and <strong>Solving</strong> (finding the missing variable).</p>
+<section id="computer-vision-pipeline-opencv" class="level3">
+<h3 class="anchored" data-anchor-id="computer-vision-pipeline-opencv">1. Computer Vision Pipeline (OpenCV)</h3>
+<p>Before we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized <code>OpenCV</code> to perform the following steps:</p>
+<ol type="1">
+<li><strong>Grid Extraction:</strong> The image is converted to grayscale and passed through a Canny edge detector. I use <code>cv2.findContours</code> to locate the individual cells of the grid based on their aspect ratio and area.</li>
+<li><strong>Shape Classification:</strong> For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.
+<ul>
+<li><strong>Solidity &amp; Convexity:</strong> Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).</li>
+<li><strong>Vertex Counting:</strong> <code>cv2.approxPolyDP</code> approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.</li>
+</ul></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Snippet: Logic for distinguishing similar shapes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> is_convex <span class="kw">or</span> solidity <span class="op">&gt;</span> <span class="fl">0.92</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> vertices <span class="op">==</span> <span class="dv">4</span>: <span class="cf">return</span> <span class="st">"3square"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> vertices <span class="op">==</span> <span class="dv">3</span>: <span class="cf">return</span> <span class="st">"2triangle"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="cf">return</span> <span class="st">"1circle"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stars have many vertices (tips + inner corners)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">9</span> <span class="op">&lt;=</span> vertices <span class="op">&lt;=</span> <span class="dv">10</span>: <span class="cf">return</span> <span class="st">"5star"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>The Backtracking Algorithm Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.</li>
+</ol>
+<p>How it Works The algorithm explores the search space using Depth-First Search (DFS):</p>
+<p>Find Empty: The solver scans the grid for the first empty cell (or the ‘?’ cell).</p>
+<p>Generate Candidates: It identifies the “Universe” of valid shapes (e.g., Circle, Square, Star) present in the puzzle.</p>
+<p>Check Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?</p>
+<p>Recurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.</p>
+<p>Backtrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.</p>
+<p>This ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve_with_backtracking(board, all_shapes):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Base Case: If no empty spots are left, we are done.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    find <span class="op">=</span> find_empty(board)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> find: <span class="cf">return</span> <span class="va">True</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    row, col <span class="op">=</span> find</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Try every possible shape</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> shape <span class="kw">in</span> all_shapes:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3. Check Constraints (Row &amp; Column uniqueness)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> is_valid_move(board, shape, row, col):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 4. Place shape and Recurse</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> shape</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> solve_with_backtracking(board, all_shapes): </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 5. Backtrack (Reset if the path failed)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> <span class="st">'blank'</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Handling Sparse Data A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).</li>
+</ol>
+<p>To make the solver robust, I implemented a logic check that forces the “Universe” of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.</p>
+<p>Tech Stack Python 3.10</p>
+<p>OpenCV: Image processing and contour detection.</p>
+<p>NumPy: Matrix manipulation.</p>
+<p>Streamlit: Frontend UI and state management for the interactive web app.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -254,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/0berman\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/jordanchong\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -585,26 +703,48 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<div>
-© 2025 Jordan Chong • Made with <a href="https://quarto.org/">Quarto</a>
-</div>
-<div>
-Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-</div>
+<p><span class="p-1">Based on <a href="https://rubuky.com//">Dianyi Yang’s template</a>.</span> <span class="p-1">Made with <a href="https://quarto.org/">Quarto</a>.</span></p>
 </div>   
     <div class="nav-footer-center">
-<div>
-<p><a href="https://github.com/0berman" aria-label="GitHub"><i class="bi bi-github"></i></a> <a href="https://www.linkedin.com/in/jordan-chong-88a02b172/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a> <a href="mailto:jordanchongjian00@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a></p>
-</div>
-<div>
-<p><a href="https://github.com/0berman/0berman.github.io"><i class="bi bi-github"></i> View source</a> <span style="margin: 0 0.5em;">|</span> <a href="https://github.com/0berman/0berman.github.io/issues"><i class="bi bi-bug"></i> Report an issue</a></p>
-</div>
-</div>
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/0berman">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:jordanchongjian00@gmail.com">
+      <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ |
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/0berman/your-repo-name">
+<p>View source</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/0berman/your-repo-name/issues">
+<p>Report an issue</p>
+</a>
+  </li>  
+</ul>
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="//licence.html">
-<p>Licence</p>
+    <a class="nav-link" href="//license.html">
+<p>License</p>
 </a>
   </li>  
     <li class="nav-item">
