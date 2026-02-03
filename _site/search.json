@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "Gap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\n\n\nA Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "The content on this website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\n\n\n\nCreative Commons License Logo"
+  },
+  {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "Jordan Chong",
@@ -7,11 +21,25 @@
     "text": "hello"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! I’m [Your Name]. This is where you can write a more detailed biography…"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "My Blog",
     "section": "",
     "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nAn Analysis of Market Trends\n\n\n\nQuant\n\nFinance\n\nPython\n\n\n\nA deep dive into recent market trends using Python’s data analysis libraries to uncover hidden patterns.\n\n\n\n\n\nSep 26, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Contact \n\n\n\n&lt;label for=\"full-name\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Full Name&lt;/label&gt;\n&lt;input type=\"text\" id=\"full-name\" name=\"name\" required style=\"width: 100%; padding: 0.5em;\"&gt;\n\n\n&lt;label for=\"email-address\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Email Address&lt;/label&gt;\n&lt;input type=\"email\" id=\"email-address\" name=\"_replyto\" required style=\"width: 100%; padding: 0.5em;\"&gt;\n\n\n&lt;label for=\"message\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Message&lt;/label&gt;\n&lt;textarea id=\"message\" name=\"message\" rows=\"6\" required style=\"width: 100%; padding: 0.5em;\"&gt;&lt;/textarea&gt;\n\n\nSend Message"
   },
   {
     "objectID": "index.html",
@@ -28,20 +56,6 @@
     "text": "I built this application to solve the “Gap” puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.\nThe tool allows users to simply paste a screenshot of the puzzle. It then uses Computer Vision to “read” the grid and a Recursive Backtracking algorithm to solve it mathematically.\n\n\n\n\n\n\nNoteLive Demo\n\n\n\nYou can interact with the embedded app below or view it in full screen here."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "My Projects",
-    "section": "",
-    "text": "Gap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\n\n\nA Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! I’m [Your Name]. This is where you can write a more detailed biography…"
-  },
-  {
     "objectID": "projects/gap-challenge-solver/index.html#overview",
     "href": "projects/gap-challenge-solver/index.html#overview",
     "title": "Gap Challenge Solver",
@@ -54,19 +68,5 @@
     "title": "Gap Challenge Solver",
     "section": "Technical Implementation",
     "text": "Technical Implementation\nThe solution is a two-step pipeline: Digitization (turning pixels into data) and Solving (finding the missing variable).\n\n1. Computer Vision Pipeline (OpenCV)\nBefore we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized OpenCV to perform the following steps:\n\nGrid Extraction: The image is converted to grayscale and passed through a Canny edge detector. I use cv2.findContours to locate the individual cells of the grid based on their aspect ratio and area.\nShape Classification: For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.\n\nSolidity & Convexity: Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).\nVertex Counting: cv2.approxPolyDP approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.\n\n\n# Snippet: Logic for distinguishing similar shapes\nif is_convex or solidity &gt; 0.92:\n    if vertices == 4: return \"3square\"\n    elif vertices == 3: return \"2triangle\"\n    else: return \"1circle\"\nelse:\n    # Stars have many vertices (tips + inner corners)\n    if 9 &lt;= vertices &lt;= 10: return \"5star\"\n\nThe Backtracking Algorithm Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.\n\nHow it Works The algorithm explores the search space using Depth-First Search (DFS):\nFind Empty: The solver scans the grid for the first empty cell (or the ‘?’ cell).\nGenerate Candidates: It identifies the “Universe” of valid shapes (e.g., Circle, Square, Star) present in the puzzle.\nCheck Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?\nRecurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.\nBacktrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.\nThis ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.\ndef solve_with_backtracking(board, all_shapes):\n    # 1. Base Case: If no empty spots are left, we are done.\n    find = find_empty(board)\n    if not find: return True \n    row, col = find\n    \n    # 2. Try every possible shape\n    for shape in all_shapes:\n        # 3. Check Constraints (Row & Column uniqueness)\n        if is_valid_move(board, shape, row, col):\n            \n            # 4. Place shape and Recurse\n            board[row][col] = shape\n            if solve_with_backtracking(board, all_shapes): \n                return True\n            \n            # 5. Backtrack (Reset if the path failed)\n            board[row][col] = 'blank'\n            \n    return False\n\nHandling Sparse Data A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).\n\nTo make the solver robust, I implemented a logic check that forces the “Universe” of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.\nTech Stack Python 3.10\nOpenCV: Image processing and contour detection.\nNumPy: Matrix manipulation.\nStreamlit: Frontend UI and state management for the interactive web app."
-  },
-  {
-    "objectID": "Licence.html",
-    "href": "Licence.html",
-    "title": "License",
-    "section": "",
-    "text": "The content on this website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\n\n\n\nCreative Commons License Logo"
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Contact \n\n\n\n&lt;label for=\"full-name\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Full Name&lt;/label&gt;\n&lt;input type=\"text\" id=\"full-name\" name=\"name\" required style=\"width: 100%; padding: 0.5em;\"&gt;\n\n\n&lt;label for=\"email-address\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Email Address&lt;/label&gt;\n&lt;input type=\"email\" id=\"email-address\" name=\"_replyto\" required style=\"width: 100%; padding: 0.5em;\"&gt;\n\n\n&lt;label for=\"message\" style=\"display: block; margin-bottom: 0.5em;\"&gt;Message&lt;/label&gt;\n&lt;textarea id=\"message\" name=\"message\" rows=\"6\" required style=\"width: 100%; padding: 0.5em;\"&gt;&lt;/textarea&gt;\n\n\nSend Message"
   }
 ]
