@@ -1,9 +1,102 @@
 ---
 title: "Gap Challenge Solver"
-date: "2024-11-02"
-image: "some-image.png"
-description: "An interactive web tool to solve the Gap Challenge puzzle using Python and OpenCV."
-categories: [Python, Computer Vision, Web App]
+description: "A Computer Vision powered solver for the 'Gap' puzzle using OpenCV and Backtracking algorithms."
+author: "Jordan Chong"
+date: "2025-02-03"
+categories: [Computer Vision, Python, Streamlit, Algorithms]
+image: "featured.png" 
 ---
 
-This is where you write the main content describing your project...
+## Overview
+
+I built this application to solve the "Gap" puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.
+
+The tool allows users to simply paste a screenshot of the puzzle. It then uses **Computer Vision** to "read" the grid and a **Recursive Backtracking** algorithm to solve it mathematically.
+
+::: {.callout-note}
+### Live Demo
+You can interact with the embedded app below or view it in full screen [here](https://gap-solver-app.streamlit.app/).
+:::
+
+<iframe src="https://gap-solver-app.streamlit.app/?embed=true" height="850" style="width:100%; border:none;"></iframe>
+
+---
+
+## Technical Implementation
+
+The solution is a two-step pipeline: **Digitization** (turning pixels into data) and **Solving** (finding the missing variable).
+
+### 1. Computer Vision Pipeline (OpenCV)
+Before we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized `OpenCV` to perform the following steps:
+
+1.  **Grid Extraction:** The image is converted to grayscale and passed through a Canny edge detector. I use `cv2.findContours` to locate the individual cells of the grid based on their aspect ratio and area.
+2.  **Shape Classification:** For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.
+    * **Solidity & Convexity:** Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).
+    * **Vertex Counting:** `cv2.approxPolyDP` approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.
+
+```python
+# Snippet: Logic for distinguishing similar shapes
+if is_convex or solidity > 0.92:
+    if vertices == 4: return "3square"
+    elif vertices == 3: return "2triangle"
+    else: return "1circle"
+else:
+    # Stars have many vertices (tips + inner corners)
+    if 9 <= vertices <= 10: return "5star"
+```
+
+2. The Backtracking Algorithm
+Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.
+
+How it Works
+The algorithm explores the search space using Depth-First Search (DFS):
+
+Find Empty: The solver scans the grid for the first empty cell (or the '?' cell).
+
+Generate Candidates: It identifies the "Universe" of valid shapes (e.g., Circle, Square, Star) present in the puzzle.
+
+Check Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?
+
+Recurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.
+
+Backtrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.
+
+This ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.
+
+```python
+def solve_with_backtracking(board, all_shapes):
+    # 1. Base Case: If no empty spots are left, we are done.
+    find = find_empty(board)
+    if not find: return True 
+    row, col = find
+    
+    # 2. Try every possible shape
+    for shape in all_shapes:
+        # 3. Check Constraints (Row & Column uniqueness)
+        if is_valid_move(board, shape, row, col):
+            
+            # 4. Place shape and Recurse
+            board[row][col] = shape
+            if solve_with_backtracking(board, all_shapes): 
+                return True
+            
+            # 5. Backtrack (Reset if the path failed)
+            board[row][col] = 'blank'
+            
+    return False
+```
+
+
+3. Handling Sparse Data
+A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).
+
+To make the solver robust, I implemented a logic check that forces the "Universe" of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.
+
+Tech Stack
+Python 3.10
+
+OpenCV: Image processing and contour detection.
+
+NumPy: Matrix manipulation.
+
+Streamlit: Frontend UI and state management for the interactive web app.

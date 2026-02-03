@@ -19,5 +19,11 @@
   },
   "projects/gap-challenge-solver/index.qmd": {
     "index.html": "25407c5e"
+  },
+  "contact.qmd": {
+    "contact.html": "46ed1c32"
+  },
+  "Licence.qmd": {
+    "Licence.html": "f6f78cc8"
   }
 }
