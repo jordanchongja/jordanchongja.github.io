@@ -1,7 +1,7 @@
 ---
 title: "My Projects"
 listing:
-  contents: "**/*.qmd"  # <-- Find .qmd files in ALL sub-folders
+  contents: "*/index.qmd"  # <-- Find .qmd files in ALL sub-folders
   sort: "date desc"
   type: grid           # A grid layout looks great for projects
   categories: true
