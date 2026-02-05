@@ -1,14 +1,31 @@
 [
   {
-    "listing": "/projects/index.html",
+    "listing": "/readings/index.html",
     "items": [
+      "/readings/East of Eden/template.html"
+    ]
+  },
+  {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/book-review-1/template.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/bb - Copy (10)/tempateee.html",
+      "/projects/bb - Copy (11)/tempateee.html",
       "/projects/gap-challenge-solver/index.html"
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/blog/posts/book-review-1/bookreview1.html"
+      "/projects/bb - Copy (10)/tempateee.html",
+      "/projects/bb - Copy (11)/tempateee.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html"
     ]
   }
 ]
