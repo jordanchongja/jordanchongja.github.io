@@ -1,0 +1,53 @@
+---
+title: "Project Title"
+description: "A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain."
+date: 2025-02-05
+categories: [Quant Finance, Python, Optimization] 
+image: featured.png
+image-alt: "Screenshot of the dashboard"
+client: "Personal Project" 
+github-repo: "https://github.com/yourname/repo"
+body-class: "project-detail-view" # <--- ADD THIS
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Status-Completed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+
+
+## Overview
+**The "So What":** Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec.
+
+---
+
+## 1. The Problem
+**Context:** Briefly explain *why* this matters.  
+*Example:* "Standard Monte Carlo simulations are too slow for real-time pricing..."
+
+## 2. The Solution
+**Approach:** High-level summary of your strategy.
+* **Metric:** What did you optimize? (Speed, Accuracy, Sharpe Ratio)
+* **Tech Stack:** Python (NumPy, Pandas), C++, Docker.
+
+## 3. Technical Implementation
+
+::: {.callout-note}
+### Key Algorithm: Vectorization
+By replacing the `for` loop with NumPy vectorization, we reduced execution time from 40s to 0.2s.
+:::
+
+# python code here #
+
+## 4. Results
+* **Performance:** 50x speedup.
+* **Impact:** Enables real-time strategy backtesting.
+
+[View Source Code on GitHub &rarr;](https://github.com/yourname/repo){.btn .btn-primary}

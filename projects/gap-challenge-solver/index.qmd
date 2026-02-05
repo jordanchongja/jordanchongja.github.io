@@ -3,9 +3,22 @@ title: "Gap Challenge Solver"
 description: "A Computer Vision powered solver for the 'Gap' puzzle using OpenCV and Backtracking algorithms."
 author: "Jordan Chong"
 date: "2025-02-03"
-categories: [Computer Vision, Python, Streamlit, Algorithms]
+categories: [Computer Vision, Python, Streamlit, Algorithms,featured]
 image: "featured.png" 
+body-class: "project-detail-view" # <--- ADD THIS
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
 ---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Status-Completed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
 
 ## Overview
 
@@ -17,8 +30,6 @@ The tool allows users to simply paste a screenshot of the puzzle. It then uses *
 ### Live Demo
 You can interact with the embedded app below or view it in full screen [here](https://gap-solver-app.streamlit.app/).
 :::
-
-<iframe src="https://gap-solver-app.streamlit.app/?embed=true" height="850" style="width:100%; border:none;"></iframe>
 
 ---
 

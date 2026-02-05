@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-02-05">
+<meta name="description" content="Deriving the stochastic volatility model and calibrating it to market data.">
 
-<title>Jordan Chong</title>
+<title>Concept: The Heston Model – Jordan Chong</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//assets/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f157d37ced3fdb2c46924f401e9f658f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//assets/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-f157d37ced3fdb2c46924f401e9f658f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
 
 <script type="text/javascript">
@@ -139,14 +111,14 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Jordan Chong">
-<meta property="og:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Concept: The Heston Model – Jordan Chong">
+<meta property="og:description" content="Deriving the stochastic volatility model and calibrating it to market data.">
+<meta property="og:image" content="https://jordanchongja.github.io/notes/posts/book-review-1/heston_surface.png">
 <meta property="og:site_name" content="Jordan Chong">
-<meta property="og:image:alt" content="Jordan Chong">
-<meta name="twitter:title" content="Jordan Chong">
-<meta name="twitter:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
-<meta name="twitter:image:alt" content="Jordan Chong">
+<meta name="twitter:title" content="Concept: The Heston Model – Jordan Chong">
+<meta name="twitter:description" content="Deriving the stochastic volatility model and calibrating it to market data.">
+<meta name="twitter:image" content="https://jordanchongja.github.io/notes/posts/book-review-1/heston_surface.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -157,7 +129,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Jordan Chong</span>
     </a>
   </div>
@@ -168,21 +140,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./readings/index.html"> 
+    <a class="nav-link" href="../../../readings/index.html"> 
 <span class="menu-text">Readings</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./assets/Jordan_Chong_CV.pdf" target="_blank"> 
+    <a class="nav-link" href="../../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -203,162 +175,98 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#calibration-strategy" id="toc-calibration-strategy" class="nav-link" data-scroll-target="#calibration-strategy">Calibration Strategy</a></li>
+  <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details">Implementation Details</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Concept: The Heston Model</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Stochastic Calculus</div>
+    <div class="quarto-category">Volatility</div>
+    <div class="quarto-category">Options</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Deriving the stochastic volatility model and calibrating it to market data.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 5, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <style>
-  .about-entity img {
-    object-position: 0 20%; /* Adjust this to nudge the crop */
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
   }
 </style>
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="\assets\avatar.jpg" alt="Jordan Chong" class="about-image
-  round " style="height: 15em; width: 15em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Jordan Chong</h1>
-</div>
-<div class="quarto-title-meta column-page">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/jordan-chong-88a02b172/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/jordanchongja" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="mailto:jordanchongjian25@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="/assets/Jordan_Chong_CV.pdf" class="about-link" rel="" target="_blank">
-    <i class="bi bi-file-earmark-pdf"></i>
-     <span class="about-link-text">CV</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="hero-heading">
-<p>Studied at Singapore Management University (SMU), Bachelor of Business Administration (Finance) with Second Major in Data Science.</p>
-<p>Previously worked in Debt Capital Markets at DBS Bank and Advanced Manufacturing Development at EDB.</p>
-<p>Currently, I am focused on building robust pricing models, researching market microstructure, and applying ML algorithms to financial datasets.</p>
-</div></div>
-</div>
-
-<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px;">
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">
-Featured Projects
-</div>
-<p><a href="./projects/index.html" class="btn btn-outline-primary">View all projects →</a></p>
-</div>
-<div id="featured-projects">
-
-</div>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>The Heston model assumes that volatility itself is a stochastic process. The dynamics are given by the SDEs:</p>
+<p><span class="math display">\[
+dS_t = \mu S_t dt + \sqrt{v_t} S_t dW_t^S
+\]</span> <span class="math display">\[
+dv_t = \kappa (\theta - v_t) dt + \xi \sqrt{v_t} dW_t^v
+\]</span></p>
+<p>Where: * <span class="math inline">\(\kappa\)</span>: Mean reversion speed * <span class="math inline">\(\theta\)</span>: Long-run variance</p>
+</section>
+<section id="calibration-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="calibration-strategy">Calibration Strategy</h2>
+<p>To calibrate this to the S&amp;P 500 smile, we minimize the squared error between model price <span class="math inline">\(C_{model}\)</span> and market price <span class="math inline">\(C_{market}\)</span>:</p>
+<p><span class="math display">\[
+\min_{\Theta} \sum_{i} (C_{model}(K_i, T_i) - C_{market}(K_i, T_i))^2
+\]</span></p>
+</section>
+<section id="implementation-details" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-details">Implementation Details</h2>
+<p>I implemented the pricing using the Fourier Transform method (Lewis, 2001) because it allows for semi-closed form solutions, which are significantly faster than Monte Carlo for calibration purposes.</p>
 
 
+</section>
 
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UXVhbnQlMjBGaW5hbmNlJTJDUHl0aG9uJTJDT3B0aW1pemF0aW9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1738684800000" data-listing-file-modified-sort="1770285159358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="109">
-<a href="./projects/bb - Copy (10)/tempateee.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/bb - Copy (10)/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Project Title
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnQlMjBGaW5hbmNl'); return false;">Quant Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">Optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UXVhbnQlMjBGaW5hbmNlJTJDUHl0aG9uJTJDT3B0aW1pemF0aW9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1738684800000" data-listing-file-modified-sort="1770285159358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="109">
-<a href="./projects/bb - Copy (11)/tempateee.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/bb - Copy (11)/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Project Title
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnQlMjBGaW5hbmNl'); return false;">Quant Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">Optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1738512000000" data-listing-file-modified-sort="1770302427942" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="791">
-<a href="./projects/gap-challenge-solver/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Gap Challenge Solver
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWxnb3JpdGhtcw=='); return false;">Algorithms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.</p>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -789,12 +697,12 @@ Gap Challenge Solver
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">
+    <a class="nav-link" href="../../../license.html">
 <p>License</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./contact.html">
+    <a class="nav-link" href="../../../contact.html">
 <p>Contact</p>
 </a>
   </li>  

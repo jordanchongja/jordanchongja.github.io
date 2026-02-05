@@ -1,0 +1,170 @@
+/* ==========================================================================
+   SECTION 0: GLOBAL LAYOUT (The Engine)
+   This applies to ALL pages to ensure the footer sticks to the bottom.
+   ========================================================================== */
+
+/* 1. Force the body to be at least as tall as the screen */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* 100% of Viewport Height */
+}
+
+
+/* 2. Make the main content area grow to fill available space */
+/* This pushes the footer down if content is short */
+#quarto-content {
+  /* Reset the forced height calculation */
+  min-height: auto !important;
+  height: auto !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  grid-template-rows: [content-top] 0fr [content-bottom] 0px [page-bottom] !important;
+  flex: 1 0 auto;
+  width: 100%;
+  /* Ensures full width on "page-layout: full" */
+}
+
+#quarto-document-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.quarto-container-fluid {
+  padding-top: 0 !important;
+}
+
+/* 3. Ensure footer doesn't shrink */
+footer {
+  flex-shrink: 0;
+  background-color: #f8f9fa;
+  /* Optional: Match your navbar */
+  border-top: 1px solid #eaeaea;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* The magic CSS rule for sticky footers */
+}
+
+/* Global Typography tweaks */
+h1,
+h2,
+h3 {
+  color: #2c3e50;
+  /* Darker, professional header color */
+}
+
+
+/* ==========================================================================
+   SECTION 1: HOMEPAGE (Landing Page)
+   Targeting class: .homepage-view
+   ========================================================================== */
+
+
+.homepage-view .quarto-about-trestles .about-entity img {
+  /* Make the main avatar slightly nicer */
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-view #hero-heading {
+  /* Add breathing room to your bio text */
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+
+
+/* Style the "View all projects" button container */
+.homepage-view div[style*="text-align: right"] {
+  margin-top: 3rem !important;
+  margin-bottom: 2rem;
+}
+
+/* Tighten the gap between the header and the project grid */
+.homepage-view #featured-projects {
+  margin-top: 0px;
+}
+
+/* Reduce spacing between grid items */
+.homepage-view .quarto-listing-cols {
+  gap: 10px !important;
+}
+
+.homepage-view .quarto-listing {
+  margin-bottom: 0 !important;
+}
+
+.homepage-view #listing-listing {
+  margin-bottom: 0 !important;
+}
+
+/* Reduce margin below each individual project card */
+.homepage-view .quarto-post {
+  margin-bottom: 1px !important;
+}
+
+/* Ensure the header row itself has no bottom border */
+.homepage-view .featured-header-row {
+  border-bottom: none;
+}
+
+
+/* ==========================================================================
+   SECTION 2: PROJECTS LISTING (Grid)
+   Targeting class: .projects-listing-view
+   ========================================================================== */
+
+/* Customize the Project Cards */
+.projects-listing-view .quarto-grid-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+/* Hover effect for cards */
+.projects-listing-view .quarto-grid-item:hover {
+  transform: translateY(-5px);
+  /* Lift up slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of projects in the grid */
+.projects-listing-view .card-title {
+  font-weight: 700;
+  color: #0d6efd;
+  /* Bootstrap Primary Blue */
+}
+
+
+/* ==========================================================================
+   SECTION 3: INDIVIDUAL PROJECT PAGES (Detail)
+   Targeting class: .project-detail-view
+   ========================================================================== */
+
+
+
+/* Clean up the Iframe container */
+.project-detail-view iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+/* Style the Code Blocks to look more "Data Science" */
+.project-detail-view pre.sourceCode {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
+
+/* Make the Callout Note pop a bit more */
+.project-detail-view .callout-note {
+  border-left-width: 5px;
+}
+
+
+

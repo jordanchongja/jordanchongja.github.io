@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../..//assets/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -78,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3ee09d218e5cb07634f343b39aada8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f157d37ced3fdb2c46924f401e9f658f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,8 +107,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
+</script>
 
 
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Gap Challenge Solver – Jordan Chong">
+<meta property="og:description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
+<meta property="og:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
+<meta property="og:site_name" content="Jordan Chong">
+<meta property="og:image:height" content="274">
+<meta property="og:image:width" content="281">
+<meta name="twitter:title" content="Gap Challenge Solver – Jordan Chong">
+<meta name="twitter:description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
+<meta name="twitter:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
+<meta name="twitter:image-height" content="274">
+<meta name="twitter:image-width" content="281">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -128,20 +151,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../readings/index.html"> 
+<span class="menu-text">Readings</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
 <span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jordanchongja"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -169,6 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -178,6 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">Python</div>
     <div class="quarto-category">Streamlit</div>
     <div class="quarto-category">Algorithms</div>
+    <div class="quarto-category">featured</div>
   </div>
   </div>
 
@@ -212,6 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/yourname/repo"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>I built this application to solve the “Gap” puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.</p>
@@ -229,8 +272,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can interact with the embedded app below or view it in full screen <a href="https://gap-solver-app.streamlit.app/">here</a>.</p>
 </div>
 </div>
-<iframe src="https://gap-solver-app.streamlit.app/?embed=true" height="850" style="width:100%; border:none;">
-</iframe>
 <hr>
 </section>
 <section id="technical-implementation" class="level2">
@@ -372,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/jordanchong\.github\.io");
+        var filterRegex = new RegExp("https:\/\/jordanchongja\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -703,25 +744,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><span class="p-1">Based on <a href="https://rubuky.com//">Dianyi Yang’s template</a>.</span> <span class="p-1">Made with <a href="https://quarto.org/">Quarto</a>.</span></p>
+<p><span class="p-1">Made with <a href="https://quarto.org/">Quarto</a>.</span></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/0berman">
-      <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/jordanchongja">
+      <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
-      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/">
+      <i class="bi bi-linkedin" role="img">
 </i> 
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="mailto:jordanchongjian00@gmail.com">
-      <i class="bi bi-envelope" role="img" aria-label="Email">
+    <a class="nav-link" href="mailto:jordanchongjian25@gmail.com">
+      <i class="bi bi-envelope" role="img">
 </i> 
     </a>
   </li>  
@@ -729,13 +770,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  |
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/0berman/your-repo-name">
-<p>View source</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://github.com/0berman/your-repo-name/issues">
-<p>Report an issue</p>
+    <a class="nav-link" href="https://github.com/jordanchongja/jordanchongja.github.io">
+<p>Source</p>
 </a>
   </li>  
 </ul>
@@ -743,12 +779,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="//license.html">
+    <a class="nav-link" href="../../license.html">
 <p>License</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="//contact.html">
+    <a class="nav-link" href="../../contact.html">
 <p>Contact</p>
 </a>
   </li>  

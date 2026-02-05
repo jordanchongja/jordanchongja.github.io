@@ -1,0 +1,31 @@
+---
+title: "East of Eden"
+author: "John Steinbeck"
+date: 2025-01-15
+categories: [Philosophy, Fiction, Classics]
+image: cover.jpg
+subtitle: ★★★★★
+body-class: "project-detail-view" # <--- ADD THIS
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+
+
+## Summary
+A multi-generational saga retelling the biblical story of Cain and Abel...
+
+## Key Takeaways
+1.  **Timshel:** The Hebrew word meaning "Thou Mayest." It signifies that humans have the choice to overcome sin; we are not condemned by our nature.
+2.  **Inheritance:** We are not bound by the sins of our fathers.
+
+## Favorite Quotes
+> "And now that you don't have to be perfect, you can be good."
+
+## Reflection
+This book shifted my perspective on agency. In a deterministic world (or in a quantitative model), we assume inputs dictate outputs. Steinbeck argues for the "error term"—the human capacity to choose against the grain.c

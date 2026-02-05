@@ -1,0 +1,14 @@
+---
+title: "Technical Notes"
+subtitle: "A digital garden of my research into finance, market microstructure, and algorithms."
+listing:
+  contents: .
+  sort: "date desc"
+  type: grid # <--- Switched to Grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, description, categories] 
+page-layout: full
+title-block-banner: true
+---

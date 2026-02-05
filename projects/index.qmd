@@ -1,10 +1,15 @@
 ---
-title: "My Projects"
+title: "Projects"
+subtitle: "A selection of my data science and quantitative finance work."
 listing:
-  contents: "*/index.qmd"  # <-- Find .qmd files in ALL sub-folders
+  contents: .
   sort: "date desc"
-  type: grid           # A grid layout looks great for projects
+  type: grid # <--- Switched to Grid
   categories: true
-  fields: [image, title, description, categories] # Show more info in the grid
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, description, date, categories]
 page-layout: full
+title-block-banner: true
+body-class: "projects-listing-view" # <--- ADD THIS
 ---

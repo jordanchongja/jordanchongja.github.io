@@ -31,5 +31,74 @@
   },
   "license.qmd": {
     "license.html": "2298c23d"
+  },
+  "notes/index.qmd": {
+    "index.html": "00557ea2"
+  },
+  "notes/posts/book-review-1/bookreview1.qmd": {
+    "bookreview1.html": "05fa8b88"
+  },
+  "readings/index.qmd": {
+    "index.html": "a98bda3a"
+  },
+  "readings/East of Eden/bookreview1.qmd": {
+    "bookreview1.html": "5abd0155"
+  },
+  "notes/template.qmd": {
+    "template.html": "5852f843"
+  },
+  "projects/sg-insurance-model/index.qmd": {
+    "index.html": "001b6ce9"
+  },
+  "projects/tempate.qmd": {
+    "tempate.html": "ee6c2d13"
+  },
+  "readings/template.qmd": {
+    "template.html": "c47510a4"
+  },
+  "projects/aa/tempateee.qmd": {
+    "tempateee.html": "29b92a10"
+  },
+  "projects/bb/tempateee.qmd": {
+    "tempateee.html": "3bbee744"
+  },
+  "projects/bb - Copy/tempateee.qmd": {
+    "tempateee.html": "385513fd"
+  },
+  "projects/bb - Copy (10)/tempateee.qmd": {
+    "tempateee.html": "ad57644e"
+  },
+  "projects/bb - Copy (11)/tempateee.qmd": {
+    "tempateee.html": "46c02ce0"
+  },
+  "projects/bb - Copy (2)/tempateee.qmd": {
+    "tempateee.html": "1a3f3526"
+  },
+  "projects/bb - Copy (3)/tempateee.qmd": {
+    "tempateee.html": "9af9ec4b"
+  },
+  "projects/bb - Copy (4)/tempateee.qmd": {
+    "tempateee.html": "631051b3"
+  },
+  "projects/bb - Copy (5)/tempateee.qmd": {
+    "tempateee.html": "ac29ea21"
+  },
+  "projects/bb - Copy (6)/tempateee.qmd": {
+    "tempateee.html": "0128f87b"
+  },
+  "projects/bb - Copy (7)/tempateee.qmd": {
+    "tempateee.html": "6987146b"
+  },
+  "projects/bb - Copy (8)/tempateee.qmd": {
+    "tempateee.html": "7316708e"
+  },
+  "projects/bb - Copy (9)/tempateee.qmd": {
+    "tempateee.html": "9cfc8f21"
+  },
+  "notes/posts/book-review-1/template.qmd": {
+    "template.html": "8a3e52dc"
+  },
+  "readings/East of Eden/template.qmd": {
+    "template.html": "6ee323da"
   }
 }

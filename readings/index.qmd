@@ -1,0 +1,14 @@
+---
+title: "Readings & Reflections"
+subtitle: "Books and papers that have shaped my thinking."
+listing:
+  contents: .
+  sort: "date desc"
+  type: grid 
+  categories: true
+  sort-ui: [date, subtitle]
+  filter-ui: [title, author, subtitle]
+  fields: [image, title, description, subtitle, author] # 'author' refers to the book author if you add it to YAML
+page-layout: full
+title-block-banner: true
+---

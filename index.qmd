@@ -1,26 +1,72 @@
 ---
 title: "Jordan Chong"
-pagetitle: "Jordan Chong"
-subtitle: "Finance / Data Science and Analytics"
-image: assets/avatar.jpg # Make sure you have an avatar image here
-image-alt: "My avatar"
+image: \assets\avatar.jpg # Ensure this file exists!
+image-alt: "Jordan Chong"
 
+# --- FEATURED PROJECTS CONFIG ---
+listing:
+  contents: projects
+  sort: "date desc"
+  type: grid
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [image, title, description, categories]
+  # This makes the grid ONLY show projects with the 'featured' category
+  include:
+    categories: featured
+
+# --- HERO SECTION CONFIG ---
 about:
-  template: solana
-  image-width: 28em
+  template: trestles
+  image-width: 15em
+  image-shape: round
   id: hero-heading
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jordan-chong-88a02b172/
+    - icon: github
+      text: Github
+      href: https://github.com/jordanchongja
+    - icon: envelope
+      text: Email
+      href: mailto:jordanchongjian25@gmail.com
+    # DIRECT PDF LINK (Best for Recruiters)
+    - icon: file-earmark-pdf
+      text: CV
+      href: /assets/Jordan_Chong_CV.pdf # Make sure this file exists
+      target: _blank # Opens in new tab
 
-      
+# --- PAGE SETTINGS ---
 page-layout: full
+toc: false # Disabled because the page is short
 comments: false
+body-class: "homepage-view" # <--- ADD THIS
 ---
 
-<br><br>
+<style>
+  .about-entity img {
+    object-position: 0 20%; /* Adjust this to nudge the crop */
+  }
+</style>
 
-::: {#hero-heading}
+:::{#hero-heading}
 
-I am a [Your Role] passionate about [Your Interests]. This website contains my projects, research, and writings. I am currently a student at Singapore Management University.
 
-##[READ MORE &rarr;](/about.qmd){.about-links .subtitle}
+Studied at Singapore Management University (SMU), Bachelor of Business Administration (Finance) with Second Major in Data Science.
 
+Previously worked in Debt Capital Markets at DBS Bank and Advanced Manufacturing Development at EDB.
+
+Currently, I am focused on building robust pricing models, researching market microstructure, and applying ML algorithms to financial datasets.
+
+:::
+
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Featured Projects</div>
+
+[View all projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
+:::
+
+:::{#featured-projects}
 :::
