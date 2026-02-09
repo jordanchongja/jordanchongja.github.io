@@ -14,18 +14,14 @@
   {
     "listing": "/index.html",
     "items": [
-      "/projects/bb - Copy (10)/tempateee.html",
-      "/projects/bb - Copy (11)/tempateee.html",
       "/projects/gap-challenge-solver/index.html"
     ]
   },
   {
     "listing": "/projects/index.html",
     "items": [
-      "/projects/bb - Copy (10)/tempateee.html",
-      "/projects/bb - Copy (11)/tempateee.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html"
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/sg-insurance-model/index.html"
     ]
   }
 ]

@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jordan Chong">
-<meta name="dcterms.date" content="2025-02-03">
-<meta name="description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
+<meta name="dcterms.date" content="2025-02-09">
+<meta name="description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 
 <title>Gap Challenge Solver – Jordan Chong</title>
 <style>
@@ -117,16 +117,45 @@ gtag('js', new Date());
 gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Gap Challenge Solver – Jordan Chong">
-<meta property="og:description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
+<meta property="og:description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 <meta property="og:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
 <meta property="og:site_name" content="Jordan Chong">
 <meta property="og:image:height" content="274">
 <meta property="og:image:width" content="281">
 <meta name="twitter:title" content="Gap Challenge Solver – Jordan Chong">
-<meta name="twitter:description" content="A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.">
+<meta name="twitter:description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 <meta name="twitter:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
 <meta name="twitter:image-height" content="274">
 <meta name="twitter:image-width" content="281">
@@ -194,11 +223,28 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">Technical Implementation</a>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge">The Challenge</a>
   <ul class="collapse">
-  <li><a href="#computer-vision-pipeline-opencv" id="toc-computer-vision-pipeline-opencv" class="nav-link" data-scroll-target="#computer-vision-pipeline-opencv">1. Computer Vision Pipeline (OpenCV)</a></li>
+  <li><a href="#major-problem-faced-with-image-recognition" id="toc-major-problem-faced-with-image-recognition" class="nav-link" data-scroll-target="#major-problem-faced-with-image-recognition">Major Problem Faced with Image Recognition</a></li>
   </ul></li>
+  <li><a href="#act-i-the-naive-approach-template-matching" id="toc-act-i-the-naive-approach-template-matching" class="nav-link" data-scroll-target="#act-i-the-naive-approach-template-matching">Act I: The Naive Approach (Template Matching)</a>
+  <ul class="collapse">
+  <li><a href="#the-failure" id="toc-the-failure" class="nav-link" data-scroll-target="#the-failure">The Failure</a></li>
+  </ul></li>
+  <li><a href="#act-ii-the-geometric-pivot-heuristics" id="toc-act-ii-the-geometric-pivot-heuristics" class="nav-link" data-scroll-target="#act-ii-the-geometric-pivot-heuristics">Act II: The Geometric Pivot (Heuristics)</a>
+  <ul class="collapse">
+  <li><a href="#the-live-scanner-debugger" id="toc-the-live-scanner-debugger" class="nav-link" data-scroll-target="#the-live-scanner-debugger">The “Live Scanner” Debugger</a></li>
+  <li><a href="#the-bottleneck" id="toc-the-bottleneck" class="nav-link" data-scroll-target="#the-bottleneck">The Bottleneck</a></li>
+  </ul></li>
+  <li><a href="#act-iii-the-robust-solution-support-vector-machines" id="toc-act-iii-the-robust-solution-support-vector-machines" class="nav-link" data-scroll-target="#act-iii-the-robust-solution-support-vector-machines">Act III: The Robust Solution (Support Vector Machines)</a>
+  <ul class="collapse">
+  <li><a href="#the-data-pipeline-solving-distribution-shift" id="toc-the-data-pipeline-solving-distribution-shift" class="nav-link" data-scroll-target="#the-data-pipeline-solving-distribution-shift">1. The Data Pipeline (Solving Distribution Shift)</a></li>
+  <li><a href="#the-universal-translator-preprocessing" id="toc-the-universal-translator-preprocessing" class="nav-link" data-scroll-target="#the-universal-translator-preprocessing">2. The “Universal Translator” (Preprocessing)</a></li>
+  <li><a href="#fine-tuning-the-brain-grid-search" id="toc-fine-tuning-the-brain-grid-search" class="nav-link" data-scroll-target="#fine-tuning-the-brain-grid-search">3. Fine-Tuning the Brain (Grid Search)</a></li>
+  <li><a href="#x-ray-vision-verification" id="toc-x-ray-vision-verification" class="nav-link" data-scroll-target="#x-ray-vision-verification">4. X-Ray Vision (Verification)</a></li>
+  </ul></li>
+  <li><a href="#the-solver-logic-backtracking" id="toc-the-solver-logic-backtracking" class="nav-link" data-scroll-target="#the-solver-logic-backtracking">The Solver Logic (Backtracking)</a></li>
+  <li><a href="#conclusion-tech-stack" id="toc-conclusion-tech-stack" class="nav-link" data-scroll-target="#conclusion-tech-stack">Conclusion &amp; Tech Stack</a></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +266,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    A Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.
+    Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.
   </div>
 </div>
 
@@ -237,7 +283,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 3, 2025</p>
+      <p class="date">February 9, 2025</p>
     </div>
   </div>
   
@@ -250,15 +296,12 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 
 
 <p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/yourname/repo"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<p><span style="color: gray; font-size: 0.9em;"> Source idea credited to Dianyi Yang: <a href="https://github.com/kv9898/gap_challenge_solver">kv9898/gap_challenge_solver</a> </span></p>
 <style>
   #quarto-margin-sidebar {
     padding-top: 50px; /* Match this to your header margin */
   }
 </style>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>I built this application to solve the “Gap” puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.</p>
-<p>The tool allows users to simply paste a screenshot of the puzzle. It then uses <strong>Computer Vision</strong> to “read” the grid and a <strong>Recursive Backtracking</strong> algorithm to solve it mathematically.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -269,74 +312,260 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can interact with the embedded app below or view it in full screen <a href="https://gap-solver-app.streamlit.app/">here</a>.</p>
+<p>You can try the final SVM-powered solver here: <a href="https://gap-solver-application.streamlit.app/"><strong>Launch Streamlit App</strong></a></p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/0_success-streamlit-demo.gif" class="img-fluid figure-img"></p>
+<figcaption>Demonstration of Streamlit Application</figcaption>
+</figure>
+</div>
+<section id="the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<p>The “Gap” puzzle is a logic game where players must fill a missing cell in a grid, ensuring no symbol repeats in any row or column. My goal was to build a tool that could solve this instantly from a simple screenshot.</p>
+<div class="quarto-layout-panel" data-layout="[[1,1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/1_gapchallenge_4.png" class="img-fluid figure-img"></p>
+<figcaption>4x4 Grid</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/2_gapchallenge_5.png" class="img-fluid figure-img"></p>
+<figcaption>5x5 Grid</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><strong>Gap Challenge</strong> - Each shape can only appear in a row or column once. The player must use logic by elimination to find the shape that belongs in the question mark.</p>
+</div>
+</div>
+</div>
+<p>You can try the exercises yourself here:<br>
+- <a href="https://www.gapchallenge.com/">Gap Challenge</a><br>
+- <a href="https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test">Gap Challenge Practice</a></p>
+<p>While the logic puzzle itself is a standard Constraint Satisfaction Problem, <strong>digitizing the grid from a raw image</strong> proved to be the real engineering challenge. This post documents the three major iterations (“Acts”) of my Computer Vision pipeline and the lessons learned from each:</p>
+<ul>
+<li><strong>Act 1:</strong> Naive Template Matching<br>
+</li>
+<li><strong>Act 2:</strong> Geometric Determination of Shapes<br>
+</li>
+<li><strong>Act 3:</strong> Image Classification with SVM</li>
+</ul>
+<section id="major-problem-faced-with-image-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="major-problem-faced-with-image-recognition">Major Problem Faced with Image Recognition</h3>
+<p>A major issue was the different forms that the shapes could take based on different Gap Challenge applications. Some shapes were hollow, some backgrounds were black and some bounding grids were just lines.</p>
+<div class="quarto-layout-panel" data-layout="[[1,1,1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_normal_gap.png" class="img-fluid figure-img"></p>
+<figcaption>Normal Version</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_line_gap.png" class="img-fluid figure-img"></p>
+<figcaption>Line Version</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_dark_gap.png" class="img-fluid figure-img"></p>
+<figcaption>Dark-mode Version</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>Note the difference in shapes and grid colors. The hard part was building a robust solution that would be able to handle all these different versions.</p>
+</div>
 </div>
 </div>
 <hr>
 </section>
-<section id="technical-implementation" class="level2">
-<h2 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h2>
-<p>The solution is a two-step pipeline: <strong>Digitization</strong> (turning pixels into data) and <strong>Solving</strong> (finding the missing variable).</p>
-<section id="computer-vision-pipeline-opencv" class="level3">
-<h3 class="anchored" data-anchor-id="computer-vision-pipeline-opencv">1. Computer Vision Pipeline (OpenCV)</h3>
-<p>Before we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized <code>OpenCV</code> to perform the following steps:</p>
-<ol type="1">
-<li><strong>Grid Extraction:</strong> The image is converted to grayscale and passed through a Canny edge detector. I use <code>cv2.findContours</code> to locate the individual cells of the grid based on their aspect ratio and area.</li>
-<li><strong>Shape Classification:</strong> For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.
-<ul>
-<li><strong>Solidity &amp; Convexity:</strong> Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).</li>
-<li><strong>Vertex Counting:</strong> <code>cv2.approxPolyDP</code> approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.</li>
-</ul></li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Snippet: Logic for distinguishing similar shapes</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> is_convex <span class="kw">or</span> solidity <span class="op">&gt;</span> <span class="fl">0.92</span>:</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> vertices <span class="op">==</span> <span class="dv">4</span>: <span class="cf">return</span> <span class="st">"3square"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> vertices <span class="op">==</span> <span class="dv">3</span>: <span class="cf">return</span> <span class="st">"2triangle"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="cf">return</span> <span class="st">"1circle"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stars have many vertices (tips + inner corners)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">9</span> <span class="op">&lt;=</span> vertices <span class="op">&lt;=</span> <span class="dv">10</span>: <span class="cf">return</span> <span class="st">"5star"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="2" type="1">
-<li>The Backtracking Algorithm Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.</li>
-</ol>
-<p>How it Works The algorithm explores the search space using Depth-First Search (DFS):</p>
-<p>Find Empty: The solver scans the grid for the first empty cell (or the ‘?’ cell).</p>
-<p>Generate Candidates: It identifies the “Universe” of valid shapes (e.g., Circle, Square, Star) present in the puzzle.</p>
-<p>Check Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?</p>
-<p>Recurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.</p>
-<p>Backtrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.</p>
-<p>This ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve_with_backtracking(board, all_shapes):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Base Case: If no empty spots are left, we are done.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    find <span class="op">=</span> find_empty(board)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> find: <span class="cf">return</span> <span class="va">True</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    row, col <span class="op">=</span> find</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Try every possible shape</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> shape <span class="kw">in</span> all_shapes:</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3. Check Constraints (Row &amp; Column uniqueness)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> is_valid_move(board, shape, row, col):</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 4. Place shape and Recurse</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> shape</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> solve_with_backtracking(board, all_shapes): </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 5. Backtrack (Reset if the path failed)</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> <span class="st">'blank'</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="3" type="1">
-<li>Handling Sparse Data A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).</li>
-</ol>
-<p>To make the solver robust, I implemented a logic check that forces the “Universe” of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.</p>
-<p>Tech Stack Python 3.10</p>
-<p>OpenCV: Image processing and contour detection.</p>
-<p>NumPy: Matrix manipulation.</p>
-<p>Streamlit: Frontend UI and state management for the interactive web app.</p>
-
-
 </section>
+<section id="act-i-the-naive-approach-template-matching" class="level2">
+<h2 class="anchored" data-anchor-id="act-i-the-naive-approach-template-matching">Act I: The Naive Approach (Template Matching)</h2>
+<p>My first instinct was to use <strong>Template Matching</strong>. I cropped reference images of each shape (Star, Circle, Square) and used <code>cv2.matchTemplate</code> to slide them over the screenshot, looking for pixel-perfect matches. I tried to account for the different size of the screenshots as well, scaling the reference shapes to match the screenshots.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_template_screenshots.png" class="img-fluid figure-img"></p>
+<figcaption>Reference Images used for template matching</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/4_similarity_matching.gif" class="img-fluid figure-img"></p>
+<figcaption>Heatmap matching of the reference images. Green boxes show a &gt;90% match score against the reference image.</figcaption>
+</figure>
+</div>
+<section id="the-failure" class="level3">
+<h3 class="anchored" data-anchor-id="the-failure">The Failure</h3>
+<p>This method worked well on the base example but failed when tested on other forms of the puzzle. Although I implemented multi-scale matching to handle zoom levels, the approach hit a hard ceiling when the puzzle’s <strong>visual style</strong> changed.</p>
+<p>When the game switched to “Dark Mode” or used “Hollow” shapes, my solid-colored templates failed immediately. To fix this, I would have needed to crop and save a new template for every possible theme variation.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/5_geometric_solver_fail_shapes.gif" class="img-fluid figure-img"></p>
+<figcaption>Failure Case 1: Hollow Shapes</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/5_geometric_solver_fail_darkmode.gif" class="img-fluid figure-img"></p>
+<figcaption>Failure Case 2: Dark Mode</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Lesson:</strong> Hard-coding pixel comparisons doesn’t work if the inputs vary significantly. I needed a more robust method and decided to try and use the geometric differences in shapes to differentiate them.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="act-ii-the-geometric-pivot-heuristics" class="level2">
+<h2 class="anchored" data-anchor-id="act-ii-the-geometric-pivot-heuristics">Act II: The Geometric Pivot (Heuristics)</h2>
+<p>For the second iteration, I moved to <strong>Feature Extraction</strong>. Instead of matching images, I used <code>cv2.findContours</code> to extract the shapes and analyze their geometric properties.</p>
+<p>I built a <strong>Decision Tree</strong> based on metrics like:<br>
+- <strong>Vertices:</strong> <code>cv2.approxPolyDP</code> (e.g., 3 vertices = Triangle).<br>
+- <strong>Solidity:</strong> Area divided by Convex Hull Area (distinguishes solid Squares from hollow Crosses).<br>
+- <strong>Circularity:</strong> <span class="math inline">\(4\pi \times \frac{Area}{Perimeter^2}\)</span> (distinguishes Circles from Triangles).</p>
+<section id="the-live-scanner-debugger" class="level3">
+<h3 class="anchored" data-anchor-id="the-live-scanner-debugger">The “Live Scanner” Debugger</h3>
+<p>To refine my thresholds, I built a visualization tool that calculated these metrics for every cell so that I could debug the errors efficiently.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/5_geometric_solver.gif" class="img-fluid figure-img"></p>
+<figcaption>The Logic Dashboard. Watching the metrics update in real-time allowed me to tune the decision tree.</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-bottleneck" class="level3">
+<h3 class="anchored" data-anchor-id="the-bottleneck">The Bottleneck</h3>
+<p>While robust against scale, this method suffered from “Whack-a-Mole” logic, where more issues would pop-up after fixing one and I realised I was trying to fix symptoms instead of fixing the root cause of the recognition issues:<br>
+- <strong>The “Hollow” Edge Case:</strong> A hollow square has low solidity, confusing the algorithm.<br>
+- <strong>The “Question Mark” Problem:</strong> The question mark consists of two separate blobs (hook + dot), breaking the single-contour logic.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6_error_question1.png" class="img-fluid figure-img"></p>
+<figcaption>Failure Case: Hollow Shapes</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_error_darkmode1.png" class="img-fluid figure-img"></p>
+<figcaption>Failure Case: Dark Mode</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The “Whack-a-Mole” logic resulted in decicion tree’s like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempts to handle edge cases manually</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> vertices <span class="op">&gt;</span> <span class="dv">8</span> <span class="kw">and</span> circularity <span class="op">&lt;</span> <span class="fl">0.6</span> <span class="kw">and</span> num_blobs <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Star"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> num_blobs <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Question"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This resulted in more and more rules that I wasn’t even sure of and I decided a needed a system to learn these rules itself.</p>
+<hr>
+</section>
+</section>
+<section id="act-iii-the-robust-solution-support-vector-machines" class="level2">
+<h2 class="anchored" data-anchor-id="act-iii-the-robust-solution-support-vector-machines">Act III: The Robust Solution (Support Vector Machines)</h2>
+<p>In the final phase, I treated this as a classification problem. I chose a <strong>Support Vector Machine (SVM)</strong> because they perform exceptionally well on high-dimensional binary data (pixel maps) with smaller datasets.</p>
+<section id="the-data-pipeline-solving-distribution-shift" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-pipeline-solving-distribution-shift">1. The Data Pipeline (Solving Distribution Shift)</h3>
+<p>A mistake that I made at the start was training on “perfect” data but testing on “messy” data.<br>
+I manually took multiple screenshots of the grids, with minor variations, to create a large train dataset for the SVM.<br>
+However, I realised that the SVM was not performing well, because the cropping method used for the test data was different from the perfectly cropped screenshots i was taking for the train data.</p>
+<p>To fix this, I used the test cropping algorithm to build an automated pipeline (<code>collect_feedback_data.py</code>) that extracted thousands of training examples <strong>directly from screenshots</strong>.</p>
+<p>This ensured my training data included all the real-world noise (grid lines, anti-aliasing) that the model would see in production. I utilized <strong>Otsu’s Binarization</strong> here to automatically find the optimal threshold for separating shapes from the background, solving the “Dark Mode” issue.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/8_success-testimages_extraction.gif" class="img-fluid figure-img"></p>
+<figcaption>Automatic cropping and extraction of train data and grids for the SVM to train on.</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-universal-translator-preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="the-universal-translator-preprocessing">2. The “Universal Translator” (Preprocessing)</h3>
+<p>To make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline: 1. <strong>Resize</strong> to 64x64. 2. <strong>Corner Difference Strategy:</strong> Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light. 3. <strong>Centering:</strong> Find the bounding box of the shape and center it on a black canvas.</p>
+</section>
+<section id="fine-tuning-the-brain-grid-search" class="level3">
+<h3 class="anchored" data-anchor-id="fine-tuning-the-brain-grid-search">3. Fine-Tuning the Brain (Grid Search)</h3>
+<p>An SVM is only as good as its hyperparameters. Default settings often lead to overfitting, where the model memorizes the training data but fails on new inputs.</p>
+<p>To solve this, I implemented a <strong>Grid Search</strong> to exhaustively test combinations of <code>C</code> (Regularization) and <code>Gamma</code> (Kernel Coefficient). This allowed me to mathematically find the configuration that ignored minor pixel noise while maintaining a distinct decision boundary between similar shapes (like the Circle and the hollow Ring).</p>
+</section>
+<section id="x-ray-vision-verification" class="level3">
+<h3 class="anchored" data-anchor-id="x-ray-vision-verification">4. X-Ray Vision (Verification)</h3>
+<p>Machine Learning models can be “black boxes.” To trust the system, I built a side-by-side debugger comparing the <strong>Human View</strong> (RGB) against the <strong>Machine View</strong> (Preprocessed). This allowed me to catch preprocessing errors—like the dot of the ‘?’ being filtered out as noise—before retraining the model.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/8_success-svm_view.gif" class="img-fluid figure-img"></p>
+<figcaption>SVM Debugger. Left is the game input; Right is what the model actually sees.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-solver-logic-backtracking" class="level2">
+<h2 class="anchored" data-anchor-id="the-solver-logic-backtracking">The Solver Logic (Backtracking)</h2>
+<p>With a reliable Vision pipeline returning a 2D matrix (e.g., <code>[['Star', 'Empty'], ['Circle', 'Square']]</code>), the problem reduced to a standard algorithm.</p>
+<p>I implemented a <strong>Recursive Backtracking</strong> solver. It works by: 1. <strong>Scanning</strong> for an empty cell. 2. <strong>Guessing</strong> a shape from the available options. 3. <strong>Validating</strong> row/column constraints. 4. <strong>Recursively</strong> attempting to solve the rest of the grid. 5. <strong>Backtracking</strong> if a guess leads to a contradiction.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve_with_backtracking(board, universe):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Base Case: No empty spots left</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> find_empty(board): <span class="cf">return</span> <span class="va">True</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    row, col <span class="op">=</span> find_empty(board)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> shape <span class="kw">in</span> universe:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> is_valid_move(board, shape, row, col):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> shape</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Recursive Step</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> solve_with_backtracking(board, universe): <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Backtrack</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            board[row][col] <span class="op">=</span> <span class="st">'blank'</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="conclusion-tech-stack" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-tech-stack">Conclusion &amp; Tech Stack</h2>
+<p>This project was a lesson in selecting the right tool for the job. While deep learning (CNNs) could have solved this, it would have been overkill for a 5-class problem. An SVM combined with robust <strong>Data Engineering</strong> provided a lightweight, instant, and highly accurate solution (99% accuracy on test set).</p>
+<ul>
+<li><strong>Language:</strong> Python 3.10</li>
+<li><strong>Vision:</strong> OpenCV (Canny, Otsu’s Binarization, Contours)</li>
+<li><strong>ML:</strong> Scikit-Learn (SVM, GridSearch)</li>
+<li><strong>Frontend:</strong> Streamlit</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

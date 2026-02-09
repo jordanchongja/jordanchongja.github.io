@@ -1,11 +1,11 @@
 ---
 title: "Gap Challenge Solver"
-description: "A Computer Vision powered solver for the 'Gap' puzzle using OpenCV and Backtracking algorithms."
+description: "Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver."
 author: "Jordan Chong"
-date: "2025-02-03"
-categories: [Computer Vision, Python, Streamlit, Algorithms,featured]
+date: "2025-02-09"
+categories: [Computer Vision, Python, Streamlit, Algorithms, featured]
 image: "featured.png" 
-body-class: "project-detail-view" # <--- ADD THIS
+body-class: "project-detail-view"
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
 ---
@@ -14,100 +14,196 @@ include-before-body:
 ![](https://img.shields.io/badge/Status-Completed-success)
 [![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
 
+<span style="color: gray; font-size: 0.9em;">
+Source idea credited to Dianyi Yang: [kv9898/gap_challenge_solver](https://github.com/kv9898/gap_challenge_solver)
+</span>
+
 <style>
   #quarto-margin-sidebar {
     padding-top: 50px; /* Match this to your header margin */
   }
 </style>
 
-## Overview
-
-I built this application to solve the "Gap" puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.
-
-The tool allows users to simply paste a screenshot of the puzzle. It then uses **Computer Vision** to "read" the grid and a **Recursive Backtracking** algorithm to solve it mathematically.
-
 ::: {.callout-note}
 ### Live Demo
-You can interact with the embedded app below or view it in full screen [here](https://gap-solver-app.streamlit.app/).
+You can try the final SVM-powered solver here:
+[**Launch Streamlit App**](https://gap-solver-application.streamlit.app/)
 :::
+
+![Demonstration of Streamlit Application](images/0_success-streamlit-demo.gif)
+
+
+## The Challenge
+
+The "Gap" puzzle is a logic game where players must fill a missing cell in a grid, ensuring no symbol repeats in any row or column. My goal was to build a tool that could solve this instantly from a simple screenshot.
+
+::: {layout="[[1,1], [1]]"}
+![4x4 Grid](images/1_gapchallenge_4.png)
+
+![5x5 Grid](images/2_gapchallenge_5.png)
+
+**Gap Challenge** - Each shape can only appear in a row or column once. The player must use logic by elimination to find the shape that belongs in the question mark.
+:::
+
+You can try the exercises yourself here:  
+- [Gap Challenge](https://www.gapchallenge.com/)  
+- [Gap Challenge Practice](https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test)  
+
+While the logic puzzle itself is a standard Constraint Satisfaction Problem, **digitizing the grid from a raw image** proved to be the real engineering challenge. This post documents the three major iterations ("Acts") of my Computer Vision pipeline and the lessons learned from each:
+
+- **Act 1:** Naive Template Matching  
+- **Act 2:** Geometric Determination of Shapes  
+- **Act 3:** Image Classification with SVM  
+
+
+### Major Problem Faced with Image Recognition  
+A major issue was the different forms that the shapes could take based on different Gap Challenge applications. Some shapes were hollow, some backgrounds were black and some bounding grids were just lines.
+
+::: {layout="[[1,1,1], [1]]"}
+![Normal Version](images/3_normal_gap.png)
+
+![Line Version](images/3_line_gap.png)
+
+![Dark-mode Version](images/3_dark_gap.png)
+
+Note the difference in shapes and grid colors. The hard part was building a robust solution that would be able to handle all these different versions.
+:::
+
 
 ---
 
-## Technical Implementation
+## Act I: The Naive Approach (Template Matching)
 
-The solution is a two-step pipeline: **Digitization** (turning pixels into data) and **Solving** (finding the missing variable).
+My first instinct was to use **Template Matching**. I cropped reference images of each shape (Star, Circle, Square) and used `cv2.matchTemplate` to slide them over the screenshot, looking for pixel-perfect matches. I tried to account for the different size of the screenshots as well, scaling the reference shapes to match the screenshots.
 
-### 1. Computer Vision Pipeline (OpenCV)
-Before we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized `OpenCV` to perform the following steps:
+![Reference Images used for template matching](images/3_template_screenshots.png)
 
-1.  **Grid Extraction:** The image is converted to grayscale and passed through a Canny edge detector. I use `cv2.findContours` to locate the individual cells of the grid based on their aspect ratio and area.
-2.  **Shape Classification:** For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.
-    * **Solidity & Convexity:** Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).
-    * **Vertex Counting:** `cv2.approxPolyDP` approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.
+![Heatmap matching of the reference images. Green boxes show a >90% match score against the reference image.](images/4_similarity_matching.gif)
 
+
+
+### The Cause of Failure
+This method worked well on the base example but failed when tested on other forms of the puzzle. Although I implemented multi-scale matching to handle zoom levels, the approach hit a hard ceiling when the puzzle's **visual style** changed.
+
+When the game switched to "Dark Mode" or used "Hollow" shapes, my solid-colored templates failed immediately. To fix this, I would have needed to crop and save a new template for every possible theme variation.
+
+::: {layout-ncol=2}
+![Failure Case 1: Hollow Shapes](images/5_geometric_solver_fail_shapes.gif)
+
+![Failure Case 2: Dark Mode](images/5_geometric_solver_fail_darkmode.gif)
+:::
+
+> **Lesson:** Hard-coding pixel comparisons doesn't work if the inputs vary significantly. I needed a more robust method and decided to try and use the geometric differences in shapes to differentiate them.
+
+---
+
+## Act II: The Geometric Pivot (Heuristics)
+
+For the second iteration, I moved to **Feature Extraction**. Instead of matching images, I used `cv2.findContours` to extract the shapes and analyze their geometric properties.
+
+I built a **Decision Tree** based on metrics like:  
+- **Vertices:** `cv2.approxPolyDP` (e.g., 3 vertices = Triangle).  
+- **Solidity:** Area divided by Convex Hull Area (distinguishes solid Squares from hollow Crosses).  
+- **Circularity:** $4\pi \times \frac{Area}{Perimeter^2}$ (distinguishes Circles from Triangles).  
+
+### The "Live Scanner" Debugger
+To refine my thresholds, I built a visualization tool that calculated these metrics for every cell so that I could debug the errors efficiently.
+
+![The Logic Dashboard. Watching the metrics update in real-time allowed me to tune the decision tree.](images/5_geometric_solver.gif)
+
+### The Bottleneck
+While robust against scale, this method suffered from "Whack-a-Mole" logic, where more issues would pop-up after fixing one and I realised I was trying to fix symptoms instead of fixing the root cause of the recognition issues:  
+- **The "Hollow" Edge Case:** A hollow square has low solidity, confusing the algorithm.  
+- **The "Question Mark" Problem:** The question mark consists of two separate blobs (hook + dot), breaking the single-contour logic.  
+
+::: {layout-ncol=2}
+![Failure Case: Hollow Shapes](images/6_error_question1.png)
+
+![Failure Case: Dark Mode](images/7_error_darkmode1.png)
+:::
+
+The "Whack-a-Mole" logic resulted in decision trees like:
 ```python
-# Snippet: Logic for distinguishing similar shapes
-if is_convex or solidity > 0.92:
-    if vertices == 4: return "3square"
-    elif vertices == 3: return "2triangle"
-    else: return "1circle"
-else:
-    # Stars have many vertices (tips + inner corners)
-    if 9 <= vertices <= 10: return "5star"
+# Attempts to handle edge cases manually
+if vertices > 8 and circularity < 0.6 and num_blobs == 1:
+    return "Star"
+elif num_blobs == 2:
+    return "Question"
 ```
+This resulted in more and more rules that I wasn't even sure of and I decided a needed a system to learn these rules itself.
 
-2. The Backtracking Algorithm
-Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.
+---
 
-How it Works
-The algorithm explores the search space using Depth-First Search (DFS):
+## Act III: The Robust Solution (Support Vector Machines)
 
-Find Empty: The solver scans the grid for the first empty cell (or the '?' cell).
+In the final phase, I treated this as a classification problem. I chose a **Support Vector Machine (SVM)** because they perform exceptionally well on high-dimensional binary data (pixel maps) with smaller datasets.
 
-Generate Candidates: It identifies the "Universe" of valid shapes (e.g., Circle, Square, Star) present in the puzzle.
+### 1. The Data Pipeline (Solving Distribution Shift)
+A mistake that I made at the start was training on "perfect" data but testing on "messy" data.  
+I manually took multiple screenshots of the grids, with minor variations, to create a large train dataset for the SVM.  
+However, I realised that the SVM was not performing well, because the cropping method used for the test data was different from the perfectly cropped screenshots i was taking for the train data.
 
-Check Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?
+ To fix this, I used the test cropping algorithm to build an automated pipeline (`collect_feedback_data.py`) that extracted thousands of training examples **directly from screenshots**.
 
-Recurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.
+This ensured my training data included all the real-world noise (grid lines, anti-aliasing) that the model would see in production. I utilized **Otsu's Binarization** here to automatically find the optimal threshold for separating shapes from the background, solving the "Dark Mode" issue.
 
-Backtrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.
+![Automatic cropping and extraction of train data and grids for the SVM to train on.](images/8_success-testimages_extraction.gif)
 
-This ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.
+### 2. The "Universal Translator" (Preprocessing)
+To make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline:
+1.  **Resize** to 64x64.
+2.  **Corner Difference Strategy:** Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light.
+3.  **Centering:** Find the bounding box of the shape and center it on a black canvas.
+
+### 3. Fine-Tuning the Brain (Grid Search) 
+An SVM is only as good as its hyperparameters. Default settings often lead to overfitting, where the model memorizes the training data but fails on new inputs.
+
+To solve this, I implemented a **Grid Search** to exhaustively test combinations of `C` (Regularization) and `Gamma` (Kernel Coefficient). This allowed me to mathematically find the configuration that ignored minor pixel noise while maintaining a distinct decision boundary between similar shapes (like the Circle and the hollow Ring).
+
+
+### 4. X-Ray Vision (Verification)
+Machine Learning models can be "black boxes." To trust the system, I built a side-by-side debugger comparing the **Human View** (RGB) against the **Machine View** (Preprocessed). This allowed me to catch preprocessing errors—like the dot of the '?' being filtered out as noise—before retraining the model.
+
+![SVM Debugger. Left is the game input; Right is what the model actually sees.](images/8_success-svm_view.gif)
+
+---
+
+## The Solver Logic (Backtracking)
+
+With a reliable Vision pipeline returning a 2D matrix (e.g., `[['Star', 'Empty'], ['Circle', 'Square']]`), the problem reduced to a standard algorithm.
+
+I implemented a **Recursive Backtracking** solver. It works by:
+1.  **Scanning** for an empty cell.
+2.  **Guessing** a shape from the available options.
+3.  **Validating** row/column constraints.
+4.  **Recursively** attempting to solve the rest of the grid.
+5.  **Backtracking** if a guess leads to a contradiction.
 
 ```python
-def solve_with_backtracking(board, all_shapes):
-    # 1. Base Case: If no empty spots are left, we are done.
-    find = find_empty(board)
-    if not find: return True 
-    row, col = find
+def solve_with_backtracking(board, universe):
+    # Base Case: No empty spots left
+    if not find_empty(board): return True 
     
-    # 2. Try every possible shape
-    for shape in all_shapes:
-        # 3. Check Constraints (Row & Column uniqueness)
+    row, col = find_empty(board)
+    
+    for shape in universe:
         if is_valid_move(board, shape, row, col):
-            
-            # 4. Place shape and Recurse
             board[row][col] = shape
-            if solve_with_backtracking(board, all_shapes): 
-                return True
-            
-            # 5. Backtrack (Reset if the path failed)
+            # Recursive Step
+            if solve_with_backtracking(board, universe): return True
+            # Backtrack
             board[row][col] = 'blank'
             
     return False
 ```
 
+---
 
-3. Handling Sparse Data
-A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).
+## Conclusion & Tech Stack
 
-To make the solver robust, I implemented a logic check that forces the "Universe" of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.
+This project was a lesson in selecting the right tool for the job. While deep learning (CNNs) could have solved this, it would have been overkill for a 5-class problem. An SVM combined with robust **Data Engineering** provided a lightweight, instant, and highly accurate solution (99% accuracy on test set).
 
-Tech Stack
-Python 3.10
-
-OpenCV: Image processing and contour detection.
-
-NumPy: Matrix manipulation.
-
-Streamlit: Frontend UI and state management for the interactive web app.
+* **Language:** Python 3.10
+* **Vision:** OpenCV (Canny, Otsu's Binarization, Contours)
+* **ML:** Scikit-Learn (SVM, GridSearch)
+* **Frontend:** Streamlit

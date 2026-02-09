@@ -42,53 +42,46 @@
     "text": "4. Results\n\nPerformance: 50x speedup.\nImpact: Enables real-time strategy backtesting.\n\nView Source Code on GitHub →"
   },
   {
-    "objectID": "projects/gap-challenge-solver/index.html#overview",
-    "href": "projects/gap-challenge-solver/index.html#overview",
+    "objectID": "projects/gap-challenge-solver/index.html#the-challenge",
+    "href": "projects/gap-challenge-solver/index.html#the-challenge",
     "title": "Gap Challenge Solver",
-    "section": "Overview",
-    "text": "Overview\nI built this application to solve the “Gap” puzzle—a logic game where players must deduce a missing symbol in a grid based on the rule that no symbol can repeat in any row or column.\nThe tool allows users to simply paste a screenshot of the puzzle. It then uses Computer Vision to “read” the grid and a Recursive Backtracking algorithm to solve it mathematically.\n\n\n\n\n\n\nNoteLive Demo\n\n\n\nYou can interact with the embedded app below or view it in full screen here."
+    "section": "The Challenge",
+    "text": "The Challenge\nThe “Gap” puzzle is a logic game where players must fill a missing cell in a grid, ensuring no symbol repeats in any row or column. My goal was to build a tool that could solve this instantly from a simple screenshot.\n\n\n\n\n\n\n4x4 Grid\n\n\n\n\n\n\n\n5x5 Grid\n\n\n\n\n\n\nGap Challenge - Each shape can only appear in a row or column once. The player must use logic by elimination to find the shape that belongs in the question mark.\n\n\n\nYou can try the exercises yourself here:\n- Gap Challenge\n- Gap Challenge Practice\nWhile the logic puzzle itself is a standard Constraint Satisfaction Problem, digitizing the grid from a raw image proved to be the real engineering challenge. This post documents the three major iterations (“Acts”) of my Computer Vision pipeline and the lessons learned from each:\n\nAct 1: Naive Template Matching\n\nAct 2: Geometric Determination of Shapes\n\nAct 3: Image Classification with SVM\n\n\nMajor Problem Faced with Image Recognition\nA major issue was the different forms that the shapes could take based on different Gap Challenge applications. Some shapes were hollow, some backgrounds were black and some bounding grids were just lines.\n\n\n\n\n\n\nNormal Version\n\n\n\n\n\n\n\nLine Version\n\n\n\n\n\n\n\nDark-mode Version\n\n\n\n\n\n\nNote the difference in shapes and grid colors. The hard part was building a robust solution that would be able to handle all these different versions."
   },
   {
-    "objectID": "projects/gap-challenge-solver/index.html#technical-implementation",
-    "href": "projects/gap-challenge-solver/index.html#technical-implementation",
+    "objectID": "projects/gap-challenge-solver/index.html#act-i-the-naive-approach-template-matching",
+    "href": "projects/gap-challenge-solver/index.html#act-i-the-naive-approach-template-matching",
     "title": "Gap Challenge Solver",
-    "section": "Technical Implementation",
-    "text": "Technical Implementation\nThe solution is a two-step pipeline: Digitization (turning pixels into data) and Solving (finding the missing variable).\n\n1. Computer Vision Pipeline (OpenCV)\nBefore we can solve the puzzle, we must convert the raw image into a 2D matrix. I utilized OpenCV to perform the following steps:\n\nGrid Extraction: The image is converted to grayscale and passed through a Canny edge detector. I use cv2.findContours to locate the individual cells of the grid based on their aspect ratio and area.\nShape Classification: For every cell, the algorithm isolates the inner shape and calculates geometric properties to classify it.\n\nSolidity & Convexity: Used to distinguish solid shapes (Square, Circle) from irregular ones (Stars, Crosses).\nVertex Counting: cv2.approxPolyDP approximates the contour to a polygon. A shape with 3 vertices is a Triangle; 4 is a Square, etc.\n\n\n# Snippet: Logic for distinguishing similar shapes\nif is_convex or solidity &gt; 0.92:\n    if vertices == 4: return \"3square\"\n    elif vertices == 3: return \"2triangle\"\n    else: return \"1circle\"\nelse:\n    # Stars have many vertices (tips + inner corners)\n    if 9 &lt;= vertices &lt;= 10: return \"5star\"\n\nThe Backtracking Algorithm Once the grid is digitized, the problem becomes a Constraint Satisfaction Problem (CSP). I implemented a Recursive Backtracking algorithm, which is the standard approach for solving puzzles like Sudoku or N-Queens.\n\nHow it Works The algorithm explores the search space using Depth-First Search (DFS):\nFind Empty: The solver scans the grid for the first empty cell (or the ‘?’ cell).\nGenerate Candidates: It identifies the “Universe” of valid shapes (e.g., Circle, Square, Star) present in the puzzle.\nCheck Constraints: It attempts to place a candidate shape into the empty cell. It immediately checks: Does this shape already exist in this Row? Does it exist in this Column?\nRecurse: If the constraint check passes, it tentatively places the shape and calls itself recursively to solve the next empty cell.\nBacktrack: If the recursive call returns False (meaning the guess led to a dead end), the algorithm resets the cell to blank and tries the next candidate shape.\nThis ensures that we find a mathematically valid solution efficiently, rather than guessing randomly.\ndef solve_with_backtracking(board, all_shapes):\n    # 1. Base Case: If no empty spots are left, we are done.\n    find = find_empty(board)\n    if not find: return True \n    row, col = find\n    \n    # 2. Try every possible shape\n    for shape in all_shapes:\n        # 3. Check Constraints (Row & Column uniqueness)\n        if is_valid_move(board, shape, row, col):\n            \n            # 4. Place shape and Recurse\n            board[row][col] = shape\n            if solve_with_backtracking(board, all_shapes): \n                return True\n            \n            # 5. Backtrack (Reset if the path failed)\n            board[row][col] = 'blank'\n            \n    return False\n\nHandling Sparse Data A unique challenge of this specific puzzle is that sometimes not all shapes are visible in the initial grid (e.g., a 5x5 grid might only show 3 types of shapes initially).\n\nTo make the solver robust, I implemented a logic check that forces the “Universe” of shapes to match the grid size. If the grid is 5x5 but only contains Circles and Squares, the system injects standard shapes (Triangles, Crosses, Stars) into the candidate list to ensure a solution is mathematically possible.\nTech Stack Python 3.10\nOpenCV: Image processing and contour detection.\nNumPy: Matrix manipulation.\nStreamlit: Frontend UI and state management for the interactive web app."
+    "section": "Act I: The Naive Approach (Template Matching)",
+    "text": "Act I: The Naive Approach (Template Matching)\nMy first instinct was to use Template Matching. I cropped reference images of each shape (Star, Circle, Square) and used cv2.matchTemplate to slide them over the screenshot, looking for pixel-perfect matches. I tried to account for the different size of the screenshots as well, scaling the reference shapes to match the screenshots.\n\n\n\nReference Images used for template matching\n\n\n\n\n\nHeatmap matching of the reference images. Green boxes show a &gt;90% match score against the reference image.\n\n\n\nThe Failure\nThis method worked well on the base example but failed when tested on other forms of the puzzle. Although I implemented multi-scale matching to handle zoom levels, the approach hit a hard ceiling when the puzzle’s visual style changed.\nWhen the game switched to “Dark Mode” or used “Hollow” shapes, my solid-colored templates failed immediately. To fix this, I would have needed to crop and save a new template for every possible theme variation.\n\n\n\n\n\n\nFailure Case 1: Hollow Shapes\n\n\n\n\n\n\n\nFailure Case 2: Dark Mode\n\n\n\n\n\n\nLesson: Hard-coding pixel comparisons doesn’t work if the inputs vary significantly. I needed a more robust method and decided to try and use the geometric differences in shapes to differentiate them."
   },
   {
-    "objectID": "projects/bb - Copy (10)/tempateee.html#overview",
-    "href": "projects/bb - Copy (10)/tempateee.html#overview",
-    "title": "Project Title",
-    "section": "Overview",
-    "text": "Overview\nThe “So What”: Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec."
+    "objectID": "projects/gap-challenge-solver/index.html#act-ii-the-geometric-pivot-heuristics",
+    "href": "projects/gap-challenge-solver/index.html#act-ii-the-geometric-pivot-heuristics",
+    "title": "Gap Challenge Solver",
+    "section": "Act II: The Geometric Pivot (Heuristics)",
+    "text": "Act II: The Geometric Pivot (Heuristics)\nFor the second iteration, I moved to Feature Extraction. Instead of matching images, I used cv2.findContours to extract the shapes and analyze their geometric properties.\nI built a Decision Tree based on metrics like:\n- Vertices: cv2.approxPolyDP (e.g., 3 vertices = Triangle).\n- Solidity: Area divided by Convex Hull Area (distinguishes solid Squares from hollow Crosses).\n- Circularity: \\(4\\pi \\times \\frac{Area}{Perimeter^2}\\) (distinguishes Circles from Triangles).\n\nThe “Live Scanner” Debugger\nTo refine my thresholds, I built a visualization tool that calculated these metrics for every cell so that I could debug the errors efficiently.\n\n\n\nThe Logic Dashboard. Watching the metrics update in real-time allowed me to tune the decision tree.\n\n\n\n\nThe Bottleneck\nWhile robust against scale, this method suffered from “Whack-a-Mole” logic, where more issues would pop-up after fixing one and I realised I was trying to fix symptoms instead of fixing the root cause of the recognition issues:\n- The “Hollow” Edge Case: A hollow square has low solidity, confusing the algorithm.\n- The “Question Mark” Problem: The question mark consists of two separate blobs (hook + dot), breaking the single-contour logic.\n\n\n\n\n\n\nFailure Case: Hollow Shapes\n\n\n\n\n\n\n\nFailure Case: Dark Mode\n\n\n\n\n\nThe “Whack-a-Mole” logic resulted in decicion tree’s like:\n# Attempts to handle edge cases manually\nif vertices &gt; 8 and circularity &lt; 0.6 and num_blobs == 1:\n    return \"Star\"\nelif num_blobs == 2:\n    return \"Question\"\nThis resulted in more and more rules that I wasn’t even sure of and I decided a needed a system to learn these rules itself."
   },
   {
-    "objectID": "projects/bb - Copy (10)/tempateee.html#the-problem",
-    "href": "projects/bb - Copy (10)/tempateee.html#the-problem",
-    "title": "Project Title",
-    "section": "1. The Problem",
-    "text": "1. The Problem\nContext: Briefly explain why this matters.\nExample: “Standard Monte Carlo simulations are too slow for real-time pricing…”"
+    "objectID": "projects/gap-challenge-solver/index.html#act-iii-the-robust-solution-support-vector-machines",
+    "href": "projects/gap-challenge-solver/index.html#act-iii-the-robust-solution-support-vector-machines",
+    "title": "Gap Challenge Solver",
+    "section": "Act III: The Robust Solution (Support Vector Machines)",
+    "text": "Act III: The Robust Solution (Support Vector Machines)\nIn the final phase, I treated this as a classification problem. I chose a Support Vector Machine (SVM) because they perform exceptionally well on high-dimensional binary data (pixel maps) with smaller datasets.\n\n1. The Data Pipeline (Solving Distribution Shift)\nA mistake that I made at the start was training on “perfect” data but testing on “messy” data.\nI manually took multiple screenshots of the grids, with minor variations, to create a large train dataset for the SVM.\nHowever, I realised that the SVM was not performing well, because the cropping method used for the test data was different from the perfectly cropped screenshots i was taking for the train data.\nTo fix this, I used the test cropping algorithm to build an automated pipeline (collect_feedback_data.py) that extracted thousands of training examples directly from screenshots.\nThis ensured my training data included all the real-world noise (grid lines, anti-aliasing) that the model would see in production. I utilized Otsu’s Binarization here to automatically find the optimal threshold for separating shapes from the background, solving the “Dark Mode” issue.\n\n\n\nAutomatic cropping and extraction of train data and grids for the SVM to train on.\n\n\n\n\n2. The “Universal Translator” (Preprocessing)\nTo make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline: 1. Resize to 64x64. 2. Corner Difference Strategy: Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light. 3. Centering: Find the bounding box of the shape and center it on a black canvas.\n\n\n3. Fine-Tuning the Brain (Grid Search)\nAn SVM is only as good as its hyperparameters. Default settings often lead to overfitting, where the model memorizes the training data but fails on new inputs.\nTo solve this, I implemented a Grid Search to exhaustively test combinations of C (Regularization) and Gamma (Kernel Coefficient). This allowed me to mathematically find the configuration that ignored minor pixel noise while maintaining a distinct decision boundary between similar shapes (like the Circle and the hollow Ring).\n\n\n4. X-Ray Vision (Verification)\nMachine Learning models can be “black boxes.” To trust the system, I built a side-by-side debugger comparing the Human View (RGB) against the Machine View (Preprocessed). This allowed me to catch preprocessing errors—like the dot of the ‘?’ being filtered out as noise—before retraining the model.\n\n\n\nSVM Debugger. Left is the game input; Right is what the model actually sees."
   },
   {
-    "objectID": "projects/bb - Copy (10)/tempateee.html#the-solution",
-    "href": "projects/bb - Copy (10)/tempateee.html#the-solution",
-    "title": "Project Title",
-    "section": "2. The Solution",
-    "text": "2. The Solution\nApproach: High-level summary of your strategy. * Metric: What did you optimize? (Speed, Accuracy, Sharpe Ratio) * Tech Stack: Python (NumPy, Pandas), C++, Docker."
+    "objectID": "projects/gap-challenge-solver/index.html#the-solver-logic-backtracking",
+    "href": "projects/gap-challenge-solver/index.html#the-solver-logic-backtracking",
+    "title": "Gap Challenge Solver",
+    "section": "The Solver Logic (Backtracking)",
+    "text": "The Solver Logic (Backtracking)\nWith a reliable Vision pipeline returning a 2D matrix (e.g., [['Star', 'Empty'], ['Circle', 'Square']]), the problem reduced to a standard algorithm.\nI implemented a Recursive Backtracking solver. It works by: 1. Scanning for an empty cell. 2. Guessing a shape from the available options. 3. Validating row/column constraints. 4. Recursively attempting to solve the rest of the grid. 5. Backtracking if a guess leads to a contradiction.\ndef solve_with_backtracking(board, universe):\n    # Base Case: No empty spots left\n    if not find_empty(board): return True \n    \n    row, col = find_empty(board)\n    \n    for shape in universe:\n        if is_valid_move(board, shape, row, col):\n            board[row][col] = shape\n            # Recursive Step\n            if solve_with_backtracking(board, universe): return True\n            # Backtrack\n            board[row][col] = 'blank'\n            \n    return False"
   },
   {
-    "objectID": "projects/bb - Copy (10)/tempateee.html#technical-implementation",
-    "href": "projects/bb - Copy (10)/tempateee.html#technical-implementation",
-    "title": "Project Title",
-    "section": "3. Technical Implementation",
-    "text": "3. Technical Implementation\n\n\n\n\n\n\nNoteKey Algorithm: Vectorization\n\n\n\nBy replacing the for loop with NumPy vectorization, we reduced execution time from 40s to 0.2s."
-  },
-  {
-    "objectID": "projects/bb - Copy (10)/tempateee.html#results",
-    "href": "projects/bb - Copy (10)/tempateee.html#results",
-    "title": "Project Title",
-    "section": "4. Results",
-    "text": "4. Results\n\nPerformance: 50x speedup.\nImpact: Enables real-time strategy backtesting.\n\nView Source Code on GitHub →"
+    "objectID": "projects/gap-challenge-solver/index.html#conclusion-tech-stack",
+    "href": "projects/gap-challenge-solver/index.html#conclusion-tech-stack",
+    "title": "Gap Challenge Solver",
+    "section": "Conclusion & Tech Stack",
+    "text": "Conclusion & Tech Stack\nThis project was a lesson in selecting the right tool for the job. While deep learning (CNNs) could have solved this, it would have been overkill for a 5-class problem. An SVM combined with robust Data Engineering provided a lightweight, instant, and highly accurate solution (99% accuracy on test set).\n\nLanguage: Python 3.10\nVision: OpenCV (Canny, Otsu’s Binarization, Contours)\nML: Scikit-Learn (SVM, GridSearch)\nFrontend: Streamlit"
   },
   {
     "objectID": "notes/index.html",
@@ -102,7 +95,7 @@
     "href": "index.html",
     "title": "Jordan Chong",
     "section": "",
-    "text": "LinkedIn\n  \n  \n    \n     Github\n  \n  \n    \n     Email\n  \n  \n    \n     CV\n  \n\n  \n  \nStudied at Singapore Management University (SMU), Bachelor of Business Administration (Finance) with Second Major in Data Science.\nPreviously worked in Debt Capital Markets at DBS Bank and Advanced Manufacturing Development at EDB.\nCurrently, I am focused on building robust pricing models, researching market microstructure, and applying ML algorithms to financial datasets.\n\n\n\n\n\nFeatured Projects\n\nView all projects →\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\nfeatured\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\nfeatured\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nA Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.\n\n\n\n\n\nNo matching items"
+    "text": "LinkedIn\n  \n  \n    \n     Github\n  \n  \n    \n     Email\n  \n  \n    \n     CV\n  \n\n  \n  \nStudied at Singapore Management University (SMU), Bachelor of Business Administration (Finance) with Second Major in Data Science.\nPreviously worked in Debt Capital Markets at DBS Bank and Advanced Manufacturing Development at EDB.\nCurrently, I am focused on building robust pricing models, researching market microstructure, and applying ML algorithms to financial datasets.\n\n\n\n\n\nFeatured Projects\n\nView all projects →\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nEvolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "contact.html",
@@ -154,46 +147,11 @@
     "text": "Implementation Details\nI implemented the pricing using the Fourier Transform method (Lewis, 2001) because it allows for semi-closed form solutions, which are significantly faster than Monte Carlo for calibration purposes."
   },
   {
-    "objectID": "projects/bb - Copy (11)/tempateee.html#overview",
-    "href": "projects/bb - Copy (11)/tempateee.html#overview",
-    "title": "Project Title",
-    "section": "Overview",
-    "text": "Overview\nThe “So What”: Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec."
-  },
-  {
-    "objectID": "projects/bb - Copy (11)/tempateee.html#the-problem",
-    "href": "projects/bb - Copy (11)/tempateee.html#the-problem",
-    "title": "Project Title",
-    "section": "1. The Problem",
-    "text": "1. The Problem\nContext: Briefly explain why this matters.\nExample: “Standard Monte Carlo simulations are too slow for real-time pricing…”"
-  },
-  {
-    "objectID": "projects/bb - Copy (11)/tempateee.html#the-solution",
-    "href": "projects/bb - Copy (11)/tempateee.html#the-solution",
-    "title": "Project Title",
-    "section": "2. The Solution",
-    "text": "2. The Solution\nApproach: High-level summary of your strategy. * Metric: What did you optimize? (Speed, Accuracy, Sharpe Ratio) * Tech Stack: Python (NumPy, Pandas), C++, Docker."
-  },
-  {
-    "objectID": "projects/bb - Copy (11)/tempateee.html#technical-implementation",
-    "href": "projects/bb - Copy (11)/tempateee.html#technical-implementation",
-    "title": "Project Title",
-    "section": "3. Technical Implementation",
-    "text": "3. Technical Implementation\n\n\n\n\n\n\nNoteKey Algorithm: Vectorization\n\n\n\nBy replacing the for loop with NumPy vectorization, we reduced execution time from 40s to 0.2s."
-  },
-  {
-    "objectID": "projects/bb - Copy (11)/tempateee.html#results",
-    "href": "projects/bb - Copy (11)/tempateee.html#results",
-    "title": "Project Title",
-    "section": "4. Results",
-    "text": "4. Results\n\nPerformance: 50x speedup.\nImpact: Enables real-time strategy backtesting.\n\nView Source Code on GitHub →"
-  },
-  {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\nfeatured\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\nFeb 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\nfeatured\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\nFeb 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\nFeb 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nA Computer Vision powered solver for the ‘Gap’ puzzle using OpenCV and Backtracking algorithms.\n\n\n\nFeb 3, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nEvolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.\n\n\n\nFeb 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\nFeb 5, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readings/East of Eden/template.html#summary",
@@ -222,5 +180,12 @@
     "title": "East of Eden",
     "section": "Reflection",
     "text": "Reflection\nThis book shifted my perspective on agency. In a deterministic world (or in a quantitative model), we assume inputs dictate outputs. Steinbeck argues for the “error term”—the human capacity to choose against the grain.c"
+  },
+  {
+    "objectID": "projects/gap-challenge-solver/index.html",
+    "href": "projects/gap-challenge-solver/index.html",
+    "title": "Gap Challenge Solver",
+    "section": "",
+    "text": "Source idea credited to Dianyi Yang: kv9898/gap_challenge_solver"
   }
 ]
