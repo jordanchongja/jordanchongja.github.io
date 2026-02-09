@@ -229,7 +229,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#act-i-the-naive-approach-template-matching" id="toc-act-i-the-naive-approach-template-matching" class="nav-link" data-scroll-target="#act-i-the-naive-approach-template-matching">Act I: The Naive Approach (Template Matching)</a>
   <ul class="collapse">
-  <li><a href="#the-failure" id="toc-the-failure" class="nav-link" data-scroll-target="#the-failure">The Failure</a></li>
+  <li><a href="#the-cause-of-failure" id="toc-the-cause-of-failure" class="nav-link" data-scroll-target="#the-cause-of-failure">The Cause of Failure</a></li>
   </ul></li>
   <li><a href="#act-ii-the-geometric-pivot-heuristics" id="toc-act-ii-the-geometric-pivot-heuristics" class="nav-link" data-scroll-target="#act-ii-the-geometric-pivot-heuristics">Act II: The Geometric Pivot (Heuristics)</a>
   <ul class="collapse">
@@ -414,8 +414,8 @@ window.Quarto = {
 <figcaption>Heatmap matching of the reference images. Green boxes show a &gt;90% match score against the reference image.</figcaption>
 </figure>
 </div>
-<section id="the-failure" class="level3">
-<h3 class="anchored" data-anchor-id="the-failure">The Failure</h3>
+<section id="the-cause-of-failure" class="level3">
+<h3 class="anchored" data-anchor-id="the-cause-of-failure">The Cause of Failure</h3>
 <p>This method worked well on the base example but failed when tested on other forms of the puzzle. Although I implemented multi-scale matching to handle zoom levels, the approach hit a hard ceiling when the puzzle’s <strong>visual style</strong> changed.</p>
 <p>When the game switched to “Dark Mode” or used “Hollow” shapes, my solid-colored templates failed immediately. To fix this, I would have needed to crop and save a new template for every possible theme variation.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
@@ -486,7 +486,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The “Whack-a-Mole” logic resulted in decicion tree’s like:</p>
+<p>The “Whack-a-Mole” logic resulted in decision trees like:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempts to handle edge cases manually</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> vertices <span class="op">&gt;</span> <span class="dv">8</span> <span class="kw">and</span> circularity <span class="op">&lt;</span> <span class="fl">0.6</span> <span class="kw">and</span> num_blobs <span class="op">==</span> <span class="dv">1</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Star"</span></span>
