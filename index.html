@@ -266,24 +266,26 @@ Featured Projects
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // 1. Find all listing category badges on the page
+    // Select all category badges
     const badges = document.querySelectorAll('.listing-category');
 
     badges.forEach(badge => {
-      // 2. Remove the default onclick behavior (which filters the current list)
+      // Remove the default Quarto filter behavior
       badge.removeAttribute('onclick');
       
-      // 3. Add a new click event to redirect to the projects page
+      // Add the new redirect behavior
       badge.addEventListener('click', function (e) {
+        // !!! THIS IS THE FIX !!!
+        // Stop the click from "bubbling up" to the project card link
+        e.stopPropagation(); 
+        e.preventDefault();
+
         // Get the category text (e.g., "Computer Vision")
         const category = badge.innerText.trim();
         
-        // Construct the URL (adjust '/projects/' if your path is different)
-        // We use encodeURIComponent to handle spaces safely
-        const targetUrl = '/projects/#category=' + encodeURIComponent(category);
-        
-        // Redirect the user
-        window.location.href = targetUrl;
+        // Redirect to the projects page with the filter
+        // Make sure '/projects/' matches the folder name of your projects page
+        window.location.href = '/projects/#category=' + encodeURIComponent(category);
       });
     });
   });
