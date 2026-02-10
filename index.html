@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jordan Chong</title>
+<title>Jordan Chong – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,14 +140,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Jordan Chong">
+<meta property="og:title" content="Jordan Chong – Jordan’s Projects">
 <meta property="og:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
-<meta property="og:site_name" content="Jordan Chong">
+<meta property="og:site_name" content="Jordan's Projects">
 <meta property="og:image:alt" content="Jordan Chong">
-<meta name="twitter:title" content="Jordan Chong">
+<meta name="twitter:title" content="Jordan Chong – Jordan’s Projects">
 <meta name="twitter:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
-<meta name="twitter:image:alt" content="Jordan Chong">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Jordan Chong">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Jordan Chong</span>
+    <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -186,7 +186,7 @@ window.Quarto = {
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -264,6 +264,30 @@ Featured Projects
 <div id="featured-projects">
 
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 1. Find all listing category badges on the page
+    const badges = document.querySelectorAll('.listing-category');
+
+    badges.forEach(badge => {
+      // 2. Remove the default onclick behavior (which filters the current list)
+      badge.removeAttribute('onclick');
+      
+      // 3. Add a new click event to redirect to the projects page
+      badge.addEventListener('click', function (e) {
+        // Get the category text (e.g., "Computer Vision")
+        const category = badge.innerText.trim();
+        
+        // Construct the URL (adjust '/projects/' if your path is different)
+        // We use encodeURIComponent to handle spaces safely
+        const targetUrl = '/projects/#category=' + encodeURIComponent(category);
+        
+        // Redirect the user
+        window.location.href = targetUrl;
+      });
+    });
+  });
+</script>
 
 
 
@@ -271,7 +295,7 @@ Featured Projects
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1770648204139" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1416">
+<div class="g-col-1" data-index="0" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1770648564330" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1434">
 <a href="./projects/gap-challenge-solver/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -711,7 +735,7 @@ Gap Challenge Solver
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
       <i class="bi bi-linkedin" role="img">
 </i> 
     </a>
