@@ -5,6 +5,9 @@ author: "Jordan Chong"
 date: "2025-02-09"
 categories: [Computer Vision, Python, Streamlit, Algorithms, featured]
 image: "featured.png" 
+image-alt: "Screenshot of the dashboard"
+client: "Personal Project" 
+github-repo: "https://github.com/jordanchongja/gap-solver-app"
 body-class: "project-detail-view"
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
@@ -12,7 +15,7 @@ include-before-body:
 
 ![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
 ![](https://img.shields.io/badge/Status-Completed-success)
-[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/gap-solver-app)
 
 <span style="color: gray; font-size: 0.9em;">
 Source idea credited to Dianyi Yang: [kv9898/gap_challenge_solver](https://github.com/kv9898/gap_challenge_solver)
@@ -23,6 +26,10 @@ Source idea credited to Dianyi Yang: [kv9898/gap_challenge_solver](https://githu
     padding-top: 50px; /* Match this to your header margin */
   }
 </style>
+
+You can try the exercises yourself here:  
+- [Gap Challenge](https://www.gapchallenge.com/)  
+- [Gap Challenge Practice](https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test)  
 
 ::: {.callout-note}
 ### Live Demo
@@ -44,10 +51,6 @@ The "Gap" puzzle is a logic game where players must fill a missing cell in a gri
 
 **Gap Challenge** - Each shape can only appear in a row or column once. The player must use logic by elimination to find the shape that belongs in the question mark.
 :::
-
-You can try the exercises yourself here:  
-- [Gap Challenge](https://www.gapchallenge.com/)  
-- [Gap Challenge Practice](https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test)  
 
 While the logic puzzle itself is a standard Constraint Satisfaction Problem, **digitizing the grid from a raw image** proved to be the real engineering challenge. This post documents the three major iterations ("Acts") of my Computer Vision pipeline and the lessons learned from each:
 
@@ -151,9 +154,9 @@ This ensured my training data included all the real-world noise (grid lines, ant
 
 ### 2. The "Universal Translator" (Preprocessing)
 To make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline:
-1.  **Resize** to 64x64.
-2.  **Corner Difference Strategy:** Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light.
-3.  **Centering:** Find the bounding box of the shape and center it on a black canvas.
+1.  **Resize** to 64x64.  
+2.  **Corner Difference Strategy:** Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light.  
+3.  **Centering:** Find the bounding box of the shape and center it on a black canvas.  
 
 ### 3. Fine-Tuning the Brain (Grid Search) 
 An SVM is only as good as its hyperparameters. Default settings often lead to overfitting, where the model memorizes the training data but fails on new inputs.
@@ -172,12 +175,12 @@ Machine Learning models can be "black boxes." To trust the system, I built a sid
 
 With a reliable Vision pipeline returning a 2D matrix (e.g., `[['Star', 'Empty'], ['Circle', 'Square']]`), the problem reduced to a standard algorithm.
 
-I implemented a **Recursive Backtracking** solver. It works by:
-1.  **Scanning** for an empty cell.
-2.  **Guessing** a shape from the available options.
-3.  **Validating** row/column constraints.
-4.  **Recursively** attempting to solve the rest of the grid.
-5.  **Backtracking** if a guess leads to a contradiction.
+I implemented a **Recursive Backtracking** solver. It works by:  
+1.  **Scanning** for an empty cell.  
+2.  **Guessing** a shape from the available options.  
+3.  **Validating** row/column constraints.  
+4.  **Recursively** attempting to solve the rest of the grid.  
+5.  **Backtracking** if a guess leads to a contradiction.  
 
 ```python
 def solve_with_backtracking(board, universe):

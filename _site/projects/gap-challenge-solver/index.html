@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-02-09">
 <meta name="description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 
-<title>Gap Challenge Solver – Jordan Chong</title>
+<title>Gap Challenge Solver – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,18 +148,20 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Gap Challenge Solver – Jordan Chong">
+<meta property="og:title" content="Gap Challenge Solver – Jordan’s Projects">
 <meta property="og:description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 <meta property="og:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
-<meta property="og:site_name" content="Jordan Chong">
+<meta property="og:site_name" content="Jordan's Projects">
 <meta property="og:image:height" content="274">
 <meta property="og:image:width" content="281">
-<meta name="twitter:title" content="Gap Challenge Solver – Jordan Chong">
+<meta property="og:image:alt" content="Screenshot of the dashboard">
+<meta name="twitter:title" content="Gap Challenge Solver – Jordan’s Projects">
 <meta name="twitter:description" content="Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.">
 <meta name="twitter:image" content="https://jordanchongja.github.io/projects/gap-challenge-solver/featured.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image-height" content="274">
 <meta name="twitter:image-width" content="281">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Screenshot of the dashboard">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -170,7 +172,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Jordan Chong</span>
+    <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -198,7 +200,7 @@ window.Quarto = {
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -295,13 +297,16 @@ window.Quarto = {
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/yourname/repo"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/jordanchongja/gap-solver-app"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
 <p><span style="color: gray; font-size: 0.9em;"> Source idea credited to Dianyi Yang: <a href="https://github.com/kv9898/gap_challenge_solver">kv9898/gap_challenge_solver</a> </span></p>
 <style>
   #quarto-margin-sidebar {
     padding-top: 50px; /* Match this to your header margin */
   }
 </style>
+<p>You can try the exercises yourself here:<br>
+- <a href="https://www.gapchallenge.com/">Gap Challenge</a><br>
+- <a href="https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test">Gap Challenge Practice</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -349,9 +354,6 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>You can try the exercises yourself here:<br>
-- <a href="https://www.gapchallenge.com/">Gap Challenge</a><br>
-- <a href="https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test">Gap Challenge Practice</a></p>
 <p>While the logic puzzle itself is a standard Constraint Satisfaction Problem, <strong>digitizing the grid from a raw image</strong> proved to be the real engineering challenge. This post documents the three major iterations (“Acts”) of my Computer Vision pipeline and the lessons learned from each:</p>
 <ul>
 <li><strong>Act 1:</strong> Naive Template Matching<br>
@@ -515,7 +517,9 @@ However, I realised that the SVM was not performing well, because the cropping m
 </section>
 <section id="the-universal-translator-preprocessing" class="level3">
 <h3 class="anchored" data-anchor-id="the-universal-translator-preprocessing">2. The “Universal Translator” (Preprocessing)</h3>
-<p>To make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline: 1. <strong>Resize</strong> to 64x64. 2. <strong>Corner Difference Strategy:</strong> Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light. 3. <strong>Centering:</strong> Find the bounding box of the shape and center it on a black canvas.</p>
+<p>To make the model immune to lighting changes and user cropping errors, I engineered a standardization pipeline: 1. <strong>Resize</strong> to 64x64.<br>
+2. <strong>Corner Difference Strategy:</strong> Calculate the average background color from the image corners and subtract it. This isolates the shape regardless of whether the theme is Dark or Light.<br>
+3. <strong>Centering:</strong> Find the bounding box of the shape and center it on a black canvas.</p>
 </section>
 <section id="fine-tuning-the-brain-grid-search" class="level3">
 <h3 class="anchored" data-anchor-id="fine-tuning-the-brain-grid-search">3. Fine-Tuning the Brain (Grid Search)</h3>
@@ -537,7 +541,12 @@ However, I realised that the SVM was not performing well, because the cropping m
 <section id="the-solver-logic-backtracking" class="level2">
 <h2 class="anchored" data-anchor-id="the-solver-logic-backtracking">The Solver Logic (Backtracking)</h2>
 <p>With a reliable Vision pipeline returning a 2D matrix (e.g., <code>[['Star', 'Empty'], ['Circle', 'Square']]</code>), the problem reduced to a standard algorithm.</p>
-<p>I implemented a <strong>Recursive Backtracking</strong> solver. It works by: 1. <strong>Scanning</strong> for an empty cell. 2. <strong>Guessing</strong> a shape from the available options. 3. <strong>Validating</strong> row/column constraints. 4. <strong>Recursively</strong> attempting to solve the rest of the grid. 5. <strong>Backtracking</strong> if a guess leads to a contradiction.</p>
+<p>I implemented a <strong>Recursive Backtracking</strong> solver. It works by:<br>
+1. <strong>Scanning</strong> for an empty cell.<br>
+2. <strong>Guessing</strong> a shape from the available options.<br>
+3. <strong>Validating</strong> row/column constraints.<br>
+4. <strong>Recursively</strong> attempting to solve the rest of the grid.<br>
+5. <strong>Backtracking</strong> if a guess leads to a contradiction.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve_with_backtracking(board, universe):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Base Case: No empty spots left</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> find_empty(board): <span class="cf">return</span> <span class="va">True</span> </span>
@@ -984,7 +993,7 @@ However, I realised that the SVM was not performing well, because the cropping m
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
       <i class="bi bi-linkedin" role="img">
 </i> 
     </a>

@@ -70,3 +70,25 @@ Currently, I am focused on building robust pricing models, researching market mi
 
 :::{#featured-projects}
 :::
+
+
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const badges = document.querySelectorAll('.listing-category');
+
+    badges.forEach(badge => {
+      badge.addEventListener('click', function (e) {
+        // Stop the click from triggering the project card link
+        e.stopPropagation();
+        e.preventDefault();
+
+        // Use textContent instead of innerText to ignore CSS uppercase styling
+        const category = badge.textContent.trim();
+        
+        // Redirect to the projects page with the correct casing
+        window.location.href = '/projects/#category=' + encodeURIComponent(category);
+      });
+    });
+  });
+</script>

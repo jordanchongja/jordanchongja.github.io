@@ -1,43 +1,99 @@
 ---
-title: "Project Title"
-description: "A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain."
-date: 2025-02-05
-categories: [Quant Finance, Python, Optimization] 
+title: "Singapore Insurance Strategy Dashboard"
+description: "A Streamlit-powered actuarial dashboard that pits 'Buy Term, Invest the Difference' against Whole Life plans, accounting for human behavior and stochastic risk."
+date: 2025-02-16
+categories: [Python, Streamlit, Actuarial Science, Data Visualization, Monte Carlo]
 image: featured.png
 image-alt: "Screenshot of the dashboard"
 client: "Personal Project" 
-github-repo: "https://github.com/yourname/repo"
+github-repo: "https://github.com/jordanchongja/sg-insurance-model"
+body-class: "project-detail-view" 
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
 ---
 
 ![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
 ![](https://img.shields.io/badge/Status-Completed-success)
-[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/sg-insurance-model)
 
-## Overview
-**The "So What":** Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec.
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
 
----
+### [🚀 Launch the Dashboard](https://sg-insurance-model.streamlit.app/)  
 
-## 1. The Problem
-**Context:** Briefly explain *why* this matters.  
-*Example:* "Standard Monte Carlo simulations are too slow for real-time pricing..."
+![Snapshot of the Dashboard](featured.png)
 
-## 2. The Solution
-**Approach:** High-level summary of your strategy.
-* **Metric:** What did you optimize? (Speed, Accuracy, Sharpe Ratio)
-* **Tech Stack:** Python (NumPy, Pandas), C++, Docker.
+# The Problem: Math vs. Reality
 
-## 3. Technical Implementation
+In the Singaporean personal finance community, the debate between buying a Whole Life (WL) policy versus "Buying Term and Investing the Difference" (BTID) is endless. 
 
-::: {.callout-note}
-### Key Algorithm: Vectorization
-By replacing the `for` loop with NumPy vectorization, we reduced execution time from 40s to 0.2s.
-:::
+Most calculators are purely deterministic: they assume you invest the difference perfectly every month for 40 years. But humans aren't robots. 
 
-# python code here #
+I built the **[Singapore Insurance Model](https://sg-insurance-model.streamlit.app/)** to answer a deeper question: **"At what level of human error does the 'mathematically superior' strategy fail?"**
 
-## 4. Results
-* **Performance:** 50x speedup.
-* **Impact:** Enables real-time strategy backtesting.
+# The Data: Incorporating Actuarial Science
 
-[View Source Code on GitHub &rarr;](https://github.com/yourname/repo){.btn .btn-primary}
+A key differentiator of this project is the move away from "average life expectancy" to rigorous actuarial data.
+
+### 1. The Source: S0408 Tables
+Instead of using generic global mortality rates, I integrated the **S0408 Singapore Mortality Tables**. These tables serve as the industry benchmark for insure-tech in Singapore, providing the specific $q_x$ (probability of death at age $x$) for the local demographic.
+
+### 2. The Thought Process: Static vs. Probabilistic
+The initial version of the dashboard (Act 1) treated death as a fixed event at age 85. However, this ignores the primary value proposition of insurance: **tail risk**.
+
+To model this accurately, I had to transform the discrete annual data from the S0408 tables into monthly probabilities. This allowed the model to run simulations where "Death" or "Total Permanent Disability" (TPD) could occur at any month $t$, triggering the sum assured payout immediately rather than at the end of the horizon.
+
+> **Technical Challenge:** A major hurdle was handling the "Multi-Claim" logic. In Singaporean policies, a Critical Illness (CI) claim often accelerates the Death Benefit. I had to write logic to ensure that if a CI event occurred in the simulation, the remaining Death Sum Assured was reduced proportionally, reflecting the "multiplier" effect found in real-world Whole Life policies.
+
+# The Solution: A Three-Act Structure
+
+I designed the application in three distinct layers of complexity, which I call "The Three Acts."
+
+## Act 1: The Deterministic Baseline
+The first layer builds the standard financial projection.  
+- **Liquidity Analysis:** Comparing the Surrender Value of WL against the liquid portfolio of BTID.  
+- **Legacy Visualization:** Tracking the Death Benefit sum assured over time.  
+- **The 'Strategy Frontier':** A dynamic calculation that pinpoints the exact age where BTID overtakes WL based on user-defined investment returns (e.g., 4% vs 7%).  
+
+## Act 2: Behavioral Stress Testing
+Data shows that most retail investors do not reinvest their savings perfectly. I introduced a **"Discipline Coefficient"**, a slider allowing users to see what happens if they only invest 50%, 70%, or 90% of their premium savings.
+
+> **Key Insight:** Through this feature, I discovered that if an investor's discipline drops below ~60%, Whole Life plans often outperform BTID due to their "forced savings" nature, despite lower internal rates of return.
+
+## Act 3: Stochastic Reality (Monte Carlo)
+Life isn't linear. Using **Monte Carlo simulations**, I modeled:  
+- **Actuarial Risk:** Probabilities of Death and Total Permanent Disability (TPD) using Singapore's S0408 tables.  
+- **Sequence of Returns Risk:** Instead of a flat 7% return, the model simulates market volatility to show the range of possible outcomes for the BTID portfolio.  
+
+# Technical Implementation
+
+The application is built entirely in **Python** and hosted on **Streamlit Cloud**.
+
+### Key Technologies
+* **Streamlit:** For the reactive frontend and state management.
+* **Pandas/NumPy:** For vectorizing the cashflow projections over 50+ year horizons.
+* **Plotly:** For interactive financial charts that allow users to zoom into specific life stages.
+
+### Code Highlight: The Discipline Logic
+One of the most challenging aspects was modeling the "leakage" of capital when discipline wavers.
+
+```python
+# Pseudocode logic for the discipline stress test used in the app
+def calculate_btid_accumulation(savings, discipline_rate, market_return):
+    # discipline_rate is a float between 0.0 and 1.0 (e.g., 0.8 for 80% discipline)
+    realized_investment = savings * discipline_rate
+    leakage = savings * (1 - discipline_rate) # Money spent on lifestyle, lost forever
+    
+    # Projecting the portfolio with the 'leaked' capital removed
+    # This reveals the true cost of human behavior on compound interest
+    portfolio_value = npf.fv(rate=market_return/12, nper=months, pmt=-realized_investment, pv=0)
+    return portfolio_value
+```
+
+# Conclusion
+
+This project started as a calculator but evolved into a behavioral finance tool. By allowing users to toggle their "Discipline," the dashboard moves beyond telling people what they *should* do, and helps them visualize what they are *likely* to achieve based on their own habits.
+

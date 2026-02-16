@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-02-05">
-<meta name="description" content="A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.">
+<meta name="dcterms.date" content="2025-02-16">
+<meta name="description" content="A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.">
 
-<title>Project Title – Jordan Chong</title>
+<title>Singapore Insurance Strategy Dashboard – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -81,18 +116,51 @@ gtag('js', new Date());
 gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Project Title – Jordan Chong">
-<meta property="og:description" content="A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.">
+<meta property="og:title" content="Singapore Insurance Strategy Dashboard – Jordan’s Projects">
+<meta property="og:description" content="A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.">
 <meta property="og:image" content="https://jordanchongja.github.io/projects/sg-insurance-model/featured.png">
-<meta property="og:site_name" content="Jordan Chong">
+<meta property="og:site_name" content="Jordan's Projects">
+<meta property="og:image:height" content="1155">
+<meta property="og:image:width" content="1953">
 <meta property="og:image:alt" content="Screenshot of the dashboard">
-<meta name="twitter:title" content="Project Title – Jordan Chong">
-<meta name="twitter:description" content="A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.">
+<meta name="twitter:title" content="Singapore Insurance Strategy Dashboard – Jordan’s Projects">
+<meta name="twitter:description" content="A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.">
 <meta name="twitter:image" content="https://jordanchongja.github.io/projects/sg-insurance-model/featured.png">
-<meta name="twitter:image:alt" content="Screenshot of the dashboard">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="1155">
+<meta name="twitter:image-width" content="1953">
+<meta name="twitter:image:alt" content="Screenshot of the dashboard">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -103,7 +171,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Jordan Chong</span>
+    <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -131,7 +199,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -156,33 +224,47 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">1. The Problem</a></li>
-  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">2. The Solution</a></li>
-  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">3. Technical Implementation</a></li>
-  <li><a href="#python-code-here" id="toc-python-code-here" class="nav-link" data-scroll-target="#python-code-here">python code here</a>
+  <li><a href="#launch-the-dashboard" id="toc-launch-the-dashboard" class="nav-link active" data-scroll-target="#launch-the-dashboard">🚀 Launch the Dashboard</a></li>
+  <li><a href="#the-problem-math-vs.-reality" id="toc-the-problem-math-vs.-reality" class="nav-link" data-scroll-target="#the-problem-math-vs.-reality">The Problem: Math vs.&nbsp;Reality</a></li>
+  <li><a href="#the-data-incorporating-actuarial-science" id="toc-the-data-incorporating-actuarial-science" class="nav-link" data-scroll-target="#the-data-incorporating-actuarial-science">The Data: Incorporating Actuarial Science</a>
   <ul class="collapse">
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a></li>
+  <li><a href="#the-source-s0408-tables" id="toc-the-source-s0408-tables" class="nav-link" data-scroll-target="#the-source-s0408-tables">1. The Source: S0408 Tables</a></li>
+  <li><a href="#the-thought-process-static-vs.-probabilistic" id="toc-the-thought-process-static-vs.-probabilistic" class="nav-link" data-scroll-target="#the-thought-process-static-vs.-probabilistic">2. The Thought Process: Static vs.&nbsp;Probabilistic</a></li>
   </ul></li>
+  <li><a href="#the-solution-a-three-act-structure" id="toc-the-solution-a-three-act-structure" class="nav-link" data-scroll-target="#the-solution-a-three-act-structure">The Solution: A Three-Act Structure</a>
+  <ul class="collapse">
+  <li><a href="#act-1-the-deterministic-baseline" id="toc-act-1-the-deterministic-baseline" class="nav-link" data-scroll-target="#act-1-the-deterministic-baseline">Act 1: The Deterministic Baseline</a></li>
+  <li><a href="#act-2-behavioral-stress-testing" id="toc-act-2-behavioral-stress-testing" class="nav-link" data-scroll-target="#act-2-behavioral-stress-testing">Act 2: Behavioral Stress Testing</a></li>
+  <li><a href="#act-3-stochastic-reality-monte-carlo" id="toc-act-3-stochastic-reality-monte-carlo" class="nav-link" data-scroll-target="#act-3-stochastic-reality-monte-carlo">Act 3: Stochastic Reality (Monte Carlo)</a></li>
+  </ul></li>
+  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">Technical Implementation</a>
+  <ul class="collapse">
+  <li><a href="#key-technologies" id="toc-key-technologies" class="nav-link" data-scroll-target="#key-technologies">Key Technologies</a></li>
+  <li><a href="#code-highlight-the-discipline-logic" id="toc-code-highlight-the-discipline-logic" class="nav-link" data-scroll-target="#code-highlight-the-discipline-logic">Code Highlight: The Discipline Logic</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project Title</h1>
+<h1 class="title">Singapore Insurance Strategy Dashboard</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Quant Finance</div>
     <div class="quarto-category">Python</div>
-    <div class="quarto-category">Optimization</div>
+    <div class="quarto-category">Streamlit</div>
+    <div class="quarto-category">Actuarial Science</div>
+    <div class="quarto-category">Data Visualization</div>
+    <div class="quarto-category">Monte Carlo</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.
+    A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.
   </div>
 </div>
 
@@ -193,7 +275,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2025</p>
+      <p class="date">February 16, 2025</p>
     </div>
   </div>
   
@@ -205,49 +287,98 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/yourname/repo"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p><strong>The “So What”:</strong> Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec.</p>
-<hr>
-</section>
-<section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">1. The Problem</h2>
-<p><strong>Context:</strong> Briefly explain <em>why</em> this matters.<br>
-<em>Example:</em> “Standard Monte Carlo simulations are too slow for real-time pricing…”</p>
-</section>
-<section id="the-solution" class="level2">
-<h2 class="anchored" data-anchor-id="the-solution">2. The Solution</h2>
-<p><strong>Approach:</strong> High-level summary of your strategy. * <strong>Metric:</strong> What did you optimize? (Speed, Accuracy, Sharpe Ratio) * <strong>Tech Stack:</strong> Python (NumPy, Pandas), C++, Docker.</p>
-</section>
-<section id="technical-implementation" class="level2">
-<h2 class="anchored" data-anchor-id="technical-implementation">3. Technical Implementation</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key Algorithm: Vectorization
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>By replacing the <code>for</code> loop with NumPy vectorization, we reduced execution time from 40s to 0.2s.</p>
-</div>
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/jordanchongja/sg-insurance-model"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+<section id="launch-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="launch-the-dashboard"><a href="https://sg-insurance-model.streamlit.app/">🚀 Launch the Dashboard</a></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="featured.png" class="img-fluid figure-img"></p>
+<figcaption>Snapshot of the Dashboard</figcaption>
+</figure>
 </div>
 </section>
-<section id="python-code-here" class="level1">
-<h1>python code here</h1>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">4. Results</h2>
+<section id="the-problem-math-vs.-reality" class="level1">
+<h1>The Problem: Math vs.&nbsp;Reality</h1>
+<p>In the Singaporean personal finance community, the debate between buying a Whole Life (WL) policy versus “Buying Term and Investing the Difference” (BTID) is endless.</p>
+<p>Most calculators are purely deterministic: they assume you invest the difference perfectly every month for 40 years. But humans aren’t robots.</p>
+<p>I built the <strong><a href="https://sg-insurance-model.streamlit.app/">Singapore Insurance Model</a></strong> to answer a deeper question: <strong>“At what level of human error does the ‘mathematically superior’ strategy fail?”</strong></p>
+</section>
+<section id="the-data-incorporating-actuarial-science" class="level1">
+<h1>The Data: Incorporating Actuarial Science</h1>
+<p>A key differentiator of this project is the move away from “average life expectancy” to rigorous actuarial data.</p>
+<section id="the-source-s0408-tables" class="level3">
+<h3 class="anchored" data-anchor-id="the-source-s0408-tables">1. The Source: S0408 Tables</h3>
+<p>Instead of using generic global mortality rates, I integrated the <strong>S0408 Singapore Mortality Tables</strong>. These tables serve as the industry benchmark for insure-tech in Singapore, providing the specific <span class="math inline">\(q_x\)</span> (probability of death at age <span class="math inline">\(x\)</span>) for the local demographic.</p>
+</section>
+<section id="the-thought-process-static-vs.-probabilistic" class="level3">
+<h3 class="anchored" data-anchor-id="the-thought-process-static-vs.-probabilistic">2. The Thought Process: Static vs.&nbsp;Probabilistic</h3>
+<p>The initial version of the dashboard (Act 1) treated death as a fixed event at age 85. However, this ignores the primary value proposition of insurance: <strong>tail risk</strong>.</p>
+<p>To model this accurately, I had to transform the discrete annual data from the S0408 tables into monthly probabilities. This allowed the model to run simulations where “Death” or “Total Permanent Disability” (TPD) could occur at any month <span class="math inline">\(t\)</span>, triggering the sum assured payout immediately rather than at the end of the horizon.</p>
+<blockquote class="blockquote">
+<p><strong>Technical Challenge:</strong> A major hurdle was handling the “Multi-Claim” logic. In Singaporean policies, a Critical Illness (CI) claim often accelerates the Death Benefit. I had to write logic to ensure that if a CI event occurred in the simulation, the remaining Death Sum Assured was reduced proportionally, reflecting the “multiplier” effect found in real-world Whole Life policies.</p>
+</blockquote>
+</section>
+</section>
+<section id="the-solution-a-three-act-structure" class="level1">
+<h1>The Solution: A Three-Act Structure</h1>
+<p>I designed the application in three distinct layers of complexity, which I call “The Three Acts.”</p>
+<section id="act-1-the-deterministic-baseline" class="level2">
+<h2 class="anchored" data-anchor-id="act-1-the-deterministic-baseline">Act 1: The Deterministic Baseline</h2>
+<p>The first layer builds the standard financial projection.<br>
+- <strong>Liquidity Analysis:</strong> Comparing the Surrender Value of WL against the liquid portfolio of BTID.<br>
+- <strong>Legacy Visualization:</strong> Tracking the Death Benefit sum assured over time.<br>
+- <strong>The ‘Strategy Frontier’:</strong> A dynamic calculation that pinpoints the exact age where BTID overtakes WL based on user-defined investment returns (e.g., 4% vs 7%).</p>
+</section>
+<section id="act-2-behavioral-stress-testing" class="level2">
+<h2 class="anchored" data-anchor-id="act-2-behavioral-stress-testing">Act 2: Behavioral Stress Testing</h2>
+<p>Data shows that most retail investors do not reinvest their savings perfectly. I introduced a <strong>“Discipline Coefficient”</strong>, a slider allowing users to see what happens if they only invest 50%, 70%, or 90% of their premium savings.</p>
+<blockquote class="blockquote">
+<p><strong>Key Insight:</strong> Through this feature, I discovered that if an investor’s discipline drops below ~60%, Whole Life plans often outperform BTID due to their “forced savings” nature, despite lower internal rates of return.</p>
+</blockquote>
+</section>
+<section id="act-3-stochastic-reality-monte-carlo" class="level2">
+<h2 class="anchored" data-anchor-id="act-3-stochastic-reality-monte-carlo">Act 3: Stochastic Reality (Monte Carlo)</h2>
+<p>Life isn’t linear. Using <strong>Monte Carlo simulations</strong>, I modeled:<br>
+- <strong>Actuarial Risk:</strong> Probabilities of Death and Total Permanent Disability (TPD) using Singapore’s S0408 tables.<br>
+- <strong>Sequence of Returns Risk:</strong> Instead of a flat 7% return, the model simulates market volatility to show the range of possible outcomes for the BTID portfolio.</p>
+</section>
+</section>
+<section id="technical-implementation" class="level1">
+<h1>Technical Implementation</h1>
+<p>The application is built entirely in <strong>Python</strong> and hosted on <strong>Streamlit Cloud</strong>.</p>
+<section id="key-technologies" class="level3">
+<h3 class="anchored" data-anchor-id="key-technologies">Key Technologies</h3>
 <ul>
-<li><strong>Performance:</strong> 50x speedup.</li>
-<li><strong>Impact:</strong> Enables real-time strategy backtesting.</li>
+<li><strong>Streamlit:</strong> For the reactive frontend and state management.</li>
+<li><strong>Pandas/NumPy:</strong> For vectorizing the cashflow projections over 50+ year horizons.</li>
+<li><strong>Plotly:</strong> For interactive financial charts that allow users to zoom into specific life stages.</li>
 </ul>
-<p><a href="https://github.com/yourname/repo" class="btn btn-primary">View Source Code on GitHub →</a></p>
-
-
 </section>
+<section id="code-highlight-the-discipline-logic" class="level3">
+<h3 class="anchored" data-anchor-id="code-highlight-the-discipline-logic">Code Highlight: The Discipline Logic</h3>
+<p>One of the most challenging aspects was modeling the “leakage” of capital when discipline wavers.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudocode logic for the discipline stress test used in the app</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_btid_accumulation(savings, discipline_rate, market_return):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># discipline_rate is a float between 0.0 and 1.0 (e.g., 0.8 for 80% discipline)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    realized_investment <span class="op">=</span> savings <span class="op">*</span> discipline_rate</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    leakage <span class="op">=</span> savings <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discipline_rate) <span class="co"># Money spent on lifestyle, lost forever</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Projecting the portfolio with the 'leaked' capital removed</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This reveals the true cost of human behavior on compound interest</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    portfolio_value <span class="op">=</span> npf.fv(rate<span class="op">=</span>market_return<span class="op">/</span><span class="dv">12</span>, nper<span class="op">=</span>months, pmt<span class="op">=-</span>realized_investment, pv<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> portfolio_value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This project started as a calculator but evolved into a behavioral finance tool. By allowing users to toggle their “Discipline,” the dashboard moves beyond telling people what they <em>should</em> do, and helps them visualize what they are <em>likely</em> to achieve based on their own habits.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -666,7 +797,7 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
       <i class="bi bi-linkedin" role="img">
 </i> 
     </a>

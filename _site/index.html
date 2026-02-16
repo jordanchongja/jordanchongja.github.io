@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jordan Chong</title>
+<title>Jordan Chong – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,14 +140,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Jordan Chong">
+<meta property="og:title" content="Jordan Chong – Jordan’s Projects">
 <meta property="og:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
-<meta property="og:site_name" content="Jordan Chong">
+<meta property="og:site_name" content="Jordan's Projects">
 <meta property="og:image:alt" content="Jordan Chong">
-<meta name="twitter:title" content="Jordan Chong">
+<meta name="twitter:title" content="Jordan Chong – Jordan’s Projects">
 <meta name="twitter:image" content="https://jordanchongja.github.io/assets/avatar.jpg">
-<meta name="twitter:image:alt" content="Jordan Chong">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Jordan Chong">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Jordan Chong</span>
+    <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -186,7 +186,7 @@ window.Quarto = {
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -264,6 +264,25 @@ Featured Projects
 <div id="featured-projects">
 
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const badges = document.querySelectorAll('.listing-category');
+
+    badges.forEach(badge => {
+      badge.addEventListener('click', function (e) {
+        // Stop the click from triggering the project card link
+        e.stopPropagation();
+        e.preventDefault();
+
+        // Use textContent instead of innerText to ignore CSS uppercase styling
+        const category = badge.textContent.trim();
+        
+        // Redirect to the projects page with the correct casing
+        window.location.href = '/projects/#category=' + encodeURIComponent(category);
+      });
+    });
+  });
+</script>
 
 
 
@@ -271,11 +290,11 @@ Featured Projects
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1770635742351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1416">
+<div class="g-col-1" data-index="0" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1771225988830" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1434">
 <a href="./projects/gap-challenge-solver/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -711,7 +730,7 @@ Gap Challenge Solver
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/jordanchongja/">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
       <i class="bi bi-linkedin" role="img">
 </i> 
     </a>
