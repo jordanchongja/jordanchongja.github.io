@@ -7,39 +7,25 @@
     "text": "Order By\n      Default\n      \n        Subtitle\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEast of Eden\n\n\n★★★★★\n\n\n\n\n\n\nJohn Steinbeck\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/sg-insurance-model/index.html#overview",
-    "href": "projects/sg-insurance-model/index.html#overview",
-    "title": "Project Title",
-    "section": "Overview",
-    "text": "Overview\nThe “So What”: Standard pricing models were too slow for high-frequency environments. This project implements a C++ accelerated pricer that handles 10,000 options/sec."
+    "objectID": "projects/sg-insurance-model/index.html#act-1-the-deterministic-baseline",
+    "href": "projects/sg-insurance-model/index.html#act-1-the-deterministic-baseline",
+    "title": "Singapore Insurance Strategy Dashboard",
+    "section": "Act 1: The Deterministic Baseline",
+    "text": "Act 1: The Deterministic Baseline\nThe first layer builds the standard financial projection.\n- Liquidity Analysis: Comparing the Surrender Value of WL against the liquid portfolio of BTID.\n- Legacy Visualization: Tracking the Death Benefit sum assured over time.\n- The ‘Strategy Frontier’: A dynamic calculation that pinpoints the exact age where BTID overtakes WL based on user-defined investment returns (e.g., 4% vs 7%)."
   },
   {
-    "objectID": "projects/sg-insurance-model/index.html#the-problem",
-    "href": "projects/sg-insurance-model/index.html#the-problem",
-    "title": "Project Title",
-    "section": "1. The Problem",
-    "text": "1. The Problem\nContext: Briefly explain why this matters.\nExample: “Standard Monte Carlo simulations are too slow for real-time pricing…”"
+    "objectID": "projects/sg-insurance-model/index.html#act-2-behavioral-stress-testing",
+    "href": "projects/sg-insurance-model/index.html#act-2-behavioral-stress-testing",
+    "title": "Singapore Insurance Strategy Dashboard",
+    "section": "Act 2: Behavioral Stress Testing",
+    "text": "Act 2: Behavioral Stress Testing\nData shows that most retail investors do not reinvest their savings perfectly. I introduced a “Discipline Coefficient”, a slider allowing users to see what happens if they only invest 50%, 70%, or 90% of their premium savings.\n\nKey Insight: Through this feature, I discovered that if an investor’s discipline drops below ~60%, Whole Life plans often outperform BTID due to their “forced savings” nature, despite lower internal rates of return."
   },
   {
-    "objectID": "projects/sg-insurance-model/index.html#the-solution",
-    "href": "projects/sg-insurance-model/index.html#the-solution",
-    "title": "Project Title",
-    "section": "2. The Solution",
-    "text": "2. The Solution\nApproach: High-level summary of your strategy. * Metric: What did you optimize? (Speed, Accuracy, Sharpe Ratio) * Tech Stack: Python (NumPy, Pandas), C++, Docker."
-  },
-  {
-    "objectID": "projects/sg-insurance-model/index.html#technical-implementation",
-    "href": "projects/sg-insurance-model/index.html#technical-implementation",
-    "title": "Project Title",
-    "section": "3. Technical Implementation",
-    "text": "3. Technical Implementation\n\n\n\n\n\n\nNoteKey Algorithm: Vectorization\n\n\n\nBy replacing the for loop with NumPy vectorization, we reduced execution time from 40s to 0.2s."
-  },
-  {
-    "objectID": "projects/sg-insurance-model/index.html#results",
-    "href": "projects/sg-insurance-model/index.html#results",
-    "title": "Project Title",
-    "section": "4. Results",
-    "text": "4. Results\n\nPerformance: 50x speedup.\nImpact: Enables real-time strategy backtesting.\n\nView Source Code on GitHub →"
+    "objectID": "projects/sg-insurance-model/index.html#act-3-stochastic-reality-monte-carlo",
+    "href": "projects/sg-insurance-model/index.html#act-3-stochastic-reality-monte-carlo",
+    "title": "Singapore Insurance Strategy Dashboard",
+    "section": "Act 3: Stochastic Reality (Monte Carlo)",
+    "text": "Act 3: Stochastic Reality (Monte Carlo)\nLife isn’t linear. Using Monte Carlo simulations, I modeled:\n- Actuarial Risk: Probabilities of Death and Total Permanent Disability (TPD) using Singapore’s S0408 tables.\n- Sequence of Returns Risk: Instead of a flat 7% return, the model simulates market volatility to show the range of possible outcomes for the BTID portfolio."
   },
   {
     "objectID": "projects/gap-challenge-solver/index.html",
@@ -158,7 +144,7 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nEvolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.\n\n\n\nFeb 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Title\n\n\n\nQuant Finance\n\nPython\n\nOptimization\n\n\n\nA one-sentence hook: e.g., Reducing option pricing latency by 40% using C++. Optimization of X using Y, resulting in Z% efficiency gain.\n\n\n\nFeb 5, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSingapore Insurance Strategy Dashboard\n\n\n\nPython\n\nStreamlit\n\nActuarial Science\n\nData Visualization\n\nMonte Carlo\n\n\n\nA Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.\n\n\n\nFeb 16, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nGap Challenge Solver\n\n\n\nComputer Vision\n\nPython\n\nStreamlit\n\nAlgorithms\n\nfeatured\n\n\n\nEvolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.\n\n\n\nFeb 9, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readings/East of Eden/template.html#summary",
