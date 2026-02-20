@@ -8,12 +8,13 @@
   {
     "listing": "/notes/index.html",
     "items": [
-      "/notes/posts/book-review-1/template.html"
+      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/projects/sg-insurance-model/index.html",
       "/projects/gap-challenge-solver/index.html"
     ]
   },
