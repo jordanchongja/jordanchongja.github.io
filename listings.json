@@ -6,23 +6,25 @@
     ]
   },
   {
-    "listing": "/notes/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/notes/posts/Black-Sholes-Derivation/index.html"
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/quant-structuring-workbench/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
       "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html"
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/quant-structuring-workbench/index.html"
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/notes/index.html",
     "items": [
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html"
+      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   }
 ]

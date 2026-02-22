@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-23">
+<meta name="description" content="A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&amp;P 500 tick data to deploying an Object-Oriented portfolio structuring dashboard.">
 
-<title>Projects – Jordan’s Projects</title>
+<title>End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="..//assets/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-443253e461b1d6f7d52c3923baf43cc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//assets/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-443253e461b1d6f7d52c3923baf43cc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
 
 <script type="text/javascript">
@@ -140,27 +111,27 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Projects – Jordan’s Projects">
-<meta property="og:description" content="A selection of my data science and quantitative finance work.">
-<meta property="og:image" content="https://jordanchongja.github.io/assets/homepage-preview.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production – Jordan’s Projects">
+<meta property="og:description" content="A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&amp;P 500 tick data to deploying an Object-Oriented portfolio structuring dashboard.">
+<meta property="og:image" content="https://jordanchongja.github.io/projects/quant-structuring-workbench/featured_vol_smile.png">
 <meta property="og:site_name" content="Jordan's Projects">
-<meta property="og:image:height" content="961">
-<meta property="og:image:width" content="1673">
-<meta name="twitter:title" content="Projects – Jordan’s Projects">
-<meta name="twitter:description" content="A selection of my data science and quantitative finance work.">
-<meta name="twitter:image" content="https://jordanchongja.github.io/projects/homepage-preview.png">
+<meta property="og:image:alt" content="Master plot comparing Bates, Heston, and Merton models to real market data">
+<meta name="twitter:title" content="End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production – Jordan’s Projects">
+<meta name="twitter:description" content="A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&amp;P 500 tick data to deploying an Object-Oriented portfolio structuring dashboard.">
+<meta name="twitter:image" content="https://jordanchongja.github.io/projects/quant-structuring-workbench/featured_vol_smile.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Master plot comparing Bates, Heston, and Merton models to real market data">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
@@ -171,21 +142,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../projects/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../notes/index.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../readings/index.html"> 
+    <a class="nav-link" href="../../readings/index.html"> 
 <span class="menu-text">Readings</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../assets/Jordan_Chong_CV.pdf" target="_blank"> 
+    <a class="nav-link" href="../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -206,175 +177,187 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Projects</h1>
-            <p class="subtitle lead">A selection of my data science and quantitative finance work.</p>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QWN0dWFyaWFsJTIwU2NpZW5jZQ==">Actuarial Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24=">Computer Vision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVhdHVyZWQ=">featured <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TW9udGUlMjBDYXJsbw==">Monte Carlo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T09Q">OOP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3B0aW1pemF0aW9u">Optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ==">Quantitative Finance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RyZWFtbGl0">Streamlit <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Vm9sYXRpbGl0eSUyME1vZGVsaW5n">Volatility Modeling <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-full-stack-quant-philosophy" id="toc-the-full-stack-quant-philosophy" class="nav-link active" data-scroll-target="#the-full-stack-quant-philosophy">The “Full-Stack Quant” Philosophy</a></li>
+  <li><a href="#phase-i-the-quantitative-research-lab-mathematics-calibration" id="toc-phase-i-the-quantitative-research-lab-mathematics-calibration" class="nav-link" data-scroll-target="#phase-i-the-quantitative-research-lab-mathematics-calibration">Phase I: The Quantitative Research Lab (Mathematics &amp; Calibration)</a>
+  <ul class="collapse">
+  <li><a href="#iteration-1-navigating-the-data-pipeline" id="toc-iteration-1-navigating-the-data-pipeline" class="nav-link" data-scroll-target="#iteration-1-navigating-the-data-pipeline">Iteration 1: Navigating the Data Pipeline</a></li>
+  <li><a href="#iteration-2-the-heston-model-and-the-gibbs-phenomenon" id="toc-iteration-2-the-heston-model-and-the-gibbs-phenomenon" class="nav-link" data-scroll-target="#iteration-2-the-heston-model-and-the-gibbs-phenomenon">Iteration 2: The Heston Model and The Gibbs Phenomenon</a></li>
+  <li><a href="#iteration-3-overcoming-the-20-minute-bottleneck" id="toc-iteration-3-overcoming-the-20-minute-bottleneck" class="nav-link" data-scroll-target="#iteration-3-overcoming-the-20-minute-bottleneck">Iteration 3: Overcoming the 20-Minute Bottleneck</a></li>
+  <li><a href="#iteration-4-the-bates-model-parameter-redundancy" id="toc-iteration-4-the-bates-model-parameter-redundancy" class="nav-link" data-scroll-target="#iteration-4-the-bates-model-parameter-redundancy">Iteration 4: The Bates Model &amp; Parameter Redundancy</a></li>
+  </ul></li>
+  <li><a href="#phase-ii-the-interactive-structuring-desk-deployment" id="toc-phase-ii-the-interactive-structuring-desk-deployment" class="nav-link" data-scroll-target="#phase-ii-the-interactive-structuring-desk-deployment">Phase II: The Interactive Structuring Desk (Deployment)</a>
+  <ul class="collapse">
+  <li><a href="#iteration-1-the-object-oriented-refactor" id="toc-iteration-1-the-object-oriented-refactor" class="nav-link" data-scroll-target="#iteration-1-the-object-oriented-refactor">Iteration 1: The Object-Oriented Refactor</a></li>
+  <li><a href="#iteration-2-session-state-and-dynamic-construction" id="toc-iteration-2-session-state-and-dynamic-construction" class="nav-link" data-scroll-target="#iteration-2-session-state-and-dynamic-construction">Iteration 2: Session State and Dynamic Construction</a></li>
+  <li><a href="#iteration-3-3d-volatility-surface-visualization" id="toc-iteration-3-3d-volatility-surface-visualization" class="nav-link" data-scroll-target="#iteration-3-3d-volatility-surface-visualization">Iteration 3: 3D Volatility Surface Visualization</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Finance</div>
+    <div class="quarto-category">Volatility Modeling</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">OOP</div>
+    <div class="quarto-category">Streamlit</div>
+    <div class="quarto-category">Optimization</div>
+    <div class="quarto-category">featured</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&amp;P 500 tick data to deploying an Object-Oriented portfolio structuring dashboard.
+  </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDU3RyZWFtbGl0JTJDQWN0dWFyaWFsJTIwU2NpZW5jZSUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDTW9udGUlMjBDYXJsbyUyQ2ZlYXR1cmVk" data-listing-date-sort="1739635200000" data-listing-file-modified-sort="1771226550018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
-<a href="../projects/sg-insurance-model/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/sg-insurance-model/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Singapore Insurance Strategy Dashboard
-</h5>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
+<div class="quarto-title-meta">
 
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0dWFyaWFsJTIwU2NpZW5jZQ=='); return false;">Actuarial Science</div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 23, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('TW9udGUlMjBDYXJsbw=='); return false;">Monte Carlo</div>
+</header>
 
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
 
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&amp;logoColor=white.png" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Live_&amp;_Deployed-success.png" class="img-fluid"> <a href="https://github.com/jordanchongja/repo-name-here"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; 
+  }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
+  }
+</style>
+<section id="the-full-stack-quant-philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="the-full-stack-quant-philosophy">The “Full-Stack Quant” Philosophy</h2>
+<p>In the financial industry, there is often a strict divide between <strong>Quantitative Researchers</strong> (who derive the math and calibrate models in isolated Jupyter notebooks) and <strong>Quantitative Developers</strong> (who translate that math into scalable, object-oriented code for the trading desk).</p>
+<p>This project was built to bridge that exact gap. It is divided into two distinct phases, documenting the iterative journey from raw mathematical theory to a live, interactive production environment.</p>
+<center>
+<a href="https://your-app-link.streamlit.app" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
+</center>
+<hr>
+</section>
+<section id="phase-i-the-quantitative-research-lab-mathematics-calibration" class="level2">
+<h2 class="anchored" data-anchor-id="phase-i-the-quantitative-research-lab-mathematics-calibration">Phase I: The Quantitative Research Lab (Mathematics &amp; Calibration)</h2>
+<p>Before an options pricing engine can be trusted by a structuring desk, it must be validated against historical market data. The goal of this phase was to calibrate three advanced models—<strong>Merton Jump-Diffusion, Heston Stochastic Volatility, and the Bates (SVJ) Model</strong>—to raw S&amp;P 500 options data from the Wharton Research Data Services (WRDS).</p>
+<section id="iteration-1-navigating-the-data-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-1-navigating-the-data-pipeline">Iteration 1: Navigating the Data Pipeline</h3>
+<p>Real market data is inherently noisy and structurally idiosyncratic. Building the <code>MarketDataLoader</code> required several critical formatting iterations: 1. <strong>The WRDS Strike Quirk:</strong> WRDS stores strike prices multiplied by 1,000. Initial pricing runs returned catastrophic NaNs because a $4,780 strike was being read as $4,780,000. A normalization layer (<code>chain['strike_price'].values / 1000.0</code>) had to be injected. 2. <strong>Trimming the Fat:</strong> An option chain contains thousands of highly illiquid, deep Out-of-the-Money strikes with zero bids. Feeding these into an optimizer guarantees failure. I implemented a dynamic filtering mechanism (<code>strike_bound_pct=0.15</code>) to isolate only the highly liquid strikes within a 15% radius of the Spot price, ensuring the optimizer only trained on pure market signal.</p>
+</section>
+<section id="iteration-2-the-heston-model-and-the-gibbs-phenomenon" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-2-the-heston-model-and-the-gibbs-phenomenon">Iteration 2: The Heston Model and The Gibbs Phenomenon</h3>
+<p>The most mathematically demanding phase of the project was implementing the Heston model’s Characteristic Function. Unlike Black-Scholes, Heston requires complex Fourier inversion to evaluate the pricing integral.</p>
+<ul>
+<li><strong>The Bug:</strong> During the initial calibration, the plotted Implied Volatility curve exhibited violent, unnatural sine-wave artifacts on the extreme wings of the smile.</li>
+<li><strong>The Diagnosis:</strong> This was a classic manifestation of the <strong>Gibbs Phenomenon</strong> . The <code>scipy.integrate.quad</code> function was truncating the integration of the probability wave too early (at an upper limit of 100). Because short-dated options (<span class="math inline">\(T = 0.10\)</span>) have very slowly decaying characteristic functions, chopping the math off artificially created literal ripples in the pricing space.</li>
+<li><strong>The Fix:</strong> I re-engineered the integration block, pushing <code>limit_max</code> to 2000 and tightening the absolute and relative error tolerances (<code>epsabs=1e-4</code>, <code>epsrel=1e-4</code>). The artifacts vanished, resulting in a flawless, continuous pricing curve.</li>
+</ul>
+</section>
+<section id="iteration-3-overcoming-the-20-minute-bottleneck" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-3-overcoming-the-20-minute-bottleneck">Iteration 3: Overcoming the 20-Minute Bottleneck</h3>
+<p>With the math corrected, I deployed a Hybrid Optimizer: a Global <strong>Differential Evolution</strong> algorithm to scout the 5-dimensional parameter space, followed by a Local <strong>L-BFGS-B</strong> sniper to pinpoint the exact local minimum.</p>
+<ul>
+<li><strong>The Bottleneck:</strong> The initial run took over <strong>21 minutes</strong> to calibrate. Profiling the math engine revealed the “Silent Killer” of quant optimization: nested root-finding loops. To calculate the Mean Squared Error (MSE), the objective function had to calculate a Heston price, and then run a Black-Scholes root-finder (Brent’s Method) to reverse-engineer the IV for all 350 strikes, thousands of times.</li>
+<li><strong>The 10x Speed Fix:</strong> Recognizing that a strike at 4780 provides the exact same structural information as a strike at 4785, I implemented a data <strong>Downsampling Algorithm</strong> (<code>target_strikes[::sample_step]</code>). By forcing the optimizer to train on 35 representative strikes instead of 350, calibration time plummeted from 21 minutes to under <strong>2 minutes</strong> with zero loss in curve fidelity.</li>
+</ul>
+</section>
+<section id="iteration-4-the-bates-model-parameter-redundancy" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-4-the-bates-model-parameter-redundancy">Iteration 4: The Bates Model &amp; Parameter Redundancy</h3>
+<p>The “Final Boss” of the research phase was the Bates (SVJ) model, which merges Heston’s stochastic volatility with Merton’s Poisson jumps. * <strong>Parameter Seeding:</strong> To optimize this 8-parameter monster, I seeded the algorithm with the winning parameters from the individual Heston and Merton runs, allowing it to calibrate in under 60 seconds. * <strong>The Over-parameterization Trap:</strong> The optimizer revealed a fascinating quantitative reality. It forced the average jump size (<span class="math inline">\(\mu_J\)</span>) to exactly <span class="math inline">\(0.0\)</span>. Because Heston’s correlation parameter (<span class="math inline">\(\rho = -0.65\)</span>) was already dragging the left side of the skew upward sufficiently, the optimizer deemed the Merton jumps mathematically redundant for this specific 30-day slice. This served as a masterclass in the dangers of over-parameterization in quantitative modeling.</p>
+<blockquote class="blockquote">
+<p><strong>Explore the Interactive Research Notebooks:</strong> ::: {.callout-note} ### Part I: The Theoretical Frameworks (The “Textbook”) Before touching real data, I built Monte Carlo simulators to visually prove the mathematical intuition behind each model. * <a href="notebooks/quarto_01_BlackSholes.html">Model 1: Black-Scholes &amp; The Flaw of Constant Volatility</a> * <a href="notebooks/quarto_02_MertonJumpDiffusion.html">Model 2: Merton Jump-Diffusion &amp; Market Shocks</a> * <a href="notebooks/quarto_03_HestonModel.html">Model 3: The Heston Model &amp; The Leverage Effect (<span class="math inline">\(\rho\)</span>)</a> * <a href="notebooks/quarto_04_BatesModel.html">Model 4: The Bates Model (SVJ) - The Holy Grail</a> :::</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="card-text listing-description delink">
-<p>A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 16, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1771225988830" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1434">
-<a href="../projects/gap-challenge-solver/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Gap Challenge Solver
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWxnb3JpdGhtcw=='); return false;">Algorithms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 9, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1ZvbGF0aWxpdHklMjBNb2RlbGluZyUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ09wdGltaXphdGlvbiUyQ2ZlYXR1cmVk" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1771765472154" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<a href="../projects/quant-structuring-workbench/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/quant-structuring-workbench/featured_vol_smile.png" class="thumbnail-image card-img" style="height: 150px;" alt="Master plot comparing Bates, Heston, and Merton models to real market data">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Vm9sYXRpbGl0eSUyME1vZGVsaW5n'); return false;">Volatility Modeling</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T09Q'); return false;">OOP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">Optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&amp;P 500 tick data to deploying an…</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 23, 2024
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Part II: Real Market Calibration (The “Lab”)
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Ingesting raw WRDS data for <code>SPX</code> options, I built objective functions to reverse-engineer Implied Volatilities and minimize pricing errors. * <a href="notebooks/quarto_05_BS_RealDataCalibration.html">Calibrating Black-Scholes (Proving the Disconnect)</a> * <a href="notebooks/quarto_06_Merton_RealDataCalibration.html">Calibrating Merton (Fitting the Short-Term Skew)</a> * <a href="notebooks/quarto_07_Heston_RealDataCalibration.html">Calibrating Heston (Hybrid Global-to-Local Search)</a> * <a href="notebooks/quarto_08_Bates_RealDataCalibration.html">Calibrating Bates (Parameter Seeding)</a></p>
 </div>
-</div></a>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Part III: Synthesis &amp; Predictive Power
 </div>
 </div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<div class="callout-body-container callout-body">
+<p>Curve-fitting today’s data is easy; predicting tomorrow’s is the true test of a quant. * <a href="notebooks/quarto_09_Model_Comparison.html">The Master Comparison: Heston vs.&nbsp;Merton vs.&nbsp;Bates</a> * <a href="notebooks/quarto_10_OutOfSampleTesting.html">Time-Series Out-of-Sample (OOS) Testing</a></p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="phase-ii-the-interactive-structuring-desk-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="phase-ii-the-interactive-structuring-desk-deployment">Phase II: The Interactive Structuring Desk (Deployment)</h2>
+<p>A robust math engine is useless if a trader cannot interact with it. Phase II focused on abstracting the math into a scalable software architecture and deploying it via Streamlit.</p>
+<section id="iteration-1-the-object-oriented-refactor" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-1-the-object-oriented-refactor">Iteration 1: The Object-Oriented Refactor</h3>
+<p>Jupyter notebooks run linearly, which makes them terrible for building dynamic portfolios. To solve this, I entirely refactored the pricing engine using <strong>Object-Oriented Programming (OOP)</strong>. * <strong>Abstract Base Classes:</strong> I designed a core <code>Instrument</code> class enforcing strict polymorphic protocols (<code>price()</code>, <code>payoff()</code>). * <strong>Encapsulation:</strong> Subclasses like <code>ZeroCouponBond</code> and <code>EuropeanOption</code> inherited this base, encapsulating their specific Black-Scholes or intrinsic math. This allows the application to aggregate entirely different asset classes natively without complex <code>if/else</code> routing.</p>
+</section>
+<section id="iteration-2-session-state-and-dynamic-construction" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-2-session-state-and-dynamic-construction">Iteration 2: Session State and Dynamic Construction</h3>
+<p>A structuring desk needs to build multi-leg positions (e.g., Iron Condors, Strangles). * Using Streamlit’s <code>st.session_state</code>, I engineered a persistent memory ledger. Users can continuously inject new <code>Instrument</code> objects into their portfolio. * The backend loops through the ledger in real-time, dynamically aggregating the individual payoff profiles into a net portfolio matrix, plotting the exact PnL horizon instantly.</p>
+</section>
+<section id="iteration-3-3d-volatility-surface-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-3-3d-volatility-surface-visualization">Iteration 3: 3D Volatility Surface Visualization</h3>
+<p>Traders rely on visual heuristics to identify mispricings across the term structure. * I integrated <code>plotly.graph_objects</code> to render a high-performance WebGL 3D Volatility Surface. * <strong>Fuzzy Matching:</strong> To allow traders to inspect specific maturity slices, I implemented a 2D Smile extractor. Because floating-point math often causes mismatch errors (e.g., <span class="math inline">\(T=0.1000001\)</span>), I utilized <code>np.isclose</code> to fuzzy-match the slider input to the underlying DataFrame, ensuring the 2D chart rendered perfectly every time.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This workbench stands as a complete, end-to-end demonstration of the quantitative lifecycle. It proves the ability to not only write complex Fourier transformations and navigate local optimization minima but to immediately pivot into software engineering, encapsulating that research into a live, Object-Oriented application ready for a global markets floor.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -814,12 +797,12 @@ Feb 23, 2024
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../license.html">
+    <a class="nav-link" href="../../license.html">
 <p>License</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="../../contact.html">
 <p>Contact</p>
 </a>
   </li>  
