@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs      # Renders the HTML files into a 'docs' folder for GitHub Pages
+  output-dir: .      # Renders the HTML files into a 'docs' folder for GitHub Pages
 
 website:
   title: "Quantitative Options Pricing Workbench"
