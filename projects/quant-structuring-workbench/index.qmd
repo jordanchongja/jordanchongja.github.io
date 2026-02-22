@@ -1,0 +1,128 @@
+---
+title: "End-to-End Quantitative Options Pricing: From WRDS Research to Interactive Production"
+description: "A comprehensive case study bridging Quantitative Research and Software Engineering. From calibrating Heston and Bates models using noisy S&P 500 tick data to deploying an Object-Oriented portfolio structuring dashboard."
+date: 2024-02-23
+categories: [Quantitative Finance, Volatility Modeling, Python, OOP, Streamlit, Optimization, featured] 
+image: featured_vol_smile.png
+image-alt: "Master plot comparing Bates, Heston, and Merton models to real market data"
+client: "Quantitative Developer Portfolio" 
+github-repo: "https://github.com/jordanchongja/quant-structuring-workbench"
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![](https://img.shields.io/badge/Status-Live_&_Deployed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/quant-structuring-workbench)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; 
+  }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
+  }
+</style>
+
+## The "Full-Stack Quant" Philosophy
+In the financial industry, there is often a strict divide between **Quantitative Researchers** (who derive the math and calibrate models in isolated Jupyter notebooks) and **Quantitative Developers** (who translate that math into scalable, object-oriented code for the trading desk). 
+
+This project was built to bridge that exact gap. It is divided into two distinct phases, documenting the iterative journey from raw mathematical theory to a live, interactive production environment.
+
+<center>
+  <a href="https://option-structuring-workbench.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
+</center>
+
+---
+
+## Phase I: The Quantitative Research Lab (Mathematics & Calibration)
+
+Before an options pricing engine can be trusted by a structuring desk, it must be validated against historical market data. The goal of this phase was to calibrate three advanced models—**Merton Jump-Diffusion, Heston Stochastic Volatility, and the Bates (SVJ) Model**—to raw S&P 500 options data from the Wharton Research Data Services (WRDS).
+
+### Iteration 1: Navigating the Data Pipeline
+Real market data is inherently noisy and structurally idiosyncratic. Building the `MarketDataLoader` required several critical formatting iterations:
+1.  **The WRDS Strike Quirk:** WRDS stores strike prices multiplied by 1,000. Initial pricing runs returned catastrophic NaNs because a $4,780 strike was being read as $4,780,000. A normalization layer (`chain['strike_price'].values / 1000.0`) had to be injected.
+2.  **Trimming the Fat:** An option chain contains thousands of highly illiquid, deep Out-of-the-Money strikes with zero bids. Feeding these into an optimizer guarantees failure. I implemented a dynamic filtering mechanism (`strike_bound_pct=0.15`) to isolate only the highly liquid strikes within a 15% radius of the Spot price, ensuring the optimizer only trained on pure market signal.
+
+### Iteration 2: The Heston Model and The Gibbs Phenomenon
+The most mathematically demanding phase of the project was implementing the Heston model's Characteristic Function. Unlike Black-Scholes, Heston requires complex Fourier inversion to evaluate the pricing integral.
+
+* **The Bug:** During the initial calibration, the plotted Implied Volatility curve exhibited violent, unnatural sine-wave artifacts on the extreme wings of the smile. 
+* **The Diagnosis:** This was a classic manifestation of the **Gibbs Phenomenon** . The `scipy.integrate.quad` function was truncating the integration of the probability wave too early (at an upper limit of 100). Because short-dated options ($T = 0.10$) have very slowly decaying characteristic functions, chopping the math off artificially created literal ripples in the pricing space.
+* **The Fix:** I re-engineered the integration block, pushing `limit_max` to 2000 and tightening the absolute and relative error tolerances (`epsabs=1e-4`, `epsrel=1e-4`). The artifacts vanished, resulting in a flawless, continuous pricing curve.
+
+### Iteration 3: Overcoming the 20-Minute Bottleneck
+With the math corrected, I deployed a Hybrid Optimizer: a Global **Differential Evolution** algorithm to scout the 5-dimensional parameter space, followed by a Local **L-BFGS-B** sniper to pinpoint the exact local minimum. 
+
+* **The Bottleneck:** The initial run took over **21 minutes** to calibrate. Profiling the math engine revealed the "Silent Killer" of quant optimization: nested root-finding loops. To calculate the Mean Squared Error (MSE), the objective function had to calculate a Heston price, and then run a Black-Scholes root-finder (Brent's Method) to reverse-engineer the IV for all 350 strikes, thousands of times.
+* **The 10x Speed Fix:** Recognizing that a strike at 4780 provides the exact same structural information as a strike at 4785, I implemented a data **Downsampling Algorithm** (`target_strikes[::sample_step]`). By forcing the optimizer to train on 35 representative strikes instead of 350, calibration time plummeted from 21 minutes to under **2 minutes** with zero loss in curve fidelity.
+
+### Iteration 4: The Bates Model & Parameter Redundancy
+The "Final Boss" of the research phase was the Bates (SVJ) model, which merges Heston's stochastic volatility with Merton's Poisson jumps. 
+* **Parameter Seeding:** To optimize this 8-parameter monster, I seeded the algorithm with the winning parameters from the individual Heston and Merton runs, allowing it to calibrate in under 60 seconds.
+* **The Over-parameterization Trap:** The optimizer revealed a fascinating quantitative reality. It forced the average jump size ($\mu_J$) to exactly $0.0$. Because Heston's correlation parameter ($\rho = -0.65$) was already dragging the left side of the skew upward sufficiently, the optimizer deemed the Merton jumps mathematically redundant for this specific 30-day slice. This served as a masterclass in the dangers of over-parameterization in quantitative modeling.
+
+::: {.callout-note}
+## Part I: The Theoretical Frameworks (The "Textbook")  
+Before touching real data, I built Monte Carlo simulators to visually prove the mathematical intuition behind each model.  
+
+* [Model 1: Black-Scholes & The Flaw of Constant Volatility](notebooks/quarto_01_BlackSholes.html)  
+* [Model 2: Merton Jump-Diffusion & Market Shocks](notebooks/quarto_02_MertonJumpDiffusion.html)  
+* [Model 3: The Heston Model & The Leverage Effect ($\rho$)](notebooks/quarto_03_HestonModel.html)  
+* [Model 4: The Bates Model (SVJ) - The Holy Grail](notebooks/quarto_04_BatesModel.html)  
+:::
+
+::: {.callout-tip}
+## Part II: Real Market Calibration (The "Lab")  
+Ingesting raw WRDS data for `SPX` options, I built objective functions to reverse-engineer Implied Volatilities and minimize pricing errors.  
+
+* [Calibrating Black-Scholes (Proving the Disconnect)](notebooks/quarto_05_BS_RealDataCalibration.html)  
+* [Calibrating Merton (Fitting the Short-Term Skew)](notebooks/quarto_06_Merton_RealDataCalibration.html)  
+* [Calibrating Heston (Hybrid Global-to-Local Search)](notebooks/quarto_07_Heston_RealDataCalibration.html)  
+* [Calibrating Bates (Parameter Seeding)](notebooks/quarto_08_Bates_RealDataCalibration.html)  
+:::
+
+::: {.callout-important}
+## Part III: Synthesis & Predictive Power  
+Curve-fitting today's data is easy; predicting tomorrow's is the true test of a quant.   
+
+* [The Master Comparison: Heston vs. Merton vs. Bates](notebooks/quarto_09_Model_Comparison.html)  
+* [Time-Series Out-of-Sample (OOS) Testing](notebooks/quarto_10_OutOfSampleTesting.html)  
+:::
+
+---
+
+## Phase II: The Interactive Structuring Desk (Deployment)
+
+A robust math engine is useless if a trader cannot interact with it. Phase II focused on abstracting the math into a scalable software architecture and deploying it via Streamlit.
+
+### Iteration 1: The Object-Oriented Refactor
+Jupyter notebooks run linearly, which makes them terrible for building dynamic portfolios. To solve this, I entirely refactored the pricing engine using **Object-Oriented Programming (OOP)**.
+* **Abstract Base Classes:** I designed a core `Instrument` class enforcing strict polymorphic protocols (`price()`, `payoff()`). 
+* **Encapsulation:** Subclasses like `ZeroCouponBond` and `EuropeanOption` inherited this base, encapsulating their specific Black-Scholes or intrinsic math. This allows the application to aggregate entirely different asset classes natively without complex `if/else` routing.
+
+### Iteration 2: Session State and Dynamic Construction
+A structuring desk needs to build multi-leg positions (e.g., Iron Condors, Strangles). 
+* Using Streamlit's `st.session_state`, I engineered a persistent memory ledger. Users can continuously inject new `Instrument` objects into their portfolio. 
+* The backend loops through the ledger in real-time, dynamically aggregating the individual payoff profiles into a net portfolio matrix, plotting the exact PnL horizon instantly.
+
+### Iteration 3: 3D Volatility Surface Visualization
+Traders rely on visual heuristics to identify mispricings across the term structure. 
+* I integrated `plotly.graph_objects` to render a high-performance WebGL 3D Volatility Surface. 
+* **Fuzzy Matching:** To allow traders to inspect specific maturity slices, I implemented a 2D Smile extractor. Because floating-point math often causes mismatch errors (e.g., $T=0.1000001$), I utilized `np.isclose` to fuzzy-match the slider input to the underlying DataFrame, ensuring the 2D chart rendered perfectly every time.
+
+## Conclusion
+This workbench stands as a complete, end-to-end demonstration of the quantitative lifecycle. It proves the ability to not only write complex Fourier transformations and navigate local optimization minima but to immediately pivot into software engineering, encapsulating that research into a live, Object-Oriented application ready for a global markets floor.

@@ -100,5 +100,41 @@
   },
   "readings/East of Eden/template.qmd": {
     "template.html": "6ee323da"
+  },
+  "notes/posts/Black-Sholes-Derivation/index.qmd": {
+    "index.html": "eea4467b"
+  },
+  "projects/quant-structuring-workbench/index.qmd": {
+    "index.html": "6b8f6ba3"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_06_Heston_RealDataCalibration.ipynb": {
+    "quarto_06_Heston_RealDataCalibration.html": "31d66f75"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_07_Merton_RealDataCalibration.ipynb": {
+    "quarto_07_Merton_RealDataCalibration.html": "f1dd386e"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.ipynb": {
+    "quarto_01_BlackSholes.html": "b3d24698"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.ipynb": {
+    "quarto_09_Model_Comparison.html": "f41e5de9"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.ipynb": {
+    "quarto_02_MertonJumpDiffusion.html": "a044bc3e"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.ipynb": {
+    "quarto_03_HestonModel.html": "eed54e22"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.ipynb": {
+    "quarto_04_BatesModel.html": "322f9e88"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.ipynb": {
+    "quarto_05_BS_RealDataCalibration.html": "5172d979"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.ipynb": {
+    "quarto_08_Bates_RealDataCalibration.html": "acbe925f"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.ipynb": {
+    "quarto_10_OutOfSampleTesting.html": "c27a5c6b"
   }
 }

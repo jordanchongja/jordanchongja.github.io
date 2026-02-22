@@ -2,7 +2,7 @@
 title: "Singapore Insurance Strategy Dashboard"
 description: "A Streamlit-powered actuarial dashboard that pits 'Buy Term, Invest the Difference' against Whole Life plans, accounting for human behavior and stochastic risk."
 date: 2025-02-16
-categories: [Python, Streamlit, Actuarial Science, Data Visualization, Monte Carlo]
+categories: [Python, Streamlit, Actuarial Science, Data Visualization, Monte Carlo, featured]
 image: featured.png
 image-alt: "Screenshot of the dashboard"
 client: "Personal Project" 

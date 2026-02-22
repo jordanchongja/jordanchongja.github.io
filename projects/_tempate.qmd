@@ -7,7 +7,7 @@ image: featured.png
 image-alt: "Screenshot of the dashboard"
 client: "Personal Project" 
 github-repo: "https://github.com/yourname/repo"
-body-class: "project-detail-view" # <--- ADD THIS
+body-class: "project-detail-view"
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
 ---

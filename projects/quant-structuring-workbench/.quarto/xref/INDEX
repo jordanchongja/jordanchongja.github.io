@@ -1,0 +1,32 @@
+{
+  "quarto_01_BlackSholes.ipynb": {
+    "quarto_01_BlackSholes.html": "234f46d1"
+  },
+  "quarto_02_MertonJumpDiffusion.ipynb": {
+    "quarto_02_MertonJumpDiffusion.html": "8c1f8036"
+  },
+  "quarto_03_HestonModel.ipynb": {
+    "quarto_03_HestonModel.html": "8a5cf828"
+  },
+  "quarto_04_BatesModel.ipynb": {
+    "quarto_04_BatesModel.html": "2a4d0c9a"
+  },
+  "quarto_05_BS_RealDataCalibration.ipynb": {
+    "quarto_05_BS_RealDataCalibration.html": "9c33486b"
+  },
+  "quarto_06_Heston_RealDataCalibration.ipynb": {
+    "quarto_06_Heston_RealDataCalibration.html": "51b91756"
+  },
+  "quarto_07_Merton_RealDataCalibration.ipynb": {
+    "quarto_07_Merton_RealDataCalibration.html": "63cd95de"
+  },
+  "quarto_08_Bates_RealDataCalibration.ipynb": {
+    "quarto_08_Bates_RealDataCalibration.html": "4b3cf373"
+  },
+  "quarto_09_Model_Comparison.ipynb": {
+    "quarto_09_Model_Comparison.html": "71f0c6bc"
+  },
+  "quarto_10_OutOfSampleTesting.ipynb": {
+    "quarto_10_OutOfSampleTesting.html": "606e95d6"
+  }
+}

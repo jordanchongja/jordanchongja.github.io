@@ -4,12 +4,19 @@ description: "Deriving the stochastic volatility model and calibrating it to mar
 date: 2025-02-05
 categories: [Stochastic Calculus, Volatility, Options]
 image: heston_surface.png 
+image-alt: "Screenshot of the dashboard"
+client: "Personal Project" 
+github-repo: "https://github.com/yourname/repo"
 format:
   html:
     mathjax: true 
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
 ---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Status-Completed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/yourname/repo)
 
 <style>
   #quarto-margin-sidebar {
