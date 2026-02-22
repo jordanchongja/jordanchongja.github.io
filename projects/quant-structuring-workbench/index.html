@@ -302,9 +302,25 @@ window.Quarto = {
 <section id="iteration-4-the-bates-model-parameter-redundancy" class="level3">
 <h3 class="anchored" data-anchor-id="iteration-4-the-bates-model-parameter-redundancy">Iteration 4: The Bates Model &amp; Parameter Redundancy</h3>
 <p>The “Final Boss” of the research phase was the Bates (SVJ) model, which merges Heston’s stochastic volatility with Merton’s Poisson jumps. * <strong>Parameter Seeding:</strong> To optimize this 8-parameter monster, I seeded the algorithm with the winning parameters from the individual Heston and Merton runs, allowing it to calibrate in under 60 seconds. * <strong>The Over-parameterization Trap:</strong> The optimizer revealed a fascinating quantitative reality. It forced the average jump size (<span class="math inline">\(\mu_J\)</span>) to exactly <span class="math inline">\(0.0\)</span>. Because Heston’s correlation parameter (<span class="math inline">\(\rho = -0.65\)</span>) was already dragging the left side of the skew upward sufficiently, the optimizer deemed the Merton jumps mathematically redundant for this specific 30-day slice. This served as a masterclass in the dangers of over-parameterization in quantitative modeling.</p>
-<blockquote class="blockquote">
-<p><strong>Explore the Interactive Research Notebooks:</strong> ::: {.callout-note} ### Part I: The Theoretical Frameworks (The “Textbook”) Before touching real data, I built Monte Carlo simulators to visually prove the mathematical intuition behind each model. * <a href="notebooks/quarto_01_BlackSholes.html">Model 1: Black-Scholes &amp; The Flaw of Constant Volatility</a> * <a href="notebooks/quarto_02_MertonJumpDiffusion.html">Model 2: Merton Jump-Diffusion &amp; Market Shocks</a> * <a href="notebooks/quarto_03_HestonModel.html">Model 3: The Heston Model &amp; The Leverage Effect (<span class="math inline">\(\rho\)</span>)</a> * <a href="notebooks/quarto_04_BatesModel.html">Model 4: The Bates Model (SVJ) - The Holy Grail</a> :::</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Part I: The Theoretical Frameworks (The “Textbook”)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before touching real data, I built Monte Carlo simulators to visually prove the mathematical intuition behind each model.</p>
+<ul>
+<li><a href="notebooks/quarto_01_BlackSholes.html">Model 1: Black-Scholes &amp; The Flaw of Constant Volatility</a></li>
+<li><a href="notebooks/quarto_02_MertonJumpDiffusion.html">Model 2: Merton Jump-Diffusion &amp; Market Shocks</a></li>
+<li><a href="notebooks/quarto_03_HestonModel.html">Model 3: The Heston Model &amp; The Leverage Effect (<span class="math inline">\(\rho\)</span>)</a></li>
+<li><a href="notebooks/quarto_04_BatesModel.html">Model 4: The Bates Model (SVJ) - The Holy Grail</a></li>
+</ul>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -315,7 +331,13 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ingesting raw WRDS data for <code>SPX</code> options, I built objective functions to reverse-engineer Implied Volatilities and minimize pricing errors. * <a href="notebooks/quarto_05_BS_RealDataCalibration.html">Calibrating Black-Scholes (Proving the Disconnect)</a> * <a href="notebooks/quarto_06_Merton_RealDataCalibration.html">Calibrating Merton (Fitting the Short-Term Skew)</a> * <a href="notebooks/quarto_07_Heston_RealDataCalibration.html">Calibrating Heston (Hybrid Global-to-Local Search)</a> * <a href="notebooks/quarto_08_Bates_RealDataCalibration.html">Calibrating Bates (Parameter Seeding)</a></p>
+<p>Ingesting raw WRDS data for <code>SPX</code> options, I built objective functions to reverse-engineer Implied Volatilities and minimize pricing errors.</p>
+<ul>
+<li><a href="notebooks/quarto_05_BS_RealDataCalibration.html">Calibrating Black-Scholes (Proving the Disconnect)</a></li>
+<li><a href="notebooks/quarto_06_Merton_RealDataCalibration.html">Calibrating Merton (Fitting the Short-Term Skew)</a></li>
+<li><a href="notebooks/quarto_07_Heston_RealDataCalibration.html">Calibrating Heston (Hybrid Global-to-Local Search)</a></li>
+<li><a href="notebooks/quarto_08_Bates_RealDataCalibration.html">Calibrating Bates (Parameter Seeding)</a></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -328,7 +350,11 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Curve-fitting today’s data is easy; predicting tomorrow’s is the true test of a quant. * <a href="notebooks/quarto_09_Model_Comparison.html">The Master Comparison: Heston vs.&nbsp;Merton vs.&nbsp;Bates</a> * <a href="notebooks/quarto_10_OutOfSampleTesting.html">Time-Series Out-of-Sample (OOS) Testing</a></p>
+<p>Curve-fitting today’s data is easy; predicting tomorrow’s is the true test of a quant.</p>
+<ul>
+<li><a href="notebooks/quarto_09_Model_Comparison.html">The Master Comparison: Heston vs.&nbsp;Merton vs.&nbsp;Bates</a></li>
+<li><a href="notebooks/quarto_10_OutOfSampleTesting.html">Time-Series Out-of-Sample (OOS) Testing</a></li>
+</ul>
 </div>
 </div>
 <hr>
