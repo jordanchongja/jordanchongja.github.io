@@ -9,7 +9,7 @@
 <meta name="author" content="Jordan Chong">
 <meta name="dcterms.date" content="2024-02-22">
 
-<title>10. Out-of-sample Testing for Models – Jordan’s Projects</title>
+<title>7. Merton Model Real Data – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,12 +118,12 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="10. Out-of-sample Testing for Models – Jordan’s Projects">
+<meta property="og:title" content="7. Merton Model Real Data – Jordan’s Projects">
 <meta property="og:image" content="https://jordanchongja.github.io/assets/homepage-preview.png">
 <meta property="og:site_name" content="Jordan's Projects">
 <meta property="og:image:height" content="961">
 <meta property="og:image:width" content="1673">
-<meta name="twitter:title" content="10. Out-of-sample Testing for Models – Jordan’s Projects">
+<meta name="twitter:title" content="7. Merton Model Real Data – Jordan’s Projects">
 <meta name="twitter:image" content="https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/homepage-preview.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -184,15 +184,23 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#setup-importing-and-defining-the-state" id="toc-setup-importing-and-defining-the-state" class="nav-link active" data-scroll-target="#setup-importing-and-defining-the-state"><span class="header-section-number">1</span> Setup: Importing and Defining the State</a></li>
+  <li><a href="#calibration-of-the-merton-jump-model" id="toc-calibration-of-the-merton-jump-model" class="nav-link" data-scroll-target="#calibration-of-the-merton-jump-model"><span class="header-section-number">2</span> Calibration of the Merton-Jump Model</a></li>
+  <li><a href="#visualising-the-model-against-live-data" id="toc-visualising-the-model-against-live-data" class="nav-link" data-scroll-target="#visualising-the-model-against-live-data"><span class="header-section-number">3</span> Visualising the Model against Live Data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">10. Out-of-sample Testing for Models</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">7. Merton Model Real Data</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -221,143 +229,134 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </header>
 
 
-<div id="cccb34d3-c8b4-4e59-88ff-a92b0d020153" class="cell" data-execution_count="1">
+<section id="setup-importing-and-defining-the-state" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="setup-importing-and-defining-the-state"><span class="header-section-number">1</span> Setup: Importing and Defining the State</h2>
+<div id="3bd07529-06b1-4156-a12e-70ac3a8e2a79" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Import your custom engine tools</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data_loader <span class="im">import</span> MarketDataLoader</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> quant_math_engine <span class="im">import</span> bates_call_price, implied_volatility</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Load Data into RAM</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>BASE_DIR <span class="op">=</span> <span class="vs">r"G:</span><span class="dv">\M</span><span class="vs">y Drive</span><span class="ch">\00</span><span class="er">)</span><span class="vs"> Interview Prep</span><span class="ch">\00</span><span class="er">)</span><span class="vs"> Quant</span><span class="dv">\D</span><span class="vs">ata Sources</span><span class="dv">\W</span><span class="vs">RDS Data</span><span class="er">\</span><span class="vs">Returns</span><span class="er">\</span><span class="vs">Options"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> MarketDataLoader(BASE_DIR)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✅ Base Data Loaded. Ready for Out-Of-Sample Testing."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Import your tools</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data_loader <span class="im">import</span> MarketDataLoader</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> quant_math_engine <span class="im">import</span> merton_jump_call, implied_volatility <span class="co"># Change this import for Heston/Bates</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Load the data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>BASE_DIR <span class="op">=</span> <span class="vs">r"G:</span><span class="dv">\M</span><span class="vs">y Drive</span><span class="ch">\00</span><span class="er">)</span><span class="vs"> Interview Prep</span><span class="ch">\00</span><span class="er">)</span><span class="vs"> Quant</span><span class="dv">\D</span><span class="vs">ata Sources</span><span class="dv">\W</span><span class="vs">RDS Data</span><span class="er">\</span><span class="vs">Returns</span><span class="er">\</span><span class="vs">Options"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> MarketDataLoader(BASE_DIR)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>TARGET_DATE <span class="op">=</span> <span class="st">'2024-01-10'</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>TARGET_EXDATE <span class="op">=</span> <span class="st">'2024-02-16'</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> loader.get_market_state(TARGET_DATE, TARGET_EXDATE, strike_bound_pct<span class="op">=</span><span class="fl">0.10</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>S0, T, r, q <span class="op">=</span> state[<span class="st">'S0'</span>], state[<span class="st">'T'</span>], state[<span class="st">'r'</span>], state[<span class="st">'q'</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>market_strikes, market_prices <span class="op">=</span> state[<span class="st">'strikes'</span>], state[<span class="st">'prices'</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calculate target IVs for the optimizer</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>target_ivs <span class="op">=</span> []</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>valid_strikes <span class="op">=</span> []</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, K <span class="kw">in</span> <span class="bu">enumerate</span>(market_strikes):</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    iv <span class="op">=</span> implied_volatility(market_prices[i], S0, K, T, r, q)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> np.isnan(iv):</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        target_ivs.append(iv)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        valid_strikes.append(K)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>valid_strikes <span class="op">=</span> np.array(valid_strikes)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>target_ivs <span class="op">=</span> np.array(target_ivs)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✅ Ready! Targeting </span><span class="sc">{</span><span class="bu">len</span>(valid_strikes)<span class="sc">}</span><span class="ss"> liquid strikes."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loading Options, Spot, Yield, and Dividend Data into memory...
 ✅ Data Loaded Successfully.
-✅ Base Data Loaded. Ready for Out-Of-Sample Testing.</code></pre>
+✅ Ready! Targeting 352 liquid strikes.</code></pre>
 </div>
 </div>
-<div id="4631da42-a9d0-4757-a661-db67930877c4" class="cell" data-execution_count="2">
+</section>
+<section id="calibration-of-the-merton-jump-model" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="calibration-of-the-merton-jump-model"><span class="header-section-number">2</span> Calibration of the Merton-Jump Model</h2>
+<div id="ee367718-cad0-42d2-bbbf-d4418dfcf145" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Define Dates ---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>IN_SAMPLE_DATE <span class="op">=</span> <span class="st">'2024-01-10'</span>    <span class="co"># The day we trained the model</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>OOS_DATE <span class="op">=</span> <span class="st">'2024-01-11'</span>          <span class="co"># The "Future" day we are testing (1 day later)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>TARGET_EXDATE <span class="op">=</span> <span class="st">'2024-02-16'</span>     <span class="co"># The same expiration contract</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Stepping forward in time from </span><span class="sc">{</span>IN_SAMPLE_DATE<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>OOS_DATE<span class="sc">}</span><span class="ss">..."</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Load the Locked-In Parameters (Trained on Jan 10) ---</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We keep these exactly as they were calibrated yesterday!</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>locked_bates_params <span class="op">=</span> {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'v0'</span>: <span class="fl">0.0135</span>, </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kappa'</span>: <span class="fl">3.0290</span>, </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'theta'</span>: <span class="fl">0.0530</span>, </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xi'</span>: <span class="fl">1.1920</span>, </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'rho'</span>: <span class="op">-</span><span class="fl">0.6481</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'lam'</span>: <span class="fl">0.9871</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mu_j'</span>: <span class="fl">0.0</span>,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'delta'</span>: <span class="fl">0.0187</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- MERTON OBJECTIVE FUNCTION ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> merton_objective(params):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    sigma, lam, mu_j, delta <span class="op">=</span> params</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, K <span class="kw">in</span> <span class="bu">enumerate</span>(valid_strikes):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Notice how clean this is because the math is hidden in your engine!</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            m_price <span class="op">=</span> merton_jump_call(S0, K, T, r, q, sigma, lam, mu_j, delta)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            m_iv <span class="op">=</span> implied_volatility(m_price, S0, K, T, r, q)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.isnan(m_iv): error <span class="op">+=</span> <span class="fl">5.0</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>: error <span class="op">+=</span> (m_iv <span class="op">-</span> target_ivs[i])<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> error <span class="op">/</span> <span class="bu">len</span>(valid_strikes)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- RUN OPTIMIZER ---</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>merton_guess <span class="op">=</span> [<span class="fl">0.15</span>, <span class="fl">1.0</span>, <span class="op">-</span><span class="fl">0.15</span>, <span class="fl">0.10</span>] </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>merton_bounds <span class="op">=</span> [(<span class="fl">0.05</span>, <span class="fl">0.30</span>), (<span class="fl">0.1</span>, <span class="fl">5.0</span>), (<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.0</span>), (<span class="fl">0.01</span>, <span class="fl">0.30</span>)]</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Pull the "Future" Market State (Jan 11) ---</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>oos_state <span class="op">=</span> loader.get_market_state(OOS_DATE, TARGET_EXDATE, strike_bound_pct<span class="op">=</span><span class="fl">0.10</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>oos_S0, oos_T, oos_r, oos_q <span class="op">=</span> oos_state[<span class="st">'S0'</span>], oos_state[<span class="st">'T'</span>], oos_state[<span class="st">'r'</span>], oos_state[<span class="st">'q'</span>]</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>oos_market_strikes, oos_market_prices <span class="op">=</span> oos_state[<span class="st">'strikes'</span>], oos_state[<span class="st">'prices'</span>]</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the actual Jan 11 Market IVs</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>oos_target_ivs, oos_valid_strikes <span class="op">=</span> [], []</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, K <span class="kw">in</span> <span class="bu">enumerate</span>(oos_market_strikes):</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    iv <span class="op">=</span> implied_volatility(oos_market_prices[i], oos_S0, K, oos_T, oos_r, oos_q)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> np.isnan(iv):</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        oos_target_ivs.append(iv)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        oos_valid_strikes.append(K)</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>oos_valid_strikes <span class="op">=</span> np.array(oos_valid_strikes)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>oos_target_ivs <span class="op">=</span> np.array(oos_target_ivs)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✅ Future State Acquired: Spot Price moved to </span><span class="sc">{</span>oos_S0<span class="sc">}</span><span class="ss"> | Time remaining: </span><span class="sc">{</span>oos_T<span class="sc">:.4f}</span><span class="ss"> years"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimizing Merton Parameters..."</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>res_merton <span class="op">=</span> minimize(merton_objective, merton_guess, method<span class="op">=</span><span class="st">'L-BFGS-B'</span>, bounds<span class="op">=</span>merton_bounds)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✅ Finished in </span><span class="sc">{</span><span class="bu">round</span>(time.time() <span class="op">-</span> start_time, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">s"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Parameters: </span><span class="sc">{</span>res_merton<span class="sc">.</span>x<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Stepping forward in time from 2024-01-10 to 2024-01-11...
-✅ Future State Acquired: Spot Price moved to 4780.24 | Time remaining: 0.0986 years</code></pre>
+<pre><code>Optimizing Merton Parameters...
+✅ Finished in 62.25s
+Parameters: [ 0.08582077  0.99228655 -0.0824808   0.07785328]</code></pre>
 </div>
 </div>
-<div id="a3fdef1f-3d6a-406f-8be3-05aa84bf4ac6" class="cell" data-execution_count="3">
+</section>
+<section id="visualising-the-model-against-live-data" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="visualising-the-model-against-live-data"><span class="header-section-number">3</span> Visualising the Model against Live Data</h2>
+<div id="e07253e8-7c86-4d5a-a045-f9e1e6d2e332" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Generating Out-Of-Sample Predictions using locked parameters..."</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Generating Volatility Smile..."</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>smooth_strikes <span class="op">=</span> np.linspace(<span class="bu">min</span>(oos_valid_strikes), <span class="bu">max</span>(oos_valid_strikes), <span class="dv">50</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>oos_predicted_prices <span class="op">=</span> []</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>oos_predicted_ivs <span class="op">=</span> []</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate the smooth prediction line for the chart</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> K <span class="kw">in</span> smooth_strikes:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Note: We use oos_S0 and oos_T, but locked_bates_params!</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        p_pred <span class="op">=</span> bates_call_price(oos_S0, K, oos_T, oos_r, oos_q, <span class="op">**</span>locked_bates_params)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        iv_pred <span class="op">=</span> implied_volatility(p_pred, oos_S0, K, oos_T, oos_r, oos_q)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        oos_predicted_ivs.append(iv_pred <span class="op">*</span> <span class="dv">100</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate the specific predictions to calculate the OOS Error</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    oos_error <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, K <span class="kw">in</span> <span class="bu">enumerate</span>(oos_valid_strikes):</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        p_exact <span class="op">=</span> bates_call_price(oos_S0, K, oos_T, oos_r, oos_q, <span class="op">**</span>locked_bates_params)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        iv_exact <span class="op">=</span> implied_volatility(p_exact, oos_S0, K, oos_T, oos_r, oos_q)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> np.isnan(iv_exact):</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            oos_error <span class="op">+=</span> (iv_exact <span class="op">-</span> oos_target_ivs[i])<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>oos_mse <span class="op">=</span> oos_error <span class="op">/</span> <span class="bu">len</span>(oos_valid_strikes)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"✅ Predictions complete. Out-Of-Sample MSE: </span><span class="sc">{</span>oos_mse<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>smooth_strikes <span class="op">=</span> np.linspace(<span class="bu">min</span>(valid_strikes), <span class="bu">max</span>(valid_strikes), <span class="dv">50</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>merton_prices <span class="op">=</span> [merton_jump_call(S0, k, T, r, q, <span class="op">*</span>res_merton.x) <span class="cf">for</span> k <span class="kw">in</span> smooth_strikes]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    merton_iv <span class="op">=</span> [implied_volatility(p, S0, k, T, r, q) <span class="cf">for</span> p, k <span class="kw">in</span> <span class="bu">zip</span>(merton_prices, smooth_strikes)]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>valid_idx <span class="op">=</span> <span class="op">~</span>np.isnan(merton_iv)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>clean_strikes <span class="op">=</span> np.array(smooth_strikes)[valid_idx]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>clean_iv <span class="op">=</span> np.array(merton_iv)[valid_idx] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(valid_strikes, target_ivs <span class="op">*</span> <span class="dv">100</span>, color<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Market IV'</span>, marker<span class="op">=</span><span class="st">'x'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.plot(clean_strikes, clean_iv, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Merton Fit'</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Merton Jump Diffusion Calibration</span><span class="ch">\n</span><span class="ss">SPX Options on </span><span class="sc">{</span>TARGET_DATE<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Strike Price"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Implied Volatility (%)"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Generating Out-Of-Sample Predictions using locked parameters...
-✅ Predictions complete. Out-Of-Sample MSE: 0.000043</code></pre>
+<pre><code>Generating Volatility Smile...</code></pre>
 </div>
-</div>
-<div id="5c2f0c74-2d9a-4d4a-9e93-4ccf4fcb34c3" class="cell" data-execution_count="4">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the NEW Market Data for Day 2</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(oos_valid_strikes, oos_target_ivs <span class="op">*</span> <span class="dv">100</span>, color<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="ss">f'Actual Market IV on </span><span class="sc">{</span>OOS_DATE<span class="sc">}</span><span class="ss">'</span>, marker<span class="op">=</span><span class="st">'x'</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Model's PREDICTION based on Day 1's training</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.plot(smooth_strikes, oos_predicted_ivs, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="ss">f'Bates SVJ Prediction (Trained on </span><span class="sc">{</span>IN_SAMPLE_DATE<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Formatting</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.axvline(oos_S0, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="ss">f'New Spot Price (S0 = </span><span class="sc">{</span>oos_S0<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Out-of-Sample Testing: Bates Model Predictive Power</span><span class="ch">\n</span><span class="ss">Predicting </span><span class="sc">{</span>OOS_DATE<span class="sc">}</span><span class="ss"> prices using </span><span class="sc">{</span>IN_SAMPLE_DATE<span class="sc">}</span><span class="ss"> parameters"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Strike Price"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Implied Volatility (%)"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="quarto_10_OutOfSampleTesting_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="quarto_07_Merton_RealDataCalibration_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

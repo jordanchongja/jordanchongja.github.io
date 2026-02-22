@@ -10,7 +10,17 @@
     "items": [
       "/projects/sg-insurance-model/index.html",
       "/projects/gap-challenge-solver/index.html",
-      "/projects/quant-structuring-workbench/index.html"
+      "/projects/quant-structuring-workbench/index.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_06_Heston_RealDataCalibration.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_07_Merton_RealDataCalibration.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.html",
+      "/projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.html"
     ]
   },
   {
