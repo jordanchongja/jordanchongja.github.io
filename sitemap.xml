@@ -1,95 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jordanchongja.github.io/readings/index.html</loc>
-    <lastmod>2026-02-05T15:03:41.910Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/This is What Inequality Looks Like/index.html</loc>
+    <lastmod>2026-02-27T05:08:44.092Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/projects/sg-insurance-model/index.html</loc>
-    <lastmod>2026-02-16T07:22:30.018Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Ministry of Moral Panic/index.html</loc>
+    <lastmod>2026-02-27T05:21:00.877Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.html</loc>
-    <lastmod>2026-02-22T12:42:54.981Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_07_Heston_RealDataCalibration.html</loc>
-    <lastmod>2026-02-22T12:43:50.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.html</loc>
-    <lastmod>2026-02-22T12:44:36.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.html</loc>
-    <lastmod>2026-02-22T12:45:11.294Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.html</loc>
-    <lastmod>2026-02-22T12:45:45.660Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/index.html</loc>
-    <lastmod>2026-02-22T13:29:54.535Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/notes/posts/Black-Sholes-Derivation/index.html</loc>
-    <lastmod>2026-02-22T13:42:58.359Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/license.html</loc>
-    <lastmod>2025-12-02T04:41:31.952Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/cv.html</loc>
-    <lastmod>2025-12-02T04:41:32.119Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/about.html</loc>
-    <lastmod>2025-12-02T04:41:32.114Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/contact.html</loc>
-    <lastmod>2025-12-02T04:41:32.118Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/index.html</loc>
-    <lastmod>2026-02-10T03:42:02.819Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/notes/index.html</loc>
-    <lastmod>2026-02-05T06:32:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/gap-challenge-solver/index.html</loc>
-    <lastmod>2026-02-16T07:13:08.830Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/index.html</loc>
-    <lastmod>2026-02-22T13:26:48.255Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.html</loc>
-    <lastmod>2026-02-22T12:45:28.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.html</loc>
-    <lastmod>2026-02-22T12:44:55.634Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_06_Merton_RealDataCalibration.html</loc>
-    <lastmod>2026-02-22T12:44:10.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.html</loc>
-    <lastmod>2026-02-22T12:43:24.883Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/East of Eden/index.html</loc>
+    <lastmod>2026-02-27T04:17:50.824Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.html</loc>
     <lastmod>2026-02-22T12:46:03.004Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/readings/East of Eden/template.html</loc>
-    <lastmod>2026-02-05T15:03:03.468Z</lastmod>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.html</loc>
+    <lastmod>2026-02-22T12:43:24.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_06_Merton_RealDataCalibration.html</loc>
+    <lastmod>2026-02-22T12:44:10.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.html</loc>
+    <lastmod>2026-02-22T12:44:55.634Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.html</loc>
+    <lastmod>2026-02-22T12:45:28.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/index.html</loc>
+    <lastmod>2026-02-22T13:26:48.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/gap-challenge-solver/index.html</loc>
+    <lastmod>2026-02-16T07:13:08.830Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/index.html</loc>
+    <lastmod>2026-02-05T06:32:06.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/index.html</loc>
+    <lastmod>2026-02-10T03:42:02.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/contact.html</loc>
+    <lastmod>2025-12-02T04:41:32.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/about.html</loc>
+    <lastmod>2025-12-02T04:41:32.114Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/cv.html</loc>
+    <lastmod>2025-12-02T04:41:32.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/license.html</loc>
+    <lastmod>2025-12-02T04:41:31.952Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/Black-Sholes-Derivation/index.html</loc>
+    <lastmod>2026-02-22T13:42:58.359Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/index.html</loc>
+    <lastmod>2026-02-22T13:29:54.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.html</loc>
+    <lastmod>2026-02-22T12:45:45.660Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.html</loc>
+    <lastmod>2026-02-22T12:45:11.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.html</loc>
+    <lastmod>2026-02-22T12:44:36.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_07_Heston_RealDataCalibration.html</loc>
+    <lastmod>2026-02-22T12:43:50.963Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.html</loc>
+    <lastmod>2026-02-22T12:42:54.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/sg-insurance-model/index.html</loc>
+    <lastmod>2026-02-16T07:22:30.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/index.html</loc>
+    <lastmod>2026-02-05T15:03:41.910Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The God of Small Things/index.html</loc>
+    <lastmod>2026-02-27T05:27:50.926Z</lastmod>
   </url>
 </urlset>

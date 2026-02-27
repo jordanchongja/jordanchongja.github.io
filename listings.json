@@ -1,16 +1,8 @@
 [
   {
-    "listing": "/readings/index.html",
+    "listing": "/notes/index.html",
     "items": [
-      "/readings/East of Eden/template.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/quant-structuring-workbench/index.html"
+      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
   {
@@ -22,9 +14,20 @@
     ]
   },
   {
-    "listing": "/notes/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/notes/posts/Black-Sholes-Derivation/index.html"
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/quant-structuring-workbench/index.html"
+    ]
+  },
+  {
+    "listing": "/readings/index.html",
+    "items": [
+      "/readings/Ministry of Moral Panic/index.html",
+      "/readings/This is What Inequality Looks Like/index.html",
+      "/readings/East of Eden/index.html",
+      "/readings/The God of Small Things/index.html"
     ]
   }
 ]
