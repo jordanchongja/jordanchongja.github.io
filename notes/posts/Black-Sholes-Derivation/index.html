@@ -431,9 +431,9 @@ d\Pi = r \Pi dt
 \]</span></p>
 <p>This equation dictates exactly how the option price must behave to prevent arbitrage. But an equation is not a price. To get a dollar value, we have to solve this PDE subject to a boundary condition: at maturity (<span class="math inline">\(T\)</span>), a call option is worth exactly <span class="math inline">\(\max(S_T - K, 0)\)</span>.</p>
 <p>From here, quantitative finance splits into two distinct paths: <strong>Numerical Methods</strong> and <strong>Analytical Methods</strong>.</p>
-<center>
-<a href="notebooks/BS_NumericalMethods.html">Jupyter Notebook for code regarding Black-Scholes Numerical Methods</a>
-</center>
+<div class="text-center">
+<p><a href="\notes\posts\Numerical Methods for Black-Sholes\BS_NumericalMethods.ipynb" class="btn btn-primary btn-lg" role="button"> Go to the Next Post </a></p>
+</div>
 <section id="path-a-the-numerical-approach-finite-difference-methods" class="level4">
 <h4 class="anchored" data-anchor-id="path-a-the-numerical-approach-finite-difference-methods">Path A: The Numerical Approach (Finite Difference Methods)</h4>
 <p>Instead of looking for a perfect algebraic formula, Numerical Methods use brute-force computation. We chop time and asset prices into a massive grid (a matrix). We know the exact payoff at expiration (the rightmost edge of the grid), and we mathematically step backward through time, cell by cell, until we reach “today” (the leftmost edge).</p>

@@ -10,6 +10,7 @@
   {
     "listing": "/notes/index.html",
     "items": [
+      "/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html",
       "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
