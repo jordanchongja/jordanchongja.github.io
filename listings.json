@@ -1,16 +1,17 @@
 [
   {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/Black-Sholes-Derivation/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/projects/sg-insurance-model/index.html",
       "/projects/gap-challenge-solver/index.html",
       "/projects/quant-structuring-workbench/index.html"
+    ]
+  },
+  {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/Black-Sholes-Derivation/notebooks/BS_NumericalMethods.html",
+      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
   {

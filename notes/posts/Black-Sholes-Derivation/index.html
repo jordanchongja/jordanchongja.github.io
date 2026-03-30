@@ -191,8 +191,8 @@ window.Quarto = {
   <ul>
   <li><a href="#the-full-mathematical-derivation-of-the-call-formula" id="toc-the-full-mathematical-derivation-of-the-call-formula" class="nav-link active" data-scroll-target="#the-full-mathematical-derivation-of-the-call-formula">The Full Mathematical Derivation of the Call Formula</a>
   <ul class="collapse">
-  <li><a href="#the-stochastic-framework" id="toc-the-stochastic-framework" class="nav-link" data-scroll-target="#the-stochastic-framework">1. The Stochastic Framework</a></li>
-  <li><a href="#the-taylor-series-expansion-the-divergence-from-ordinary-calculus" id="toc-the-taylor-series-expansion-the-divergence-from-ordinary-calculus" class="nav-link" data-scroll-target="#the-taylor-series-expansion-the-divergence-from-ordinary-calculus">2. The Taylor Series Expansion (The Divergence from Ordinary Calculus)</a></li>
+  <li><a href="#introduction-starting-with-a-stochastic-model-of-the-underlying-asset-price" id="toc-introduction-starting-with-a-stochastic-model-of-the-underlying-asset-price" class="nav-link" data-scroll-target="#introduction-starting-with-a-stochastic-model-of-the-underlying-asset-price">1. Introduction: Starting with a stochastic model of the underlying asset price</a></li>
+  <li><a href="#the-divergence-from-ordinary-calculus-taylor-series-expansion" id="toc-the-divergence-from-ordinary-calculus-taylor-series-expansion" class="nav-link" data-scroll-target="#the-divergence-from-ordinary-calculus-taylor-series-expansion">2. The Divergence from Ordinary Calculus (Taylor Series Expansion)</a></li>
   <li><a href="#analyzing-delta-x2-and-the-rules-of-stochastic-calculus" id="toc-analyzing-delta-x2-and-the-rules-of-stochastic-calculus" class="nav-link" data-scroll-target="#analyzing-delta-x2-and-the-rules-of-stochastic-calculus">3. Analyzing <span class="math inline">\((\Delta X)^2\)</span> and the Rules of Stochastic Calculus</a></li>
   <li><a href="#final-substitution" id="toc-final-substitution" class="nav-link" data-scroll-target="#final-substitution">4. Final Substitution</a></li>
   <li><a href="#the-result-itôs-lemma" id="toc-the-result-itôs-lemma" class="nav-link" data-scroll-target="#the-result-itôs-lemma">5. The Result: Itô’s Lemma</a></li>
@@ -255,23 +255,27 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-full-mathematical-derivation-of-the-call-formula">The Full Mathematical Derivation of the Call Formula</h2>
 <p>To truly understand Black-Scholes, we must walk step-by-step from the assumption of the asset’s random walk to the final pricing formula. We do this by deriving Itô’s Lemma, establishing the Partial Differential Equation (PDE), transforming it into an expected value, and integrating.</p>
 <hr>
-<section id="the-stochastic-framework" class="level3">
-<h3 class="anchored" data-anchor-id="the-stochastic-framework">1. The Stochastic Framework</h3>
+<section id="introduction-starting-with-a-stochastic-model-of-the-underlying-asset-price" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-starting-with-a-stochastic-model-of-the-underlying-asset-price">1. Introduction: Starting with a stochastic model of the underlying asset price</h3>
 <p>Suppose we have a stochastic process <span class="math inline">\(X_t\)</span> that models our asset price, following a generalized Itô drift-diffusion process:</p>
 <p><span class="math display">\[
 dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 \]</span></p>
-<p>Where: * <span class="math inline">\(\mu(X_t, t)\)</span> is the predictable, deterministic drift. * <span class="math inline">\(\sigma(X_t, t)\)</span> is the volatility (diffusion) scaling factor. * <span class="math inline">\(dW_t\)</span> is the increment of a standard Wiener process (Brownian motion), representing random market shocks.</p>
-<p>We want to find the differential <span class="math inline">\(df\)</span> of a scalar function <span class="math inline">\(f(X_t, t)\)</span>—such as an option pricing function—that is at least twice-differentiable in <span class="math inline">\(x\)</span> and once-differentiable in <span class="math inline">\(t\)</span>.</p>
+<p>Where:<br>
+* <span class="math inline">\(\mu(X_t, t)\)</span> is the predictable, deterministic drift.<br>
+* <span class="math inline">\(\sigma(X_t, t)\)</span> is the volatility (diffusion) scaling factor.<br>
+* <span class="math inline">\(dW_t\)</span> is the increment of a standard Wiener process (Brownian motion), representing random market shocks.</p>
+<p>Now that we have a function that describes the movement of the underlying asset price, we want to have a function that describes the movement of the option price on top of it. Therefore, working with this function of the underlying stock, we want to find the option pricing function on top of this, more specifically, the differential <span class="math inline">\(df\)</span> of a scalar function <span class="math inline">\(f(X_t, t)\)</span>, that is at least twice-differentiable in <span class="math inline">\(x\)</span> and once-differentiable in <span class="math inline">\(t\)</span>. The option pricing function needs to be at least twice-differentiable in <span class="math inline">\(x\)</span> because Ito Calculus shows that the second-order term in the Taylor expansion does not disappear like in traditional calculus.</p>
+<p>To find this differential, we can’t simply reach for the standard chain rule of classical calculus. Because our underlying price <span class="math inline">\(X_t\)</span> is driven by the ‘infinite zig-zags’ of Brownian motion, it is too jagged to be handled by ordinary derivatives. To build a bridge between the movement of the asset and the movement of the function, we must return to first principles: the Taylor Series expansion. As we are about to see, the rules for what we consider ‘negligible’ are fundamentally rewritten when the underlying world refuses to sit still.</p>
 <hr>
 </section>
-<section id="the-taylor-series-expansion-the-divergence-from-ordinary-calculus" class="level3">
-<h3 class="anchored" data-anchor-id="the-taylor-series-expansion-the-divergence-from-ordinary-calculus">2. The Taylor Series Expansion (The Divergence from Ordinary Calculus)</h3>
+<section id="the-divergence-from-ordinary-calculus-taylor-series-expansion" class="level3">
+<h3 class="anchored" data-anchor-id="the-divergence-from-ordinary-calculus-taylor-series-expansion">2. The Divergence from Ordinary Calculus (Taylor Series Expansion)</h3>
 <p>We begin by examining the change in our function <span class="math inline">\(f\)</span> over an infinitesimally small time increment <span class="math inline">\(\Delta t\)</span>. We use a two-variable Taylor expansion:</p>
 <p><span class="math display">\[
 \Delta f \approx \frac{\partial f}{\partial t}\Delta t + \frac{\partial f}{\partial x}\Delta X + \frac{1}{2}\frac{\partial^2 f}{\partial x^2}(\Delta X)^2 + \frac{1}{2}\frac{\partial^2 f}{\partial t^2}(\Delta t)^2 + \frac{\partial^2 f}{\partial x \partial t}(\Delta X \Delta t) + \dots
 \]</span></p>
-<p><strong>The Core Difference:</strong> In standard, deterministic calculus, as <span class="math inline">\(\Delta t \to 0\)</span>, any terms of order higher than <span class="math inline">\(\Delta t\)</span> (like <span class="math inline">\(\Delta t^2\)</span> or <span class="math inline">\(\Delta x^2\)</span>) shrink to zero so rapidly that they become negligible. We simply drop them.</p>
+<p><strong>The Core Difference:</strong> In standard, deterministic calculus, as <span class="math inline">\(\Delta t \to 0\)</span>, any terms of order higher than <span class="math inline">\(\Delta t\)</span> (like <span class="math inline">\(\Delta t^2\)</span> or <span class="math inline">\(\Delta x^2\)</span>, the 3rd and 4th term in the above equation) shrink to zero so rapidly that they become negligible. We simply drop them.</p>
 <p>However, in the stochastic world, the path of <span class="math inline">\(X_t\)</span> is driven by the random walk of <span class="math inline">\(W_t\)</span>. Brownian motion is continuous but nowhere differentiable—it is infinitely jagged.</p>
 <p>Because of this extreme jaggedness, the squared variation <span class="math inline">\((\Delta X)^2\)</span> does <em>not</em> shrink to zero faster than <span class="math inline">\(\Delta t\)</span>. It is large enough that it must be kept in our equation.</p>
 <hr>
@@ -284,12 +288,20 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 \]</span> <span class="math display">\[
 (\Delta X)^2 = \mu^2 (\Delta t)^2 + 2\mu\sigma (\Delta t \Delta W) + \sigma^2 (\Delta W)^2
 \]</span></p>
-<p>Now, we take the limit as <span class="math inline">\(\Delta t \to 0\)</span> and apply the formal multiplication rules of stochastic calculus (Itô multiplication table): * <span class="math inline">\(dt \cdot dt = 0\)</span> (Shrinks too fast) * <span class="math inline">\(dt \cdot dW_t = 0\)</span> (Shrinks too fast, scales as <span class="math inline">\(dt^{3/2}\)</span>) * <strong><span class="math inline">\(dW_t \cdot dW_t = dt\)</span></strong> (The critical survival)</p>
+<p>Now, we take the limit as <span class="math inline">\(\Delta t \to 0\)</span> and apply the formal multiplication rules of stochastic calculus (Itô multiplication table):<br>
+* <span class="math inline">\(dt \cdot dt = 0\)</span> (Shrinks too fast)<br>
+* <span class="math inline">\(dt \cdot dW_t = 0\)</span> (Shrinks too fast, scales as <span class="math inline">\(dt^{3/2}\)</span>)<br>
+* <strong><span class="math inline">\(dW_t \cdot dW_t = dt\)</span></strong> (The critical survival)</p>
 <blockquote class="blockquote">
 <h3 id="deep-dive-why-does-dw_t2-dt" class="anchored">Deep Dive: Why does <span class="math inline">\((dW_t)^2 = dt\)</span>?</h3>
 <p>The jump to <span class="math inline">\((dW_t)^2 = dt\)</span> is the most unintuitive part of stochastic calculus. How can a random variable squared equal a deterministic, predictable passage of time? We can break this down statistically, behaviorally, and heuristically.</p>
 <h4 id="the-statistical-properties" class="anchored">1. The Statistical Properties</h4>
-<p>Here is the exact step-by-step logic chain to prove this equivalence: * <strong>Definition:</strong> By definition, an increment of a Wiener process follows a normal distribution centered at zero: <span class="math inline">\(\Delta W \sim \mathcal{N}(0, \Delta t)\)</span>. * <strong>Variance Formula:</strong> From fundamental statistics, the variance of any random variable is <span class="math inline">\(Var[\Delta W] = E[(\Delta W)^2] - (E[\Delta W])^2\)</span>. * <strong>Plug in the numbers:</strong> Since the mean expected value <span class="math inline">\(E[\Delta W]\)</span> is exactly <span class="math inline">\(0\)</span>, squaring it <span class="math inline">\((E[\Delta W])^2\)</span> is also <span class="math inline">\(0\)</span>. * <strong>The Reduction:</strong> This leaves us with a perfectly simplified equation: <span class="math inline">\(Var[\Delta W] = E[(\Delta W)^2]\)</span>. * <strong>The Result:</strong> Because the variance of a Wiener process over time <span class="math inline">\(\Delta t\)</span> is defined as <span class="math inline">\(\Delta t\)</span>, it must be mathematically true that the expected value of the squared increment is the time step itself: <span class="math inline">\(E[(\Delta W)^2] = \Delta t\)</span>.</p>
+<p>Here is the exact step-by-step logic chain to prove this equivalence:<br>
+* <strong>Definition:</strong> By definition, an increment of a Wiener process follows a normal distribution centered at zero: <span class="math inline">\(\Delta W \sim \mathcal{N}(0, \Delta t)\)</span>.<br>
+* <strong>Variance Formula:</strong> From fundamental statistics, the variance of any random variable is <span class="math inline">\(Var[\Delta W] = E[(\Delta W)^2] - (E[\Delta W])^2\)</span>.<br>
+* <strong>Plug in the numbers:</strong> Since the mean expected value <span class="math inline">\(E[\Delta W]\)</span> is exactly <span class="math inline">\(0\)</span>, squaring it <span class="math inline">\((E[\Delta W])^2\)</span> is also <span class="math inline">\(0\)</span>.<br>
+* <strong>The Reduction:</strong> This leaves us with a perfectly simplified equation: <span class="math inline">\(Var[\Delta W] = E[(\Delta W)^2]\)</span>.<br>
+* <strong>The Result:</strong> Because the variance of a Wiener process over time <span class="math inline">\(\Delta t\)</span> is defined as <span class="math inline">\(\Delta t\)</span>, it must be mathematically true that the expected value of the squared increment is the time step itself: <span class="math inline">\(E[(\Delta W)^2] = \Delta t\)</span>.</p>
 <h4 id="the-law-of-large-numbers-quadratic-variation" class="anchored">2. The Law of Large Numbers (Quadratic Variation)</h4>
 <p>One might naturally ask: <em>“If <span class="math inline">\(E[(\Delta W)^2] = \Delta t\)</span>, isn’t <span class="math inline">\((\Delta W)^2\)</span> still a random variable around that expected value?”</em></p>
 <p>Yes, for a single, isolated step, it is. However, Itô’s Lemma deals with continuous time, where the limit as <span class="math inline">\(\Delta t \to 0\)</span>. If we divide a time interval <span class="math inline">\([0, T]\)</span> into <span class="math inline">\(n\)</span> microscopic pieces, the total sum of these squared increments is called the <strong>Quadratic Variation</strong>: <span class="math display">\[[W, W]_T = \lim_{n \to \infty} \sum_{i=1}^{n} (W_{t_i} - W_{t_{i-1}})^2\]</span></p>
@@ -307,7 +319,9 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 <p><span class="math display">\[
 df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial x}dX_t + \frac{1}{2}\frac{\partial^2 f}{\partial x^2}(dX_t)^2
 \]</span></p>
-<p>Next, we substitute our initial definitions: * <span class="math inline">\(dX_t = \mu dt + \sigma dW_t\)</span> * <span class="math inline">\((dX_t)^2 = \sigma^2 dt\)</span></p>
+<p>Next, we substitute our initial definitions:<br>
+* <span class="math inline">\(dX_t = \mu dt + \sigma dW_t\)</span><br>
+* <span class="math inline">\((dX_t)^2 = \sigma^2 dt\)</span></p>
 <p><span class="math display">\[
 df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial x}(\mu dt + \sigma dW_t) + \frac{1}{2}\frac{\partial^2 f}{\partial x^2}(\sigma^2 dt)
 \]</span></p>
@@ -332,7 +346,9 @@ df = \left( \frac{\partial f}{\partial t} + \mu \frac{\partial f}{\partial x} + 
 <p>We want to observe how the value of this portfolio changes over a microscopic time step <span class="math inline">\(dt\)</span>. By applying basic differentiation: <span class="math display">\[
 d\Pi = dV - \Delta dS
 \]</span></p>
-<p>Now, we substitute the two massive equations we have built so far: 1. <strong><span class="math inline">\(dV\)</span>:</strong> The change in the option price (from Itô’s Lemma). 2. <strong><span class="math inline">\(dS\)</span>:</strong> The change in the stock price (from our Geometric Brownian Motion assumption: <span class="math inline">\(dS = \mu S dt + \sigma S dW_t\)</span>).</p>
+<p>Now, we substitute the two massive equations we have built so far:<br>
+1. <strong><span class="math inline">\(dV\)</span>:</strong> The change in the option price (from Itô’s Lemma).<br>
+2. <strong><span class="math inline">\(dS\)</span>:</strong> The change in the stock price (from our Geometric Brownian Motion assumption: <span class="math inline">\(dS = \mu S dt + \sigma S dW_t\)</span>).</p>
 <p>Substituting these into our portfolio equation yields: <span class="math display">\[
 d\Pi = \left[ \left( \frac{\partial V}{\partial t} + \mu S \frac{\partial V}{\partial S} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt + \sigma S \frac{\partial V}{\partial S} dW_t \right] - \Delta \left[ \mu S dt + \sigma S dW_t \right]
 \]</span></p>
@@ -375,7 +391,9 @@ d\Pi = r \Pi dt
 </section>
 <section id="equating-the-math-and-the-economics" class="level4">
 <h4 class="anchored" data-anchor-id="equating-the-math-and-the-economics">Equating the Math and the Economics</h4>
-<p>We now have two completely different ways to describe the change in our portfolio (<span class="math inline">\(d\Pi\)</span>). 1. <strong>The Calculus View</strong> (from Itô’s Lemma): <span class="math inline">\(d\Pi = \left( \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt\)</span> 2. <strong>The Economics View</strong> (from No-Arbitrage): <span class="math inline">\(d\Pi = r \Pi dt\)</span></p>
+<p>We now have two completely different ways to describe the change in our portfolio (<span class="math inline">\(d\Pi\)</span>).<br>
+1. <strong>The Calculus View</strong> (from Itô’s Lemma): <span class="math inline">\(d\Pi = \left( \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt\)</span><br>
+2. <strong>The Economics View</strong> (from No-Arbitrage): <span class="math inline">\(d\Pi = r \Pi dt\)</span></p>
 <p>Because these describe the exact same portfolio, we can set them equal to each other: <span class="math display">\[
 \left( \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt = r \Pi dt
 \]</span></p>
@@ -394,9 +412,12 @@ d\Pi = r \Pi dt
 <h4 class="anchored" data-anchor-id="the-grand-reveal-deconstructing-the-pde">The Grand Reveal: Deconstructing the PDE</h4>
 <p>This is it. This is the <strong>Black-Scholes Partial Differential Equation</strong>. It is one of the most famous equations in finance, and every single term has a physical, trading interpretation, often mapped directly to the “Greeks”:</p>
 <ol type="1">
-<li><strong><span class="math inline">\(\frac{\partial V}{\partial t}\)</span> (Theta - Time Decay):</strong> This is negative for options. As time ticks closer to expiration, the option loses value because there is less time for the stock to make a favorable move.</li>
-<li><strong><span class="math inline">\(rS \frac{\partial V}{\partial S}\)</span> (Risk-Neutral Drift):</strong> This term represents the cost of financing the Delta-hedged position in the stock.</li>
-<li><strong><span class="math inline">\(\frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}\)</span> (Gamma - Convexity):</strong> This is the engine of the option’s value. Because the second derivative (<span class="math inline">\(\Gamma\)</span>) is positive, volatility (<span class="math inline">\(\sigma^2\)</span>) directly <em>adds</em> value to the option. This perfectly offsets the bleed from time decay (<span class="math inline">\(\Theta\)</span>).</li>
+<li><strong><span class="math inline">\(\frac{\partial V}{\partial t}\)</span> (Theta - Time Decay):</strong> This is negative for options. As time ticks closer to expiration, the option loses value because there is less time for the stock to make a favorable move.<br>
+</li>
+<li><strong><span class="math inline">\(rS \frac{\partial V}{\partial S}\)</span> (Risk-Neutral Drift):</strong> This term represents the cost of financing the Delta-hedged position in the stock.<br>
+</li>
+<li><strong><span class="math inline">\(\frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}\)</span> (Gamma - Convexity):</strong> This is the engine of the option’s value. Because the second derivative (<span class="math inline">\(\Gamma\)</span>) is positive, volatility (<span class="math inline">\(\sigma^2\)</span>) directly <em>adds</em> value to the option. This perfectly offsets the bleed from time decay (<span class="math inline">\(\Theta\)</span>).<br>
+</li>
 <li><strong><span class="math inline">\(- rV\)</span> (Discounting):</strong> This simply discounts the final payoff of the option back to present value at the risk-free rate.</li>
 </ol>
 <p>The beauty of the Black-Scholes PDE is that the expected return of the stock (<span class="math inline">\(\mu\)</span>) has completely vanished! Because we can hedge away the directional risk of the stock, the option’s price depends only on the stock’s <em>volatility</em> (<span class="math inline">\(\sigma\)</span>), not its expected direction.</p>
@@ -410,16 +431,23 @@ d\Pi = r \Pi dt
 \]</span></p>
 <p>This equation dictates exactly how the option price must behave to prevent arbitrage. But an equation is not a price. To get a dollar value, we have to solve this PDE subject to a boundary condition: at maturity (<span class="math inline">\(T\)</span>), a call option is worth exactly <span class="math inline">\(\max(S_T - K, 0)\)</span>.</p>
 <p>From here, quantitative finance splits into two distinct paths: <strong>Numerical Methods</strong> and <strong>Analytical Methods</strong>.</p>
+<center>
+<a href="notebooks/BS_NumericalMethods.html">Jupyter Notebook for code regarding Black-Scholes Numerical Methods</a>
+</center>
 <section id="path-a-the-numerical-approach-finite-difference-methods" class="level4">
 <h4 class="anchored" data-anchor-id="path-a-the-numerical-approach-finite-difference-methods">Path A: The Numerical Approach (Finite Difference Methods)</h4>
 <p>Instead of looking for a perfect algebraic formula, Numerical Methods use brute-force computation. We chop time and asset prices into a massive grid (a matrix). We know the exact payoff at expiration (the rightmost edge of the grid), and we mathematically step backward through time, cell by cell, until we reach “today” (the leftmost edge).</p>
-<p>To do this, we approximate the continuous derivatives from our PDE using discrete “differences” on our grid. Let <span class="math inline">\(V_i^j\)</span> be the option price at stock price node <span class="math inline">\(i\)</span> and time step <span class="math inline">\(j\)</span>. * <strong>Delta (First Derivative of Space):</strong> <span class="math inline">\(\frac{\partial V}{\partial S} \approx \frac{V_{i+1}^j - V_{i-1}^j}{2\Delta S}\)</span> * <strong>Gamma (Second Derivative of Space):</strong> <span class="math inline">\(\frac{\partial^2 V}{\partial S^2} \approx \frac{V_{i+1}^j - 2V_i^j + V_{i-1}^j}{(\Delta S)^2}\)</span> * <strong>Theta (First Derivative of Time):</strong> <span class="math inline">\(\frac{\partial V}{\partial t} \approx \frac{V_i^{j+1} - V_i^j}{\Delta t}\)</span></p>
+<p>To do this, we approximate the continuous derivatives from our PDE using discrete “differences” on our grid. Let <span class="math inline">\(V_i^j\)</span> be the option price at stock price node <span class="math inline">\(i\)</span> and time step <span class="math inline">\(j\)</span>.<br>
+* <strong>Delta (First Derivative of Space):</strong> <span class="math inline">\(\frac{\partial V}{\partial S} \approx \frac{V_{i+1}^j - V_{i-1}^j}{2\Delta S}\)</span><br>
+* <strong>Gamma (Second Derivative of Space):</strong> <span class="math inline">\(\frac{\partial^2 V}{\partial S^2} \approx \frac{V_{i+1}^j - 2V_i^j + V_{i-1}^j}{(\Delta S)^2}\)</span><br>
+* <strong>Theta (First Derivative of Time):</strong> <span class="math inline">\(\frac{\partial V}{\partial t} \approx \frac{V_i^{j+1} - V_i^j}{\Delta t}\)</span></p>
 <p>By substituting these grid approximations into the Black-Scholes PDE, we can build a programmatic solver. There are three main ways to construct this grid, trading off between computational speed and mathematical stability.</p>
 <section id="the-explicit-scheme" class="level5">
 <h5 class="anchored" data-anchor-id="the-explicit-scheme">1. The Explicit Scheme</h5>
 <p>The Explicit method is the simplest. To find the unknown option price at a specific node one step back in time (<span class="math inline">\(V_i^j\)</span>), it relies <em>only</em> on the already-known information from the nodes immediately ahead of it in the future (<span class="math inline">\(V_{i-1}^{j+1}, V_i^{j+1}, V_{i+1}^{j+1}\)</span>).</p>
 <ul>
-<li><strong>Pros:</strong> It is incredibly easy to code. The calculation for each node is a simple linear equation.</li>
+<li><strong>Pros:</strong> It is incredibly easy to code. The calculation for each node is a simple linear equation.<br>
+</li>
 <li><strong>Cons:</strong> It is <strong>conditionally stable</strong>. If your time steps (<span class="math inline">\(\Delta t\)</span>) are too large compared to your price steps (<span class="math inline">\(\Delta S\)</span>), the mathematical errors compound exponentially. The grid “blows up,” and your computer will output an option price of infinity.</li>
 </ul>
 </section>
@@ -428,7 +456,8 @@ d\Pi = r \Pi dt
 <p>The Implicit method flips the logic. Instead of expressing the current time step as a function of the future, it expresses the <em>future</em> known boundary conditions as a function of the <em>current</em> unknown time step.</p>
 <p>Because multiple unknown nodes depend on each other simultaneously, you cannot calculate them one by one. You must solve the entire column of the grid at the exact same time using a system of linear equations (specifically, by inverting a tridiagonal matrix).</p>
 <ul>
-<li><strong>Pros:</strong> It is <strong>unconditionally stable</strong>. No matter how large you make your time steps, the math will never blow up.</li>
+<li><strong>Pros:</strong> It is <strong>unconditionally stable</strong>. No matter how large you make your time steps, the math will never blow up.<br>
+</li>
 <li><strong>Cons:</strong> It is computationally expensive. Solving a massive matrix at every single time step requires significantly more processing power.</li>
 </ul>
 </section>
@@ -559,7 +588,10 @@ d_2 = d_1 - \sigma \sqrt{\tau} = \frac{\ln(S_t/K) + (r - \frac{\sigma^2}{2})\tau
 \]</span></p>
 <section id="financial-intuition-of-the-formula" class="level4">
 <h4 class="anchored" data-anchor-id="financial-intuition-of-the-formula">Financial Intuition of the Formula</h4>
-<p>The math is beautiful, but what does it actually mean for a trader? * <strong><span class="math inline">\(N(d_2)\)</span></strong> is the risk-neutral probability that the option will expire “in-the-money” (that <span class="math inline">\(S_T &gt; K\)</span>). Therefore, <span class="math inline">\(K e^{-r\tau} N(d_2)\)</span> is simply the expected cost of having to pay the strike price at expiration, discounted to today. * <strong><span class="math inline">\(N(d_1)\)</span></strong> is the option’s Delta (<span class="math inline">\(\Delta\)</span>). It represents the probability-weighted expected value of the stock, <em>conditional</em> on the option expiring in the money. * Therefore, the formula simply says: <strong>Call Price = (Expected Benefit of receiving the stock) - (Expected Cost of paying the strike).</strong></p>
+<p>The math is beautiful, but what does it actually mean for a trader?<br>
+* <strong><span class="math inline">\(N(d_2)\)</span></strong> is the risk-neutral probability that the option will expire “in-the-money” (that <span class="math inline">\(S_T &gt; K\)</span>). Therefore, <span class="math inline">\(K e^{-r\tau} N(d_2)\)</span> is simply the expected cost of having to pay the strike price at expiration, discounted to today.<br>
+* <strong><span class="math inline">\(N(d_1)\)</span></strong> is the option’s Delta (<span class="math inline">\(\Delta\)</span>). It represents the probability-weighted expected value of the stock, <em>conditional</em> on the option expiring in the money.<br>
+* Therefore, the formula simply says: <strong>Call Price = (Expected Benefit of receiving the stock) - (Expected Cost of paying the strike).</strong></p>
 
 
 </section>
