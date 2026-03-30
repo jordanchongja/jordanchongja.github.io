@@ -312,7 +312,7 @@
     "href": "notes/index.html",
     "title": "Technical Notes",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nThe Mathematical Engine of the Implicit Method: Step-by-Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept: The Black-Scholes Model\n\n\n\nStochastic Calculus\n\nOptions Pricing\n\nQuantitative Finance\n\n\n\nA complete mathematical derivation of the Black-Scholes call option formula, from Geometric Brownian Motion to the final PDE and Feynman-Kac solution.\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nConcept: The Black-Scholes Model\n\n\n\nStochastic Calculus\n\nOptions Pricing\n\nQuantitative Finance\n\n\n\nA complete mathematical derivation of the Black-Scholes call option formula, from Geometric Brownian Motion to the final PDE and Feynman-Kac solution.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "notes/posts/Black-Sholes-Derivation/notebooks/BS_NumericalMethods.html",
