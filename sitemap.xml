@@ -34,11 +34,15 @@
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/index.html</loc>
-    <lastmod>2026-03-30T07:42:11.424Z</lastmod>
+    <lastmod>2026-04-08T06:20:42.279Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-market-making/index.html</loc>
+    <lastmod>2026-04-08T07:12:16.186Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/gap-challenge-solver/index.html</loc>
-    <lastmod>2026-04-08T05:09:02.649Z</lastmod>
+    <lastmod>2026-04-08T06:20:31.631Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html</loc>
@@ -70,15 +74,19 @@
   </url>
   <url>
     <loc>https://jordanchongja.github.io/notes/posts/Black-Sholes-Derivation/index.html</loc>
-    <lastmod>2026-03-30T08:32:13.163Z</lastmod>
+    <lastmod>2026-04-08T05:12:42.075Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/notes/posts/Paper - High-frequency trading in a limit order book/index.html</loc>
-    <lastmod>2026-04-08T05:10:09.513Z</lastmod>
+    <lastmod>2026-04-08T05:12:31.564Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/index.html</loc>
     <lastmod>2026-03-30T08:00:41.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/quant-market-making/marketmakingsimulation.html</loc>
+    <lastmod>2026-04-08T05:57:07.672Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.html</loc>
@@ -102,7 +110,7 @@
   </url>
   <url>
     <loc>https://jordanchongja.github.io/projects/sg-insurance-model/index.html</loc>
-    <lastmod>2026-03-30T13:15:01.040Z</lastmod>
+    <lastmod>2026-04-08T06:21:01.648Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/readings/index.html</loc>
