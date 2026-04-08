@@ -1,17 +1,18 @@
 [
   {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/Paper - High-frequency trading in a limit order book/index.html",
+      "/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html",
+      "/notes/posts/Black-Sholes-Derivation/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/projects/sg-insurance-model/index.html",
       "/projects/gap-challenge-solver/index.html",
       "/projects/quant-structuring-workbench/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html",
-      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
   {
