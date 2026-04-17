@@ -512,8 +512,8 @@ While most retail algorithms quote symmetrically around the mid-price, professio
 <pre><code>Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.39              6.64          0.32               2.98          9.69
-Symmetric        67.19             13.68          0.46               8.68          4.91</code></pre>
+Inventory        64.14              6.33         -0.06               2.88         10.14
+Symmetric        67.72             12.12         -0.14               8.18          5.59</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
@@ -555,12 +555,12 @@ Symmetric        67.19             13.68          0.46               8.68       
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Impact of Risk Aversion (γ) ---
  Gamma  Strategy  Mean Profit  Std Dev (Profit)  Sharpe Ratio
-  0.01 Inventory        68.02              9.01          7.55
-  0.01 Symmetric        68.48             13.02          5.26
-  0.10 Inventory        64.54              6.62          9.75
-  0.10 Symmetric        67.69             12.70          5.33
-  0.50 Inventory        48.50              5.78          8.39
-  0.50 Symmetric        58.44             11.39          5.13</code></pre>
+  0.01 Inventory        68.56              8.65          7.93
+  0.01 Symmetric        68.69             13.30          5.17
+  0.10 Inventory        64.85              6.41         10.11
+  0.10 Symmetric        67.75             12.76          5.31
+  0.50 Inventory        48.16              5.69          8.46
+  0.50 Symmetric        57.97             11.71          4.95</code></pre>
 </div>
 </div>
 </section>
@@ -588,8 +588,8 @@ Condition: Aggressive buyers arrive 20% faster than sellers (Market Trend)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        70.78              6.85         -1.47               2.96         10.34
-Symmetric        75.00             16.48        -10.01               8.33          4.55</code></pre>
+Inventory        71.15              6.93         -1.44               2.89         10.27
+Symmetric        73.93             16.36         -9.08               8.14          4.52</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
@@ -624,13 +624,13 @@ Condition: Mid-price experiences sudden, random Poisson jumps (Fat Tails)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.21              9.07          0.05               2.89          7.08
-Symmetric        67.65             30.87         -0.01               8.30          2.19</code></pre>
+Inventory        64.28              8.91          0.02               2.88          7.21
+Symmetric        66.59             34.43         -0.28               8.83          1.93</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="index_files/figure-html/jump-diffusion-output-2.png" id="jump-diffusion" width="703" height="468" class="figure-img column-screen-inset"></p>
+<p class="page-columns page-full"><img src="index_files/figure-html/jump-diffusion-output-2.png" id="jump-diffusion" width="691" height="468" class="figure-img column-screen-inset"></p>
 </figure>
 </div>
 </div>
@@ -640,7 +640,7 @@ Symmetric        67.65             30.87         -0.01               8.30       
 </section>
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
