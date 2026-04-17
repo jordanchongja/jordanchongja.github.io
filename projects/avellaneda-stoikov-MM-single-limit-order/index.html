@@ -400,7 +400,7 @@ While most retail algorithms quote symmetrically around the mid-price, professio
 <section id="part-2-running-the-monte-carlo-generating-visualizations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="part-2-running-the-monte-carlo-generating-visualizations">Part 2: Running the Monte Carlo &amp; Generating Visualizations</h2>
 <p><strong>This block runs both strategies 1,000 times, computes the performance metrics required (Profit, Std Dev, Final <span class="math inline">\(q\)</span>), and generates the visualizations.</strong></p>
-<div id="cell-monte-carlo" class="cell page-columns page-full" data-message="false" data-execution_count="2">
+<div id="cell-monte-carlo" class="cell page-columns page-full" data-fig-format="svg" data-fig-height="14" data-fig-width="12" data-message="false" data-execution_count="2">
 <details class="code-fold">
 <summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_monte_carlo(ask_mult<span class="op">=</span><span class="fl">1.0</span>, bid_mult<span class="op">=</span><span class="fl">1.0</span>, jumps<span class="op">=</span><span class="va">False</span>, gamma_val<span class="op">=</span><span class="fl">0.1</span>):</span>
@@ -441,7 +441,7 @@ While most retail algorithms quote symmetrically around the mid-price, professio
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df_metrics.to_string(index<span class="op">=</span><span class="va">False</span>))</span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Visualizations (6-Panel Layout) ---</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">18</span>))</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">2</span>)</span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    t, S, q, PnL, r_t, p_a_t, p_b_t <span class="op">=</span> sample_paths[<span class="st">"inventory"</span>]</span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -512,18 +512,18 @@ While most retail algorithms quote symmetrically around the mid-price, professio
 <pre><code>Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.60              6.46          0.02               2.88         10.00
-Symmetric        66.99             12.86          0.12               8.30          5.21</code></pre>
+Inventory        64.39              6.44          0.00               2.79         10.00
+Symmetric        67.54             13.29         -0.26               8.25          5.08</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="index_files/figure-html/monte-carlo-output-2.png" id="monte-carlo" width="1525" height="1716" class="figure-img column-screen-inset"></p>
+<p class="page-columns page-full"><img src="index_files/figure-html/monte-carlo-output-2.png" id="monte-carlo" width="700" height="468" class="figure-img column-page"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="gamma-impact" class="cell fig-column-screen-inset" data-message="false" data-execution_count="3">
+<div id="gamma-impact" class="cell fig-column-screen-inset" data-fig-format="svg" data-message="false" data-execution_count="3">
 <details class="code-fold">
 <summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_gamma_impact():</span>
@@ -555,19 +555,19 @@ Symmetric        66.99             12.86          0.12               8.30       
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Impact of Risk Aversion (γ) ---
  Gamma  Strategy  Mean Profit  Std Dev (Profit)  Sharpe Ratio
-  0.01 Inventory        67.99              8.56          7.95
-  0.01 Symmetric        68.59             13.94          4.92
-  0.10 Inventory        64.44              6.49          9.93
-  0.10 Symmetric        67.88             12.99          5.23
-  0.50 Inventory        48.22              5.92          8.15
-  0.50 Symmetric        58.20             11.17          5.21</code></pre>
+  0.01 Inventory        67.58              8.65          7.81
+  0.01 Symmetric        67.91             13.61          4.99
+  0.10 Inventory        64.91              6.70          9.69
+  0.10 Symmetric        66.88             13.39          4.99
+  0.50 Inventory        48.20              5.77          8.35
+  0.50 Symmetric        58.79             12.35          4.76</code></pre>
 </div>
 </div>
 </section>
 <section id="part-3-adding-asymmetric-toxic-order-flow" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="part-3-adding-asymmetric-toxic-order-flow">Part 3: Adding Asymmetric “Toxic” Order Flow</h2>
 <p>The base paper assumes buyers and sellers arrive identically. In reality, order flow becomes “toxic” when the market develops a sudden trend (e.g., news breaks, and aggressive buyers swarm the market). A naive symmetric strategy will blindly sell to all these buyers, accumulating a massive, dangerous short position.</p>
-<div id="cell-Toxic-order-flow" class="cell page-columns page-full" data-message="false" data-execution_count="4">
+<div id="cell-Toxic-order-flow" class="cell page-columns page-full" data-fig-format="svg" data-message="false" data-execution_count="4">
 <details class="code-fold">
 <summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -588,13 +588,13 @@ Condition: Aggressive buyers arrive 20% faster than sellers (Market Trend)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        71.08              6.87         -1.59               3.03         10.35
-Symmetric        74.18             17.18         -9.36               8.94          4.32</code></pre>
+Inventory        70.76               6.9         -1.52               3.02         10.26
+Symmetric        75.56              16.1         -8.85               8.37          4.69</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="index_files/figure-html/toxic-order-flow-output-2.png" id="toxic-order-flow" width="1525" height="1716" class="figure-img column-screen-inset"></p>
+<p class="page-columns page-full"><img src="index_files/figure-html/toxic-order-flow-output-2.png" id="toxic-order-flow" width="700" height="468" class="figure-img column-screen-inset"></p>
 </figure>
 </div>
 </div>
@@ -603,7 +603,7 @@ Symmetric        74.18             17.18         -9.36               8.94       
 <section id="part-4-adding-jump-diffusion-fat-tails" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="part-4-adding-jump-diffusion-fat-tails">Part 4: Adding Jump-Diffusion (Fat Tails)</h2>
 <p>Standard Brownian motion (<span class="math inline">\(dW_u\)</span>) creates continuous, smooth prices. Real financial markets experience “jumps” (fat tails)—sudden $2.00 price crashes or spikes between ticks.</p>
-<div id="cell-jump-diffusion" class="cell page-columns page-full" data-message="false" data-execution_count="5">
+<div id="cell-jump-diffusion" class="cell page-columns page-full" data-fig-format="svg" data-message="false" data-execution_count="5">
 <details class="code-fold">
 <summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -624,13 +624,13 @@ Condition: Mid-price experiences sudden, random Poisson jumps (Fat Tails)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.15              9.54          0.10               3.00          6.73
-Symmetric        67.39             28.90         -0.04               8.37          2.33</code></pre>
+Inventory        64.87              9.82          0.08               2.93          6.60
+Symmetric        68.39             29.25          0.08               8.09          2.34</code></pre>
 </div>
 <div class="cell-output cell-output-display page-columns page-full">
 <div class="page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="index_files/figure-html/jump-diffusion-output-2.png" id="jump-diffusion" width="1525" height="1716" class="figure-img column-screen-inset"></p>
+<p class="page-columns page-full"><img src="index_files/figure-html/jump-diffusion-output-2.png" id="jump-diffusion" width="701" height="468" class="figure-img column-screen-inset"></p>
 </figure>
 </div>
 </div>

@@ -308,7 +308,7 @@ window.Quarto = {
 <li><span class="math inline">\(V_i^{j+1}\)</span> represents the known price of the option <em>tomorrow</em> (the future time step).</li>
 </ul>
 <p>Because we only know the intrinsic value of the option at expiration, we must start at the right side of the grid and step backward to the left.</p>
-<div id="1fb3d581-b54a-4c6b-b5f9-40e69c6e2645" class="cell" data-execution_count="18">
+<div id="1fb3d581-b54a-4c6b-b5f9-40e69c6e2645" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -372,7 +372,7 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="BS_NumericalMethods_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="BS_NumericalMethods_files/figure-html/cell-2-output-1.png" width="943" height="565" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -429,7 +429,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <li><strong>Update the Grid:</strong> We slot this newly calculated column <span class="math inline">\(\mathbf{V}^j\)</span> into our grid. We then move one step left (backward in time), and this new column becomes the known “future” <span class="math inline">\(\mathbf{V}^{j+1}\)</span> for the next iteration.</li>
 </ol>
 <p>The grid fills up column by column, right to left, until we finally calculate the column for <span class="math inline">\(t = 0\)</span> (today).</p>
-<div id="7296c939-a30f-4086-9b04-0ef44e07787e" class="cell" data-execution_count="6">
+<div id="7296c939-a30f-4086-9b04-0ef44e07787e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -616,7 +616,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Because of that minus sign, if our time steps (<span class="math inline">\(\Delta t\)</span>) are too large compared to our price steps, <span class="math inline">\(b_i\)</span> will become a negative number. In the world of probability and differential equations, a negative weight causes the mathematical errors to compound and oscillate wildly. The grid will “blow up,” and your Python code will spit out option prices of infinity.</p>
 <p>The Explicit Method is <strong>conditionally stable</strong>. It only works if you keep your <span class="math inline">\(\Delta t\)</span> extremely small, which requires massive amounts of computing power.</p>
 <p>The Implicit Method is <strong>unconditionally stable</strong>. It never blows up, no matter how big your time steps are.</p>
-<div id="f7036c42-f0cf-4022-a4da-e4e7fd5ab451" class="cell" data-execution_count="20">
+<div id="f7036c42-f0cf-4022-a4da-e4e7fd5ab451" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Build the Explicit Coefficient Matrix (A_exp)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>A_exp <span class="op">=</span> np.zeros((M <span class="op">-</span> <span class="dv">1</span>, M <span class="op">-</span> <span class="dv">1</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -756,7 +756,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>To solve for our option prices today (<span class="math inline">\(\mathbf{V}^j\)</span>), we: 1. Multiply our known future column <span class="math inline">\(\mathbf{V}^{j+1}\)</span> by the Explicit-style matrix. 2. Add our boundary conditions <span class="math inline">\(\mathbf{b}\)</span>. 3. Invert the Implicit-style matrix and multiply it across to isolate <span class="math inline">\(\mathbf{V}^j\)</span>.</p>
 <p>It is literally performing an Explicit step followed by an Implicit solve!</p>
 <p>Here are our new coefficients (notice the <span class="math inline">\(1/4\)</span> because of the <span class="math inline">\(\Delta t / 2\)</span> and the <span class="math inline">\(1/2\)</span> from the PDE): <span class="math display">\[a_i = \frac{1}{4} \Delta t (\sigma^2 i^2 - r i)\]</span> <span class="math display">\[b_i = \frac{1}{2} \Delta t (\sigma^2 i^2 + r)\]</span> <span class="math display">\[c_i = \frac{1}{4} \Delta t (\sigma^2 i^2 + r i)\]</span></p>
-<div id="709f22f9-413f-4896-98b1-b144a2b40ccf" class="cell" data-execution_count="21">
+<div id="709f22f9-413f-4896-98b1-b144a2b40ccf" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Initialize the Left (Implicit-style) and Right (Explicit-style) Matrices</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>A_LHS <span class="op">=</span> np.zeros((M <span class="op">-</span> <span class="dv">1</span>, M <span class="op">-</span> <span class="dv">1</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>A_RHS <span class="op">=</span> np.zeros((M <span class="op">-</span> <span class="dv">1</span>, M <span class="op">-</span> <span class="dv">1</span>))</span>

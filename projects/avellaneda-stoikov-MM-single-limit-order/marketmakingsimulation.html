@@ -246,7 +246,7 @@ window.Quarto = {
 </header>
 
 
-<div id="9e8ce1e6-9748-4af8-ae54-fb007a0de7d2" class="cell" data-execution_count="7">
+<div id="9e8ce1e6-9748-4af8-ae54-fb007a0de7d2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -322,7 +322,7 @@ window.Quarto = {
 <section id="part-2-running-the-monte-carlo-generating-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-running-the-monte-carlo-generating-visualizations">Part 2: Running the Monte Carlo &amp; Generating Visualizations</h2>
 <p>This block runs both strategies 1,000 times, computes the performance metrics required (Profit, Std Dev, Final <span class="math inline">\(q\)</span>), and generates the visualizations.</p>
-<div id="38984600-bf85-4afc-8b55-4f6e158457bd" class="cell" data-execution_count="16">
+<div id="38984600-bf85-4afc-8b55-4f6e158457bd" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_monte_carlo(ask_mult<span class="op">=</span><span class="fl">1.0</span>, bid_mult<span class="op">=</span><span class="fl">1.0</span>, jumps<span class="op">=</span><span class="va">False</span>, gamma_val<span class="op">=</span><span class="fl">0.1</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> {<span class="st">"inventory"</span>: {<span class="st">"pnl"</span>: [], <span class="st">"final_q"</span>: []}, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"symmetric"</span>: {<span class="st">"pnl"</span>: [], <span class="st">"final_q"</span>: []}}</span>
@@ -431,18 +431,18 @@ window.Quarto = {
 <pre><code>Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.73              6.32          0.15               2.95         10.24
-Symmetric        68.06             12.66         -0.01               8.42          5.38</code></pre>
+Inventory        64.53              6.76          0.07               2.90          9.55
+Symmetric        67.72             12.42         -0.18               8.33          5.45</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="marketmakingsimulation_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="marketmakingsimulation_files/figure-html/cell-3-output-2.png" width="1525" height="1716" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="6a17cb78-cfc6-4630-913c-f6386a27c6db" class="cell" data-execution_count="12">
+<div id="6a17cb78-cfc6-4630-913c-f6386a27c6db" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_gamma_impact():</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    gamma_values <span class="op">=</span> [<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    metrics <span class="op">=</span> []</span>
@@ -471,19 +471,19 @@ Symmetric        68.06             12.66         -0.01               8.42       
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Impact of Risk Aversion (γ) ---
  Gamma  Strategy  Mean Profit  Std Dev (Profit)  Sharpe Ratio
-  0.01 Inventory        68.14              8.78          7.76
-  0.01 Symmetric        68.32             13.23          5.16
-  0.10 Inventory        64.63              6.66          9.71
-  0.10 Symmetric        67.57             13.11          5.15
-  0.50 Inventory        48.29              6.01          8.04
-  0.50 Symmetric        58.17             11.64          5.00</code></pre>
+  0.01 Inventory        67.94              9.39          7.24
+  0.01 Symmetric        68.33             13.46          5.08
+  0.10 Inventory        64.38              6.40         10.06
+  0.10 Symmetric        68.15             13.07          5.21
+  0.50 Inventory        48.31              5.53          8.74
+  0.50 Symmetric        57.85             10.96          5.28</code></pre>
 </div>
 </div>
 </section>
 <section id="part-3-adding-asymmetric-toxic-order-flow" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-adding-asymmetric-toxic-order-flow">Part 3: Adding Asymmetric “Toxic” Order Flow</h2>
 <p>The base paper assumes buyers and sellers arrive identically. In reality, order flow becomes “toxic” when the market develops a sudden trend (e.g., news breaks, and aggressive buyers swarm the market). A naive symmetric strategy will blindly sell to all these buyers, accumulating a massive, dangerous short position.</p>
-<div id="fcefe7ad-b880-454f-9ace-c0d9f2073999" class="cell" data-execution_count="17">
+<div id="fcefe7ad-b880-454f-9ace-c0d9f2073999" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SCENARIO: TOXIC ORDER FLOW</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -501,13 +501,13 @@ Condition: Aggressive buyers arrive 20% faster than sellers (Market Trend)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        71.12              6.93          -1.6               3.02         10.27
-Symmetric        73.90             17.92          -9.3               8.98          4.12</code></pre>
+Inventory        70.96               6.8         -1.42               2.89         10.43
+Symmetric        74.59              16.6         -8.92               8.77          4.49</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="marketmakingsimulation_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="marketmakingsimulation_files/figure-html/cell-5-output-2.png" width="1525" height="1716" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -516,7 +516,7 @@ Symmetric        73.90             17.92          -9.3               8.98       
 <section id="part-4-adding-jump-diffusion-fat-tails" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-adding-jump-diffusion-fat-tails">Part 4: Adding Jump-Diffusion (Fat Tails)</h2>
 <p>Standard Brownian motion (<span class="math inline">\(dW_u\)</span>) creates continuous, smooth prices. Real financial markets experience “jumps” (fat tails)—sudden $2.00 price crashes or spikes between ticks.</p>
-<div id="025546c9-1cc1-414f-b794-bd871b606a38" class="cell" data-execution_count="18">
+<div id="025546c9-1cc1-414f-b794-bd871b606a38" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SCENARIO: FAT-TAIL JUMP DIFFUSION</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -534,13 +534,13 @@ Condition: Mid-price experiences sudden, random Poisson jumps (Fat Tails)
 Running simulations, please wait...
 --- Performance Metrics ---
  Strategy  Mean Profit  Std Dev (Profit)  Mean Final q  Std Dev (Final q)  Sharpe Ratio
-Inventory        64.21              9.74         -0.06               2.78          6.59
-Symmetric        69.24             30.39         -0.25               8.19          2.28</code></pre>
+Inventory        64.42              9.06          0.07               2.87          7.11
+Symmetric        68.53             31.67         -0.12               8.63          2.16</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="marketmakingsimulation_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="marketmakingsimulation_files/figure-html/cell-6-output-2.png" width="1525" height="1716" class="figure-img"></p>
 </figure>
 </div>
 </div>
