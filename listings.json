@@ -1,10 +1,12 @@
 [
   {
-    "listing": "/notes/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/notes/posts/Paper - High-frequency trading in a limit order book/index.html",
-      "/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html",
-      "/notes/posts/Black-Sholes-Derivation/index.html"
+      "/projects/Iran-war-Geopolitical-Shock-Analysis/index.html",
+      "/projects/avellaneda-stoikov-MM-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/quant-structuring-workbench/index.html"
     ]
   },
   {
@@ -16,12 +18,11 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/notes/index.html",
     "items": [
-      "/projects/avellaneda-stoikov-MM-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/quant-structuring-workbench/index.html"
+      "/notes/posts/Paper - High-frequency trading in a limit order book/index.html",
+      "/notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.html",
+      "/notes/posts/Black-Sholes-Derivation/index.html"
     ]
   },
   {
