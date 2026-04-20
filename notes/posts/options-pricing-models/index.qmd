@@ -7,6 +7,8 @@ image: BSMonteCarlo.png
 image-alt: "Monte Carlo Simulation of the Black-Scholes Pricing"
 github-repo: "https://github.com/jordanchongja/options-projects-suite"
 body-class: "project-detail-view"
+execute:
+  eval: false
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
 format: 
@@ -1288,7 +1290,6 @@ We start with parameter seeding and defining the search bounds. Then perform a h
 #| warning: false
 #| message: false
 #| fig-column: screen-inset
-#| eval: false
 
 import numpy as np
 import time

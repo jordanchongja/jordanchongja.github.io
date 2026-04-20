@@ -278,8 +278,8 @@ From here, quantitative finance splits into two distinct paths: **Numerical Meth
 
 
 <div class="text-center">
-  <a href="..\Numerical Methods for Black-Sholes\BS_NumericalMethods.ipynb" class="btn btn-primary btn-lg" role="button">
-    Numerical Methods for Black-Sholes
+  <a href="..\options-numerical-methods-for-black-scholes\BS_NumericalMethods.ipynb" class="btn btn-primary btn-lg" role="button">
+    Numerical Methods for Black-Scholes
   </a>
 </div>
 

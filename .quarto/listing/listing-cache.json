@@ -5,7 +5,14 @@
     ],
     "notes\\index.qmd": [
       "*/index.qmd",
-      "*/*.ipynb"
+      "*/*.ipynb",
+      "!options-projects-suite/**"
+    ],
+    "projects\\index.qmd": [
+      "*/index.qmd"
+    ],
+    "readings\\index.qmd": [
+      "."
     ]
   }
 }

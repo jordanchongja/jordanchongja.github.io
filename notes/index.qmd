@@ -5,6 +5,7 @@ listing:
   contents: 
   - "*/index.qmd"
   - "*/*.ipynb"
+  - "!options-projects-suite/**"
   sort: "date desc"
   type: grid # <--- Switched to Grid
   categories: true

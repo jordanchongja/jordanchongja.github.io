@@ -1,210 +1,158 @@
 {
-  "projects/index.qmd": {
-    "index.html": "8a948c12"
-  },
-  "index.qmd": {
-    "index.html": "dd63b862"
-  },
-  "blog/posts/book-review-1/bookreview1.qmd": {
-    "bookreview1.html": "5b1de97b"
-  },
-  "blog/index.qmd": {
-    "index.html": "96963501"
-  },
-  "about.qmd": {
-    "about.html": "60e3f55a"
+  "contact.qmd": {
+    "contact.html": "359fd8ca"
   },
   "cv.qmd": {
-    "cv.html": "518a381a"
+    "cv.html": "30651f43"
   },
-  "projects/gap-challenge-solver/index.qmd": {
-    "index.html": "25407c5e"
-  },
-  "contact.qmd": {
-    "contact.html": "46ed1c32"
-  },
-  "Licence.qmd": {
-    "Licence.html": "f6f78cc8"
-  },
-  "licence.qmd": {
-    "licence.html": "0f868bf4"
+  "index.qmd": {
+    "index.html": "691710ad"
   },
   "license.qmd": {
-    "license.html": "2298c23d"
+    "license.html": "600588c6"
   },
   "notes/index.qmd": {
-    "index.html": "00557ea2"
-  },
-  "notes/posts/book-review-1/bookreview1.qmd": {
-    "bookreview1.html": "05fa8b88"
-  },
-  "readings/index.qmd": {
-    "index.html": "a98bda3a"
-  },
-  "readings/East of Eden/bookreview1.qmd": {
-    "bookreview1.html": "5abd0155"
-  },
-  "notes/template.qmd": {
-    "template.html": "5852f843"
-  },
-  "projects/sg-insurance-model/index.qmd": {
-    "index.html": "001b6ce9"
-  },
-  "projects/tempate.qmd": {
-    "tempate.html": "ee6c2d13"
-  },
-  "readings/template.qmd": {
-    "template.html": "c47510a4"
-  },
-  "projects/aa/tempateee.qmd": {
-    "tempateee.html": "29b92a10"
-  },
-  "projects/bb/tempateee.qmd": {
-    "tempateee.html": "3bbee744"
-  },
-  "projects/bb - Copy/tempateee.qmd": {
-    "tempateee.html": "385513fd"
-  },
-  "projects/bb - Copy (10)/tempateee.qmd": {
-    "tempateee.html": "ad57644e"
-  },
-  "projects/bb - Copy (11)/tempateee.qmd": {
-    "tempateee.html": "46c02ce0"
-  },
-  "projects/bb - Copy (2)/tempateee.qmd": {
-    "tempateee.html": "1a3f3526"
-  },
-  "projects/bb - Copy (3)/tempateee.qmd": {
-    "tempateee.html": "9af9ec4b"
-  },
-  "projects/bb - Copy (4)/tempateee.qmd": {
-    "tempateee.html": "631051b3"
-  },
-  "projects/bb - Copy (5)/tempateee.qmd": {
-    "tempateee.html": "ac29ea21"
-  },
-  "projects/bb - Copy (6)/tempateee.qmd": {
-    "tempateee.html": "0128f87b"
-  },
-  "projects/bb - Copy (7)/tempateee.qmd": {
-    "tempateee.html": "6987146b"
-  },
-  "projects/bb - Copy (8)/tempateee.qmd": {
-    "tempateee.html": "7316708e"
-  },
-  "projects/bb - Copy (9)/tempateee.qmd": {
-    "tempateee.html": "9cfc8f21"
-  },
-  "notes/posts/book-review-1/template.qmd": {
-    "template.html": "8a3e52dc"
-  },
-  "readings/East of Eden/template.qmd": {
-    "template.html": "6ee323da"
-  },
-  "notes/posts/Black-Sholes-Derivation/index.qmd": {
-    "index.html": "eea4467b"
-  },
-  "projects/quant-structuring-workbench/index.qmd": {
-    "index.html": "6b8f6ba3"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_06_Heston_RealDataCalibration.ipynb": {
-    "quarto_06_Heston_RealDataCalibration.html": "31d66f75"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_07_Merton_RealDataCalibration.ipynb": {
-    "quarto_07_Merton_RealDataCalibration.html": "f1dd386e"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.ipynb": {
-    "quarto_01_BlackSholes.html": "b3d24698"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.ipynb": {
-    "quarto_09_Model_Comparison.html": "f41e5de9"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.ipynb": {
-    "quarto_02_MertonJumpDiffusion.html": "a044bc3e"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.ipynb": {
-    "quarto_03_HestonModel.html": "eed54e22"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.ipynb": {
-    "quarto_04_BatesModel.html": "322f9e88"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.ipynb": {
-    "quarto_05_BS_RealDataCalibration.html": "5172d979"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.ipynb": {
-    "quarto_08_Bates_RealDataCalibration.html": "acbe925f"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.ipynb": {
-    "quarto_10_OutOfSampleTesting.html": "c27a5c6b"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_06_Merton_RealDataCalibration.ipynb": {
-    "quarto_06_Merton_RealDataCalibration.html": "d9c24fe1"
-  },
-  "projects/quant-structuring-workbench/notebooks/quarto_07_Heston_RealDataCalibration.ipynb": {
-    "quarto_07_Heston_RealDataCalibration.html": "9363047d"
-  },
-  "readings/East of Eden/index.qmd": {
-    "index.html": "31a1b634"
-  },
-  "readings/Ministry of Moral Panic/index.qmd": {
-    "index.html": "3a941721"
-  },
-  "readings/The God of Small Things/index.qmd": {
-    "index.html": "b1cf66d6"
-  },
-  "readings/This is What Inequality Looks Like/index.qmd": {
-    "index.html": "7561eaed"
-  },
-  "notes/posts/Black-Sholes-Derivation/notebooks/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "19565289"
-  },
-  "notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "31655da0"
-  },
-  "notes/posts/Paper - High-frequency trading in a limit order book/index.qmd": {
-    "index.html": "5e8cb036"
-  },
-  "projects/quant-market-making/index.qmd": {
-    "index.html": "3d3e0c93"
-  },
-  "projects/quant-market-making/marketmakingsimulation.ipynb": {
-    "marketmakingsimulation.out.ipynb": "16593188",
-    "marketmakingsimulation-preview.html": "3bf83295",
-    "marketmakingsimulation.html": "b184811a"
-  },
-  "projects/avellaneda-stoikov-MM-single-limit-order/index.qmd": {
-    "index.html": "53cc0547"
-  },
-  "projects/avellaneda-stoikov-MM-single-limit-order/marketmakingsimulation.ipynb": {
-    "marketmakingsimulation.out.ipynb": "a40e14bd",
-    "marketmakingsimulation-preview.html": "cd5d7a7b",
-    "marketmakingsimulation.html": "fa06aa37"
-  },
-  "projects/Iran-war-Geopolitical-Shock-Analysis/index.qmd": {
-    "index.html": "0172aa78"
+    "index.html": "56a34148"
   },
   "notes/posts/black-scholes-derivation/index.qmd": {
-    "index.html": "ed791437"
-  },
-  "notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "679ae40c"
-  },
-  "notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.qmd": {
-    "index.html": "82c112c7"
-  },
-  "projects/avellaneda-stoikov-mm-single-limit-order/index.qmd": {
-    "index.html": "c61c63ad"
-  },
-  "projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.ipynb": {
-    "marketmakingsimulation.html": "fd4fe618"
-  },
-  "projects/iran-war-geopolitical-shock-analysis/index.qmd": {
-    "index.html": "73b74e88"
-  },
-  "projects/options-payoff-visualisation/index.qmd": {
-    "index.html": "73650bef"
+    "index.html": "6c200775"
   },
   "notes/posts/indonesia-regulatory-equity-ownership-analysis/index.qmd": {
-    "index.html": "e214214e"
+    "index.html": "0fb3b4c4"
+  },
+  "notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "08ba47ba"
+  },
+  "notes/posts/options-pricing-models/index.qmd": {
+    "index.html": "fc89952e"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/projects/00-data-preprocessing/WRDS-OptionsDataCleaning.ipynb": {
+    "WRDS-OptionsDataCleaning.html": "0715bd2f"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/projects/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "821ef725"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/01_TheoreticalModels.ipynb": {
+    "01_TheoreticalModels.html": "663fe39c"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/02_MarketDataCalibrationModels.ipynb": {
+    "02_MarketDataCalibrationModels.html": "59faed9f"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/03_model-testing-and-OOS-comparison.ipynb": {
+    "03_model-testing-and-OOS-comparison.html": "b64edbdb"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_01_BlackSholes.ipynb": {
+    "quarto_01_BlackSholes.html": "f01d01f0"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_02_MertonJumpDiffusion.ipynb": {
+    "quarto_02_MertonJumpDiffusion.html": "b150092c"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_03_HestonModel.ipynb": {
+    "quarto_03_HestonModel.html": "2cd7faa6"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_04_BatesModel.ipynb": {
+    "quarto_04_BatesModel.html": "843e6c6b"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_05_BS_RealDataCalibration.ipynb": {
+    "quarto_05_BS_RealDataCalibration.html": "0a3bbeaf"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_06_Merton_RealDataCalibration.ipynb": {
+    "quarto_06_Merton_RealDataCalibration.html": "b3e33772"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_07_Heston_RealDataCalibration.ipynb": {
+    "quarto_07_Heston_RealDataCalibration.html": "afae3731"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_08_Bates_RealDataCalibration.ipynb": {
+    "quarto_08_Bates_RealDataCalibration.html": "4dfe6913"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_09_Model_Comparison.ipynb": {
+    "quarto_09_Model_Comparison.html": "0a4c9201"
+  },
+  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_10_OutOfSampleTesting.ipynb": {
+    "quarto_10_OutOfSampleTesting.html": "45574126"
+  },
+  "notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.qmd": {
+    "index.html": "b2b7b9e7"
+  },
+  "projects/avellaneda-stoikov-mm-single-limit-order/index.qmd": {
+    "index.html": "61644716"
+  },
+  "projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.ipynb": {
+    "marketmakingsimulation.html": "7820fa90"
+  },
+  "projects/gap-challenge-solver/index.qmd": {
+    "index.html": "a53edb4a"
+  },
+  "projects/index.qmd": {
+    "index.html": "348ab76d"
+  },
+  "projects/iran-war-geopolitical-shock-analysis/index.qmd": {
+    "index.html": "6c97cff0"
+  },
+  "projects/options-payoff-visualisation/index.qmd": {
+    "index.html": "6de82da7"
+  },
+  "projects/options-pricing-models/options-projects-suite/projects/00-data-preprocessing/WRDS-OptionsDataCleaning.ipynb": {
+    "WRDS-OptionsDataCleaning.html": "a9cda7f9"
+  },
+  "projects/options-pricing-models/options-projects-suite/projects/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "f352af55"
+  },
+  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/01_TheoreticalModels.ipynb": {
+    "01_TheoreticalModels.html": "371d7bfc"
+  },
+  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/xx-archive/02_MarketDataCalibrationModels.ipynb": {
+    "02_MarketDataCalibrationModels.html": "ba8ed577"
+  },
+  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/xx-archive/03_model-testing-and-OOS-comparison.ipynb": {
+    "03_model-testing-and-OOS-comparison.html": "1a421807"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_01_BlackSholes.ipynb": {
+    "quarto_01_BlackSholes.html": "8587a05b"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_02_MertonJumpDiffusion.ipynb": {
+    "quarto_02_MertonJumpDiffusion.html": "9aded28f"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_03_HestonModel.ipynb": {
+    "quarto_03_HestonModel.html": "1788d78f"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_04_BatesModel.ipynb": {
+    "quarto_04_BatesModel.html": "e69f494a"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_05_BS_RealDataCalibration.ipynb": {
+    "quarto_05_BS_RealDataCalibration.html": "994488ef"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_06_Merton_RealDataCalibration.ipynb": {
+    "quarto_06_Merton_RealDataCalibration.html": "39e1345e"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_07_Heston_RealDataCalibration.ipynb": {
+    "quarto_07_Heston_RealDataCalibration.html": "052025bb"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_08_Bates_RealDataCalibration.ipynb": {
+    "quarto_08_Bates_RealDataCalibration.html": "f21fc039"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_09_Model_Comparison.ipynb": {
+    "quarto_09_Model_Comparison.html": "3e533f2c"
+  },
+  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_10_OutOfSampleTesting.ipynb": {
+    "quarto_10_OutOfSampleTesting.html": "8490a384"
+  },
+  "projects/sg-insurance-model/index.qmd": {
+    "index.html": "b21e84de"
+  },
+  "readings/East of Eden/index.qmd": {
+    "index.html": "408851a8"
+  },
+  "readings/index.qmd": {
+    "index.html": "4f9d7598"
+  },
+  "readings/Ministry of Moral Panic/index.qmd": {
+    "index.html": "a762da08"
+  },
+  "readings/The God of Small Things/index.qmd": {
+    "index.html": "bb85e337"
+  },
+  "readings/This is What Inequality Looks Like/index.qmd": {
+    "index.html": "ac234b86"
   }
 }

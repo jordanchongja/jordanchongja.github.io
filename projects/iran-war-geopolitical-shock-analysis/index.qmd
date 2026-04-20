@@ -40,7 +40,7 @@ import yfinance as yf
 import pandas as pd
 import time
 import numpy as np
-import matplotlib.pyplot as plt}```
+import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import matplotlib.colors as mcolors
@@ -48,9 +48,9 @@ import plotly.express as px
 
 # 1. Load the clean offline datasets
 sp500 = pd.read_csv(r"C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\sp500_prices_clean.csv", index_col="Date", parse_dates=True)['^GSPC']
-df_stocks = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_prices_clean.csv", index_col="Date", parse_dates=True)
-df_meta = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_metadata.csv")
-df_iwb = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\RAW_iSharesETF_IWB_holdings.csv", skiprows=9)
+df_stocks = pd.read_csv(r"C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_prices_clean.csv", index_col="Date", parse_dates=True)
+df_meta = pd.read_csv(r"C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_metadata.csv")
+df_iwb = pd.read_csv(r"C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\RAW_iSharesETF_IWB_holdings.csv", skiprows=9)
 
 
 # 2. Apply the Strict >$30B Market Cap Filter FIRST
