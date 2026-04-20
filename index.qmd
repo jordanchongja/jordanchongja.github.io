@@ -54,11 +54,11 @@ body-class: "homepage-view" # <--- ADD THIS
 :::{#hero-heading}
 
 
-Studied at Singapore Management University (SMU), Bachelor of Business Administration (Finance) with Second Major in Data Science.
+Hi! I'm Jordan. I am a recent graduate of Singapore Management University (SMU) with a Bachelor of Business Management with a double major in Finance and Data Science & Analytics. 
 
-Previously worked in Debt Capital Markets at DBS Bank and Advanced Manufacturing Development at EDB.
+I'm highly interested in roles at the intersection of markets, data, and technology—specifically within quantitative finance, equity derivatives, and digital assets trading. 
 
-Currently, I am focused on building robust pricing models, researching market microstructure, and applying ML algorithms to financial datasets.
+Currently, I am expanding my knowledge in market microstructure, stochastic control, and volatility modeling, while building simulation engines and replicating academic frameworks like the Avellaneda-Stoikov model.
 
 :::
 

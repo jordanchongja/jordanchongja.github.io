@@ -136,5 +136,75 @@
   },
   "projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.ipynb": {
     "quarto_10_OutOfSampleTesting.html": "c27a5c6b"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_06_Merton_RealDataCalibration.ipynb": {
+    "quarto_06_Merton_RealDataCalibration.html": "d9c24fe1"
+  },
+  "projects/quant-structuring-workbench/notebooks/quarto_07_Heston_RealDataCalibration.ipynb": {
+    "quarto_07_Heston_RealDataCalibration.html": "9363047d"
+  },
+  "readings/East of Eden/index.qmd": {
+    "index.html": "31a1b634"
+  },
+  "readings/Ministry of Moral Panic/index.qmd": {
+    "index.html": "3a941721"
+  },
+  "readings/The God of Small Things/index.qmd": {
+    "index.html": "b1cf66d6"
+  },
+  "readings/This is What Inequality Looks Like/index.qmd": {
+    "index.html": "7561eaed"
+  },
+  "notes/posts/Black-Sholes-Derivation/notebooks/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "19565289"
+  },
+  "notes/posts/Numerical Methods for Black-Sholes/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "31655da0"
+  },
+  "notes/posts/Paper - High-frequency trading in a limit order book/index.qmd": {
+    "index.html": "5e8cb036"
+  },
+  "projects/quant-market-making/index.qmd": {
+    "index.html": "3d3e0c93"
+  },
+  "projects/quant-market-making/marketmakingsimulation.ipynb": {
+    "marketmakingsimulation.out.ipynb": "16593188",
+    "marketmakingsimulation-preview.html": "3bf83295",
+    "marketmakingsimulation.html": "b184811a"
+  },
+  "projects/avellaneda-stoikov-MM-single-limit-order/index.qmd": {
+    "index.html": "53cc0547"
+  },
+  "projects/avellaneda-stoikov-MM-single-limit-order/marketmakingsimulation.ipynb": {
+    "marketmakingsimulation.out.ipynb": "a40e14bd",
+    "marketmakingsimulation-preview.html": "cd5d7a7b",
+    "marketmakingsimulation.html": "fa06aa37"
+  },
+  "projects/Iran-war-Geopolitical-Shock-Analysis/index.qmd": {
+    "index.html": "0172aa78"
+  },
+  "notes/posts/black-scholes-derivation/index.qmd": {
+    "index.html": "ed791437"
+  },
+  "notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
+    "BS_NumericalMethods.html": "679ae40c"
+  },
+  "notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.qmd": {
+    "index.html": "82c112c7"
+  },
+  "projects/avellaneda-stoikov-mm-single-limit-order/index.qmd": {
+    "index.html": "c61c63ad"
+  },
+  "projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.ipynb": {
+    "marketmakingsimulation.html": "fd4fe618"
+  },
+  "projects/iran-war-geopolitical-shock-analysis/index.qmd": {
+    "index.html": "73b74e88"
+  },
+  "projects/options-payoff-visualisation/index.qmd": {
+    "index.html": "73650bef"
+  },
+  "notes/posts/indonesia-regulatory-equity-ownership-analysis/index.qmd": {
+    "index.html": "e214214e"
   }
 }

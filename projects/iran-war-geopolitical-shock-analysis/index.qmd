@@ -1,0 +1,802 @@
+---
+title: "Iran War Impact Analysis: Regime Shifts & Market Volatility"
+description: "Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models"
+date: last-modified
+categories: [Quantitative Finance, Market Regime, Python, Plotly, Data Visualization] 
+image: SankeyDiagramRussell1000.png
+image-alt: "Sankey Diagram for the Russell 1000 outperformers compared to the S&P500"
+client: "Quantitative Analyst Portfolio" 
+github-repo: "https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis"
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show Data Processing Code"
+    toc: true
+    page-layout: full
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Visualization-Plotly-3F4F75?logo=plotly&logoColor=white)
+![](https://img.shields.io/badge/Modeling-hmmlearn-150458?logo=scikitlearn&logoColor=white)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis)
+
+<style>
+  #quarto-margin-sidebar { padding-top: 50px; }
+</style>
+
+```{python}
+#| label: global-setup
+#| include: false
+#| warning: false
+#| message: false
+
+# ==========================================
+# CENTRALIZED DATA PROCESSING
+# ==========================================
+import yfinance as yf
+import pandas as pd
+import time
+import numpy as np
+import matplotlib.pyplot as plt}```
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import matplotlib.colors as mcolors
+import plotly.express as px
+
+# 1. Load the clean offline datasets
+sp500 = pd.read_csv(r"C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\sp500_prices_clean.csv", index_col="Date", parse_dates=True)['^GSPC']
+df_stocks = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_prices_clean.csv", index_col="Date", parse_dates=True)
+df_meta = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\russell_1000_metadata.csv")
+df_iwb = pd.read_csv("C:\Github Code\jordanchongja.github.io\projects\iran-war-geopolitical-shock-analysis\RAW_iSharesETF_IWB_holdings.csv", skiprows=9)
+
+
+# 2. Apply the Strict >$30B Market Cap Filter FIRST
+df_large_cap = df_meta[df_meta['Market Cap'] > 30_000_000_000].copy()
+eligible_tickers = df_large_cap['Ticker'].tolist()
+
+# Isolate the price data for only these eligible large-cap stocks
+valid_tickers = [t for t in eligible_tickers if t in df_stocks.columns]
+df_stocks_filtered = df_stocks[valid_tickers]
+
+# 3. Calculate S&P 500 Benchmark Returns
+p1_start, p1_end = '2025-12-31', '2026-02-27'
+p2_start, p2_end = '2026-03-02', '2026-04-10'
+
+sp500_p1 = (sp500.loc[p1_end] / sp500.loc[p1_start]) - 1
+sp500_p2 = (sp500.loc[p2_end] / sp500.loc[p2_start]) - 1
+
+# 4. Iterate and Calculate Stock Performance
+results_list = []
+for ticker in valid_tickers:
+    try:
+        prices = df_stocks_filtered[ticker]
+        stock_p1 = (prices.loc[p1_end] / prices.loc[p1_start]) - 1
+        stock_p2 = (prices.loc[p2_end] / prices.loc[p2_start]) - 1
+        
+        results_list.append({
+            'Ticker': ticker,
+            'Sector': df_large_cap.loc[df_large_cap['Ticker'] == ticker, 'Sector'].values[0],
+            'Market Cap': df_large_cap.loc[df_large_cap['Ticker'] == ticker, 'Market Cap'].values[0],
+            'Phase 1 Return': stock_p1,
+            'Phase 2 Return': stock_p2,
+            'Outperformed P1': stock_p1 > sp500_p1,
+            'Outperformed P2': stock_p2 > sp500_p2
+        })
+    except KeyError:
+        continue
+
+df_results = pd.DataFrame(results_list)
+
+# 5. Extraction of Counts for Visualization
+total_russell = len(df_meta)
+eligible_count = len(df_results)
+p1_winners_count = len(df_results[df_results['Outperformed P1']])
+p2_winners_count = len(df_results[df_results['Outperformed P2']])
+consistent_count = len(df_results[df_results['Outperformed P1'] & df_results['Outperformed P2']])
+
+# 6. Derived Variables for Flow Logic
+excluded_count = total_russell - eligible_count
+p1_losers_count = eligible_count - p1_winners_count
+p2_only_winners_count = p2_winners_count - consistent_count
+p1_winner_p2_loser_count = p1_winners_count - consistent_count
+double_loser_count = p1_losers_count - p2_only_winners_count
+
+# 1. Prepare Data
+sector_map = dict(zip(df_large_cap['Ticker'], df_large_cap['Sector']))
+daily_returns = df_stocks_filtered.pct_change().dropna()
+sector_daily = daily_returns.T.groupby(sector_map).median().T
+sp500_returns = sp500.pct_change().dropna()
+
+def get_top_performers(df, start, end, top_n=3):
+    """Calculates cumulative returns for a period and returns the top N sectors."""
+    subset = df.loc[start:end]
+    if subset.empty: return []
+    cum_ret = (1 + subset.fillna(0)).prod() - 1
+    return cum_ret.sort_values(ascending=False).head(top_n).index.tolist()
+
+# Automatically identify the stars of each phase
+top3_p1 = get_top_performers(sector_daily, p1_start, p1_end, 3)
+top3_p2 = get_top_performers(sector_daily, p2_start, p2_end, 3)
+combined_highlights = list(set(top3_p1 + top3_p2))
+```
+
+## Part 0: Rationale for this Project
+So the idea for this project came as part of the interview process for a company, where i was tasked to identify large cap stocks from the Russell 1000 (market cap >USD 30 Billion) that have outperformed the S&P500. 
+
+This analysis focused on comparing the outperformance for two phases of 2026, 1. Prewar - 31th December 2025 to 27th February 2026 2. Post-war 27th February 2026 to 10th April 2026. And the tasking was to draw out some conclusions and observations from these Russell 1000 stocks that outperformed the S&P500, and see if there were any insights that I could draw.
+
+My intuition was that it would mostly be energy stocks that outperformed, and perhaps we could extract additional insights from that point. 
+
+I did quite abit of data cleaning and data visualisation for this exercise, so i figured that i turn it into a project with risk attribution analysis for the first part, exploring the data and how the sectors and the companies did in each "market regime" (if any), and take it as a practice in data visualisation. 
+
+The idea was that the Iran War was an exogenous macro event and we could use it as a stress-test for large-cap equities. 
+
+And to expand the project a little, i figured it would be a good place to practice some quant models with Regime Detection and some Factor Modelling which would fit well with this project given its dual time period analysis. 
+
+Therefore in the second portion of this article, I explored abit of everything, going for breadth as part of an exploration into quant models and how they work, and plan to create more projects that delve into each of these models a little more in-depth in the future.
+
+I do this in Part 2, where i try to do more complex analysis and bring in data from other sources like WRDS for analysis.
+
+## Part 1: Market Microstructure & Risk Attribution
+**Deconstructing the Benchmark during the Q1 2026 Geopolitical Shock.**
+
+For this portion, i got the data from Yfinance instead of for WRDS because I was under time-pressure, and got the constituents from the iShares proxy of the Russell 1000, which i figured would at least contain all the major players. 
+
+Instead of simply filtering the index by market capitalization, this analysis stress-tests large-cap equities during an exogenous macro event. By peeling back the layers of the benchmark, we can expose the hidden rotational dynamics and severe risk fractures that occurred during the crash.
+
+---
+
+### Section 1: The Benchmark vs. The Breadth
+#### *Masking the Rotational Damage Beneath the Surface*
+
+**Purpose & Implications:** The purpose of this analysis is to get a brief description of the stocks that outperformed, the sectors that they come from, and how it compares to a market-cap weighted perspective of this.
+
+So the results were that Industrials, Financials, Information Technology, and Healthcare seem to have outperformed on initial glance on a numerical basis in terms of the number of companies. However, on a market-cap weighted basis, which the S&P500 index number would reflect, Information Technology seems to be much heavier weighted, which could lead to a skew of results.
+
+An interesting direction could be exploring how many companies are in each sector that we have graphed here and so what percentage of each sector actually outperformed and by how much. But these graphs give an initial view into the data.
+
+```{python}
+#| label: fig-breadth
+#| warning: false
+#| message: false
+#| fig-column: screen-inset
+
+# 1. Prepare Data
+sector_map = dict(zip(df_large_cap['Ticker'], df_large_cap['Sector']))
+daily_returns = df_stocks_filtered.pct_change().dropna()
+sector_daily = daily_returns.T.groupby(sector_map).median().T
+sp500_returns = sp500.pct_change().dropna()
+
+# 1. Calculate aggregates
+sector_counts = df_results['Sector'].value_counts().reset_index()
+sector_counts.columns = ['Sector', 'Count']
+
+# Sort by Count (Descending) to establish the master order
+sector_counts = sector_counts.sort_values(by='Count', ascending=False)
+ordered_sectors = sector_counts['Sector'].tolist()
+
+# 2. Calculate Market Cap Weights and force it into the exact same order
+sector_weights = df_results.groupby('Sector')['Market Cap'].sum().reset_index()
+sector_weights.columns = ['Sector', 'Total Market Cap']
+# Reindex to match the Count order
+sector_weights = sector_weights.set_index('Sector').reindex(ordered_sectors).reset_index()
+
+# 2. Define a consistent master color palette for ALL possible sectors
+
+all_sectors = sector_daily.columns
+colors = list(mcolors.TABLEAU_COLORS.values()) 
+master_palette = {sector: colors[i % len(colors)] for i, sector in enumerate(all_sectors)}
+
+# 3. Apply the consistent master palette based on the ordered list
+colors_mapped = [master_palette.get(sec, '#333333') for sec in ordered_sectors]
+
+# Create side-by-side pie charts
+fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]],
+                    subplot_titles=['Sector Breakdown (Count)', 'Sector Breakdown (Market-Cap Weighted)'])
+
+# Pie 1: Count (Sorted largest to smallest)
+fig.add_trace(go.Pie(labels=sector_counts['Sector'], values=sector_counts['Count'], 
+                     marker=dict(colors=colors_mapped), name='Count',
+                     sort=False, # Disable Plotly's auto-sort so it uses our dataframe order
+                     direction='clockwise', # Start at 12 o'clock and go clockwise
+                     hovertemplate="<b>%{label}</b><br>Count: %{value}<br>Share: %{percent}<extra></extra>"),
+              1, 1)
+
+# Pie 2: Market Cap Weighted (Forced into the same slice order as Pie 1)
+fig.add_trace(go.Pie(labels=sector_weights['Sector'], values=sector_weights['Total Market Cap'], 
+                     marker=dict(colors=colors_mapped), name='Notional',
+                     sort=False, # Must be False to maintain the parallel order
+                     direction='clockwise',
+                     hovertemplate="<b>%{label}</b><br>Market Cap: $%{value:,.0f}<br>Share: %{percent}<extra></extra>"),
+              1, 2)
+
+fig.update_layout(
+    title={
+        'text': "Large-Cap (>$30B) Outperformers: Breadth vs. Concentration",
+        'y': 0.95,               # Vertical position (0 to 1)
+        'x': 0.5,                # Horizontal center
+        'xanchor': 'center',     # Anchor the text at the center
+        'yanchor': 'top',
+        'font': dict(size=18, family="Arial, bold")
+    },
+    margin=dict(t=130),          # Increase top margin to give titles room to breathe
+    height=550                   # Slightly taller to accommodate the gaps
+)
+
+# Move subplot titles (Subtitles) slightly higher
+# This loop looks for the annotations created by 'subplot_titles'
+for annotation in fig.layout.annotations:
+    annotation.y += 0.10         # Increase this value to move subtitles further up
+    annotation.font.size = 14    # Optional: adjust subtitle font size if needed
+
+fig.show()
+```
+
+---
+
+### Section 2: Stress-Testing the Large-Cap Universe
+#### *The Outperformance Elimination Pipeline*
+
+**Purpose & Implications:** The purpose of this visualization is to map the sequential filtering of the Russell 1000 universe down to a concentrated pool of consistent large-cap outperformers. 
+
+So we know that we start with 1000 stocks thereabouts, so this sankey diagram helps to visualise the narrowing down of the stocks in stages, from the eligible large-caps, to those that outperformed period 1 to the stocks that outperformed period 2. 
+
+```{python}
+#| label: fig-sankey
+#| warning: false
+#| message: false
+#| fig-column: screen-inset
+
+import plotly.graph_objects as go
+import pandas as pd
+
+# 2. Define node labels and indices (the order determines positions)
+# Indices: 0-Start, 1-Excluded, 2-Eligible, 3-Won P1, 4-Lost P1, 
+# 5-Consistent P1/P2, 6-P1 Winner/P2 Loser, 7-P2 Only Winner, 8-P1 Loser/P2 Loser
+node_labels = [
+    "Russell 1000 (Start)", 
+    "Excluded (<$30B)", 
+    "Eligible Large-Caps", 
+    "Outperform P1", 
+    "Underperform P1",
+    "Consistent Outperformance (95)", # Highlight this node
+    "P1 Outperform, P2 Underperform",
+    "Outperform P2 Only (35)", # This preserves your total of 130 (95 + 35)
+    "Underperform Both"
+]
+
+# (Simplified color definition for clarity, real chart uses gradients)
+node_colors = ["#444", "#888", "#226B80", "#E0816C", "#666", "#019267", "#888", "#E0816C", "#444"]
+
+# 3. Create the Sankey Diagram
+fig = go.Figure(go.Sankey(
+    orientation = "h", # Keep horizontal, it flows better
+    node = dict(
+        pad = 20, # More space between nodes
+        thickness = 30,
+        line = dict(color = "#eee", width = 0.5),
+        label = node_labels,
+        color = node_colors,
+        # Positions: range [0,1] for x,y. You might need to refine these based on exact counts.
+        x = [0.05, 0.25, 0.35, 0.60, 0.60, 0.90, 0.90, 0.90, 0.90],
+        y = [0.5, 0.1, 0.5, 0.25, 0.75, 0.10, 0.35, 0.60, 0.85],
+    ),
+    link = dict(
+        source = [0, 0, 2, 2, 3, 3, 4, 4], # Indices of node_labels list
+        target = [1, 2, 3, 4, 5, 6, 7, 8],
+        value = [excluded_count, eligible_count, p1_winners_count, p1_losers_count, consistent_count, 
+                 p1_winners_count - consistent_count, p2_only_winners_count, p1_losers_count - p2_only_winners_count],
+        color = ["#ddd", "#b1dbe1", "#ecbca2", "#eee", "#99f5cb", "#eee", "#ecbca2", "#ddd"], # Match source node colors
+    )
+))
+
+# 4. Format the layout
+fig.update_layout(
+    title = dict(
+        text = "Finding Consistent Large-Cap Outperformers",
+        font_size = 20,
+        x=0.5
+    ),
+    font = dict(family = "Arial", size = 14, color = "#333"),
+    # *** Resizing: Make it tall and spacious ***
+    margin=dict(t=150, b=50, l=50, r=50),
+    height = 500, 
+    template = "plotly_white",
+    hovermode = 'x'
+)
+
+# 5. Add callouts to highlight the recovered 130 number
+
+fig.add_annotation(
+    x=0.5, y=-0.10, text=f"Total Phase 2 Winners (130) = Consistent (95) + P2-only (35)",
+    showarrow=False, font=dict(color="#333", size=16),
+)
+
+fig.show()
+```
+
+---
+
+### Section 3: The Efficiency Frontier
+#### *The Failure of Passive Beta in a Crisis*
+
+**Purpose & Implications:** This interactive Sortino matrix is designed to evaluate risk-adjusted performance across the universe of individual stocks. We do this analysis for the entire period just as an overview.
+
+We plot Maximum Drawdown against the Sortino Ratio. This compares a portfolio's worst-ever peak-to-trough decline during the period against the return per unit of bad volatility (risk-adjusted return). We use this to determine if the higher returns are worth the potential for bad losses, with a low maximum drawdown and a high Sortino ratio (>2) indicating superior, resilient performance.
+
+The scatter plot reveals that if you held the S&P 500 in Q1 2026, you "won" on stability (low drawdown) but "lost" on efficiency (low Sortino). This demonstrates that "beating the market" in this period required picking specific winners in sectors like Industrials or Real Estate and having the stomach to ride out drawdowns that were 2x to 3x worse than the index itself.
+
+```{python}
+#| label: fig-frontier
+#| warning: false
+#| message: false
+#| fig-column: screen-inset
+
+# 1. Calculate S&P 500 Benchmark Metrics
+risk_free_rate = 0.045 / 252
+daily_ret_sp = sp500.pct_change().dropna()
+
+# Benchmark Sharpe
+excess_sp = daily_ret_sp - risk_free_rate
+sp500_sharpe = np.sqrt(252) * (excess_sp.mean() / excess_sp.std())
+
+# Benchmark Sortino
+downside_sp = daily_ret_sp[daily_ret_sp < 0].std() * np.sqrt(252)
+sp500_sortino = ((daily_ret_sp.mean() * 252) - 0.045) / downside_sp if downside_sp != 0 else np.nan
+
+# Benchmark Max Drawdown
+cum_ret_sp = (1 + daily_ret_sp).cumprod()
+sp500_max_dd = ((cum_ret_sp - cum_ret_sp.cummax()) / cum_ret_sp.cummax()).min()
+
+# 1. Create a dictionary to map Tickers to Full Company Names
+# Assuming df_iwb is your original loaded IWB_holdings.csv
+name_map = dict(zip(df_iwb['Ticker'], df_iwb['Name']))
+
+risk_free_rate = 0.045 / 252 
+metrics_list = []
+
+for ticker in valid_tickers: 
+    prices = df_stocks_filtered[ticker]
+    daily_ret = prices.pct_change().dropna()
+    
+    # Sharpe
+    excess = daily_ret - risk_free_rate
+    sharpe = np.sqrt(252) * (excess.mean() / excess.std())
+    
+    # Sortino
+    downside_std = (daily_ret[daily_ret < 0]).std() * np.sqrt(252)
+    sortino = ((daily_ret.mean() * 252) - 0.045) / downside_std if downside_std != 0 else np.nan
+    
+    # Max Drawdown
+    cum_ret = (1 + daily_ret).cumprod()
+    max_dd = ((cum_ret - cum_ret.cummax()) / cum_ret.cummax()).min()
+    
+    # Extract Metadata
+    market_cap = df_large_cap.loc[df_large_cap['Ticker'] == ticker, 'Market Cap'].values[0]
+    sector = df_large_cap.loc[df_large_cap['Ticker'] == ticker, 'Sector'].values[0] 
+    
+    # Get the full company name (default to the ticker if not found)
+    company_name = name_map.get(ticker, ticker)
+    
+    metrics_list.append({
+        'Ticker': ticker,
+        'Company Name': company_name, # Added Company Name
+        'Sector': sector,
+        'Sharpe': sharpe,
+        'Sortino Ratio': sortino,
+        'Max Drawdown': max_dd,
+        'Market Cap': market_cap
+    })
+
+df_metrics = pd.DataFrame(metrics_list).dropna()
+
+# Function to format Market Cap to 3 sig figs with suffixes
+def format_market_cap(val):
+    if val >= 1e12: return f"${val/1e12:.3g}T"
+    if val >= 1e9:  return f"${val/1e9:.3g}B"
+    if val >= 1e6:  return f"${val/1e6:.3g}M"
+    return f"${val:.3g}"
+
+# Apply formatting to the dataframe
+df_metrics['Market Cap of Stock'] = df_metrics['Market Cap'].apply(format_market_cap)
+
+colors = px.colors.qualitative.Alphabet
+# 2. Map the consistent colors (Ensure master_palette exists)
+
+master_palette = {s: colors[i % len(colors)] for i, s in enumerate(sorted(sector_daily.columns))}
+color_discrete_map = {sec: master_palette[sec] for sec in df_metrics['Sector'].unique()}
+
+# 3. Generate the Interactive Plotly Chart
+fig = px.scatter(
+    df_metrics,
+    x="Max Drawdown",
+    y="Sortino Ratio",
+    size="Market Cap",
+    color="Sector", 
+    color_discrete_map=color_discrete_map, 
+    opacity=0.65, # Makes overlapping bubbles look like "blended" colors
+    hover_name="Company Name", # Set hover title to the full name
+    hover_data={
+        "Ticker": True, 
+        "Market Cap of Stock": True,
+        "Sharpe": ":.3f",          # Rounds ratios to 3 decimal places
+        "Sortino Ratio": ":.3f", 
+        "Max Drawdown": ":.3f",
+        "Market Cap": False       # Hide raw number
+         # Show formatted string
+    },
+    title="Interactive Efficiency Frontier (Q1 2026)",
+    labels={"Max Drawdown": "Maximum Drawdown (Absolute %)", "Sortino Ratio": "Sortino Ratio"},
+    size_max=40,
+    template="plotly_white",
+    height=800
+  
+)
+
+# Reverse the X-axis
+fig.update_xaxes(autorange="reversed")
+
+# Add the S&P 500 Baseline 
+fig.add_scatter(
+    x=[abs(sp500_max_dd)], 
+    y=[sp500_sortino], 
+    mode='markers', 
+    marker=dict(size=15, color='black', symbol='x'), 
+    name='S&P 500 Benchmark'
+)
+
+fig.update_traces(marker=dict(line=dict(width=1, color='white')))
+
+fig.show()
+```
+
+---
+
+### Section 4: Sector Deltas, Mean and Median changes from Period 1 to Period 2
+#### *Identifying Shock Absorbers and Value Traps*
+
+**Purpose & Implications:** The objective of this distribution plot is to evaluate the internal variance and shift in returns across different sectors. 
+
+The graph looks abit confusing and its sorted by the best performing sectors for the two periods, measured by the highest mean change moving from period 1 to period 2. 
+
+The transition between Phase 1 and Phase 2 characterizes a "relief rally" centered on Growth and Financials, rather than a broad-based market recovery. 
+
+Following the onset of the Iran conflict, the Information Technology sector saw its median return stabilize and its volatility (error bars) compress significantly, moving from a highly speculative range to a more defined positive trend. 
+
+In contrast, defensive sectors like Consumer Staples and Utilities saw their median returns collapse, while Energy's "war premium" appeared to evaporate as returns normalized. 
+
+This suggests that once the geopolitical risk transitioned from an "unknown" to a "known" quantity, investors aggressively rotated out of hedges and back into high-beta tech and cyclical financials, effectively de-risking the event's potential for long-term economic disruption.
+
+```{python}
+#| label: fig-boxwhisker
+#| warning: false
+#| message: false
+#| fig-column: screen-inset
+
+# 1. Calculate metrics and immediately FLATTEN the MultiIndex columns
+agg_metrics = df_results.groupby('Sector')[['Phase 1 Return', 'Phase 2 Return']].agg(['mean', 'median', 'min', 'max'])
+
+# This line joins the tuples (e.g., 'Phase 1 Return', 'mean') into strings ('Phase 1 Return_mean')
+agg_metrics.columns = ['_'.join(col).strip() for col in agg_metrics.columns.values]
+
+# 2. Calculate the 'Shift' (Delta) and Sort the data
+agg_metrics['Median_Delta'] = agg_metrics['Phase 2 Return_median'] - agg_metrics['Phase 1 Return_median']
+agg_metrics = agg_metrics.sort_values('Median_Delta', ascending=False)
+
+# Extract specific arrays for plotting
+sectors = agg_metrics.index
+x_base = np.arange(len(sectors)) 
+offset = 0.2
+
+fig = go.Figure()
+
+# --- PHASE 1 TRACES (Shifted Left) ---
+fig.add_trace(go.Bar(
+    name='Phase 1 Mean', x=x_base - offset, y=agg_metrics['Phase 1 Return_mean'],
+    marker_color='lightblue', opacity=0.7, width=0.4, textposition='none',
+    error_y=dict(
+        type='data', symmetric=False,
+        array=agg_metrics['Phase 1 Return_max'] - agg_metrics['Phase 1 Return_mean'],
+        arrayminus=agg_metrics['Phase 1 Return_mean'] - agg_metrics['Phase 1 Return_min'],
+        color='black', thickness=1.5, width=5
+    ),
+    customdata=agg_metrics[['Phase 1 Return_median', 'Phase 1 Return_min', 'Phase 1 Return_max', 'Median_Delta']],
+    hovertemplate="<b>%{text} (Phase 1)</b><br>Mean: %{y:.2%}<br>Median: %{customdata[0]:.2%}<br>Min: %{customdata[1]:.2%}<br>Max: %{customdata[2]:.2%}<br>Shift into Phase 2: %{customdata[3]:.2%}<extra></extra>",
+    text=sectors # Pass the text names for the hover tooltip
+))
+
+# Explicitly place Median Dots on the exact same shifted X-axis
+fig.add_trace(go.Scatter(
+    name='Phase 1 Median', x=x_base - offset, y=agg_metrics['Phase 1 Return_median'],
+    mode='markers', marker=dict(color='darkblue', size=8),
+    hoverinfo='skip' # Prevent double hover tooltips
+))
+
+# --- PHASE 2 TRACES (Shifted Right) ---
+fig.add_trace(go.Bar(
+    name='Phase 2 Mean', x=x_base + offset, y=agg_metrics['Phase 2 Return_mean'],
+    marker_color='lightcoral', opacity=0.7, width=0.4, textposition='none',
+    error_y=dict(
+        type='data', symmetric=False,
+        array=agg_metrics['Phase 2 Return_max'] - agg_metrics['Phase 2 Return_mean'],
+        arrayminus=agg_metrics['Phase 2 Return_mean'] - agg_metrics['Phase 2 Return_min'],
+        color='black', thickness=1.5, width=5
+    ),
+    customdata=agg_metrics[['Phase 2 Return_median', 'Phase 2 Return_min', 'Phase 2 Return_max', 'Median_Delta']],
+    hovertemplate="<b>%{text} (Phase 2)</b><br>Mean: %{y:.2%}<br>Median: %{customdata[0]:.2%}<br>Min: %{customdata[1]:.2%}<br>Max: %{customdata[2]:.2%}<extra></extra>",
+    text=sectors
+))
+
+fig.add_trace(go.Scatter(
+    name='Phase 2 Median', x=x_base + offset, y=agg_metrics['Phase 2 Return_median'],
+    mode='markers', marker=dict(color='darkred', size=8),
+    hoverinfo='skip'
+))
+
+# Overwrite the numeric X-axis with the actual Sector names
+fig.update_layout(
+    title='Sector Return Distributions (Sorted by Phase 2 Shift)',
+    yaxis_title='Returns',
+    xaxis=dict(tickmode='array', tickvals=x_base, ticktext=sectors),
+    barmode='overlay', # Change to overlay since we manually offset the bars
+    height=600,
+    template='plotly_white',
+    hovermode='x unified',
+
+    legend=dict(
+        yanchor="top",
+        y=0.99,           # 1.0 is the very top
+        xanchor="right",
+        x=0.99,           # 1.0 is the very far right
+        bgcolor="rgba(255, 255, 255, 0.5)", # Semi-transparent white
+        bordercolor="Black",
+        borderwidth=1
+    )
+)
+fig.show()
+```
+
+### Section 5: Active Return Deltas and Z-score shifts
+For this table, we aim to see how much change in active return each sector has provided, showing the alpha that the sector has provided over the beta of the market. We then take the difference between the active return in period 1 and period 2 and color code the returns. 
+
+We also look at the z-score shift, which is the return for each sector normalised to the normal distribution of returns for the market. A higher numer shows a returns that performed outside of the standard deviation of returns as expected for stocks in the market and a lower z-score shows the reverse. So we also got the period 1 to period 2 change and color coded them, showing that IT had a large improvement in returns, when normalised and benchmarked to the rest of the market. 
+
+```{python}
+#| label: fig-deltas
+#| warning: false
+#| message: false
+
+# 1. Calculate the compounded returns for the Benchmark (S&P 500)
+sp500_p1 = (1 + sp500_returns.loc[p1_start:p1_end]).prod() - 1
+sp500_p2 = (1 + sp500_returns.loc[p2_start:p2_end]).prod() - 1
+
+# 2. Calculate the compounded returns for each Sector
+p1_sector_returns = (1 + sector_daily.loc[p1_start:p1_end]).prod() - 1
+p2_sector_returns = (1 + sector_daily.loc[p2_start:p2_end]).prod() - 1
+
+# 3. Create the Base DataFrame
+sector_phase_returns = pd.DataFrame({
+    'Phase 1 Return': p1_sector_returns,
+    'Phase 2 Return': p2_sector_returns
+})
+
+# --- METHOD 1: Active Return Shift ---
+sector_phase_returns['P1 Active Return'] = sector_phase_returns['Phase 1 Return'] - sp500_p1
+sector_phase_returns['P2 Active Return'] = sector_phase_returns['Phase 2 Return'] - sp500_p2
+sector_phase_returns['Active Return Delta'] = sector_phase_returns['P2 Active Return'] - sector_phase_returns['P1 Active Return']
+
+# --- METHOD 2: Cross-Sectional Z-Scoring ---
+p1_mean = sector_phase_returns['Phase 1 Return'].mean()
+p1_std = sector_phase_returns['Phase 1 Return'].std()
+
+p2_mean = sector_phase_returns['Phase 2 Return'].mean()
+p2_std = sector_phase_returns['Phase 2 Return'].std()
+
+sector_phase_returns['P1 Z-Score'] = (sector_phase_returns['Phase 1 Return'] - p1_mean) / p1_std
+sector_phase_returns['P2 Z-Score'] = (sector_phase_returns['Phase 2 Return'] - p2_mean) / p2_std
+sector_phase_returns['Z-Score Shift'] = sector_phase_returns['P2 Z-Score'] - sector_phase_returns['P1 Z-Score']
+
+# Sort by the new Z-Score Shift to see who actually gained relative dominance
+advanced_shift_df = sector_phase_returns.sort_values(by='Z-Score Shift', ascending=False)
+
+display(advanced_shift_df[['Phase 1 Return', 'Phase 2 Return', 'Active Return Delta', 'P1 Z-Score', 'P2 Z-Score', 'Z-Score Shift']].style.format({
+    'Phase 1 Return': '{:.2%}',
+    'Phase 2 Return': '{:.2%}',
+    'Active Return Delta': '{:.2%}',
+    'P1 Z-Score': '{:.2f}σ',
+    'P2 Z-Score': '{:.2f}σ',
+    'Z-Score Shift': '{:.2f}σ'
+}).background_gradient(subset=['Z-Score Shift','Active Return Delta'], cmap='RdYlGn'))
+```
+
+### Section 6: Sectorial Scatter Plot
+For this plot, we revisit the scatter plot, but instead of individual companies we plot the sectors on the scatter plot. For this we use the numbers that we have derived above to get a better visualisation for that. 
+
+So we plot the Relative Rank shift, which is the change in the z-score, then we plot that against the Active return shift, which is the change in the active return over the market moving from period 1 to period 2, then we see the sectors that outperformed according to the quadrant that they belong to. 
+
+We see that as above, IT, Financials and Communication outperformed, compared to sectors like Consumer Staples and Materials that moved with peers and lost out to the benchmark.
+
+```{python}
+#| label: fig-quadrants
+#| warning: false
+#| message: false
+
+import plotly.express as px
+
+# Assuming 'advanced_shift_df' contains your Z-Score Shift and Active Return Delta columns
+fig_trap = px.scatter(
+    advanced_shift_df.rename_axis("Sector").reset_index(), # Reset index to access 'Sector' as a column
+    x="Z-Score Shift", 
+    y="Active Return Delta", 
+    color="Sector",
+    color_discrete_map=master_palette,
+    text="Sector", # Puts the sector name directly on the chart
+    title="Alpha vs. Beta Trap: Z-Score Shift vs. Active Return Delta",
+    labels={
+        "Z-Score Shift": "Relative Rank Shift (Δ Z-Score)",
+        "Active Return Delta": "Benchmark Active Return Shift (Δ %)"
+    },
+    template="plotly_white",
+    height=600
+)
+
+# Format the Y-axis as a percentage
+fig_trap.update_yaxes(tickformat=".1%")
+
+fig_trap.update_xaxes(range=[-3.0, 2.5])
+
+# Add quadrant lines
+fig_trap.add_hline(y=0, line_dash="dash", line_color="black", line_width=1)
+fig_trap.add_vline(x=0, line_dash="dash", line_color="black", line_width=1)
+
+# Position the text so it doesn't overlap the bubbles
+fig_trap.update_traces(textposition='top center', marker=dict(size=12, line=dict(color='white', width=1)))
+
+# Add annotations to explain the quadrants
+fig_trap.add_annotation(x=1, y=0.05, text="<b>True Alpha</b><br>(Beat Peers & Benchmark)", showarrow=False, font=dict(color="green"))
+fig_trap.add_annotation(x=-1, y=-0.05, text="<b>The Beta Trap</b><br>(Moved with Peers, Lost to Benchmark)", showarrow=False, font=dict(color="red"))
+
+fig_trap.update_layout(showlegend=False) # Hide legend since text is on the chart
+fig_trap.show()
+```
+
+---
+
+### Section 7: Price Graph
+ This visual shows the shift in prices before and after the February 27th shock. 
+ 
+The stark difference in period 1's graph compared to period 2, made obvious by the indexing to the start of each period shows that market participants actively rotated, requiring quantitative models to dynamically adjust to new leadership regimes instantly.
+
+```{python}
+#| label: fig-rotation
+#| warning: false
+#| message: false
+
+# Color palette
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#bcbd22', '#17becf']
+master_palette = {s: colors[i % len(colors)] for i, s in enumerate(sorted(sector_daily.columns))}
+
+# 3. VISUALIZATION SETUP
+fig = make_subplots(
+    rows=2, cols=2,
+    vertical_spacing=0.15, # Reduced gap between top and bottom
+    specs=[[{"type": "xy"}, {"type": "xy"}],
+           [{"type": "xy", "colspan": 2}, None]],
+    subplot_titles=("Phase 1: Pre-Shock Performance", "Phase 2: Post-Shock Rotation", "Full Period Overview")
+)
+
+def add_subplot_traces(fig, start_date, end_date, highlight_sectors, row, col, add_vline=False):
+    s_returns = sector_daily.loc[start_date:end_date]
+    sp_returns = sp500_returns.loc[start_date:end_date]
+    
+    # Calculate Indexed growth (Reset to 1.0 at the start of each slice)
+    s_indexed = (1 + s_returns.fillna(0)).cumprod()
+    s_indexed = s_indexed / s_indexed.iloc[0]
+    
+    sp_indexed = (1 + sp_returns.fillna(0)).cumprod()
+    sp_indexed = sp_indexed / sp_indexed.iloc[0]
+    
+    # --- STEP 1: THE GHOST LAYER (Background) ---
+    # We plot EVERY sector in grey so they stay visible when highlights are toggled
+    for sector in s_indexed.columns:
+        fig.add_trace(go.Scatter(
+            x=s_indexed.index, y=s_indexed[sector], mode='lines', 
+            line=dict(color='lightgrey', width=1.1), 
+            opacity=0.25, 
+            name=f"{sector}_bg", showlegend=False, hoverinfo='skip'
+        ), row=row, col=col)
+            
+    # --- STEP 2: THE HIGHLIGHT LAYER (Foreground) ---
+    for sector in highlight_sectors:
+        fig.add_trace(go.Scatter(
+            x=s_indexed.index, y=s_indexed[sector], mode='lines', 
+            line=dict(color=master_palette.get(sector, 'black'), width=2.5), 
+            name=sector, 
+            legendgroup=sector, # Syncs all subplots
+            showlegend=(row==2 and col==1), # Only show legend once in the big plot
+            hovertemplate="<b>%{fullData.name}</b>: %{y:.3f}<extra></extra>"
+        ), row=row, col=col) 
+
+    # S&P 500 Benchmark
+    fig.add_trace(go.Scatter(
+        x=sp_indexed.index, y=sp_indexed, mode='lines', 
+        line=dict(color='black', width=3, dash='dash'), 
+        name='S&P 500', 
+        legendgroup='S&P 500', 
+        showlegend=(row==2 and col==1),
+        hovertemplate="<b>%{fullData.name}</b>: %{y:.3f}<extra></extra>"
+    ), row=row, col=col)
+                                 
+    if add_vline:
+        fig.add_vline(x='2026-02-27', line_width=2, line_dash="dash", line_color="red", row=row, col=col)
+
+# 4. RENDER TRACES
+add_subplot_traces(fig, p1_start, p1_end, combined_highlights, 1, 1)
+add_subplot_traces(fig, p2_start, p2_end, combined_highlights, 1, 2)
+add_subplot_traces(fig, p1_start, p2_end, combined_highlights, 2, 1, add_vline=True)
+
+# 5. FINAL LAYOUT & BEHAVIOR
+fig.update_layout(
+    height=950, 
+    template='plotly_white', 
+    
+    # Centralized Title
+    title={
+        'text': "Sector Rotation & Regime Shift Analysis",
+        'y': 0.97,
+        'x': 0.5,
+        'xanchor': 'center',
+        'yanchor': 'top',
+        'font': {'size': 24}
+    },
+    
+    # Legend Behavior: Toggle Others (Focus Mode)
+    legend=dict(
+        orientation="h", 
+        yanchor="bottom", y=-0.12, 
+        xanchor="center", x=0.5,
+        itemclick="toggleothers",   # Single click: Isolate this sector
+        itemdoubleclick="toggle",   # Double click: Show all highlights again
+        font={'size': 12}
+    ),
+    
+    margin=dict(t=100, b=100, l=50, r=50),
+    hovermode='x unified'
+)
+
+fig.show()
+```
+
+<br>
+**The Pivot to Systematic Alpha:** *The risk analysis above proves the market fractured. However, to generate systematic alpha, we must mathematically define the new regime and identify the fundamental traits the market was actively rewarding beneath the surface.*
+
+---
+
+## Part 2: Algorithmic Regime Detection & Factor Modeling
+**Applying Institutional Quantitative Models to Extract Idiosyncratic Alpha.**
+
+*(The following sections are a work in progress unfortunately until Jordan can find more time to work on these :(((( ).*
+
+### Section 1: Redefining the Market Driver (PCA)
+Principal Component Analysis reveals a dramatic drop in PC1 (the "Market" factor) from 62% to 46% following the shock. This mathematically proves the transition from a macro-driven, high-correlation environment to a stock-picker's market where idiosyncratic risk dominates.
+
+### Section 2: The Fama-MacBeth Regressions
+Time-series analysis of Factor Premiums indicates exactly which fundamentals the market favored. The data proves the market aggressively bid up Cash Flow and violently punished high Accruals on February 27th, completely rewriting the standard factor hierarchy.
+
+### Section 3: Geographic & Supply Chain Risk (Compustat Segments)
+By breaking down corporate revenue via Compustat segment data, we see that exposure to international revenue and supply chains was a far heavier anchor on performance than a company's traditional sector classification. 
+
+### Section 4: The Multi-Feature Hidden Markov Model (HMM)
+#### *Algorithmic Crisis Classification*
+
+**Purpose & Implications:** The purpose of this Hidden Markov Model is to programmatically detect unobservable market regimes using price volatility as emission probabilities. The algorithm successfully clusters the time-series into two distinct states: "Normal" and "Crisis." The implication for quantitative trading is profound: instead of relying on lagging fundamental indicators, systemic models can autonomously trigger risk-off hedging protocols the moment the HMM transitions into a high-volatility state.
+
+
+### Section 5: Deconstructing the "Beta Trap" (Dynamic Correlation)
+#### *Exposing False Alpha via Rolling Covariance*
+
+**Purpose & Implications:** This rolling correlation chart measures the dynamic relationship between the "outperforming" Energy sector and the broader S&P 500 benchmark. The results show that Energy's correlation spiked perfectly in tandem with the market's pre-shock rally, indicating its gains were beta-driven rather than idiosyncratic alpha. The implication is that assets masquerading as alpha generators in a bull market will fail to provide diversification when the correlation matrix approaches $1.0$ during a systemic shock.
+

@@ -1,60 +1,40 @@
 /* ==========================================================================
-   SECTION 0: GLOBAL LAYOUT (The Engine)
-   This applies to ALL pages to ensure the footer sticks to the bottom.
+   SECTION 0: GLOBAL LAYOUT (Improved)
    ========================================================================== */
 
-/* 1. Force the body to be at least as tall as the screen */
+/* 1. Standard Sticky Footer (Safer version) */
+html,
+body {
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  /* 100% of Viewport Height */
 }
 
-
-/* 2. Make the main content area grow to fill available space */
-/* This pushes the footer down if content is short */
+/* Let the main container grow without breaking the Quarto Grid */
 #quarto-content {
-  /* Reset the forced height calculation */
-  min-height: auto !important;
-  height: auto !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-  grid-template-rows: [content-top] 0fr [content-bottom] 0px [page-bottom] !important;
   flex: 1 0 auto;
-  width: 100%;
-  /* Ensures full width on "page-layout: full" */
+  display: grid !important;
+  /* Keep the grid, don't flatten it */
 }
 
-#quarto-document-content {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+/* 2. Responsive Centering for Graphs & Images */
+.cell-output-display img,
+.quarto-figure {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.quarto-container-fluid {
-  padding-top: 0 !important;
-}
-
-/* 3. Ensure footer doesn't shrink */
-footer {
-  flex-shrink: 0;
-  background-color: #f8f9fa;
-  /* Optional: Match your navbar */
-  border-top: 1px solid #eaeaea;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  /* The magic CSS rule for sticky footers */
-}
-
-/* Global Typography tweaks */
-h1,
-h2,
-h3 {
-  color: #2c3e50;
-  /* Darker, professional header color */
+/* 3. Force "Back to Top" visibility if it's acting shy */
+.quarto-back-to-top {
+  z-index: 1000 !important;
+  bottom: 20px !important;
+  right: 20px !important;
 }
 
 
@@ -165,6 +145,3 @@ h3 {
 .project-detail-view .callout-note {
   border-left-width: 5px;
 }
-
-
-

@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: _site
 
+execute:
+  freeze: auto
+
 website:
   site-url: "https://jordanchongja.github.io"
   title: "Jordan's Projects"
@@ -14,6 +17,7 @@ website:
   description: "Portfolio of Jordan Chong - Finance & Data Science"
   favicon: /assets/favicon.png
   google-analytics: "G-V7YLYPVKHH"
+  back-to-top-navigation: true
   
   navbar:
     background: "#f8f9fa"
@@ -63,3 +67,4 @@ format:
     theme: cosmo
     css: styles.css # This links your new CSS file
     toc: true
+    fig-align: center

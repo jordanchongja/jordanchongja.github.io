@@ -1,0 +1,51 @@
+---
+title: "East of Eden"
+author: "John Steinbeck"
+date: 2025-01-15
+categories: [Philosophy, Fiction, Classics, Book]
+image: cover.jpg
+subtitle: ★★★★★
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+
+
+## Summary and the Core Premise of the Book
+A multi-generational epic set in the Salinas Valley that mirrors the biblical story of Cain and Abel, tracking the intertwined destinies of the mythic Trask family and the deeply human Hamilton family.
+
+## Why I Read This Book
+Had heard alot about Steinbeck and read online that this was one of his best books and it did not disappoint.
+
+## Key Takeaways
+1.  **The power of Timshel:** The Hebrew word for "thou mayest." It represents the ultimate triumph of free will over deterministic fate, whether that fate is inherited by blood or shaped by upbringing. Unfortunately found that this word doesn't really translate well in real life Hebrew.
+2. **The danger of hollow idealism:** Naive, untested "goodness" that bends the world to fit a pure worldview is fragile and ultimately destructive when confronted with reality.
+3. **The utility of societal masks:** Highly intelligent individuals sometimes adopt the prejudices of society to manage expectations and protect their own autonomy.
+
+## Reflection
+This book made me think more about the agency that we have in life and whether we are doomed to repeat the mistakes of our forefathers. Steinbeck argues that we all have the human capacity for change and to break the cycle and overcome our circumstances. Steinbeck also touches on the existence of absolute good and evil through Aron and Cathy, shedding light on the nuances of morality. 
+
+
+## Favorite Quotes
+> "And now that you don't have to be perfect, you can be good."
+
+---
+
+### Steinbeck's Use of Side-plots
+One thing that I really like about Steinbeck's novels is the masterful handling of the sideplots which lead to amazing world-building and immersion. He gives side-characters, like Joe fully realised inner lives and motivations, even when their structural purpose is just to move a plot device. He also has poetic interludes which are really descriptive and vivid, making the novel feel like a lived-in reality. 
+
+### Nature vs Nurture and the Morality of Instinct
+I enjoyed how Steinbeck painted Cathy not as a pure evil character filled with pure malice with no origin, but more as someone with a psychic malformation, born lacking the basic human faculties for empathy or love. She is simply operating on pure instinct and her personal incentives from birth. And this calls to question whether this deviation from social norms make her inherently "bad" as per natural law, or is she just fundamentally incompatible with human society? 
+
+Laing writes on a similar concept in _The Divided Self_, where he argues that what society labels as "madness" or schizophrenia is often not a medical disease, but a desperate survival strategy. He introduces the concept of "ontological insecurity"—when a person feels their very existence is constantly threatened by normal social reality. To survive an environment they find alien and terrifying, they construct a rigid "false self" to interact with the world, while their true self retreats into absolute isolation. Their behavior, while incomprehensible or destructive to the "norm," is actually a logical defense mechanism to maintain control.
+
+If we read Cathy through this lens, her "evil" is actually a profound ontological insecurity. She lacks the standard human operating system (empathy, connection). Because the normal world is alien to her, she views other humans purely as threats to be neutralized or tools to be manipulated
+
+### The Parent as a Capricious God
+I enjoyed Steinbeck's parallel between parenthood and the divine. In the biblical story of Cain and Abel, God arbitrarily favors Abel's offering over Cain's. In the novel, the father figures act as this capricious God. Cyrus rejects Charles's expensive, hard-earned German knife in favor of Adam's low-effort stray puppy. A generation later, Adam rejects Cal's desperate, $15,000 offering. The novel explores the devastating impact of this arbitrary parental favor, suggesting that the "mark of Cain" is often inflicted by the parent's inability to see their children clearly. With parental love being the first love that we can conceive of at birth, I believe it represents the most fundamental form of love. At the end of the day, all the children in the book just want to be seen, because to be loved is to be seen, and the lack of this love causes the characters to seek validation elsewhere, often to undesirable outcomes.

@@ -2,7 +2,9 @@
 title: "Technical Notes"
 subtitle: "A digital garden of my research into finance, market microstructure, and algorithms."
 listing:
-  contents: .
+  contents: 
+  - "*/index.qmd"
+  - "*/*.ipynb"
   sort: "date desc"
   type: grid # <--- Switched to Grid
   categories: true

@@ -1,40 +1,37 @@
 [
   {
-    "listing": "/readings/index.html",
-    "items": [
-      "/readings/East of Eden/template.html"
-    ]
-  },
-  {
     "listing": "/projects/index.html",
     "items": [
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
       "/projects/sg-insurance-model/index.html",
       "/projects/gap-challenge-solver/index.html",
-      "/projects/quant-structuring-workbench/index.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_01_BlackSholes.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_02_MertonJumpDiffusion.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_03_HestonModel.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_04_BatesModel.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_05_BS_RealDataCalibration.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_06_Heston_RealDataCalibration.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_07_Merton_RealDataCalibration.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_08_Bates_RealDataCalibration.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_09_Model_Comparison.html",
-      "/projects/quant-structuring-workbench/notebooks/quarto_10_OutOfSampleTesting.html"
+      "/projects/options-payoff-visualisation/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/projects/sg-insurance-model/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
       "/projects/gap-challenge-solver/index.html",
-      "/projects/quant-structuring-workbench/index.html"
+      "/projects/options-payoff-visualisation/index.html"
     ]
   },
   {
     "listing": "/notes/index.html",
     "items": [
-      "/notes/posts/Black-Sholes-Derivation/index.html"
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html"
+    ]
+  },
+  {
+    "listing": "/readings/index.html",
+    "items": [
+      "/readings/Ministry of Moral Panic/index.html",
+      "/readings/This is What Inequality Looks Like/index.html",
+      "/readings/East of Eden/index.html",
+      "/readings/The God of Small Things/index.html"
     ]
   }
 ]

@@ -1,0 +1,62 @@
+---
+title: "This is What Inequality Looks Like"
+author: "Teo You Yenn"
+date: 2025-02-27
+categories: [Singaporean, Book]
+image: cover.jpg
+subtitle: ★★★★★
+body-class: "project-detail-view" 
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+
+## Summary and the Core Premise of the Book
+An ethnographic examination of poverty and systemic inequality in Singapore, challenging the traditional national narrative of meritocracy by revealing the hidden, structural barriers faced by low-income families.
+
+## Why I Read This Book
+Was a bestseller and wanted to gain an insight from a social, rather than the usual economic, perspective as to the systemic frictions and the hidden costs that are affecting social mobility in Singapore
+
+## Key Takeaways
+1.  **The Relativity of Value:** Material goods hold different psychological and practical utility across socioeconomic classes; applying a uniform, middle-class gauge to welfare policy often harms the very people it intends to help.
+2.  **The "Poor Tax" (Time Poverty):** A lack of financial capital necessitates the expenditure of a more finite resource—time. Inefficient daily logistics create a compounding cycle that traps individuals in poverty.
+3. **Spatial Inequality:** Poverty drastically shrinks an individual's physical geography and strips away unseen privileges, such as domestic privacy for children. 
+4. **The Paternalism of Aid:** Welfare systems are often built on flawed "myths" regarding the decision-making capabilities of low-income individuals, prioritizing donor preferences over recipient autonomy and dignity.
+
+## Reflection
+This book really questioned the assumptions and preconceived notions that I had with regard to social mobility and the state of meritocracy and equality in Singapore. Having been a beneficiary of the local education system, there exists a multitude of gaps regarding the other possible outcomes from the very same system. Teo also forces the reader to examine the use of biased terms in her 
+
+## Favorite Quotes
+> "Poor people don’t like oats either."
+> "Dignity is like clean air. You do not notice its absence unless it is in short supply. You do not realize how much you need it, how important it is to you, until you don’t have it."
+> "Their financial dependence on parents, their use of personal spaces in their homes, their scheduled activities are all conditions that grant parents continued access to influence over their everyday lives. Absent of these conditions, authority is tough to maintain for low-income parents"
+> "Importantly, their internal narratives map nicely onto our national narratives of economic development, growth, wealth, prosperity. The speakers do not want to hear stories of people whose life stories disrupt the national narrative. A disruption of the national narrative is a disruption of their internal, personal narratives. I have no doubt that part of the effect of their words, in those rooms where they were spoken, was to reduce the weight of my findings and trivialize the hardships of my respondents."
+> "In my early fieldnotes, I expressed shock constantly. If transposed onto the lives of people in my own social milieu, many of the things I saw would be experienced as urgent crises. In the first months after I began the work, I could not stop talking about bed bugs. For my respondents, this and many other things were simply part of their everyday lives."
+
+## Other Reading
+- [Poor People Don't Like Oats Either](https://newnaratif.com/poor-people-dont-like-oats-either/)  On the perpetuation of myths in the welfare regime in Singapore
+
+---
+
+### On the Relativity of Needs and Policy Blind Spots
+One of the most profound shifts in perspective the book offers is how the mental and practical value of an object changes depending on socioeconomic status. To a middle-class policymaker, a television might be classified as a "luxury" good because their weekends are subsidized by external enrichment classes, dining out, and paid entertainment. To a low-income household, however, the television is an absolute essential—it is the primary, cost-effective source of family bonding and entertainment. When policymakers apply uniform, middle-class assumptions to define "needs" versus "wants," they inadvertently design interventions that are fundamentally disconnected from the reality of the people they are trying to assist.
+
+### Time Poverty and the "Poor Tax"
+Inequality is often measured in dollars, but its most punitive toll is exacted in hours. The book highlights the reality of the "poor tax", the phenomenon where lacking money means you must spend time instead. Because low-income individuals lack access to premium, time-saving services, they are forced to navigate deeply inefficient systems: relying entirely on slower public transport, queuing at banks and post offices, or spending hours commuting to access basic administrative infrastructure. This creates a vicious cycle; the heavy administrative burden of simply existing in poverty drains the exact temporal and cognitive resources required to break out of it.
+
+### Spatial Geography and the Erosion of Privacy
+Poverty dictates not just what you can buy, but where you can exist. The spatial reality for the poor is often confined to highly functional, transactional spaces: the childcare center, the bank, the post office, and the market. Furthermore, this lack of spatial capital bleeds into the home, severely compromising privacy, particularly for children. Without the luxury of physical space to retreat, study, or develop autonomously, the environment becomes another structural headwind against upward mobility, reinforcing the physical and psychological boundaries of their socioeconomic class.
+
+### The Paternalism of Aid: "Why Must Poor People Always Eat Oats?"
+This point is not strictly in this book, but in an article online, that i have linked above in the "Other Reading" section. The article exposes a pervasive, underlying bias in how aid is distributed: the assumption that poverty is a symptom of poor individual decision-making. This manifests in the preference for giving food rations (like oats) or restricted vouchers rather than direct cash transfers. The donor assumes the recipient lacks the capacity to make "good" choices. This paternalistic approach creates a sharp divide, casting the aid giver as superior and the recipient as a subject needing to be steered. As Teo highlights through a resident's frustration over being forced to eat water-logged oats, this framework ignores the recipient's autonomy and fails to recognize that they understand their own needs better than the system does. But becuase the system has the power to make decisions on behalf of the recipient, this misalignment of incentives and misconception of "what is best" leads to poor outcomes for the parties involved.
+
+### The Erosion of Dignity and the Burden of Proof
+Dignity, as the book notes, is like clean air: you only notice its absence when it is in short supply. While professionals (like the author herself) are granted immediate societal respect, low-income individuals are frequently met with skepticism. To access social safety nets, they are required to provide extensive, repeated proof of their poverty. While designed to prevent abuse, these administrative hurdles exact a heavy psychological toll, systematically diminishing the individual and stripping away their dignity just to secure basic survival resources.
+
+### National Myths and the Alienation of the Poor
+Teo argues that national narratives, such as the "self-reliant Singaporean", are powerful myths. They are not outright lies, but they have universalizing tendencies that flatten empirical realities and obscure systemic friction. By framing poverty strictly as an individual "mindset" problem, or dismissing it as a mere negative externality of national economic development, the system alienates those left behind. The poor are cast as a tiny, marginal minority experiencing a temporary plight they should simply "work hard" to escape, ignoring the structural barriers that keep the cycle in motion.

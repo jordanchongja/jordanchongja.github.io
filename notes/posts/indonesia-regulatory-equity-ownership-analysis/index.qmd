@@ -1,0 +1,82 @@
+---
+title: "Indonesia Regulatory Equity Ownership Analysis"
+description: "Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models"
+date: last-modified
+categories: [Quantitative Finance, Market Regime, Python, Plotly, Data Visualization] 
+image: SankeyDiagramRussell1000.png
+image-alt: "Sankey Diagram for the Russell 1000 outperformers compared to the S&P500"
+client: "Quantitative Analyst Portfolio" 
+github-repo: "https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis"
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show Data Processing Code"
+    toc: true
+    page-layout: full
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Visualization-Plotly-3F4F75?logo=plotly&logoColor=white)
+![](https://img.shields.io/badge/Modeling-hmmlearn-150458?logo=scikitlearn&logoColor=white)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis)
+
+<style>
+  #quarto-margin-sidebar { padding-top: 50px; }
+</style>
+
+```{python}
+#| label: global-setup
+#| include: false
+#| warning: false
+#| message: false
+
+
+```
+
+## Part 0: Rationale for this Project
+So the idea for this project came as part of the interview process for a company, where i was tasked to identify large cap stocks from the Russell 1000 (market cap >USD 30 Billion) that have outperformed the S&P500. 
+
+This analysis focused on comparing the outperformance for two phases of 2026, 1. Prewar - 31th December 2025 to 27th February 2026 2. Post-war 27th February 2026 to 10th April 2026. And the tasking was to draw out some conclusions and observations from these Russell 1000 stocks that outperformed the S&P500, and see if there were any insights that I could draw.
+
+My intuition was that it would mostly be energy stocks that outperformed, and perhaps we could extract additional insights from that point. 
+
+I did quite abit of data cleaning and data visualisation for this exercise, so i figured that i turn it into a project with risk attribution analysis for the first part, exploring the data and how the sectors and the companies did in each "market regime" (if any), and take it as a practice in data visualisation. 
+
+The idea was that the Iran War was an exogenous macro event and we could use it as a stress-test for large-cap equities. 
+
+And to expand the project a little, i figured it would be a good place to practice some quant models with Regime Detection and some Factor Modelling which would fit well with this project given its dual time period analysis. 
+
+Therefore in the second portion of this article, I explored abit of everything, going for breadth as part of an exploration into quant models and how they work, and plan to create more projects that delve into each of these models a little more in-depth in the future.
+
+I do this in Part 2, where i try to do more complex analysis and bring in data from other sources like WRDS for analysis.
+
+## Part 1: Market Microstructure & Risk Attribution
+**Deconstructing the Benchmark during the Q1 2026 Geopolitical Shock.**
+
+For this portion, i got the data from Yfinance instead of for WRDS because I was under time-pressure, and got the constituents from the iShares proxy of the Russell 1000, which i figured would at least contain all the major players. 
+
+Instead of simply filtering the index by market capitalization, this analysis stress-tests large-cap equities during an exogenous macro event. By peeling back the layers of the benchmark, we can expose the hidden rotational dynamics and severe risk fractures that occurred during the crash.
+
+---
+
+### Section 1: The Benchmark vs. The Breadth
+#### *Masking the Rotational Damage Beneath the Surface*
+
+**Purpose & Implications:** The purpose of this analysis is to get a brief description of the stocks that outperformed, the sectors that they come from, and how it compares to a market-cap weighted perspective of this.
+
+So the results were that Industrials, Financials, Information Technology, and Healthcare seem to have outperformed on initial glance on a numerical basis in terms of the number of companies. However, on a market-cap weighted basis, which the S&P500 index number would reflect, Information Technology seems to be much heavier weighted, which could lead to a skew of results.
+
+An interesting direction could be exploring how many companies are in each sector that we have graphed here and so what percentage of each sector actually outperformed and by how much. But these graphs give an initial view into the data.
+
+```{python}
+#| label: fig-breadth
+#| warning: false
+#| message: false
+#| fig-column: screen-inset
+
+# 1. Prepare Data
+
+```

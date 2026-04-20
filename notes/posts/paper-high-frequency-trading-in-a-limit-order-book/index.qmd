@@ -1,0 +1,314 @@
+---
+title: "Paper: High-Frequency Trading in a Limit Order Book"
+description: "An analysis of the Avellaneda-Stoikov model: optimizing bid-ask spreads through utility theory, HJB equations, and inventory risk management."
+date: 2026-04-08
+categories: [Market Microstructure, Stochastic Control, Quantitative Finance]
+image: Price Trading Range.png 
+image-alt: "Visualization of Optimal Bid-Ask Quotes around an Indifference Price"
+client: "Quantitative Research" 
+format:
+  html:
+    mathjax: true 
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+![](https://img.shields.io/badge/Finance-Quantitative-gold?logo=bankofamerica&logoColor=white)
+![](https://img.shields.io/badge/Status-Completed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; 
+  }
+</style>
+
+## Paper Overview: High-Frequency Trading in a Limit Order Book
+
+Before diving into the math, it is crucial to understand what this 2006 paper by Marco Avellaneda and Sasha Stoikov is trying to achieve.
+
+* **The Objective:** The paper studies the optimal strategy for a stock dealer (or market maker) submitting bid and ask quotes within an electronic limit order book. The dealer faces a dual challenge: "inventory risk" caused by the unpredictable, diffusive movement of the stock's mid-price, and "transaction risk" stemming from the random arrival of market participants looking to buy or sell.
+* **The Methodology:** To solve this, the authors frame the dealer's dilemma within a maximal expected utility framework. They derive a two-step solution: first, the dealer calculates a personal "indifference valuation" (or reservation price) for the stock based on their current inventory. Second, they calibrate their bid and ask quotes around this personal price to match the market's liquidity dynamics.
+* **The Result:** By simulating stock price paths, the authors demonstrate that this "inventory-based" strategy significantly reduces the variance of the dealer's Profit & Loss (P&L) profile and final inventory compared to a "naive" strategy that simply places symmetric quotes around the market mid-price.
+
+---
+
+## 1. The Players & The Environment
+
+To understand the model, we first define the "Arena" in which our agent operates. This consists of three main components: the asset being traded, the market participants consuming liquidity, and the dealer providing it.
+
+### 1.1 The Mid-Price ($S_t$) & The Wiener Process
+We assume the "fair" mid-market price of the stock evolves according to the following continuous-time stochastic differential equation:
+
+$$dS_u = \sigma dW_u$$
+
+This equation represents the diffusive nature of the market, built on the implicit assumption that the dealer has no opinion on the drift (the future directional trend) of the stock.
+
+* **$W_u$ (The Wiener Process):** Here, $W_u$ represents a standard one-dimensional Brownian Motion, also known mathematically as a Wiener process.
+* **How it works:** A Wiener process describes purely random, continuous motion. It has three key properties: it starts at zero ($W_0 = 0$), its increments over any time period are completely independent of the past, and those increments are normally distributed with a mean of zero and a variance equal to the time elapsed ($W_{t+\Delta t} - W_t \sim \mathcal{N}(0, \Delta t)$).
+* **$\sigma$ (Volatility):** This constant scales the Wiener process, dictating the magnitude of the stock's random fluctuations.
+
+### 1.2 The Market (The Takers & The Poisson Process)
+Market participants arrive randomly to "hit" (sell to) or "lift" (buy from) the dealer's quotes. These transaction events are modeled as a Poisson arrival process.
+
+The rate (or intensity) at which these orders arrive depends directly on $\delta$, which is the distance of the dealer's quote from the mid-price ($\delta^a = p^a - s$ for asks, $\delta^b = s - p^b for bids$). The paper uses an exponential decay formula to model this arrival rate:
+
+$$\lambda(\delta) = A e^{-k\delta}$$
+
+**Breaking down the components:**
+* **$\lambda$ (Arrival Rate):** This is the Poisson intensity—the expected frequency of a limit order being executed within a given time frame.
+* **$A$ (Baseline Frequency):** This is a predetermined constant representing the overall frequency of market buy or sell orders arriving at the exchange, regardless of price.
+* **$k$ (Decay Parameter):** This is a predetermined market constant derived from the distribution of order sizes and the temporary price impact of trades.
+
+> **The Intuition:** Because $k$ is positive, $e^{-k\delta}$ creates an exponential decay curve. The further away from the mid-price the agent positions their quotes (as $\delta$ increases to earn a higher spread), the exponentially less often they will receive buy and sell orders.
+
+### 1.3 The Dealer (The Agent)
+Our agent is the market maker navigating these two mathematical forces. At any given time, their state is strictly defined by two variables: their current cash wealth ($x$) and their current inventory of stock ($q$).
+
+---
+
+## 2. The Agent's Objective: The "Why" of Risk Aversion
+
+The dealer’s goal is not just to maximize pure profit, but to maximize the expected utility of their wealth at the end of the trading day (terminal time $T$). Because the dealer dislikes volatile P&L swings (inventory risk), we must mathematically define their risk aversion.
+
+### 2.1 The CARA Utility Function & "Fear Over Greed"
+We model the dealer's psychology using the Constant Absolute Risk Aversion (CARA) utility function:
+
+$$u(w) = -\exp(-\gamma w)$$
+
+Where $w$ is wealth and $\gamma$ is the risk aversion parameter. To understand why this specific function is chosen, we look at the Arrow-Pratt measure of Absolute Risk Aversion (ARA), which can be thought of as the ratio of **"Fear" over "Greed"**:
+
+$$A(w) = -\frac{u''(w)}{u'(w)}$$
+
+* **Fear ($u''$):** The second derivative, $u''(w) = -\gamma^2 \exp(-\gamma w)$, represents the curvature of the utility function—how intensely the agent feels the pain of uncertainty.
+* **Greed ($u'$):** The first derivative, $u'(w) = \gamma \exp(-\gamma w)$, represents marginal utility—the baseline desire for more wealth.
+
+> ### Deep Dive: The Normalization
+> We must divide the "fear" by the "greed" to normalize the risk measure. If we didn't divide by $u'$, our measurement of risk would distort arbitrarily depending on whether wealth was measured in pennies or millions of dollars.
+> 
+> When we calculate $A(w)$ for the CARA function, the exponential terms perfectly cancel out:
+> $$A(w) = -\frac{-\gamma^2 \exp(-\gamma w)}{\gamma \exp(-\gamma w)} = \gamma$$
+> Because $A(w) = \gamma$ (a constant), the dealer's risk appetite is strictly wealth-independent.
+
+**An Example:** Imagine a trader with a \$100 bankroll and a trader with a \$1,000,000 bankroll facing a coin-flip bet to win or lose \$50. If they base their bets on proportional wealth (like the Kelly Criterion), the millionaire takes the bet easily, while the \$100 trader sweats it. But under CARA utility, if both have the same $\gamma$, they evaluate the risk of that \$50 swing identically. Their bank balance does not change their bid/ask spread.
+
+### 2.2 Building the Value Function
+Now we map this utility onto our dealer's specific situation. At terminal time $T$, the dealer's total wealth will be their cash on hand ($x$) plus the liquidated value of their stock inventory ($qS_T$). Substituting this total wealth ($w = x + qS_T$) into the CARA utility function gives us the agent's expected value function (for a "frozen" inventory with no active limit orders):
+
+$$v(x, s, q, t) = E_t[-\exp(-\gamma(x + qS_T))]$$
+
+### 2.3 Solving the Expected Value under Brownian Motion
+To solve this expectation, we must recall that the stock price follows a Brownian motion ($dS_u = \sigma dW_u$). This means the terminal stock price $S_T$, given a starting price $s$ at time $t$, is normally distributed with a mean of $s$ and a variance of $\sigma^2(T-t)$.
+
+When you take the expected value of an exponential function of a normally distributed variable, you use the Moment Generating Function property: $E[\exp(Z)] = \exp(\mu + \frac{1}{2}\sigma_{var}^2)$.
+
+* Here, our variable is $-\gamma q S_T$.
+* The mean ($\mu$) is $-\gamma q s$.
+* The variance ($\sigma_{var}^2$) is $(-\gamma q)^2 \sigma^2 (T-t) = \gamma^2 q^2 \sigma^2 (T-t)$.
+
+Applying this property to our value function allows us to pull the cash $x$ (which is deterministic) out of the expectation, and solve the rest mathematically:
+
+$$v(x, s, q, t) = \underbrace{-\exp(-\gamma x)}_{\text{Initial Wealth}} \underbrace{\exp(-\gamma qs)}_{\text{Inventory Value}} \underbrace{\exp\left(\frac{\gamma^2 q^2 \sigma^2 (T-t)}{2}\right)}_{\text{Risk Portion}}$$
+
+### 2.4 The Action: Optimal Calibration & Shifting Quotes
+The equations above define how the dealer values their current state. But to actually trade, the dealer has only one set of "knobs" to turn: the distances of their limit orders from the mid-price:
+
+* $\delta^a$: Distance of the Ask price from the mid-price ($p^a = s + \delta^a$).
+* $\delta^b$: Distance of the Bid price from the mid-price ($p^b = s - \delta^b$).
+
+Because of the "Risk Portion" identified in the equation above, Avellaneda and Stoikov prove that the dealer shouldn't just turn these knobs to set symmetric quotes. Instead, they must dynamically shift these quotes based on their current inventory. If they are holding too much stock, the risk portion forces them to lower both $\delta^a$ and $\delta^b$ to attract buyers and discourage sellers.
+
+---
+
+## 3. Defining the Reservation Bid and Ask Prices
+
+The reservation price (or indifference price) is the exact theoretical price point where the agent is perfectly neutral between holding their current portfolio versus executing a trade to alter their inventory.
+
+### 3.1 The Components of the Indifference Equations
+* $x$: The agent's current cash wealth.
+* $r^b$ (Reservation Bid): The exact amount of cash the agent gives up to buy one share ($x - r^b$).
+* $r^a$ (Reservation Ask): The exact amount of cash the agent receives when selling one share ($x + r^a$).
+* $s$: The current mid-market price of the stock.
+* $q$: The current inventory of stocks.
+* $t$: The current time, evaluated against the terminal horizon $T$.
+
+To find the **Reservation Bid**, we set the utility of the current state equal to the utility of buying one more stock:
+$$v(x - r^b, s, q + 1, t) = v(x, s, q, t)$$
+
+To find the **Reservation Ask**, we set the utility of the current state equal to the utility of selling one stock:
+$$v(x + r^a, s, q - 1, t) = v(x, s, q, t)$$
+
+### 3.2 Step-by-Step Derivation of Closed-Form Solutions
+Plug our expanded value function into the Reservation Bid equation:
+
+**Step 1: Set up the equality.**
+$$-\exp(-\gamma(x - r^b)) \exp(-\gamma(q + 1)s) \exp\left(\frac{\gamma^2 (q + 1)^2 \sigma^2 (T-t)}{2}\right) = -\exp(-\gamma x) \exp(-\gamma qs) \exp\left(\frac{\gamma^2 q^2 \sigma^2 (T-t)}{2}\right)$$
+
+**Step 2: Cancel out the initial wealth ($x$).**
+$$\exp(\gamma r^b) \exp(-\gamma qs - \gamma s) \exp\left(\frac{\gamma^2 (q^2 + 2q + 1) \sigma^2 (T-t)}{2}\right) = \exp(-\gamma qs) \exp\left(\frac{\gamma^2 q^2 \sigma^2 (T-t)}{2}\right)$$
+
+**Step 3: Take the natural logarithm ($\ln$).**
+$$\gamma r^b - \gamma qs - \gamma s + \frac{\gamma^2 (q^2 + 2q + 1) \sigma^2 (T-t)}{2} = -\gamma qs + \frac{\gamma^2 q^2 \sigma^2 (T-t)}{2}$$
+
+**Step 4: Cancel common terms and isolate $r^b$.**
+Subtract common variance terms and divide by $\gamma$:
+$$r^b(s, q, t) = s + (-1 - 2q) \frac{\gamma \sigma^2 (T-t)}{2}$$
+
+Following the same logic for the **Reservation Ask**:
+$$r^a(s, q, t) = s + (1 - 2q) \frac{\gamma \sigma^2 (T-t)}{2}$$
+
+### 3.3 The Reservation Price (The Midpoint)
+By averaging the reservation bid and ask, we get the agent's absolute subjective valuation of the asset:
+$$r(s, q, t) = \frac{r^a + r^b}{2} = s - q\gamma\sigma^2(T-t)$$
+This cleanly shows that if the dealer holds zero inventory ($q=0$), their reservation price perfectly matches the mid-market price ($s$).
+
+---
+
+## 4. The Infinite Horizon (The Stationary "Robotic" Trader)
+
+**A Quick Caveat:** The infinite horizon model is a theoretical exercise to show how a stationary strategy could be constructed. In the finite horizon model, the reservation price heavily depends on the time remaining ($T-t$). At 10:00 AM, holding 1,000 shares is risky; at 3:59 PM, it is less risky as the market is about to close.
+
+### 4.1 Integrating Time Out
+To remove $T$, we change the objective to an infinite horizon, taking the expectation of the integral of the utility function:
+
+$$\overline{v}(x, s, q) = E\left[\int_{0}^{\infty} -\exp(-\omega t)\exp(-\gamma(x + qS_t)) dt\right]$$
+
+### 4.2 The Role of $\omega$ as a Risk Boundary
+In this context, $\omega$ acts as a strict "stationary hazard rate." For the math to converge:
+$$\omega > \frac{1}{2}\gamma^2\sigma^2q^2$$
+
+* **The Upper Bound:** If inventory ($q$) grows too large, the risk exceeds $\omega$, and the math diverges.
+* **Enforcing Limits:** By setting $\omega = \frac{1}{2}\gamma^2\sigma^2(q_{max}+1)^2$, we bake a hard constraint into the bot: "You are absolutely forbidden from holding more than $q_{max}$ shares."
+
+---
+
+## 5. The HJB Equation for the Active Dealer
+
+When the dealer actively quotes limit orders, their objective function is an optimization problem solved via the **Hamilton-Jacobi-Bellman (HJB)** equation.
+
+> ### Why HJB and not a standard Bellman Equation?
+> * **Standard Bellman:** Used for discrete-time environments (e.g., chess, daily portfolio adjustments). Time moves in rigid steps ($t=1, 2, 3$).
+> * **HJB Equation:** Continuous-time extension. In an LOB, the mid-price diffuses continuously ($dS_u = \sigma dW_u$) and market orders can arrive at any microsecond. HJB allows us to calculate optimal control at any infinitely small slice of time.
+
+### 5.1 The Master Equation
+Using the dynamic programming principle, the value function $u$ must solve:
+
+$$
+\begin{cases} 
+\underbrace{u_t}_{\text{Time Decay}} + \underbrace{\frac{1}{2}\sigma^2 u_{ss}}_{\text{Volatility Risk}} + \underbrace{\max_{\delta^b}\lambda^b(\delta^b)[u(s, x - s + \delta^b, q + 1, t) - u]}_{\text{Poisson Jump (Bid)}} + \underbrace{\max_{\delta^a}\lambda^a(\delta^a)[u(s, x + s + \delta^a, q - 1, t) - u]}_{\text{Poisson Jump (Ask)}} = 0 \\ 
+u(s, x, q, T) = -\exp(-\gamma(x + qs)) 
+\end{cases}
+$$
+
+* **Top Equation (PDE):** Balances predictable time decay and unpredictable stock diffusion against sudden jumps in value when a trade occurs.
+* **Bottom Equation (Terminal Condition):** The final boundary condition at time $T$.
+
+---
+
+## 6. The Ansatz and Step-by-Step Substitution
+
+Solving the non-linear PDE directly is nearly impossible. However, the CARA utility allows for a structural guess called an **ansatz**, which separates cash from inventory risk:
+
+$$u(s, x, q, t) = \underbrace{-\exp(-\gamma x)}_{\text{Cash Component}} \underbrace{\exp(-\gamma\theta(s, q, t))}_{\text{Inventory Component}}$$
+
+### 6.1 Substitution Steps
+To transform the HJB equation from $u$ to $\theta$, we compute partial derivatives:
+* $u_t = u \cdot (-\gamma\theta_t)$
+* $u_{ss} = u \cdot (-\gamma\theta_{ss} + \gamma^2\theta_s^2)$
+
+**The Bid Jump Substitution:**
+We replace the updated state variables into the ansatz, pull out $u$, and simplify using $r^b = \theta(s,q+1,t) - \theta(s,q,t)$:
+$$= u \cdot \exp(\gamma(s - r^b - \delta^b))$$
+Thus, the bid jump term becomes: $\lambda^b u [\exp(\gamma(s - r^b - \delta^b)) - 1]$.
+
+**Creating the New HJB:**
+Plug the derivatives back in and divide by $(-\gamma u)$ to isolate $\theta_t$:
+$$\theta_t + \frac{1}{2}\sigma^2\theta_{ss} - \frac{1}{2}\sigma^2\gamma\theta_s^2 + \max_{\delta^b}\left[\frac{\lambda^b(\delta^b)}{\gamma}[1 - e^{\gamma(s - r^b - \delta^b)}]\right] + \max_{\delta^a}\left[\frac{\lambda^a(\delta^a)}{\gamma}[1 - e^{-\gamma(s - r^a + \delta^a)}]\right] = 0$$
+
+---
+
+## 7. Deriving the Optimal Distances
+
+The dealer maximizes these functions to find the "sweet spot" where execution probability ($\lambda$) balances profit capture ($\delta$). 
+
+To find the optimal bid distance ($\delta^b$), we take the first-order derivative and set it to zero:
+$$\frac{\partial}{\partial \delta^b} \left( \frac{\lambda^b(\delta^b)}{\gamma} [1 - \exp(\gamma(s - r^b - \delta^b))] \right) = 0$$
+
+Taking the natural log and rearranging gives the implicit relations:
+$$s - r^b(s, q, t) = \delta^b - \frac{1}{\gamma}\ln\left(1 - \gamma\frac{\lambda^b(\delta^b)}{\frac{\partial\lambda^b}{\partial\delta}(\delta^b)}\right)$$
+$$r^a(s, q, t) - s = \delta^a - \frac{1}{\gamma}\ln\left(1 - \gamma\frac{\lambda^a(\delta^a)}{\frac{\partial\lambda^a}{\partial s}(\delta^a)}\right)$$
+
+---
+
+## 8. The Asymptotic Expansion
+
+To make the PDE tractable, we substitute the exponential arrival rates: $\lambda(\delta) = A e^{-k\delta}$. The authors then use an **asymptotic expansion** of $\theta$ in the inventory variable $q$.
+
+> **Taylor vs. Asymptotic:**
+> * **Taylor:** Approximates locally assuming smoothness.
+> * **Asymptotic:** Treats $q$ as a perturbation parameter. The first few terms provide a highly accurate approximation.
+
+$$\theta(q, s, t) = \theta^0(s, t) + q\theta^1(s, t) + \frac{1}{2}q^2\theta^2(s, t) + ...$$
+
+### 8.1 Canceling the Zeroth Term
+By plugging the expansion into the $r^b$ and $r^a$ equations, the baseline term $\theta^0$ perfectly cancels out (as it is independent of $q$). This leads to:
+* $r^a(s, q, t) = \theta^1(s, t) + (1 - 2q)\theta^2(s, t) + ...$
+* $r^b(s, q, t) = \theta^1(s, t) + (-1 - 2q)\theta^2(s, t) + ...$
+
+---
+
+## 9. Deriving the Optimal Strategy Spread
+
+**Step 1: Find the derivative ratio.**
+For $\lambda = A e^{-k\delta}$, the ratio $\frac{\lambda}{\partial\lambda/\partial\delta}$ is simply $-\frac{1}{k}$.
+
+**Step 2: Substitute and combine.**
+Add the bid and ask optimality conditions together:
+$$r^a - r^b = \delta^a + \delta^b - \frac{2}{\gamma}\ln\left(1 + \frac{\gamma}{k}\right)$$
+
+**Step 3: Final pricing strategy.**
+Substituting the expanded $r^a$ and $r^b$ results in:
+$$\delta^a + \delta^b = 2\theta^2(s, t) + \frac{2}{\gamma}\ln\left(1 + \frac{\gamma}{k}\right)$$
+The reservation price midpoint is:
+$$r(s, q, t) = \theta^1(s, t) - 2q\theta^2(s, t)$$
+
+---
+
+## 10. Interpreting $\theta^1$ and $\theta^2$
+
+* **$\theta^1(s, t)$:** The reservation price when inventory is zero ($q=0$).
+* **$\theta^2(s, t)$:** The sensitivity to changes in inventory. Large $\theta^2$ means a long position ($q>0$) results in aggressively low quotes to dump the stock.
+
+---
+
+## 11. The Polynomial Identity and Separated PDEs
+
+To find $\theta^1$ and $\theta^2$, we plug our expanded derivatives into the HJB. This creates a massive equation grouped by $q$:
+$$A + Bq + Cq^2 = 0$$
+
+By the **Identity Theorem for Polynomials**, for this to hold for any $q$, each coefficient ($A, B, C$) must be zero. This separates the complex HJB into two simpler PDEs:
+1.  **Order $q^1$:** $\theta_t^1 + \frac{1}{2}\sigma^2\theta_{ss}^1 = 0 \implies \theta^1 = s$
+2.  **Order $q^2$:** $\theta_t^2 + \frac{1}{2}\sigma^2\theta_{ss}^2 - \frac{1}{2}\sigma^2\gamma(\theta_s^1)^2 = 0 \implies \theta^2 = \frac{1}{2}\sigma^2\gamma(T-t)$
+
+---
+
+## 12. Numerical Simulations: Proof in the Variance
+
+Avellaneda and Stoikov ran Monte Carlo simulations with 1000 paths to test their **Inventory** strategy against a **Symmetric** (naive) benchmark.
+
+### 12.1 Scenario Analysis by Risk Aversion ($\gamma$)
+
+| Scenario | Average Profit | Profit Std Dev | Final Inventory Std Dev |
+| :--- | :--- | :--- | :--- |
+| **Baseline ($\gamma=0.1$)** | Slightly lower (62.94) | **Crushed (5.89)** | **Tight (2.80)** |
+| **Naive Benchmark** | Higher (67.21) | High (13.43) | High (8.66) |
+
+**Key Findings:**
+* **Risk-Neutral ($\gamma \to 0$):** Both strategies converge.
+* **Highly Risk-Averse ($\gamma = 0.5$):** The Inventory strategy throttles profit (33.92) to practically eliminate risk (Std Dev 4.72). The Naive strategy blind to risk blows up its variance.
+
+---
+
+## Conclusion
+
+By breaking this paper down from the initial CARA utility function, through the continuous-time HJB equation, down to the polynomial separation of the asymptotic expansion, we see exactly why this is a seminal paper in quantitative finance. Avellaneda and Stoikov provided the rigorous mathematical proof that a market maker cannot simply set wide spreads and wait; they must dynamically, continuously bend their quotes around their own internal risk.

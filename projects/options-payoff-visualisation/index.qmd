@@ -1,0 +1,90 @@
+---
+title: "Interactive Options Structuring & Pricing Workbench"
+description: "A production-grade Streamlit application abstracting complex derivatives math into a scalable, Object-Oriented portfolio builder. Features real-time Greeks aggregation, Heston/Merton pricing comparisons, and 3D volatility surface visualizations."
+date: 2024-02-23
+categories: [Quantitative Finance, Python, OOP, Streamlit, Derivatives, featured] 
+image: featured_vol_smile.png
+image-alt: "Screenshot of the Options Structuring Dashboard"
+client: "Quantitative Developer / Risk Analyst Portfolio" 
+github-repo: "https://github.com/jordanchongja/options-projects-suite"
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![](https://img.shields.io/badge/Status-Live_&_Deployed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/options-projects-suite)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
+  }
+</style>
+
+## From Textbook Math to Trading Floor Tool
+
+A robust mathematical model is only as valuable as a trader or risk analyst's ability to interact with it. [cite_start]The objective of this project was abstracting the math into a scalable software architecture and deploying it via Streamlit[cite: 39]. 
+
+This workbench allows users to dynamically construct multi-leg derivatives portfolios, visualize complex payoff horizons, and stress-test positions under advanced pricing models like Heston and Merton.
+
+<center>
+  <a href="https://options-payoff-visualisation.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
+</center>
+
+---
+
+## Architecture & Engineering
+
+### 1. The Object-Oriented Engine
+Procedural Jupyter Notebooks are not suitable for dynamic portfolio construction. To solve this, I entirely refactored the pricing engine using Object-Oriented Programming (OOP). 
+
+* **Abstract Base Classes:** I designed a core `Instrument` class enforcing strict polymorphic protocols (`price()`, `payoff()`)[cite: 42].
+* **Encapsulation:** Subclasses like `ZeroCouponBond` and `VanillaOption` inherit this base, encapsulating their specific Black-Scholes or intrinsic math. 
+
+This architecture allows the application to seamlessly aggregate entirely different asset classes natively without complex `if/else` routing.
+
+### 2. State Management & Dynamic Ledger
+A structuring desk needs to build complex, multi-leg positions (e.g., Iron Condors, Strangles). Using Streamlit's `st.session_state`, I engineered a persistent memory ledger. 
+* Users can continuously inject new derivatives into their portfolio.
+* The backend iterates through the ledger in real-time, dynamically aggregating the individual payoff profiles and Greeks ($\Delta, \Gamma, \Theta, \nu$) into a net portfolio matrix.
+
+
+---
+
+## Core Features & Capabilities
+
+### Visualizing the Greeks
+The **Greeks Explorer** tab demystifies the relationship between option premium and risk factors. By plotting the base premium alongside its 1st and 2nd derivatives, users can visually map how Delta and Gamma react to changes in Spot Price, or how time decay (Theta) accelerates near expiry.
+
+### Advanced Pricing Models (Heston & Merton)
+While standard Black-Scholes assumes constant volatility and continuous paths, real markets experience jumps and stochastic volatility. The dashboard includes an advanced pricing module that calculates and overlays:
+* **Merton Jump Diffusion:** Implemented via an infinite series approximation.
+* **Heston Stochastic Volatility:** Priced using the Gil-Pelaez Fourier inversion formula.
+
+Users can tweak parameters like Mean Reversion ($\kappa$), Vol of Vol ($\xi$), and Correlation ($\rho$) to see exactly how these models warp the pricing curve compared to a baseline Black-Scholes model.
+
+### 3D Volatility Surface Visualization
+Traders rely on visual heuristics to identify mispricings across the term structure. 
+* I integrated `plotly.graph_objects` to render a high-performance WebGL 3D Volatility Surface. 
+* **Fuzzy Matching for 2D Slices:** To allow traders to inspect specific maturity slices via a slider, I utilized `np.isclose` to fuzzy-match the slider input to the underlying DataFrame. This prevents floating-point mismatch errors and ensures the 2D volatility smile renders flawlessly every time.
+
+---
+
+## Conclusion
+This application stands as a functional bridge between quantitative research and software development. It demonstrates the ability to encapsulate complex financial mathematics into a scalable, interactive application ready for a global markets floor.

@@ -1,0 +1,56 @@
+---
+title: "The God of Small Things"
+author: "Arundhati Roy"
+date: 2025-01-15
+categories: [Fiction, Classics, Book]
+image: cover.jpg
+subtitle: ★★★★★
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; /* Match this to your header margin */
+  }
+</style>
+
+
+## Summary and the Core Premise of the Book
+A non-linear tragedy set in Kerala, exploring how the rigid, inescapable structures of caste, history, and social reputation (The "Big Things") crush individual innocence, human connection, and vulnerable people (The "Small Things").
+
+## Why I Read This Book
+Much like Steinbeck's work, I am drawn to narratives that capture the lifelike, intricate details of side characters while examining how grand, arbitrary social structures ultimately dictate human behavior and family decay.
+
+## Key Takeaways
+1.  **The "Love Laws":** The novel exposes the violent enforcement of societal rules that dictate "who should be loved, and how. And how much."
+2. **The Weaponization of Silence:** Silence is not an absence of noise, but a structural tool used both as a shield by the powerless and a weapon by the powerful to maintain a fragile status quo.
+3. **Cultural Dislocation:** An obsession with Anglophile, bourgeois culture deliberately blinds a family to the shifting socio-political reality of their immediate environment, accelerating their downfall.
+4. **Linguistic Subversion:** The deconstruction of language through a child’s perspective serves to brilliantly satirize the adult world's obsession with "correctness" and social norms over actual human connection.
+
+## Reflection
+This was a really good book, really enjoyed the writing style that Roy uses, as well as the themes in the book and especially the non-linear style of the book, watching it all unfold like a slow and unavoidable train wreck. Characters all feel really lifelike and have their own rich inner lives and motivations, with the characters coming together in realistic ways, each playing their part to allow the inevitable tragedy to unfold.
+
+
+## Favorite Quotes
+
+
+---
+
+### The Asymmetry of "Big" and "Small" Things
+The novel argues that the "Big Things" (caste, politics, the police, and societal expectations) are vast, crushing machines that demand compliance. The "Small Things" (touch, personal intimacy, a child's game) are deeply human but structurally powerless.
+
+This dynamic is perfectly captured during the family's tense drive from the airport, where "big things were not spoken, only small things." To preserve social face (mianzi) and prevent the family unit from exploding over racial tension and deep-seated humiliations, they retreat into trivial chitchat. They use "small things" as a lie, a distraction to cover up the ugly truth. Conversely, for Velutha—the God of Small Things—the small things are the only truth. The tragedy lies in the fact that while the Big Things usually win the battle, the Small Things are the only elements that give life meaning.
+
+### Silence as an Institutional Weapon
+Silence operates as a heavy, physical presence throughout the narrative. It manifests in various forms: the traditional Kathakali dancer silenced when his ancient art is condensed into a 20-minute palatable performance for tourists; Mammachi silently enduring domestic abuse; or Comrade Pillai deliberately withholding the truth from the police. Characters like Baby Kochamma use silence—sending Ammu away—to eliminate threats to their own comfort. In this ecosystem, silence is a mechanism of survival for some, but a tool of complicity and destruction for others.
+
+### Cultural Dislocation and the "History House"
+The family is trapped in the "History House," alienated from their own reality by a deep-seated Anglophilia. Their obsession with English culture—quoting Shakespeare and idolizing The Sound of Music—is an attempt to maintain a "civilized," bourgeois facade. However, this perfectly conflates with the stark reality of their surroundings in Kerala, which is undergoing a communist revolution. Their desperate need to associate with the "Anglo God" blinds them to the poverty and unrest around them, putting them directly in the destructive path of history.
+
+### The Subversion of Language
+Roy masterfully uses the twins' perspective to dismantle language. By phonetically deconstructing words ("Locusts Stand I" for locus standi) and reading backwards, the children create an insider language that highlights their vulnerability. Furthermore, the capitalization of abstract concepts—noting that a car is full of "Thoughts and Things to Say"—gives physical weight to the unsaid. To a child, a forbidden thought occupies as much tangible space in a room as a chair. This brilliantly satirizes an adult society that values "correct" pronunciation and polite appearances over recognizing the emotional reality of its children.
+
+### The Anatomy of Bitterness
+While some characters are victims of systemic forces, others highlight the sheer destructive capacity of personal bitterness. Baby Kochamma operates purely out of self-interest, poisoning every situation she touches. Having briefly experienced the "small things" in her youth with Father Mulligan and subsequently losing them, she refuses to seek new meaning. Instead, she resolves to destroy the small things in the lives of everyone else. It is a sharp reminder that a family is just as easily rotted from within by individual spite as it is crushed from the outside by society.

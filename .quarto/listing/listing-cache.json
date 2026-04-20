@@ -4,13 +4,8 @@
       "projects"
     ],
     "notes\\index.qmd": [
-      "."
-    ],
-    "projects\\index.qmd": [
-      "."
-    ],
-    "readings\\index.qmd": [
-      "."
+      "*/index.qmd",
+      "*/*.ipynb"
     ]
   }
 }

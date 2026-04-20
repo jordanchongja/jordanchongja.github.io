@@ -23,7 +23,21 @@ Source idea credited to Dianyi Yang: [kv9898/gap_challenge_solver](https://githu
 
 <style>
   #quarto-margin-sidebar {
-    padding-top: 50px; /* Match this to your header margin */
+    padding-top: 50px; 
+  }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
   }
 </style>
 
@@ -31,11 +45,10 @@ You can try the exercises yourself here:
 - [Gap Challenge](https://www.gapchallenge.com/)  
 - [Gap Challenge Practice](https://switch-challenge-pratice.org/exercise/Aon/gapChallenge/test)  
 
-::: {.callout-note}
-### Live Demo
-You can try the final SVM-powered solver here:
-[**Launch Streamlit App**](https://gap-solver-application.streamlit.app/)
-:::
+
+<center>
+  <a href="https://gap-solver-application.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch SVM-powered solver App</a>
+</center>
 
 ![Demonstration of Streamlit Application](images/0_success-streamlit-demo.gif)
 

@@ -1,0 +1,3 @@
+[submodule "projects/options-pricing-models/options-projects-suite"]
+	path = projects/options-pricing-models/options-projects-suite
+	url = https://github.com/jordanchongja/options-projects-suite.git
