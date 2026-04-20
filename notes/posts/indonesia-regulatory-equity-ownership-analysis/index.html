@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-04-20">
+<meta name="description" content="Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models">
 
-<title>Projects – Jordan’s Projects</title>
+<title>Indonesia Regulatory Equity Ownership Analysis – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +22,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="..//assets/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-443253e461b1d6f7d52c3923baf43cc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//assets/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-443253e461b1d6f7d52c3923baf43cc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +106,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
 
 <script type="text/javascript">
@@ -110,57 +116,28 @@ gtag('js', new Date());
 gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Projects – Jordan’s Projects">
-<meta property="og:description" content="A selection of my data science and quantitative finance work.">
-<meta property="og:image" content="https://jordanchongja.github.io/assets/homepage-preview.png">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Indonesia Regulatory Equity Ownership Analysis – Jordan’s Projects">
+<meta property="og:description" content="Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models">
+<meta property="og:image" content="https://jordanchongja.github.io/notes/posts/indonesia-regulatory-equity-ownership-analysis/SankeyDiagramRussell1000.png">
 <meta property="og:site_name" content="Jordan's Projects">
-<meta property="og:image:height" content="961">
-<meta property="og:image:width" content="1673">
-<meta name="twitter:title" content="Projects – Jordan’s Projects">
-<meta name="twitter:description" content="A selection of my data science and quantitative finance work.">
-<meta name="twitter:image" content="https://jordanchongja.github.io/projects/homepage-preview.png">
+<meta property="og:image:alt" content="Sankey Diagram for the Russell 1000 outperformers compared to the S&amp;P500">
+<meta name="twitter:title" content="Indonesia Regulatory Equity Ownership Analysis – Jordan’s Projects">
+<meta name="twitter:description" content="Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models">
+<meta name="twitter:image" content="https://jordanchongja.github.io/notes/posts/indonesia-regulatory-equity-ownership-analysis/SankeyDiagramRussell1000.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Sankey Diagram for the Russell 1000 outperformers compared to the S&amp;P500">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Jordan’s Projects</span>
     </a>
   </div>
@@ -171,21 +148,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../projects/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../notes/index.html"> 
+    <a class="nav-link" href="../../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../readings/index.html"> 
+    <a class="nav-link" href="../../../readings/index.html"> 
 <span class="menu-text">Readings</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../assets/Jordan_Chong_CV.pdf" target="_blank"> 
+    <a class="nav-link" href="../../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -206,237 +183,111 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Projects</h1>
-            <p class="subtitle lead">A selection of my data science and quantitative finance work.</p>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="QWN0dWFyaWFsJTIwU2NpZW5jZQ==">Actuarial Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24=">Computer Vision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGVyaXZhdGl2ZXM=">Derivatives <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVhdHVyZWQ=">featured <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TWFya2V0JTIwUmVnaW1l">Market Regime <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW9udGUlMjBDYXJsbw==">Monte Carlo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T09Q">OOP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGxvdGx5">Plotly <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ==">Quantitative Finance <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U3RvY2hhc3RpYyUyMENvbnRyb2w=">Stochastic Control <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RyZWFtbGl0">Streamlit <span class="quarto-category-count">(3)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-0-rationale-for-this-project" id="toc-part-0-rationale-for-this-project" class="nav-link active" data-scroll-target="#part-0-rationale-for-this-project">Part 0: Rationale for this Project</a></li>
+  <li><a href="#part-1-market-microstructure-risk-attribution" id="toc-part-1-market-microstructure-risk-attribution" class="nav-link" data-scroll-target="#part-1-market-microstructure-risk-attribution">Part 1: Market Microstructure &amp; Risk Attribution</a>
+  <ul class="collapse">
+  <li><a href="#section-1-the-benchmark-vs.-the-breadth" id="toc-section-1-the-benchmark-vs.-the-breadth" class="nav-link" data-scroll-target="#section-1-the-benchmark-vs.-the-breadth">Section 1: The Benchmark vs.&nbsp;The Breadth</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
-</div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ01hcmtldCUyMFJlZ2ltZSUyQ1B5dGhvbiUyQ1Bsb3RseSUyQ0RhdGElMjBWaXN1YWxpemF0aW9u" data-listing-date-sort="1776679705000" data-listing-file-modified-sort="1776679705078" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5692">
-<a href="../projects/iran-war-geopolitical-shock-analysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/iran-war-geopolitical-shock-analysis/SankeyDiagramRussell1000.png" class="thumbnail-image card-img" style="height: 150px;" alt="Sankey Diagram for the Russell 1000 outperformers compared to the S&amp;P500">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Iran War Impact Analysis: Regime Shifts &amp; Market Volatility
-</h5>
-<div class="listing-categories">
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Indonesia Regulatory Equity Ownership Analysis</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Finance</div>
+    <div class="quarto-category">Market Regime</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Plotly</div>
+    <div class="quarto-category">Data Visualization</div>
+  </div>
+  </div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFya2V0JTIwUmVnaW1l'); return false;">Market Regime</div>
+<div>
+  <div class="description">
+    Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models
+  </div>
+</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGxvdGx5'); return false;">Plotly</div>
+<div class="quarto-title-meta column-page-left">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 20, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-</div>
-<div class="card-text listing-description delink">
-<p>Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 20, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1N0b2NoYXN0aWMlMjBDb250cm9sJTJDUHl0aG9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1775577600000" data-listing-file-modified-sort="1776525299809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2795">
-<a href="../projects/avellaneda-stoikov-mm-single-limit-order/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/avellaneda-stoikov-mm-single-limit-order/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-The Math of Market Making: Avellaneda-Stoikov
-</h5>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
+</header>
 
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENvbnRyb2w='); return false;">Stochastic Control</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Visualization-Plotly-3F4F75?logo=plotly&amp;logoColor=white.png" class="img-fluid"> <img src="https://img.shields.io/badge/Modeling-hmmlearn-150458?logo=scikitlearn&amp;logoColor=white.png" class="img-fluid"> <a href="https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<style>
+  #quarto-margin-sidebar { padding-top: 50px; }
+</style>
+<section id="part-0-rationale-for-this-project" class="level2">
+<h2 class="anchored" data-anchor-id="part-0-rationale-for-this-project">Part 0: Rationale for this Project</h2>
+<p>So the idea for this project came as part of the interview process for a company, where i was tasked to identify large cap stocks from the Russell 1000 (market cap &gt;USD 30 Billion) that have outperformed the S&amp;P500.</p>
+<p>This analysis focused on comparing the outperformance for two phases of 2026, 1. Prewar - 31th December 2025 to 27th February 2026 2. Post-war 27th February 2026 to 10th April 2026. And the tasking was to draw out some conclusions and observations from these Russell 1000 stocks that outperformed the S&amp;P500, and see if there were any insights that I could draw.</p>
+<p>My intuition was that it would mostly be energy stocks that outperformed, and perhaps we could extract additional insights from that point.</p>
+<p>I did quite abit of data cleaning and data visualisation for this exercise, so i figured that i turn it into a project with risk attribution analysis for the first part, exploring the data and how the sectors and the companies did in each “market regime” (if any), and take it as a practice in data visualisation.</p>
+<p>The idea was that the Iran War was an exogenous macro event and we could use it as a stress-test for large-cap equities.</p>
+<p>And to expand the project a little, i figured it would be a good place to practice some quant models with Regime Detection and some Factor Modelling which would fit well with this project given its dual time period analysis.</p>
+<p>Therefore in the second portion of this article, I explored abit of everything, going for breadth as part of an exploration into quant models and how they work, and plan to create more projects that delve into each of these models a little more in-depth in the future.</p>
+<p>I do this in Part 2, where i try to do more complex analysis and bring in data from other sources like WRDS for analysis.</p>
+</section>
+<section id="part-1-market-microstructure-risk-attribution" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-market-microstructure-risk-attribution">Part 1: Market Microstructure &amp; Risk Attribution</h2>
+<p><strong>Deconstructing the Benchmark during the Q1 2026 Geopolitical Shock.</strong></p>
+<p>For this portion, i got the data from Yfinance instead of for WRDS because I was under time-pressure, and got the constituents from the iShares proxy of the Russell 1000, which i figured would at least contain all the major players.</p>
+<p>Instead of simply filtering the index by market capitalization, this analysis stress-tests large-cap equities during an exogenous macro event. By peeling back the layers of the benchmark, we can expose the hidden rotational dynamics and severe risk fractures that occurred during the crash.</p>
+<hr>
+<section id="section-1-the-benchmark-vs.-the-breadth" class="level3">
+<h3 class="anchored" data-anchor-id="section-1-the-benchmark-vs.-the-breadth">Section 1: The Benchmark vs.&nbsp;The Breadth</h3>
+<section id="masking-the-rotational-damage-beneath-the-surface" class="level4">
+<h4 class="anchored" data-anchor-id="masking-the-rotational-damage-beneath-the-surface"><em>Masking the Rotational Damage Beneath the Surface</em></h4>
+<p><strong>Purpose &amp; Implications:</strong> The purpose of this analysis is to get a brief description of the stocks that outperformed, the sectors that they come from, and how it compares to a market-cap weighted perspective of this.</p>
+<p>So the results were that Industrials, Financials, Information Technology, and Healthcare seem to have outperformed on initial glance on a numerical basis in terms of the number of companies. However, on a market-cap weighted basis, which the S&amp;P500 index number would reflect, Information Technology seems to be much heavier weighted, which could lead to a skew of results.</p>
+<p>An interesting direction could be exploring how many companies are in each sector that we have graphed here and so what percentage of each sector actually outperformed and by how much. But these graphs give an initial view into the data.</p>
+<div id="fig-breadth" class="cell fig-column-screen-inset quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2" data-message="false">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-breadth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<details class="code-fold">
+<summary>Show Data Processing Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Prepare Data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-breadth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
 
-</div>
-<div class="card-text listing-description delink">
-<p>Pitting an inventory-based stochastic control strategy against naive market making in high-frequency limit order books.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 8, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UHl0aG9uJTJDU3RyZWFtbGl0JTJDQWN0dWFyaWFsJTIwU2NpZW5jZSUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDTW9udGUlMjBDYXJsbw==" data-listing-date-sort="1739635200000" data-listing-file-modified-sort="1775800221502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="797">
-<a href="../projects/sg-insurance-model/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/sg-insurance-model/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Singapore Insurance Strategy Dashboard
-</h5>
-<div class="listing-categories">
+</section>
+</section>
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0dWFyaWFsJTIwU2NpZW5jZQ=='); return false;">Actuarial Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TW9udGUlMjBDYXJsbw=='); return false;">Monte Carlo</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A Streamlit-powered actuarial dashboard that pits ‘Buy Term, Invest the Difference’ against Whole Life plans, accounting for human behavior and stochastic risk.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 16, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1775633054098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1488">
-<a href="../projects/gap-challenge-solver/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Gap Challenge Solver
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWxnb3JpdGhtcw=='); return false;">Algorithms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 9, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVzJTJDZmVhdHVyZWQ=" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1776525282231" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="525">
-<a href="../projects/options-payoff-visualisation/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/options-payoff-visualisation/featured_vol_smile.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the Options Structuring Dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Interactive Options Structuring &amp; Pricing Workbench
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T09Q'); return false;">OOP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGVyaXZhdGl2ZXM='); return false;">Derivatives</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A production-grade Streamlit application abstracting complex derivatives math into a scalable, Object-Oriented portfolio builder. Features real-time Greeks aggregation…</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 23, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -876,12 +727,12 @@ Feb 23, 2024
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../license.html">
+    <a class="nav-link" href="../../../license.html">
 <p>License</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="../../../contact.html">
 <p>Contact</p>
 </a>
   </li>  

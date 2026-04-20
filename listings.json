@@ -10,19 +10,21 @@
     ]
   },
   {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html",
+      "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
       "/projects/gap-challenge-solver/index.html",
       "/projects/options-payoff-visualisation/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
-      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
-      "/notes/posts/black-scholes-derivation/index.html"
     ]
   },
   {
