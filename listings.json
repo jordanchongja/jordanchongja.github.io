@@ -1,20 +1,52 @@
 [
   {
-    "listing": "/projects/index.html",
+    "listing": "/readings/index.html",
     "items": [
-      "/projects/iran-war-geopolitical-shock-analysis/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-payoff-visualisation/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-payoff-visualisation/index.html"
+      "/readings/Never Let Me Go/index.html",
+      "/readings/Tuesdays With Morrie/index.html",
+      "/readings/Heart Lamp Selected Stories/index.html",
+      "/readings/The God of Small Things/index.html",
+      "/readings/The Four Workarounds/index.html",
+      "/readings/Animals, Robots, Gods/index.html",
+      "/readings/Small Boat/index.html",
+      "/readings/Modern Classics Civilization and Its Discontent/index.html",
+      "/readings/1984/index.html",
+      "/readings/Battle Hymn of the Tiger Mother/index.html",
+      "/readings/Breakfast at Tiffany's/index.html",
+      "/readings/Crying in H Mart/index.html",
+      "/readings/Do Androids Dream Of Electric Sheep/index.html",
+      "/readings/East of Eden/index.html",
+      "/readings/Everything I Know About Love/index.html",
+      "/readings/Fahrenheit 451/index.html",
+      "/readings/Frankenstein/index.html",
+      "/readings/Grit/index.html",
+      "/readings/I Want to Die but I Want to Eat Tteokbokki/index.html",
+      "/readings/Man's Search For Meaning/index.html",
+      "/readings/Maybe You Should Talk to Someone/index.html",
+      "/readings/Ministry of Moral Panic/index.html",
+      "/readings/Nausea/index.html",
+      "/readings/Normal People/index.html",
+      "/readings/Norwegian Wood/index.html",
+      "/readings/Pachinko/index.html",
+      "/readings/The Alchemist - 10th Anniversary Edition/index.html",
+      "/readings/The Anthropocene Reviewed/index.html",
+      "/readings/The Body Keeps the Score/index.html",
+      "/readings/The Divided Self/index.html",
+      "/readings/The Fountainhead/index.html",
+      "/readings/The Happiness Fantasy/index.html",
+      "/readings/The Humans/index.html",
+      "/readings/The Metamorphosis/index.html",
+      "/readings/The Midnight Library/index.html",
+      "/readings/The Myth of Sisyphus, and Other Essays/index.html",
+      "/readings/The Ones Who Walk Away from Omelas/index.html",
+      "/readings/The Stranger/index.html",
+      "/readings/The Vegetarian/index.html",
+      "/readings/The Velveteen Rabbit, Or, How Toys Became Real/index.html",
+      "/readings/Think Again/index.html",
+      "/readings/This is What Inequality Looks Like/index.html",
+      "/readings/To Kill a Mockingbird/index.html",
+      "/readings/Training for Climbing/index.html",
+      "/readings/Yellow Dog/index.html"
     ]
   },
   {
@@ -28,12 +60,21 @@
     ]
   },
   {
-    "listing": "/readings/index.html",
+    "listing": "/index.html",
     "items": [
-      "/readings/Ministry of Moral Panic/index.html",
-      "/readings/This is What Inequality Looks Like/index.html",
-      "/readings/East of Eden/index.html",
-      "/readings/The God of Small Things/index.html"
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-payoff-visualisation/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-payoff-visualisation/index.html"
     ]
   }
 ]

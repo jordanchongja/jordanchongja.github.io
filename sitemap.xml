@@ -1,91 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jordanchongja.github.io/readings/Yellow Dog/index.html</loc>
+    <lastmod>2026-04-23T15:20:14.889Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Training for Climbing/index.html</loc>
+    <lastmod>2026-04-23T15:20:14.493Z</lastmod>
+  </url>
+  <url>
     <loc>https://jordanchongja.github.io/readings/This is What Inequality Looks Like/index.html</loc>
-    <lastmod>2026-02-27T05:08:44.092Z</lastmod>
+    <lastmod>2026-04-23T15:20:14.083Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/readings/Ministry of Moral Panic/index.html</loc>
-    <lastmod>2026-02-27T05:21:00.877Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Velveteen Rabbit, Or, How Toys Became Real/index.html</loc>
+    <lastmod>2026-04-23T15:20:13.637Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/readings/East of Eden/index.html</loc>
-    <lastmod>2026-02-27T04:17:50.824Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Stranger/index.html</loc>
+    <lastmod>2026-04-23T15:20:13.173Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/projects/options-payoff-visualisation/index.html</loc>
-    <lastmod>2026-04-18T15:14:42.231Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Myth of Sisyphus, and Other Essays/index.html</loc>
+    <lastmod>2026-04-23T15:20:12.777Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/projects/index.html</loc>
-    <lastmod>2026-03-30T08:00:41.838Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Metamorphosis/index.html</loc>
+    <lastmod>2026-04-23T15:20:12.354Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.html</loc>
-    <lastmod>2026-04-17T14:12:20.934Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Happiness Fantasy/index.html</loc>
+    <lastmod>2026-04-23T15:20:11.869Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html</loc>
-    <lastmod>2026-04-08T09:44:14.774Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Four Workarounds/index.html</loc>
+    <lastmod>2026-04-23T15:20:11.201Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html</loc>
-    <lastmod>2026-04-17T14:11:15.900Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Divided Self/index.html</loc>
+    <lastmod>2026-04-23T15:20:10.774Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/notes/posts/black-scholes-derivation/index.html</loc>
-    <lastmod>2026-04-20T09:53:42.841Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/The Anthropocene Reviewed/index.html</loc>
+    <lastmod>2026-04-23T15:20:10.275Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/license.html</loc>
-    <lastmod>2025-12-02T04:41:31.952Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Small Boat/index.html</loc>
+    <lastmod>2026-04-23T15:20:09.894Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/cv.html</loc>
-    <lastmod>2025-12-02T04:41:32.119Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Norwegian Wood/index.html</loc>
+    <lastmod>2026-04-23T15:20:09.493Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/contact.html</loc>
-    <lastmod>2025-12-02T04:41:32.118Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Never Let Me Go/index.html</loc>
+    <lastmod>2026-04-23T15:20:09.006Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/index.html</loc>
-    <lastmod>2026-04-18T14:25:51.824Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Modern Classics Civilization and Its Discontent/index.html</loc>
+    <lastmod>2026-04-23T15:20:08.583Z</lastmod>
   </url>
   <url>
-    <loc>https://jordanchongja.github.io/notes/index.html</loc>
-    <lastmod>2026-04-20T10:47:41.820Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html</loc>
-    <lastmod>2026-04-21T05:44:11.868Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/notes/posts/options-pricing-models/index.html</loc>
-    <lastmod>2026-04-20T17:23:06.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/avellaneda-stoikov-mm-single-limit-order/index.html</loc>
-    <lastmod>2026-04-18T15:14:59.809Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/gap-challenge-solver/index.html</loc>
-    <lastmod>2026-04-08T07:24:14.098Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/iran-war-geopolitical-shock-analysis/index.html</loc>
-    <lastmod>2026-04-20T10:08:25.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jordanchongja.github.io/projects/sg-insurance-model/index.html</loc>
-    <lastmod>2026-04-10T05:50:21.502Z</lastmod>
+    <loc>https://jordanchongja.github.io/readings/Maybe You Should Talk to Someone/index.html</loc>
+    <lastmod>2026-04-23T15:20:08.160Z</lastmod>
   </url>
   <url>
     <loc>https://jordanchongja.github.io/readings/index.html</loc>
     <lastmod>2026-02-05T15:03:41.910Z</lastmod>
   </url>
   <url>
+    <loc>https://jordanchongja.github.io/readings/Heart Lamp Selected Stories/index.html</loc>
+    <lastmod>2026-04-23T15:20:07.550Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Frankenstein/index.html</loc>
+    <lastmod>2026-04-23T15:20:07.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Everything I Know About Love/index.html</loc>
+    <lastmod>2026-04-23T15:20:06.718Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Do Androids Dream Of Electric Sheep/index.html</loc>
+    <lastmod>2026-04-23T15:20:06.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Breakfast at Tiffany&#39;s/index.html</loc>
+    <lastmod>2026-04-23T15:20:05.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Animals, Robots, Gods/index.html</loc>
+    <lastmod>2026-04-23T15:20:05.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/sg-insurance-model/index.html</loc>
+    <lastmod>2026-04-10T05:50:21.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/iran-war-geopolitical-shock-analysis/index.html</loc>
+    <lastmod>2026-04-20T10:08:25.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/gap-challenge-solver/index.html</loc>
+    <lastmod>2026-04-08T07:24:14.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/avellaneda-stoikov-mm-single-limit-order/index.html</loc>
+    <lastmod>2026-04-18T15:14:59.809Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/options-pricing-models/index.html</loc>
+    <lastmod>2026-04-20T17:23:06.716Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html</loc>
+    <lastmod>2026-04-21T05:44:11.868Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/index.html</loc>
+    <lastmod>2026-04-20T10:47:41.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/index.html</loc>
+    <lastmod>2026-04-18T14:25:51.824Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/contact.html</loc>
+    <lastmod>2025-12-02T04:41:32.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/cv.html</loc>
+    <lastmod>2025-12-02T04:41:32.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/license.html</loc>
+    <lastmod>2025-12-02T04:41:31.952Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/black-scholes-derivation/index.html</loc>
+    <lastmod>2026-04-20T09:53:42.841Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html</loc>
+    <lastmod>2026-04-17T14:11:15.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html</loc>
+    <lastmod>2026-04-08T09:44:14.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.html</loc>
+    <lastmod>2026-04-17T14:12:20.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/index.html</loc>
+    <lastmod>2026-03-30T08:00:41.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/projects/options-payoff-visualisation/index.html</loc>
+    <lastmod>2026-04-18T15:14:42.231Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/1984/index.html</loc>
+    <lastmod>2026-04-23T15:20:05.150Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Battle Hymn of the Tiger Mother/index.html</loc>
+    <lastmod>2026-04-23T15:20:05.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Crying in H Mart/index.html</loc>
+    <lastmod>2026-04-23T15:20:06.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/East of Eden/index.html</loc>
+    <lastmod>2026-04-23T15:20:06.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Fahrenheit 451/index.html</loc>
+    <lastmod>2026-04-23T15:20:06.945Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Grit/index.html</loc>
+    <lastmod>2026-04-23T15:20:07.356Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/I Want to Die but I Want to Eat Tteokbokki/index.html</loc>
+    <lastmod>2026-04-23T15:20:07.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Man&#39;s Search For Meaning/index.html</loc>
+    <lastmod>2026-04-23T15:20:07.960Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Ministry of Moral Panic/index.html</loc>
+    <lastmod>2026-04-23T15:20:08.394Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Nausea/index.html</loc>
+    <lastmod>2026-04-23T15:20:08.816Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Normal People/index.html</loc>
+    <lastmod>2026-04-23T15:20:09.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Pachinko/index.html</loc>
+    <lastmod>2026-04-23T15:20:09.698Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Alchemist - 10th Anniversary Edition/index.html</loc>
+    <lastmod>2026-04-23T15:20:10.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Body Keeps the Score/index.html</loc>
+    <lastmod>2026-04-23T15:20:10.552Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Fountainhead/index.html</loc>
+    <lastmod>2026-04-23T15:20:11.001Z</lastmod>
+  </url>
+  <url>
     <loc>https://jordanchongja.github.io/readings/The God of Small Things/index.html</loc>
-    <lastmod>2026-02-27T05:27:50.926Z</lastmod>
+    <lastmod>2026-04-23T15:20:11.397Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Humans/index.html</loc>
+    <lastmod>2026-04-23T15:20:12.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Midnight Library/index.html</loc>
+    <lastmod>2026-04-23T15:20:12.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Ones Who Walk Away from Omelas/index.html</loc>
+    <lastmod>2026-04-23T15:20:12.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/The Vegetarian/index.html</loc>
+    <lastmod>2026-04-23T15:20:13.452Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Think Again/index.html</loc>
+    <lastmod>2026-04-23T15:20:13.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/To Kill a Mockingbird/index.html</loc>
+    <lastmod>2026-04-23T15:20:14.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jordanchongja.github.io/readings/Tuesdays With Morrie/index.html</loc>
+    <lastmod>2026-04-23T15:20:14.700Z</lastmod>
   </url>
 </urlset>

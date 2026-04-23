@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Min Jin Lee">
+<meta name="dcterms.date" content="2025-10-31">
+
+<title>Pachinko – Jordan’s Projects</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//assets/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f157d37ced3fdb2c46924f401e9f658f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Pachinko – Jordan’s Projects">
+<meta property="og:description" content="Portfolio of Jordan Chong - Finance &amp; Data Science">
+<meta property="og:image" content="https://jordanchongja.github.io/readings/Pachinko/cover.jpg">
+<meta property="og:site_name" content="Jordan's Projects">
+<meta name="twitter:title" content="Pachinko – Jordan’s Projects">
+<meta name="twitter:description" content="Portfolio of Jordan Chong - Finance &amp; Data Science">
+<meta name="twitter:image" content="https://jordanchongja.github.io/readings/Pachinko/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jordan’s Projects</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../readings/index.html"> 
+<span class="menu-text">Readings</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jordanchongja"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pachinko" id="toc-pachinko" class="nav-link active" data-scroll-target="#pachinko">Pachinko</a>
+  <ul class="collapse">
+  <li><a href="#reading-group-guide" id="toc-reading-group-guide" class="nav-link" data-scroll-target="#reading-group-guide">Reading Group Guide</a></li>
+  <li><a href="#reading-journey" id="toc-reading-journey" class="nav-link" data-scroll-target="#reading-journey">Reading Journey</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Pachinko</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Fiction</div>
+    <div class="quarto-category">Book</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Min Jin Lee </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 31, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+/* Match this to your header margin */
+  }
+</style>
+<p>Pachinko - Min Jin Lee (Duration: 9h17m51s over 51 Sessions) Started: 2025-07-09 23:39:39 Finished: 2025-07-21 08:52:58</p>
+<section id="pachinko" class="level1">
+<h1>Pachinko</h1>
+<p>Nice book i think the story was really nice and it was not a pain to read it, was hooked throughout the book and I think there were no dull plot points, each chapter or each scene introduced a character or resulted in a better understanding of a single character so that was good and led to the book being interesting throughout.</p>
+<p>But there were specific scenes or certain scenes where it felt like the author introduced the scene just to prove a point about a character or about a certain real life trend or discrimination and so its abit awkward because it feels abit force fitted without alot of scenario building or all that, like the fingerprinting scene, because the entirety of the book or basically the entirety of the book was build around that one scene it became a very poignant point in the book that, while it stood out, it also felt abit forced as the nucleus of the entire story.</p>
+<p>The feel of the children and Solomon was also very different from the portion of the story about Sunja and that generation, which I guess was a good thing because it showed that there was a great disparity between the generation that had to endure the pains of the war and the pains of surviving in a land that did not want them there.</p>
+<p>I think the book touches on the great experiences and the emotions of life very well but sometimes the things that the characters do are abit questionable but still within the limits of possibility to the point where you wish the characters knew better but I guess that is the product of good writing. But overall yes I think its a good read and its interesting that through a story and through the lived experiences of others one is able to try and imagine the culture and the experience of an entire generation, im sure that it doesnt directly encapsulate the entire experience and the entire transgressions that these people faced but I think it does give a good insight into the lives of the koreans living in Japan and how it was for them during that time.</p>
+<section id="reading-group-guide" class="level2">
+<h2 class="anchored" data-anchor-id="reading-group-guide">Reading Group Guide</h2>
+<ol type="1">
+<li><em>“History has failed us, but no matter.”</em>&nbsp;How does the opening line reflect the rest of the book—and do you agree?
+<ol type="1">
+<li>Firstly maybe we begin with an analysis of the quote itself and what it entails; History has - the quote personifies history, making him an actor on the stage of life, with impacts that are not ideal in the schema of the narrative that the speaker points as the ideal given that it has failed the speaker.</li>
+<li>failed us - there is an illustration that there was an ideal that the narrator expected or some course that life should have taken that was not met and resulted in the failing of ‘history’.</li>
+<li>but no matter - this portion illustrates that there are other recourses that the narrator can use to rectify the situation although this isnt explicitly stated. The full sentence would probably be something like history has failed us, but no matter, man will take over/man will find a way. And i guess i feel like the gist of the quote is that although the systems within society, or even more passive actors like history, but larger than the individual, have not been fair or allowed for a just course of action for those operating within the system, it doesn’t matter because: 1. things just are unfair sometimes 2. there are ways to make good the situation</li>
+<li>The opening line reflects the rest of the book - i think history refers to the reader’s view of history, of the war in japan and the rammifications for the citizens in korea and japan at the time. It was not ideal and a tough time for all the citizens within these countries and in a sense the countries and history has failed them by giving them an unjust situation and tough times that they have to survive through. However, the tenacity of the characters and ability and willingness to survive means that these touch times are no matter for them, they will make the best of the situation nevertheless and so this reflects the rest of the book.</li>
+<li>Assuming my analysis is correct and history refers to the war, then i disagree with the quote because it begets that history has an obligation to the self to be fair and to give people the rights to a good life. However putting the blame on a faceless individual allows the people responsible, Japan who started the war to shirk responsibility for the hardship that they caused through the war. Although I understand that the author does not intend to delve into details about the war but more about the experiences of the people who lived through those times and lives from the eyes of these people themselves, I do not agree with the reference to this faceless actor as ‘history’, but i agree that regardless of the situation, ‘no matter’, people always find a way to make do and to thrive regardless of the situation as illustrated by the characters in the book and the quote quite nicely summarises the book in a very succinct way.</li>
+</ol></li>
+<li>In a way, Sunja’s relationship with Isak progresses in reverse, as her pregnancy by another man brings them together and prompts Isak to propose marriage. How does Lee redefine intimacy and love with these two characters?
+<ol type="1">
+<li>Well i think terming it reverse stipulates that there is a natural progression of marriage as is from proposal of marriage and pregnancy and i mean obviously this makes the most sense, but on whether consensus or social norms dictate the order of social contracts like marriage. I think this ‘reversal’ is a natural questioning of the natural order of things, especially in a time of war where previously strongly defined social norms are being uprooted and overturned.</li>
+<li>In redefining we first need to define and the usual definition would be between people who enjoy each other’s company and feel a connection or feel seen in the presence of the other and have been comfortable in the presence of the other. However, in this case the love and the intimacy is one that is semi born out of necessity or convenience and so its abit forced of sorts, where it works out into mutually beneficial relationship for both Sunja and Isak.</li>
+<li>We see that they naturally become close since Isak is quite a gentle person and Sunja is a simple person and appreciates being provided for. I guess it has abit of an arranged marriage vibe where the two characters grow closer and start to love each other, initially through Sunja willing herself to and over time her naturally being moved by Isak’s care and concern and falling in love herself, whatever her definition of love may be.</li>
+</ol></li>
+<li>“Their eldest brother, Samoel, had been the brave one, the one who would’ve confronted the officers with audacity and grace, but Yoseb knew he was no hero.…Yoseb didn’t see the point of anyone dying for his country or for some greater ideal. He understood survival and family.” What kinds of bravery are shown by different characters, and what motivates this bravery?
+<ol type="1">
+<li>Samoel showcases the bravery that we traditionally imagine, with selflessness and willingness to sacrifice for the greater good of society or a group that extends beyond the boundaries of the immediate people that he knows and into social groups or political parties or even a country, he is willing to fight for what he believes is right, even at the expense of him own life</li>
+<li>Yoseb’s bravery is limited to his family, to things that he values and people that he knows and can see. He is willing to go above and beyond for his family as well, moving to a faraway factory to work on his own and being burned by the bomb in some faraway land for the sake of his family. While he does not see the point in dying for some unknown reification of nationalistic ideals or political ideology, he is more than willing to sacrifice his life for his family and he exhibits his bravery in this way.</li>
+<li>Isak’s bravery is in his willingness to travel to osaka despite his weakness and with the knowledge that he is going to die. He also ventures to marry Sunja even though he does not know what would happen and instead chooses to believe in blind trust in the lord and there is also bravery in this sense.</li>
+<li>For the women, they exhibit similar kinds of bravery, in the day to day where despite the challenges that they face and the major setbacks that they get in their lives everyday, they choose to soldier on and take it in their strike, continuing to put their best into everything that they do and try to do their best for their family.</li>
+</ol></li>
+<li>Compare Noa’s biological and adoptive fathers, Hansu and Isak: What qualities does each try to foster in Noa, and why? Whom does Noa most resemble?
+<ol type="1">
+<li>Hansu - tries to make Noa into a scholar, encouraging him to take his studies as far as possible and to be a shining star of Koreans, a leader that other Koreans will be able to idolise and imitate</li>
+<li>Isak - doesnt realy try to make Noa a scholar but jsut encourages him and teaches him stuff??? Idk I don’t think he was even there for much of Noa’s life tbh</li>
+<li>But he is most like Isak, in terms of the quietness and studiousness, juxtoposed with Hansu’s brashness and direct nature.</li>
+</ol></li>
+<li>What does “home” mean to each of the main characters? Does it ever change? In what ways does a yearning for home color the tone of the novel?
+<ol type="1">
+<li>A home means a place where family is. I guess for the key character Sunja, the nature of home changes since the people in her life shape what she can expect from the conception of the idea of home. Initially it was where she was used to living her entire life at, back with her parents, tending to the guesthouse. Next it was with Isak and his family and working and finding out ways to make a living, then the barnhouse.</li>
+<li>Overall i think that the conception of home doesn’t feel like one that is solidly rooted, characters bear little to no emotional ties to the physical structure that is their house or home, because they never really lived in places that they really wanted to call home, from the slums in Osaka to the farmhouse where the living conditions were ok but not ideal.</li>
+<li>But on a higher level, the characters, all of othem korean, yearn for a place where they belong, where they would not be discriminated and viewed as an other or an outsider and where they would not be chased away. They yearned for a motherland and in the absence of that they found home in their family and the people that accepted them for who they are, in their home away from home.</li>
+</ol></li>
+<li>How do courting and marriage alter from one generation to the next?
+<ol type="1">
+<li>The evolution of courtship and marriage across the generations highlights the changing social landscape and the family’s shifting circumstances.</li>
+</ol></li>
+</ol>
+<ul>
+<li><p><strong>First Generation (Sunja/Yangjin):</strong> For Yangjin, marriage was arranged, a practical union within her own community. For Sunja, it’s a product of crisis. Her relationship with Hansu is a passionate but illicit affair, not a courtship. Her marriage to Isak is a pragmatic act of salvation, born of compassion and necessity rather than romance. Marriage is fundamentally about survival and honor.</p></li>
+<li><p><strong>Second Generation (Noa and Mozasu):</strong> This generation faces the challenge of interracial relationships. Noa’s relationship with Akiko, a Japanese woman, is intellectual and secretive, but ultimately doomed by the immense social pressure and his own internalized shame about his identity. Mozasu has a long-term relationship with Yumi, who is also Japanese, and they have a child, but the social stigma of his Korean heritage and his pachinko business always looms. For this generation, love and marriage are fraught with the external barrier of racism.</p></li>
+<li><p><strong>Third Generation (Solomon):</strong> Solomon’s relationships are more modern and globalized. His relationship with Phoebe, a Korean-American, seems promising but fails due to a cultural chasm. She cannot comprehend the weight of his family’s history in Japan, and he struggles with his own identity. His complicated connection with Hana, a Japanese girl, is rooted in a shared childhood but is destructive. For Solomon, the options for partnership are wider, but the legacy of his family’s past and his own identity crisis make true connection difficult.</p></li>
+</ul>
+<ol type="1">
+<li>Compare the ways in which the women of this novel—from Sunja to Hana—experience sex. Sex is often a catalyst for major life changes and is rarely depicted as simple or purely pleasurable for the women.</li>
+</ol>
+<ul>
+<li><p><strong>Sunja:</strong> Her first sexual experience with Hansu is a moment of seeming agency and desire, but it leads to her pregnancy and threatens her with social ruin. It’s a transformative act that sets the entire course of her life. Her sexual relationship with Isak is one of duty and tenderness, which grows into a form of love, but it begins as part of their marriage arrangement.</p></li>
+<li><p><strong>Kyunghee:</strong> Her experience is defined by absence. Her infertility is a source of quiet sorrow and shame in a society where a woman’s primary value is often tied to childbearing.</p></li>
+<li><p><strong>Hana:</strong> Hana represents a complete rebellion against traditional norms. She uses her sexuality for power, for money (as a hostess and through compensated dating), and for self-destruction. For her, sex is a tool and a weapon, often disconnected from emotional intimacy and ultimately linked to her illness and early death. Her experience is a tragic commentary on the limited, often transactional, roles available to some women.</p></li>
+</ul>
+<ol type="1">
+<li>How much agency and power do you think Sunja really has over her life? Sunja’s agency is a complex question. While she is often a victim of circumstance—her unplanned pregnancy, the poverty she endures, the discrimination she faces—she consistently makes active choices within her limited options.</li>
+</ol>
+<ul>
+<li><p><strong>Moments of Agency:</strong> She chooses to be with Hansu. She chooses to accept Isak’s proposal rather than become Hansu’s mistress. She decides to start selling kimchi to ensure her family’s survival. She chooses to protect her family by keeping Noa’s parentage a secret.</p></li>
+<li><p><strong>Constraints on Power:</strong> Her power is constrained by her gender, her poverty, and her ethnicity as a Korean in Japan. She cannot control the larger historical forces (war, colonialism) or the deep-seated societal prejudice that shape her world.</p></li>
+</ul>
+<p>Ultimately, Sunja’s power lies not in controlling her destiny, but in her resilience and her ability to endure and adapt. Her agency is found in the small, crucial decisions she makes to protect her family and maintain her dignity in a world designed to strip her of both. 1. Sunja tells Noa that&nbsp;<em>“Blood doesn’t matter.”</em>&nbsp;Do you agree? What parts of the novel support or weaken Sunja’s claim?</p>
+<p>This is one of the central philosophical questions of the novel.</p>
+<ul>
+<li><p><strong>Support for the claim:</strong> Sunja’s statement is an expression of her deepest wish and a reflection of her own life. She loves Noa as her own, and Isak was a true father to him in every way that mattered. Mozasu, who is not related by blood to Isak, honors him as his father. The family bond between Sunja and Kyunghee is stronger than many blood relationships. These instances suggest that love, loyalty, and shared experience are what truly constitute a family.</p></li>
+<li><p><strong>Weakening the claim:</strong> The entire novel tragically demonstrates that, in the context of their society, blood <em>does</em> matter. Noa’s life is destroyed when he learns of his “tainted” bloodline to Hansu, a yakuza. He cannot escape this biological fact, and it leads to his suicide. The family’s Korean blood dictates where they can live, what jobs they can hold, and how they are treated by society. Solomon’s career is stymied by his Korean blood. The story relentlessly shows that while Sunja’s sentiment is noble, the world they live in is built on punishing people for their blood.</p></li>
+</ul>
+<ol type="1">
+<li>Yangjin and Kyunghee agree that&nbsp;<em>“A woman’s lot is to suffer.”</em>&nbsp;Do you think the women suffer more than the men in this book? If so, in what ways? How does the suffering of Sunja and Kyunghee compare to that of Yoseb? Noa and Mozasu’s?</li>
+</ol>
+<p>It’s not a competition of suffering, but the <em>nature</em> of their suffering is different, shaped by gender roles.</p>
+<ul>
+<li><p><strong>Women’s Suffering:</strong> The women endure a constant, grinding suffering. It is social (ostracism), emotional (grief, shame), and physical (endless labor, childbirth). Sunja carries the shame of her pregnancy and the weight of her family’s survival. Kyunghee bears the sorrow of infertility and the pain of watching her husband, Yoseb, decline. Their suffering is often private and endured with a quiet fortitude.</p></li>
+<li><p><strong>Men’s Suffering:</strong> The men’s suffering is often more public and tied to failures of honor, identity, and providing. Isak suffers from illness and imprisonment for his faith. Yoseb is crippled physically and psychologically by the Nagasaki bomb, his pride shattered. Noa’s suffering is a profound identity crisis that he cannot bear, leading to a dramatic, final act. Mozasu suffers from bullying and the social stigma of his profession.</p></li>
+</ul>
+<ol type="1">
+<li>Much is made of Sunja’s fading beauty, as well as the physical appearance of all the women who surround her. What does this reveal about society at this time? Do you see this emphasis on female beauty reflected in present-day culture?</li>
+<li>Throughout the book, characters often must choose between survival and tradition or morality. Can you think of any examples that embody this tension?</li>
+<li>Many of the main characters struggle with shame throughout their lives, whether due to their ethnicity, family, life choices, or other factors. How does shame drive both their successes and failures?</li>
+<li>The terms “good Korean” and “good Japanese” are used many times throughout the book. What does it mean to be a “good Korean”? A “good Japanese”?</li>
+<li><em>“Both men had made money from chance and fear and loneliness.” Pachinko</em>&nbsp;begins with the family of a humble fisherman that, through the generations—and through times of poverty, violence, and extreme discrimination—gains wealth and success. What were the ways in which the family managed to not only survive, but also eventually thrive? What is the relationship among money, race, power, and class?</li>
+<li><em>“Wherever he went, the news of his mother’s death preceded him, wrapping the child in a kind of protective cloud; teachers and mothers of his friends were watchful on his behalf.”</em>&nbsp;In what other ways does death act as a “protective cloud” in this novel?</li>
+</ol>
+<p>The quote refers to how Isak’s death protects a young Mozasu from bullying. Death continues to have this strange, protective quality.</p>
+<ul>
+<li><p><strong>Isak’s Legacy:</strong> Isak’s death solidifies him as a saintly, martyred figure. His memory becomes a guiding moral compass for the family, “protecting” them with a standard of kindness and integrity.</p></li>
+<li><p><strong>Noa’s Suicide:</strong> In a tragic way, Noa’s death “protects” him from a life of perpetual shame. It also acts as a dark cloud that hangs over the family, a protective warning to Solomon about the dangers of losing one’s identity.</p></li>
+<li><p><strong>Hana’s Death:</strong> Hana’s long, slow death from AIDS forces Solomon to confront difficult truths about life, love, and responsibility. Her death shatters his corporate ambitions and “protects” him from a potentially empty life, forcing him back toward his family and his roots</p></li>
+</ul>
+<ol type="1">
+<li>Compare the many parent-child relationships in the novel. How do they differ across families and generations? What hopes and dreams does each parent hold for their children—and are these hopes rewarded?</li>
+<li>Even in death or physical absence, the presence of many characters lingers on throughout the book. How does this affect your reading experience? How would the book have been different if it were confined to one character’s perspective?</li>
+<li>Why do you think the author chose&nbsp;<em>Pachinko</em>&nbsp;for the title?</li>
+<li>The title works on both a literal and a powerful metaphorical level.</li>
+</ol>
+<ul>
+<li><p><strong>Literal:</strong> The pachinko business is the literal engine of the family’s financial ascent. It’s the controversial industry that lifts them from poverty to wealth.</p></li>
+<li><p><strong>Metaphorical:</strong> A pachinko game is a metaphor for the lives of the characters, particularly Koreans in Japan. The game is largely one of chance, where the player has minimal control. The steel balls are shot into the machine and cascade down, bounced around by pins and obstacles. This mirrors how the characters are buffeted by huge, impersonal forces—history, war, colonialism, systemic discrimination. The game is also known to be rigged; the house always has the advantage. This reflects a society where the odds are stacked against them. Despite the rigged nature of the game, people continue to play, hoping for a jackpot. This symbolizes the family’s unyielding resilience and hope in the face of impossible odds.</p></li>
+</ul>
+</section>
+<section id="reading-journey" class="level2">
+<h2 class="anchored" data-anchor-id="reading-journey">Reading Journey</h2>
+<ul>
+<li>2025-07-09: Started</li>
+<li>2025-07-09: 49
+<ul>
+<li>24 mins</li>
+</ul></li>
+<li>2025-07-10: 104
+<ul>
+<li>27 mins</li>
+</ul></li>
+<li>2025-07-10: 106
+<ul>
+<li>2 mins</li>
+</ul></li>
+<li>2025-07-10: 120
+<ul>
+<li>7 mins</li>
+</ul></li>
+<li>2025-07-10: 169
+<ul>
+<li>22 mins</li>
+</ul></li>
+<li>2025-07-11: 216
+<ul>
+<li>30 mins</li>
+</ul></li>
+<li>2025-07-11: 264
+<ul>
+<li>23 mins</li>
+</ul></li>
+<li>2025-07-12: 333
+<ul>
+<li>34 mins</li>
+</ul></li>
+<li>2025-07-12: 341
+<ul>
+<li>4 mins</li>
+</ul></li>
+<li>2025-07-12: 392
+<ul>
+<li>26 mins</li>
+</ul></li>
+<li>2025-07-14: 448
+<ul>
+<li>28 mins</li>
+</ul></li>
+<li>2025-07-14: 489
+<ul>
+<li>22 mins</li>
+</ul></li>
+<li>2025-07-14: 490
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-14: 543
+<ul>
+<li>18 mins</li>
+</ul></li>
+<li>2025-07-15: 545
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-15: 595
+<ul>
+<li>21 mins</li>
+</ul></li>
+<li>2025-07-16: 627
+<ul>
+<li>18 mins</li>
+</ul></li>
+<li>2025-07-16: 635
+<ul>
+<li>2 mins</li>
+</ul></li>
+<li>2025-07-17: 667
+<ul>
+<li>14 mins</li>
+</ul></li>
+<li>2025-07-17: 673
+<ul>
+<li>3 mins</li>
+</ul></li>
+<li>2025-07-18: 675
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-18: 699
+<ul>
+<li>3 mins</li>
+</ul></li>
+<li>2025-07-18: 710
+<ul>
+<li>3 mins</li>
+</ul></li>
+<li>2025-07-18: 729
+<ul>
+<li>10 mins</li>
+</ul></li>
+<li>2025-07-20: 767
+<ul>
+<li>16 mins</li>
+</ul></li>
+<li>2025-07-20: 769
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-20: 770
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-20: 781
+<ul>
+<li>2 mins</li>
+</ul></li>
+<li>2025-07-20: 808
+<ul>
+<li>2 mins</li>
+</ul></li>
+<li>2025-07-20: 875
+<ul>
+<li>28 mins</li>
+</ul></li>
+<li>2025-07-21: 948
+<ul>
+<li>32 mins</li>
+</ul></li>
+<li>2025-07-21: 949
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-21: 950
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-07-21: 977
+<ul>
+<li>12 mins</li>
+</ul></li>
+<li>2025-07-21: 1093
+<ul>
+<li>42 mins</li>
+</ul></li>
+<li>2025-07-21: 1098
+<ul>
+<li>5 mins</li>
+</ul></li>
+<li>2025-07-21: 1283
+<ul>
+<li>64 mins</li>
+</ul></li>
+<li>2025-07-24: 1284
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-11-04: 1285
+<ul>
+<li>1 mins</li>
+</ul></li>
+<li>2025-11-04: Finished</li>
+<li>Total Time Taken: 9 hours and 12 minutes ## Bookmarks</li>
+</ul>
+<blockquote class="blockquote">
+<p>intransigence <em>Extracted: 2025-07-11 03:42</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Being a mother was what defined her more than any other thing—more than being a daughter, wife, divorced woman, girlfriend, or restaurant owner <em>Extracted: 2025-07-21 06:20</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>There were so many errors. If life allowed revisions, she would let them stay in their bath a little longer, read them one more story before bed, and fix them another plate of shrimp. <em>Extracted: 2025-07-21 06:22</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Etsuko had failed in this important way—she had not taught her children to hope, to believe in the perhaps-absurd possibility that they might win. Pachinko was a foolish game, but life was not. <em>Extracted: 2025-07-21 06:26</em></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Somewhere after being sorry, there had to be another day, and even after a conviction, there could be good in the judgment <em>Extracted: 2025-07-21 06:30</em></p>
+</blockquote>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jordanchongja\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="p-1">Made with <a href="https://quarto.org/">Quarto</a>.</span></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jordanchongja">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:jordanchongjian25@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ |
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/jordanchongja/jordanchongja.github.io">
+<p>Source</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
