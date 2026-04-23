@@ -30,9 +30,6 @@
   {
     "listing": "/readings/index.html",
     "items": [
-      "/readings/Pachinko/index.html",
-      "/readings/The Body Keeps the Score/index.html",
-      "/readings/The Divided Self/index.html",
       "/readings/Tuesdays With Morrie/index.html",
       "/readings/The God of Small Things/index.html",
       "/readings/1984/index.html",
@@ -74,7 +71,10 @@
       "/readings/Small Boat/index.html",
       "/readings/The Happiness Fantasy/index.html",
       "/readings/The Fountainhead/index.html",
-      "/readings/Yellow Dog/index.html"
+      "/readings/Yellow Dog/index.html",
+      "/readings/Pachinko/index.html",
+      "/readings/The Body Keeps the Score/index.html",
+      "/readings/The Divided Self/index.html"
     ]
   }
 ]
