@@ -1,5 +1,33 @@
 [
   {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html",
+      "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-payoff-visualisation/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-payoff-visualisation/index.html"
+    ]
+  },
+  {
     "listing": "/readings/index.html",
     "items": [
       "/readings/Nausea/index.html",
@@ -10,7 +38,7 @@
       "/readings/The Four Workarounds/index.html",
       "/readings/Animals, Robots, Gods/index.html",
       "/readings/Small Boat/index.html",
-      "/readings/Modern Classics Civilization and Its Discontent/index.html",
+      "/readings/Civilization and Its Discontents/index.html",
       "/readings/1984/index.html",
       "/readings/Battle Hymn of the Tiger Mother/index.html",
       "/readings/Breakfast at Tiffany's/index.html",
@@ -47,34 +75,6 @@
       "/readings/To Kill a Mockingbird/index.html",
       "/readings/Training for Climbing/index.html",
       "/readings/Yellow Dog/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
-      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
-      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
-      "/notes/posts/black-scholes-derivation/index.html",
-      "/notes/posts/options-pricing-models/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-payoff-visualisation/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/iran-war-geopolitical-shock-analysis/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-payoff-visualisation/index.html"
     ]
   }
 ]
