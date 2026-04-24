@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Amanda Lee Koe">
-<meta name="dcterms.date" content="2025-10-31">
+<meta name="dcterms.date" content="2024-04-24">
+<meta name="description" content="A streamlit web application that extracts, decodes and visualises reading data from Kobo e-readers.">
 
-<title>Ministry of Moral Panic – Jordan’s Projects</title>
+<title>Kobo Reading Dashboard – Jordan’s Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,18 +83,16 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Ministry of Moral Panic – Jordan’s Projects">
-<meta property="og:description" content="★★★★★ | Stories">
-<meta property="og:image" content="https://jordanchongja.github.io/readings/Ministry of Moral Panic/cover.png">
+<meta property="og:title" content="Kobo Reading Dashboard – Jordan’s Projects">
+<meta property="og:description" content="A streamlit web application that extracts, decodes and visualises reading data from Kobo e-readers.">
+<meta property="og:image" content="https://jordanchongja.github.io/projects/kobostatisticsdatareader/featured_kobo_dashboard.png">
 <meta property="og:site_name" content="Jordan's Projects">
-<meta property="og:image:height" content="279">
-<meta property="og:image:width" content="181">
-<meta name="twitter:title" content="Ministry of Moral Panic – Jordan’s Projects">
-<meta name="twitter:description" content="★★★★★ | Stories">
-<meta name="twitter:image" content="https://jordanchongja.github.io/readings/Ministry of Moral Panic/cover.png">
+<meta property="og:image:alt" content="Screenshot of the Kobo Reading Dashboard Overview">
+<meta name="twitter:title" content="Kobo Reading Dashboard – Jordan’s Projects">
+<meta name="twitter:description" content="A streamlit web application that extracts, decodes and visualises reading data from Kobo e-readers.">
+<meta name="twitter:image" content="https://jordanchongja.github.io/projects/kobostatisticsdatareader/featured_kobo_dashboard.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="279">
-<meta name="twitter:image-width" content="181">
+<meta name="twitter:image:alt" content="Screenshot of the Kobo Reading Dashboard Overview">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -158,10 +156,16 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ministry-of-moral-panic" id="toc-ministry-of-moral-panic" class="nav-link active" data-scroll-target="#ministry-of-moral-panic">Ministry of Moral Panic</a>
+  <li><a href="#extracting-data-from-kobo-e-readers" id="toc-extracting-data-from-kobo-e-readers" class="nav-link active" data-scroll-target="#extracting-data-from-kobo-e-readers">Extracting Data from Kobo E-readers</a></li>
+  <li><a href="#using-the-dashboard-step-by-step" id="toc-using-the-dashboard-step-by-step" class="nav-link" data-scroll-target="#using-the-dashboard-step-by-step">Using the Dashboard (Step-by-Step)</a>
   <ul class="collapse">
-  <li><a href="#reading-journey" id="toc-reading-journey" class="nav-link" data-scroll-target="#reading-journey">Reading Journey</a></li>
+  <li><a href="#step-1-data-ingestion" id="toc-step-1-data-ingestion" class="nav-link" data-scroll-target="#step-1-data-ingestion">Step 1: Data Ingestion</a></li>
+  <li><a href="#step-2-the-reading-overview" id="toc-step-2-the-reading-overview" class="nav-link" data-scroll-target="#step-2-the-reading-overview">Step 2: The Reading Overview</a></li>
+  <li><a href="#visualizing-habits-streaks" id="toc-visualizing-habits-streaks" class="nav-link" data-scroll-target="#visualizing-habits-streaks">Visualizing Habits &amp; Streaks</a></li>
+  <li><a href="#knowledge-extraction-vocab-highlights" id="toc-knowledge-extraction-vocab-highlights" class="nav-link" data-scroll-target="#knowledge-extraction-vocab-highlights">Knowledge Extraction (Vocab &amp; Highlights)</a></li>
+  <li><a href="#step-3-raw-data-export" id="toc-step-3-raw-data-export" class="nav-link" data-scroll-target="#step-3-raw-data-export">Step 3: Raw Data Export</a></li>
   </ul></li>
+  <li><a href="#architecture-engineering-challenges" id="toc-architecture-engineering-challenges" class="nav-link" data-scroll-target="#architecture-engineering-challenges">Architecture &amp; Engineering Challenges</a></li>
   </ul>
 </nav>
     </div>
@@ -171,29 +175,30 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ministry of Moral Panic</h1>
-<p class="subtitle lead">★★★★★ | Stories</p>
+<h1 class="title">Kobo Reading Dashboard</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Singaporean fiction (English).</div>
-    <div class="quarto-category">Book</div>
+    <div class="quarto-category">Data Engineering</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Streamlit</div>
+    <div class="quarto-category">SQLite</div>
+    <div class="quarto-category">Data Visualization</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A streamlit web application that extracts, decodes and visualises reading data from Kobo e-readers.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Amanda Lee Koe </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 31, 2025</p>
+      <p class="date">April 24, 2024</p>
     </div>
   </div>
   
@@ -205,96 +210,93 @@ gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" class="img-fluid"> <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&amp;logoColor=white.png" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Live_&amp;_Deployed-success.png" class="img-fluid"> <a href="https://github.com/jordanchongja/options-projects-suite"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
 <style>
   #quarto-margin-sidebar {
     padding-top: 50px;
   }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
+  }
 </style>
-<section id="ministry-of-moral-panic" class="level1">
-<h1>Ministry of Moral Panic</h1>
-<p>Amazing book - need to sit down and write a review on this fr</p>
-<section id="reading-journey" class="level2">
-<h2 class="anchored" data-anchor-id="reading-journey">Reading Journey</h2>
-<ul>
-<li>2025-07-22: Started</li>
-<li>2025-07-22: 15
-<ul>
-<li>5 mins</li>
-</ul></li>
-<li>2025-07-22: 54
-<ul>
-<li>13 mins</li>
-</ul></li>
-<li>2025-07-22: 111
-<ul>
-<li>23 mins</li>
-</ul></li>
-<li>2025-07-22: 112
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-07-23: 114
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-07-23: 116
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-07-23: 166
-<ul>
-<li>26 mins</li>
-</ul></li>
-<li>2025-07-23: 184
-<ul>
-<li>12 mins</li>
-</ul></li>
-<li>2025-07-23: 224
-<ul>
-<li>19 mins</li>
-</ul></li>
-<li>2025-07-23: 243
-<ul>
-<li>9 mins</li>
-</ul></li>
-<li>2025-07-23: 382
-<ul>
-<li>59 mins</li>
-</ul></li>
-<li>2025-07-24: 383
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-07-24: 401
-<ul>
-<li>3 mins</li>
-</ul></li>
-<li>2025-07-25: 402
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-11-04: 403
-<ul>
-<li>1 mins</li>
-</ul></li>
-<li>2025-11-04: Finished</li>
-<li>Total Time Taken: 2 hours and 55 minutes ## Bookmarks</li>
-</ul>
-<blockquote class="blockquote">
-<p>The proprietor had never thought of keeping a pet because he thought he’d make a bad owner, but he saw then that not all living things pin all their hopes and dreams on you. Life goes on and it was egotistical to imagine otherwise. <em>Extracted: 2025-07-23 05:37</em></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Being able to be sad is a form of happiness too. <em>Extracted: 2025-07-23 05:43</em></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>she knew that if she ever tried to paint a face, it would look like Nelly, and she could not afford to see Nelly ever again <em>Extracted: 2025-07-23 06:08</em></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>The truth was probably that my mother had been so defined by the existence of my father that when he died, she couldn’t see anything else before her <em>Extracted: 2025-07-22 16:43</em></p>
-</blockquote>
-
-
+<section id="extracting-data-from-kobo-e-readers" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-data-from-kobo-e-readers">Extracting Data from Kobo E-readers</h2>
+<p>Modern e-readers store a massive amount of behavioral telemetry - every page turn, reading session, highlight, and dictionary lookup is logged. However, Kobo devices lock this data inside a messy, internal SQLite database (KoboReader.sqlite) utilizing binary blobs and hex-encoded strings.</p>
+<p>The objective of this project was to build a data pipeline that parses this raw SQLite file, decodes the proprietary binary formats, and serves the cleansed data through an interactive Streamlit dashboard.</p>
+<center>
+<a href="https://kobostatisticsdatareader.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Kobo Dashboard App</a>
+</center>
+<hr>
 </section>
+<section id="using-the-dashboard-step-by-step" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-dashboard-step-by-step">Using the Dashboard (Step-by-Step)</h2>
+<p>The application is designed to be plug-and-play for any Kobo user.</p>
+<section id="step-1-data-ingestion" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-data-ingestion">Step 1: Data Ingestion</h3>
+<p>You need to connect your Kobo to your computer via a data cable and there should be a pop-up that asks if you want to connect your Kobo to your computer, message on your Kobo. Click yes and you will be able to access the file system for your Kobo.</p>
+<p>Once there, navigate to your .kobo file, you might need to google how to view hidden files. In windows file explorer you can do this under Hidden &gt; Show &gt; Hidden Items. Once you know the location of your KoboReader.sqlite, you can proceed to the next step by launching the dashboard extractor app on streamlit.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/kobosqlitesourcing.gif" class="img-fluid figure-img"></p>
+<figcaption>Where to find the .sqlite file in your kobo</figcaption>
+</figure>
+</div>
+</section>
+<section id="step-2-the-reading-overview" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-the-reading-overview">Step 2: The Reading Overview</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/overviewofdashboard.gif" class="img-fluid figure-img"></p>
+<figcaption>How to load the .sqlite into the streamlit dashboard for processing</figcaption>
+</figure>
+</div>
+<p>Once loaded, the Overview tab provides a macro view of reading habits.</p>
+<p>Users can use cascading dropdowns to filter by Year and Month.</p>
+<p>The dynamic ledger aggregates total reading time and lists exactly which books were interacted with during that specific period.</p>
+</section>
+<section id="visualizing-habits-streaks" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-habits-streaks">Visualizing Habits &amp; Streaks</h3>
+<p>To gamify the reading experience, the app translates individual page-turn timestamps into an interactive GitHub-style calendar heatmap and calculates longest and current reading streaks. A secondary tab utilizes plotly to break down reading sessions by time of day (Morning, Afternoon, Evening, Night).</p>
+</section>
+<section id="knowledge-extraction-vocab-highlights" class="level3">
+<h3 class="anchored" data-anchor-id="knowledge-extraction-vocab-highlights">Knowledge Extraction (Vocab &amp; Highlights)</h3>
+<p>Kobo’s built-in dictionary tool is fantastic for learning, but terrible for exporting. The dashboard isolates the WordList and Bookmark tables, allowing users to view, sort, and search their saved highlights and vocabulary words natively in the browser.</p>
+</section>
+<section id="step-3-raw-data-export" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-raw-data-export">Step 3: Raw Data Export</h3>
+<p>For users building a “Second Brain” (like Obsidian or Notion), the app includes a raw data exporter. By clicking a button, the app generates a multi-sheet Excel file containing all 30+ parsed SQLite tables, plus a specialized sheet containing every single raw, un-aggregated page turn timestamp.</p>
+<p>This is located in the last tab and take note that it might take some time for the excel to be produced. The final excel file is also really messy on the first tab, might need to clean it up abit with excel or with python if you’re familiar.</p>
+</section>
+</section>
+<section id="architecture-engineering-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-engineering-challenges">Architecture &amp; Engineering Challenges</h2>
+<p>Extracting data from an undocumented, proprietary database requires significant data wrangling. Here are the core engineering hurdles overcome in this project:</p>
+<ol type="1">
+<li>Binary Blob Parsing &amp; “Ghost Time” Recovery Kobo stores individual page-turn events as compressed binary blobs rather than standard relational rows.</li>
+</ol>
+<p>I built a custom KoboBinaryReader class to unpack these blobs using Python’s struct module, clustering timestamps into distinct reading “sessions”.</p>
+<p>The “Ghost Time” Problem: Side-loaded books often fail to generate page-turn blobs, resulting in hours of “lost” reading time in the analytics. To solve this, the pipeline intelligently cross-references the master TimeSpentReading metadata. If a book has recorded time but no binary events, the app generates a Synthetic Session anchored to the DateLastRead timestamp, ensuring 100% time accuracy.</p>
+<ol start="2" type="1">
+<li>Resilient Relational Mapping Kobo’s internal schema is highly inconsistent across firmware versions.</li>
+</ol>
+<p>Hex-Encoded Text: The WordList table randomly encodes plain text and dates into hex strings. I implemented a robust decode_kobo_text helper to dynamically catch and decode these fields on the fly.</p>
+<p>Fuzzy URI Matching: Linking a vocabulary word back to its parent book is notoriously difficult because Kobo relies on heavily encoded file paths (e.g., file:///mnt/onboard/Books/Title%20Name…). The pipeline utilizes urllib.parse.unquote to normalize these URIs and builds a Master Title Map. If the exact ID match fails due to moved folders, a fallback algorithm successfully maps the filename substring to the clean book title.</p>
+<ol start="3" type="1">
+<li>Title Normalization E-readers heavily rely on “Sort Titles” (e.g., Vegetarian, The instead of The Vegetarian). The data pipeline automatically detects common suffixes and re-arranges the strings to ensure the UI remains clean and human-readable.</li>
+</ol>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
