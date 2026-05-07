@@ -3,4 +3,4 @@ Contains the quarto code for website hosted on Github Pages, please visit my web
 
 > ### 🚀 **[Go to my Website](https://jordanchongja.github.io/)**
 
-![Preview of my Website Homepage](assets\homepage-preview.png)
+![Preview of my Website Homepage](assets/homepage-preview.png)
