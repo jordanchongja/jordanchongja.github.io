@@ -1,0 +1,28 @@
+---
+title: Battle Hymn of the Tiger Mother
+author: Amy Chua
+date: '2025-10-31'
+categories:
+- Family & Relationships
+- Book
+image: cover.jpg
+subtitle: ★★★★
+rating: 4
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Battle Hymn of the Tiger Mother
+Nice read into the life of asian families in america and i think it is quite relatable, although it mainly pertains to music and the pursuit of it. I thought it would contain more about the lives of her children compared to just music but overall still nice
+
+## Reading Journey
+
+- 2025-10-31: Finished

@@ -1,0 +1,27 @@
+---
+title: Think Again
+author: Adam Grant
+date: '2025-10-31'
+categories:
+- Business & Economics
+- Book
+image: cover.jpg
+subtitle: ★★★ | The Power of Knowing what You Don't Know
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Think Again
+
+## Reading Journey
+
+- 2025-10-31: Finished

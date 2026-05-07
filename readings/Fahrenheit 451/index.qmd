@@ -1,0 +1,34 @@
+---
+title: Fahrenheit 451
+author: Ray Bradbury
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★ | A Novel
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Fahrenheit 451
+Story about "Firemen" that set books on fire instead of putting fires out. Is set in a apocolyptic war torn world where people are no longer intellectually stimulated and are happy about it. The protagonist reads a book and is "awoken" and he tries to escape the city that he is trapped in.
+
+Like Electric sheep book, interesting idea that possibly has alot of potential to be an engaging plot point but not really that good. Characters don't act like "real" people and are not relatable. Has the air of trying to be a great book but really falling short. Linear plot and straighforward story, clean book that presents an idea instead of a plot
+
+If you enjoy 1984 or other similar dystopian novels this should be an okay read, not that bad. But if you havent read 1984 just go read that first.
+
+-Come on now, we’re going to go build a mirror-factory first and put out nothing but mirrors for the first year and take a long look in them
+
+## Reading Journey
+
+- 2025-10-31: Finished

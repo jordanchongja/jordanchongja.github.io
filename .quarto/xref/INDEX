@@ -1,158 +1,194 @@
 {
   "contact.qmd": {
-    "contact.html": "359fd8ca"
+    "contact.html": "bb753614"
   },
   "cv.qmd": {
-    "cv.html": "30651f43"
+    "cv.html": "1e9487a3"
   },
   "index.qmd": {
-    "index.html": "691710ad"
+    "index.html": "992574bc"
   },
   "license.qmd": {
-    "license.html": "600588c6"
+    "license.html": "50c357aa"
   },
   "notes/index.qmd": {
-    "index.html": "56a34148"
+    "index.html": "e19a4451"
   },
   "notes/posts/black-scholes-derivation/index.qmd": {
-    "index.html": "6c200775"
+    "index.html": "86634d0c"
   },
   "notes/posts/indonesia-regulatory-equity-ownership-analysis/index.qmd": {
-    "index.html": "0fb3b4c4"
+    "index.html": "142acf61"
   },
   "notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "08ba47ba"
+    "BS_NumericalMethods.html": "12964f2d"
   },
   "notes/posts/options-pricing-models/index.qmd": {
-    "index.html": "fc89952e"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/projects/00-data-preprocessing/WRDS-OptionsDataCleaning.ipynb": {
-    "WRDS-OptionsDataCleaning.html": "0715bd2f"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/projects/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "821ef725"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/01_TheoreticalModels.ipynb": {
-    "01_TheoreticalModels.html": "663fe39c"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/02_MarketDataCalibrationModels.ipynb": {
-    "02_MarketDataCalibrationModels.html": "59faed9f"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/projects/options-pricing-models/03_model-testing-and-OOS-comparison.ipynb": {
-    "03_model-testing-and-OOS-comparison.html": "b64edbdb"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_01_BlackSholes.ipynb": {
-    "quarto_01_BlackSholes.html": "f01d01f0"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_02_MertonJumpDiffusion.ipynb": {
-    "quarto_02_MertonJumpDiffusion.html": "b150092c"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_03_HestonModel.ipynb": {
-    "quarto_03_HestonModel.html": "2cd7faa6"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_04_BatesModel.ipynb": {
-    "quarto_04_BatesModel.html": "843e6c6b"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_05_BS_RealDataCalibration.ipynb": {
-    "quarto_05_BS_RealDataCalibration.html": "0a3bbeaf"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_06_Merton_RealDataCalibration.ipynb": {
-    "quarto_06_Merton_RealDataCalibration.html": "b3e33772"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_07_Heston_RealDataCalibration.ipynb": {
-    "quarto_07_Heston_RealDataCalibration.html": "afae3731"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_08_Bates_RealDataCalibration.ipynb": {
-    "quarto_08_Bates_RealDataCalibration.html": "4dfe6913"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_09_Model_Comparison.ipynb": {
-    "quarto_09_Model_Comparison.html": "0a4c9201"
-  },
-  "notes/posts/options-pricing-models/options-projects-suite/xx) archive/quarto_10_OutOfSampleTesting.ipynb": {
-    "quarto_10_OutOfSampleTesting.html": "45574126"
+    "index.html": "dc20c741"
   },
   "notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.qmd": {
-    "index.html": "b2b7b9e7"
+    "index.html": "07bf23c7"
   },
   "projects/avellaneda-stoikov-mm-single-limit-order/index.qmd": {
-    "index.html": "61644716"
+    "index.html": "4502e3e3"
   },
   "projects/avellaneda-stoikov-mm-single-limit-order/marketmakingsimulation.ipynb": {
-    "marketmakingsimulation.html": "7820fa90"
+    "marketmakingsimulation.html": "7d33d86f"
   },
   "projects/gap-challenge-solver/index.qmd": {
-    "index.html": "a53edb4a"
+    "index.html": "ce50ef94"
   },
   "projects/index.qmd": {
-    "index.html": "348ab76d"
+    "index.html": "b79c0748"
   },
   "projects/iran-war-geopolitical-shock-analysis/index.qmd": {
-    "index.html": "6c97cff0"
+    "index.html": "bcd67686"
   },
   "projects/options-payoff-visualisation/index.qmd": {
-    "index.html": "6de82da7"
-  },
-  "projects/options-pricing-models/options-projects-suite/projects/00-data-preprocessing/WRDS-OptionsDataCleaning.ipynb": {
-    "WRDS-OptionsDataCleaning.html": "a9cda7f9"
-  },
-  "projects/options-pricing-models/options-projects-suite/projects/options-numerical-methods-for-black-scholes/BS_NumericalMethods.ipynb": {
-    "BS_NumericalMethods.html": "f352af55"
-  },
-  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/01_TheoreticalModels.ipynb": {
-    "01_TheoreticalModels.html": "371d7bfc"
-  },
-  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/xx-archive/02_MarketDataCalibrationModels.ipynb": {
-    "02_MarketDataCalibrationModels.html": "ba8ed577"
-  },
-  "projects/options-pricing-models/options-projects-suite/projects/options-pricing-models/xx-archive/03_model-testing-and-OOS-comparison.ipynb": {
-    "03_model-testing-and-OOS-comparison.html": "1a421807"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_01_BlackSholes.ipynb": {
-    "quarto_01_BlackSholes.html": "8587a05b"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_02_MertonJumpDiffusion.ipynb": {
-    "quarto_02_MertonJumpDiffusion.html": "9aded28f"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_03_HestonModel.ipynb": {
-    "quarto_03_HestonModel.html": "1788d78f"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_04_BatesModel.ipynb": {
-    "quarto_04_BatesModel.html": "e69f494a"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_05_BS_RealDataCalibration.ipynb": {
-    "quarto_05_BS_RealDataCalibration.html": "994488ef"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_06_Merton_RealDataCalibration.ipynb": {
-    "quarto_06_Merton_RealDataCalibration.html": "39e1345e"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_07_Heston_RealDataCalibration.ipynb": {
-    "quarto_07_Heston_RealDataCalibration.html": "052025bb"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_08_Bates_RealDataCalibration.ipynb": {
-    "quarto_08_Bates_RealDataCalibration.html": "f21fc039"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_09_Model_Comparison.ipynb": {
-    "quarto_09_Model_Comparison.html": "3e533f2c"
-  },
-  "projects/options-pricing-models/options-projects-suite/xx) archive/quarto_10_OutOfSampleTesting.ipynb": {
-    "quarto_10_OutOfSampleTesting.html": "8490a384"
+    "index.html": "c2e44979"
   },
   "projects/sg-insurance-model/index.qmd": {
-    "index.html": "b21e84de"
+    "index.html": "4745eafc"
+  },
+  "readings/1984/index.qmd": {
+    "index.html": "bceb3d01"
+  },
+  "readings/Animals, Robots, Gods/index.qmd": {
+    "index.html": "9c4221ea"
+  },
+  "readings/Battle Hymn of the Tiger Mother/index.qmd": {
+    "index.html": "f9065896"
+  },
+  "readings/Breakfast at Tiffany's/index.qmd": {
+    "index.html": "5f00a1af"
+  },
+  "readings/Civilization and Its Discontents/index.qmd": {
+    "index.html": "1c85a198"
+  },
+  "readings/Crying in H Mart/index.qmd": {
+    "index.html": "0532d275"
+  },
+  "readings/Do Androids Dream Of Electric Sheep/index.qmd": {
+    "index.html": "bdb4ab37"
   },
   "readings/East of Eden/index.qmd": {
-    "index.html": "408851a8"
+    "index.html": "2550560e"
+  },
+  "readings/Everything I Know About Love/index.qmd": {
+    "index.html": "9f65392c"
+  },
+  "readings/Fahrenheit 451/index.qmd": {
+    "index.html": "5a2a7792"
+  },
+  "readings/Frankenstein/index.qmd": {
+    "index.html": "22ec87ac"
+  },
+  "readings/Grit/index.qmd": {
+    "index.html": "3d9e9b75"
+  },
+  "readings/Heart Lamp Selected Stories/index.qmd": {
+    "index.html": "ac49a5b8"
+  },
+  "readings/I Want to Die but I Want to Eat Tteokbokki/index.qmd": {
+    "index.html": "ddb7b63c"
   },
   "readings/index.qmd": {
-    "index.html": "4f9d7598"
+    "index.html": "5009069e"
+  },
+  "readings/Man's Search For Meaning/index.qmd": {
+    "index.html": "3640d91b"
+  },
+  "readings/Maybe You Should Talk to Someone/index.qmd": {
+    "index.html": "0decf581"
   },
   "readings/Ministry of Moral Panic/index.qmd": {
-    "index.html": "a762da08"
+    "index.html": "cda9f30e"
+  },
+  "readings/Nausea/index.qmd": {
+    "index.html": "4aa74233"
+  },
+  "readings/Never Let Me Go/index.qmd": {
+    "index.html": "151f16a8"
+  },
+  "readings/Normal People/index.qmd": {
+    "index.html": "466e2982"
+  },
+  "readings/Norwegian Wood/index.qmd": {
+    "index.html": "f23ce1b4"
+  },
+  "readings/Pachinko/index.qmd": {
+    "index.html": "5e905298"
+  },
+  "readings/Small Boat/index.qmd": {
+    "index.html": "40054cad"
+  },
+  "readings/The Alchemist - 10th Anniversary Edition/index.qmd": {
+    "index.html": "68ee5fdd"
+  },
+  "readings/The Anthropocene Reviewed/index.qmd": {
+    "index.html": "d2a35ba1"
+  },
+  "readings/The Body Keeps the Score/index.qmd": {
+    "index.html": "c51a344c"
+  },
+  "readings/The Divided Self/index.qmd": {
+    "index.html": "81889a61"
+  },
+  "readings/The Fountainhead/index.qmd": {
+    "index.html": "feecd810"
+  },
+  "readings/The Four Workarounds/index.qmd": {
+    "index.html": "fdce15ce"
   },
   "readings/The God of Small Things/index.qmd": {
-    "index.html": "bb85e337"
+    "index.html": "2dbdebf9"
+  },
+  "readings/The Happiness Fantasy/index.qmd": {
+    "index.html": "84697ef8"
+  },
+  "readings/The Humans/index.qmd": {
+    "index.html": "707a2c6c"
+  },
+  "readings/The Metamorphosis/index.qmd": {
+    "index.html": "bf1ab2d0"
+  },
+  "readings/The Midnight Library/index.qmd": {
+    "index.html": "13f06490"
+  },
+  "readings/The Myth of Sisyphus, and Other Essays/index.qmd": {
+    "index.html": "f1556b7e"
+  },
+  "readings/The Ones Who Walk Away from Omelas/index.qmd": {
+    "index.html": "a5a67453"
+  },
+  "readings/The Stranger/index.qmd": {
+    "index.html": "16241385"
+  },
+  "readings/The Vegetarian/index.qmd": {
+    "index.html": "40cf7610"
+  },
+  "readings/The Velveteen Rabbit, Or, How Toys Became Real/index.qmd": {
+    "index.html": "ab957794"
+  },
+  "readings/Think Again/index.qmd": {
+    "index.html": "718f6324"
   },
   "readings/This is What Inequality Looks Like/index.qmd": {
-    "index.html": "ac234b86"
+    "index.html": "bbc69343"
+  },
+  "readings/To Kill a Mockingbird/index.qmd": {
+    "index.html": "01beb6b5"
+  },
+  "readings/Training for Climbing/index.qmd": {
+    "index.html": "d2fe7689"
+  },
+  "readings/Tuesdays With Morrie/index.qmd": {
+    "index.html": "5d580486"
+  },
+  "readings/Yellow Dog/index.qmd": {
+    "index.html": "bb9ab2ce"
+  },
+  "projects/kobostatisticsdatareader/index.qmd": {
+    "index.html": "0da4d5b7"
   }
 }

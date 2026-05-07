@@ -1,0 +1,32 @@
+---
+title: Norwegian Wood
+author: Haruki Murakami
+date: '2025-10-31'
+categories:
+- Indonesian fiction
+- Book
+image: cover.jpg
+subtitle: ★★★★★
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Norwegian Wood
+Great book. I think Murakami is able to capture the human condition in a very convincing manner that just draws the reader in. I think there are catcher in the rye vibes from the protagonist and i think the characters are the same people in different contexts. The sex scenes are a little weird though, esp the last one with the motherly figure? That was quite weird. And i liked that it had a semi happy ending? That the protagonist may in the end find joy and light at the end of a very dark tunnel. Overall the storytelling is excellent and i hope the rest of the books from Murakami is as good as this.
+
+## Reading Journey
+- 2025-11-04: Started
+- 2025-11-04: 1
+    - 1 mins
+- 2025-11-04: Finished
+- Total Time Taken: 1 minutes
+## Bookmarks

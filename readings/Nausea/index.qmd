@@ -1,0 +1,29 @@
+---
+title: Nausea
+author: Jean-Paul Sartre
+date: '2026-04-23'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Nausea
+Remember to read the intro again because it speaks of the story. Geez such a bad book? I couldnt even finish it? I think the idea of the nausea is okay but the writing is so confusing i dont know what is going on or who is saying what at times; is the narrator speaking? Is he just observing it? Its super messy and i dont like this book at all
+- ok this is future Jordan commenting on this (maybe the super messyness is what gives the READER NAUSEA??? wow very good fourth wall break maybe? Ok perhaps give this book another chance)
+
+
+
+# Bookmarks

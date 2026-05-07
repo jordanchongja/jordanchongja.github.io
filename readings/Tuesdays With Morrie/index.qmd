@@ -1,0 +1,88 @@
+---
+title: Tuesdays With Morrie
+author: Mitch Albom
+date: '2025-12-20'
+categories:
+- Biography & Autobiography
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | The most uplifting book ever written about the importance of human
+  connection
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Tuesdays With Morrie
+
+## Reading Journey
+- 2025-12-15: Started
+- 2025-12-15: 51
+    - 23 mins
+- 2025-12-15: 72
+    - 17 mins
+- 2025-12-17: 79
+    - 7 mins
+- 2025-12-19: 81
+    - 1 mins
+- 2025-12-19: 126
+    - 23 mins
+- 2025-12-19: 127
+    - 1 mins
+- 2025-12-19: 129
+    - 1 mins
+- 2025-12-19: Finished
+- Total Time Taken: 1 hours and 13 minutes
+## Bookmarks
+> Over the years, I had taken labor as my companion and had moved everything else to the side
+> *2025-12-15*
+
+> So many people walk around with a meaningless life. They seem half-asleep, even when they're busy doing things they think are important. This is because they're chasing the wrong things. The way you get meaning into your life is to devote yourself to loving others, devote yourself to your community around you, and devote yourself to creating something that gives you purpose and meaning.
+> *2025-12-15*
+
+> The most important thing in life is to learn how to give out love, and to let it come in."
+      
+      His voice dropped to a whisper. "Let it come in. We think we don't deserve love, we think if we let it in we'll become too soft. But a wise man named Levine said it right. He said, `Love is the only rational act
+> *2025-12-15*
+
+> I thought about how often this was needed in everyday life. How we feel lonely, sometimes to the point of tears, but we don't let those tears come because we are not supposed to cry. Or how we feel a surge of love for a partner but we don't say anything because we're frozen with the fear of what those words might do to the relationship.
+      
+      Morrie's approach was exactly the opposite. Turn on the faucet. Wash yourself with the emotion. It won't hurt you. It will only help. If you let the fear inside, if you pull it on like a familiar shirt, then you can say to yourself, "All right, it's just fear, I don't have to let it control me. I see it for what it is."
+      
+      Same for loneliness: you let go, let the tears flow, feel it completely-but eventually be able to say, "All right, that was my moment with loneliness. I'm not afraid of feeling lonely, but now I'm going to put that loneliness aside and know that there are other emotions in the world, and I'm going to experience them as
+> *2025-12-15*
+
+> There are plenty of places to do this. You don't need to have a big talent. There are lonely people in hospitals and shelters who only want some companionship. You play cards with a lonely older man and you find new respect for yourself, because you are needed. "Remember what I said about finding a meaningful life? I wrote it down, but now I can recite it: Devote yourself to loving others, devote yourself to your community around you, and devote yourself to creating something that gives you purpose and meaning.
+> *2025-12-19*
+
+> I believe in being fully present," Morrie said. "That means you should be with the person you're with. When I'm talking to you now, Mitch, I try to keep focused only on what is going on between us. I am not thinking about something we said last week. I am not thinking of what's coming up this Friday. I am not thinking about doing another Koppel show, or about what medications I'm taking.
+      
+      "I am talking to you. I am thinking about you
+> *2025-12-19*
+
+> Still," he said, "there are a few rules I know to be true about love and marriage: If you don't respect the other person, you're gonna have a lot of trouble. If you don't know how to compromise, you're gonna have a lot of trouble. If you can't talk openly about what goes on between you, you're gonna have a lot of trouble. And if you don't have a common set of values in life, you're gonna have a lot of trouble. Your values must be alike. 
+      
+      "And the biggest one of those values, Mitch?"' 
+      
+      Yes?
+      
+      "Your belief in the importance of your marriage.
+> *2025-12-19*
+
+> It's not just other people we need to forgive, Mitch," he finally whispered. We also need to forgive 
+      ourselves."
+      
+      Ourselves?
+      
+      "Yes. For all the things we didn't do. All the things we should have done. You can't get stuck on the regrets of what should have happened. That doesn't help you when you get to where I am.
+      
+      "I always wished I had done more with my work; I wished I had written more books. I used to beat myself up over it. Now I see that never did any good. Make peace. You need to make peace with yourself and everyone around you
+> *2025-12-19*

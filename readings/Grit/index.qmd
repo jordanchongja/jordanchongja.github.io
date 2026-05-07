@@ -1,0 +1,71 @@
+---
+title: Grit
+author: Angela Duckworth
+date: '2025-10-31'
+categories:
+- Business & Economics
+- Book
+image: cover.jpg
+subtitle: ★★★★ | (Vermilion Life Essentials)
+rating: 4
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Grit
+-“Our potential is one thing. What we do with it is quite another.”
+
+“At the extreme, one might call your focus obsessive. Most of your actions derive their significance from their allegiance to your ultimate concern, your life philosophy.
+You have your priorities in order.”
+
+“Well, I don’t really think in terms of disappointment. I tend to think that everything that happens is something I can learn from. I tend to think, ‘Well okay, that didn’t go so well, but I guess I will just carry on.’ ”
+
+“I’ve since measured growth mindset and grit in both younger children and older adults, and in every sample, I’ve found that growth mindset and grit go together.”
+
+## Reading Journey
+- 2026-03-02: Started
+- 2026-03-02: 31
+    - 40 mins
+- 2026-03-04: 85
+    - 41 mins
+- 2026-03-05: 93
+    - 10 mins
+- 2026-03-11: 108
+    - 24 mins
+- 2026-03-16: 130
+    - 22 mins
+- 2026-03-17: 157
+    - 27 mins
+- 2026-04-23: 185
+    - 28 mins
+- 2026-04-23: 186
+    - 1 mins
+- Total Time Taken: 3 hours and 12 minutes
+## Bookmarks
+> Great things are accomplished by those “people whose thinking is active in one direction, who employ everything as material, who always zealously observe their own inner life and that of others, who perceive everywhere models and incentives, who never tire of combining together the means available to them.”
+> *2026-03-04*
+
+> Together, the research reveals the psychological assets that mature paragons of grit have in common. There are four. They counter each of the buzz-killers listed above, and they tend to develop, over the years, in a particular order.
+First comes interest. Passion begins with intrinsically enjoying what you do. Every gritty person I’ve studied can point to aspects of their work they enjoy less than others, and most have to put up with at least one or two chores they don’t enjoy at all. Nevertheless, they’re captivated by the endeavor as a whole. With enduring fascination and childlike curiosity, they practically shout out, “I love what I do!”
+Next comes the capacity to practice.
+> *2026-03-11*
+
+> And, finally, hope. Hope is a rising-to-the-occasion kind of perseverance. In this book, I discuss it after interest, practice, and purpose—but hope does not define the last stage of grit. It defines every stage.
+> *2026-03-11*
+
+> Third is purpose. What ripens passion is the conviction that your work matters. For most people, interest without purpose is nearly impossible to sustain for a lifetime. It is therefore imperative that you identify your work as both personally interesting and, at the same time, integrally connected to the well-being of others
+> *2026-03-11*
+
+> around the time children enter kindergarten, they begin to notice that their mistakes inspire certain reactions in grown-ups. What do we do? We frown. Our cheeks flush a bit. We rush over to our little ones to point out that they’ve done something wrong. And what’s the lesson we’re teaching? Embarrassment. Fear. Shame.
+> *2026-03-17*
+
+> This seminal experiment proved for the first time that it isn’t suffering that leads to hopelessness. It’s suffering you think you can’t control
+> *2026-04-23*

@@ -1,0 +1,61 @@
+---
+title: The Stranger
+author: Albert Camus
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Stranger
+This is a review after about 2 months from reading, not sure why i didnt put a review at the time. This story was quite short and succinct and i think it zooms in more on the emotions and rational bargaining of the protagonist as he reflects on the actions that he has taken and i believe this to be the absurdist genre?? Where the protagonist's actions are absurd? However, the lack of reasoning behind the protagonists actions is something that i cannot look past and it is just very strange and incoherent with the protagonists thought process given that he seems to possess the cognitive function to post rationalise those actions. However, overall an interesting read but certainly not a page turner
+
+## Reading Journey
+- 2025-12-10: Started
+- 2025-12-10: 2
+    - 2 mins
+- 2025-12-10: 21
+    - 24 mins
+- 2025-12-12: 32
+    - 12 mins
+- 2025-12-13: 41
+    - 6 mins
+- 2025-12-13: 64
+    - 35 mins
+- 2025-12-19: 77
+    - 24 mins
+- 2025-12-19: 100
+    - 24 mins
+- 2025-12-19: 101
+    - 1 mins
+- 2025-12-19: 105
+    - 2 mins
+- 2025-12-22: 108
+    - 7 mins
+- 2025-12-22: Finished
+- Total Time Taken: 2 hours and 17 minutes
+## Bookmarks
+> Then he asked me if I’d expected him to hit the cop back. I said I wasn’t expecting anything, and besides I didn’t like cops. Raymond seemed pretty happy.
+> *2025-12-13*
+
+> They’re not going to take him away from me, are they, Monsieur Meursault? They’ll give him back to me. Otherwise, what’s going to happen to me
+> *2025-12-13*
+
+> I said that people never change their lives, that in any case one life was as good as another and that I wasn’t dissatisfied with mine here at all.
+> *2025-12-13*
+
+> At that point I yawned, and the old man said he’d be going.
+> *2025-12-13*

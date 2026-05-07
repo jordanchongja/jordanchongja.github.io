@@ -1,0 +1,28 @@
+---
+title: Frankenstein
+author: Mary Shelley
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Frankenstein
+1 hour 7 mins - Quite an interesting read? Given that it was different from what I expected from the movies where the monster just goes to terrorize the town but he is actually innocent. The book is more nuanced when it comes to the emotions of the monster. However it was a little draggy at times and the strange english only serves to take one out of the flow of the book. Overall an okay read, but not exactly a page turner
+
+## Reading Journey
+
+- 2025-10-31: Finished

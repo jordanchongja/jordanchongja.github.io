@@ -1,42 +1,76 @@
 ---
-title: "Ministry of Moral Panic"
-author: "Amanda Lee Koe"
-date: 2025-02-27
-categories: [Singaporean, Book]
-image: cover.jpg
-subtitle: ★★★★★
-body-class: "project-detail-view" 
+title: Ministry of Moral Panic
+author: Amanda Lee Koe
+date: '2025-10-31'
+categories:
+- Singaporean fiction (English).
+- Book
+image: cover.png
+subtitle: ★★★★★ | Stories
+rating: 5
+body-class: project-detail-view
 include-before-body:
-  text: "<div style='margin-top: 50px;'></div>"
+  text: '<div style=''margin-top: 50px;''></div>'
 ---
+
 
 <style>
   #quarto-margin-sidebar {
-    padding-top: 50px; /* Match this to your header margin */
+    padding-top: 50px;
   }
 </style>
 
-## Summary and the Core Premise of the Book
-A collection of short stories that peels back the polished, hyper-efficient veneer of Singapore to explore the messy, eccentric, and alienated lives of those living on the margins of the "Singapore Story.".
+# Ministry of Moral Panic
 
-## Why I Read This Book
-I wanted to engage with contemporary local literature that challenges the curated national narrative and offers a more raw, visceral reflection of the underlying social fabric here.
+Amazing book - need to sit down and write a review on this fr
 
-## Key Takeaways
-1.  **Subverting the National Myth:** The collection actively dismantles the sterile, pragmatic national narrative by spotlighting characters who do not fit the mold of the model citizen.
-2.  **The Anatomy of Alienation:** It explores how rigid structural and societal norms in a highly pragmatic society often lead to profound personal isolation and psychological friction.
-3. **Mastery of Voice:** Koe utilizes distinct, shifting narrative voices to capture the linguistic and emotional diversity of the city-state, making the fiction feel intensely real and localized.
+## Reading Journey
+- 2025-07-22: Started
+- 2025-07-22: 15
+    - 5 mins
+- 2025-07-22: 54
+    - 13 mins
+- 2025-07-22: 111
+    - 23 mins
+- 2025-07-22: 112
+    - 1 mins
+- 2025-07-23: 114
+    - 1 mins
+- 2025-07-23: 116
+    - 1 mins
+- 2025-07-23: 166
+    - 26 mins
+- 2025-07-23: 184
+    - 12 mins
+- 2025-07-23: 224
+    - 19 mins
+- 2025-07-23: 243
+    - 9 mins
+- 2025-07-23: 382
+    - 59 mins
+- 2025-07-24: 383
+    - 1 mins
+- 2025-07-24: 401
+    - 3 mins
+- 2025-07-25: 402
+    - 1 mins
+- 2025-11-04: 403
+    - 1 mins
+- 2025-11-04: Finished
+- Total Time Taken: 2 hours and 55 minutes
+## Bookmarks
 
-## Reflection
-The stories in this book cover different facets of the Singporean life, across ages and social statuses. Each story delivers its own little quirk or twist, keeping the reader engaged throughout the story. One story i really enjoyed is the one on the social experiment in the laundomat and how it reflects the human desire for connection and third spaces, a point that is especially pertinent in the rapidly developing metropolis that is Singapore.
+> The proprietor had never thought of keeping a pet because he thought he’d make a bad owner, but he saw then that not all living things pin all their hopes and dreams on you. Life goes on and it was egotistical to imagine otherwise.
+> *Extracted: 2025-07-23 05:37*
 
----
 
-### The Friction of Pragmatism
-One of the most compelling aspects of the collection is its exploration of what happens when human desires collide with a hyper-pragmatic, structured society. The characters—ranging from aging pop stars to heartland misfits and even mythical creatures—are deeply deeply relatable precisely because they are flawed. Their struggles highlight the hidden costs of living in a system that prioritizes efficiency and economic utility over individual eccentricities. It serves as a reminder that the rigid frameworks we build to maintain order often generate intense, unseen psychological friction for those who cannot seamlessly adapt.
+> Being able to be sad is a form of happiness too.
+> *Extracted: 2025-07-23 05:43*
 
-### The Unseen Singapore
-The stories resonate because they map a psychological landscape of the city that is routinely glossed over in official discourses. Instead of the glittering skyline, the focus is on the gritty, the mundane, and the overlooked. By elevating these marginalized perspectives, the book acts as a mirror, reflecting the anxieties, unspoken desires, and quiet desperation that exist beneath the surface of everyday life. It forces the reader to confront a more authentic, unvarnished reality of the environment they navigate daily.
 
-### Linguistic Authenticity and Poetic Realism
-The strength of the collection lies in its exceptional writing. The prose effortlessly dances between sharp, grounded local vernacular and deeply poetic existentialism. This structural choice is not just an aesthetic triumph; it grounds the surreal or absurdist elements of the stories in a tangible reality. By capturing the exact cadence of how people here actually speak and think, the narrative dissolves the distance between the reader and the subjects, making their alienation feel immediate and profoundly human.
+> she knew that if she ever tried to paint a face, it would look like Nelly, and she could not afford to see Nelly ever again
+> *Extracted: 2025-07-23 06:08*
+
+
+> The truth was probably that my mother had been so defined by the existence of my father that when he died, she couldn’t see anything else before her
+> *Extracted: 2025-07-22 16:43*

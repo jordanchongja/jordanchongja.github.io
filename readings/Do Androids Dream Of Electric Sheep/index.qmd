@@ -1,0 +1,31 @@
+---
+title: Do Androids Dream Of Electric Sheep?
+author: Philip K Dick
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★ | The inspiration behind Blade Runner and Blade Runner 2049
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Do Androids Dream Of Electric Sheep?
+
+Interesting idea but i think the writing wasn’t great
+
+Story about a bounty hunter in a post apocalyptic world where animals are scarce and their electronic versions are showpieces and he has to hunt down androids that act like humans and the technology improves where he cannot differentiate human and android. Then he goes home to his electric sheep lol.
+
+## Reading Journey
+
+- 2025-10-31: Finished

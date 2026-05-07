@@ -1,0 +1,32 @@
+---
+title: The Midnight Library
+author: Matt Haig
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★★ | A Novel
+rating: 4
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Midnight Library
+I liked the concept; being able to expereince every life that there is to experience and still going back to the original life of the author, but it comes off as a little preachy? Feels like too much of a feel good story and is a little slow at times, but overall a good read
+
+## Reading Journey
+- 2026-01-07: Started
+- 2026-01-07: 1
+    - 1 mins
+- 2026-01-07: Finished
+- Total Time Taken: 1 minutes
+## Bookmarks

@@ -1,0 +1,29 @@
+---
+title: Animals, Robots, Gods
+author: Webb Keane
+date: '2025-11-07'
+categories:
+- Social Science
+- Book
+image: cover.jpg
+subtitle: ★★ | Adventures in the Moral Imagination
+rating: 2
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Animals, Robots, Gods
+
+## Reading Journey
+
+- 2025-11-07: Started
+- 2025-12-03: 192
+- 2025-12-03: Finished

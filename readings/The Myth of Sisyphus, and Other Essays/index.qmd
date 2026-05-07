@@ -1,0 +1,25 @@
+---
+title: The Myth of Sisyphus, and Other Essays
+author: Albert Camus
+date: '2025-10-31'
+categories:
+- Literary Collections
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Myth of Sisyphus, and Other Essays
+
+## Reading Journey

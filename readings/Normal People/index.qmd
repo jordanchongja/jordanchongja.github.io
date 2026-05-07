@@ -1,0 +1,36 @@
+---
+title: Normal People
+author: Sally Rooney
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★ | One million copies sold
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Normal People
+Really nice ending, mid part was very draggy but perhaps intentional, fact that it is a bestseller shows that perhaps there is more to people than I would like to think. At the end of the day, maybe we’re not so different.
+
+-They continued eating then, as if they were acting out an argument in which both sides were equally compelling, and they had chosen their positions more or less at random, only in order to have the discussion out. 
+
+-Internally he felt nothing. He was like a freezer item that had thawed too quickly on the outside and was melting everywhere, while the inside was still frozen solid. Somehow he was expressing more emotion than at any time in his life before, while simultaneously feeling less, feeling nothing.
+
+-I think we’re at that weird age where life can change a lot from small decisions. But you’ve been a very good influence on me overall, like I definitely am a better person now, I think. Thanks to you.
+
+-They’ve done a lot of good for each other. Really, she thinks, really. People can really change one another.
+
+## Reading Journey
+
+- 2025-10-31: Finished

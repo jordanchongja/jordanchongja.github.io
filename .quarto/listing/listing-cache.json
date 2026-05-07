@@ -6,7 +6,7 @@
     "notes\\index.qmd": [
       "*/index.qmd",
       "*/*.ipynb",
-      "!options-projects-suite/**"
+      "!posts/options-pricing-models/options-projects-suite/**"
     ],
     "projects\\index.qmd": [
       "*/index.qmd"

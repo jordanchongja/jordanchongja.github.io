@@ -1,10 +1,10 @@
 ---
 title: "Indonesia Regulatory Equity Ownership Analysis"
-description: "Analysis of the Q1 2026 geopolitical shock from the Iran War. Exploratory Data Analysis and Attempts at exploring deeper Quantitative Models"
+description: "Analysis of Regulatory Change Regarding Equity Ownership and Related Analysis"
 date: last-modified
 categories: [Quantitative Finance, Market Regime, Python, Plotly, Data Visualization] 
-image: SankeyDiagramRussell1000.png
-image-alt: "Sankey Diagram for the Russell 1000 outperformers compared to the S&P500"
+image: shadowwhales.png
+image-alt: "Histogram for Shareholders Caught at the 5% limit"
 client: "Quantitative Analyst Portfolio" 
 github-repo: "https://github.com/jordanchongja/Iran-war-Geopolitical-Shock-Analysis"
 body-class: "project-detail-view"
@@ -33,50 +33,458 @@ format:
 #| warning: false
 #| message: false
 
+import tabula
+import pandas as pd
+
+# Path to your document
+file_path = r"G:\My Drive\00) Interview Prep\00) Companies\EFG\Round 3 Slides\stream_2762463_427c397b-57d2-4955-962e-8389c43556e1_doc1.pdf"
+
+# Read all tables from all pages
+# 'pages="all"' ensures the entire 65+ page document is processed
+tables = tabula.read_pdf(file_path, pages='all', multiple_tables=True)
+
+# Combine all extracted tables into a single DataFrame
+df = pd.concat(tables, ignore_index=True)
+
+# Save to CSV or Excel
+df.to_csv("ownership_data.csv", index=False)
+
+def simple_extract(file_path):
+    print("Starting extraction... this may take a minute for 65+ pages.")
+    
+    tables = tabula.read_pdf(file_path, pages='all')
+    
+    if not tables:
+        print("Error: Tabula could not find any tables.")
+        return None
+
+    # Merge all pages into one DataFrame
+    df = pd.concat(tables, ignore_index=True)
+
+    # Cleanup: Strip any weird whitespace from column names
+    df.columns = [str(c).strip() for c in df.columns]
+
+    # Numeric Cleaning: Convert columns to numbers safely
+    # This handles the dots (thousands) and commas (decimals)
+    numeric_cols = ['HOLDINGS_SCRIPLESS', 'HOLDINGS_SCRIP', 'TOTAL_HOLDING_SHARES', 'PERCENTAGE']
+    
+    for col in numeric_cols:
+        if col in df.columns:
+            # We convert to string, remove dots, change commas to dots, then force to numeric
+            df[col] = (
+                df[col].astype(str)
+                .str.replace('.', '', regex=False)
+                .str.replace(',', '.', regex=False)
+            )
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    return df
+
+# --- RUN IT ---
+file_path = r"G:\My Drive\00) Interview Prep\00) Companies\EFG\Round 3 Slides\stream_2762463_427c397b-57d2-4955-962e-8389c43556e1_doc1.pdf"
+df = simple_extract(file_path)
+
+if df is not None:
+    # Remove rows where the main data is missing (handles footer/header noise)
+    df = df.dropna(subset=[df.columns[0]]) 
+    
+    df.to_csv("cleaned_ownership_data.csv", index=False)
+    print(f"Success! {len(df)} rows saved to cleaned_ownership_data.csv")
+    print("\nColumn names found in your PDF:")
+    print(df.columns.tolist())
 
 ```
 
 ## Part 0: Rationale for this Project
-So the idea for this project came as part of the interview process for a company, where i was tasked to identify large cap stocks from the Russell 1000 (market cap >USD 30 Billion) that have outperformed the S&P500. 
+So the idea for this project came as part of the interview process for a company, where i was tasked to extract tables from a pdf and analyse the data in the table. The pdf included data from Indonesia's Financial Services Authority which lowers the public reporting threshold from 5% to 1%. 
 
-This analysis focused on comparing the outperformance for two phases of 2026, 1. Prewar - 31th December 2025 to 27th February 2026 2. Post-war 27th February 2026 to 10th April 2026. And the tasking was to draw out some conclusions and observations from these Russell 1000 stocks that outperformed the S&P500, and see if there were any insights that I could draw.
+## Part 1: Background of the Data in the PDF
+In a significant move to enhance market transparency, Indonesia's Financial Services Authority (Otoritas Jasa Keuangan or OJK) introduced a pivotal regulatory change in early 2026. Through the OJK Board of Commissioners Decree No. 1/KDK.04/2026 and the subsequent OJK Stipulation Letter No. S-20/PM.1/2026 dated February 26, 2026, the regulator officially designated the Indonesian Central Securities Depository (KSEI) and the Indonesia Stock Exchange (IDX/BEI) as the primary public providers of corporate share ownership data.
 
-My intuition was that it would mostly be energy stocks that outperformed, and perhaps we could extract additional insights from that point. 
+The most impactful element of this mandate is the lowering of the public reporting threshold. Historically, Indonesian capital market regulations typically required the disclosure of "major" shareholders who held 5% or more of a listed company. Under the new 2026 mandate, KSEI is required to report the total share ownership of any investor holding above 1% (one percent) of a public company's shares.
 
-I did quite abit of data cleaning and data visualisation for this exercise, so i figured that i turn it into a project with risk attribution analysis for the first part, exploring the data and how the sectors and the companies did in each "market regime" (if any), and take it as a practice in data visualisation. 
+This data aggregates holdings across two primary systems:
 
-The idea was that the Iran War was an exogenous macro event and we could use it as a stress-test for large-cap equities. 
+1. C-BEST System: Captures scripless (paperless) shares from Securities Sub-Accounts (SRE), including both accounts connected to a Single Investor Identification (SID) and those that are not.
 
-And to expand the project a little, i figured it would be a good place to practice some quant models with Regime Detection and some Factor Modelling which would fit well with this project given its dual time period analysis. 
+2. eBAE System: Captures traditional scrip (paper) shares administered by Securities Administration Bureaus (BAE) or in-house issuers, holding dedicated accounts for investors yet to be assigned an SID.
 
-Therefore in the second portion of this article, I explored abit of everything, going for breadth as part of an exploration into quant models and how they work, and plan to create more projects that delve into each of these models a little more in-depth in the future.
-
-I do this in Part 2, where i try to do more complex analysis and bring in data from other sources like WRDS for analysis.
-
-## Part 1: Market Microstructure & Risk Attribution
-**Deconstructing the Benchmark during the Q1 2026 Geopolitical Shock.**
-
-For this portion, i got the data from Yfinance instead of for WRDS because I was under time-pressure, and got the constituents from the iShares proxy of the Russell 1000, which i figured would at least contain all the major players. 
-
-Instead of simply filtering the index by market capitalization, this analysis stress-tests large-cap equities during an exogenous macro event. By peeling back the layers of the benchmark, we can expose the hidden rotational dynamics and severe risk fractures that occurred during the crash.
+By lowering the threshold to 1%, the OJK is shining a light on the "hidden middle" of equity ownership—revealing mid-sized institutional allocations, foreign fund footprints, and the holdings of high-net-worth individuals that previously flew under the radar.
 
 ---
 
-### Section 1: The Benchmark vs. The Breadth
-#### *Masking the Rotational Damage Beneath the Surface*
+### Section 1: The "Whale Effect": Headcount vs. Capital Weight
+A superficial look at the KSEI data might suggest that Indonesian equities are overwhelmingly controlled by local investors. By pure headcount, domestic entities make up 71.0% of all major block positions (holdings over 1%). However, headcount is a poor proxy for market power.
 
-**Purpose & Implications:** The purpose of this analysis is to get a brief description of the stocks that outperformed, the sectors that they come from, and how it compares to a market-cap weighted perspective of this.
-
-So the results were that Industrials, Financials, Information Technology, and Healthcare seem to have outperformed on initial glance on a numerical basis in terms of the number of companies. However, on a market-cap weighted basis, which the S&P500 index number would reflect, Information Technology seems to be much heavier weighted, which could lead to a skew of results.
-
-An interesting direction could be exploring how many companies are in each sector that we have graphed here and so what percentage of each sector actually outperformed and by how much. But these graphs give an initial view into the data.
-
+When we shift our metric from the number of positions to the actual volume of shares controlled, a stark discrepancy emerges. Foreign investors, despite accounting for only 29.0% of the headcount, control a disproportionate 40.17% of the total share volume. This "Whale Effect" highlights a highly concentrated offshore presence, where a smaller pool of foreign funds and institutions wield massive directional influence over Indonesian market capitalization.
 ```{python}
-#| label: fig-breadth
+#| label: whalesinthewater
 #| warning: false
 #| message: false
-#| fig-column: screen-inset
 
-# 1. Prepare Data
+import pandas as pd
+import plotly.graph_objects as go
+
+def analyze_whale_discrepancy(df):
+    # --- 1. CLEANING & CLASSIFICATION ---
+    df['TOTAL_HOLDING_SHARES'] = (
+        df['TOTAL_HOLDING_SHARES']
+        .astype(str)
+        .str.replace('.', '', regex=False)
+        .str.replace(',', '.', regex=False)
+    )
+    df['TOTAL_HOLDING_SHARES'] = pd.to_numeric(df['TOTAL_HOLDING_SHARES'], errors='coerce')
+    df['DOMICILE_CLEAN'] = df['DOMICILE'].fillna('UNKNOWN').astype(str).str.upper().str.strip()
+
+    df['GEO_CLASSIFICATION'] = df['DOMICILE_CLEAN'].apply(
+        lambda x: 'Domestic (Indonesia)' if 'INDONESIA' in x else 'Foreign'
+    )
+
+    # --- 2. CALCULATE PROPORTIONS ---
+    # Percentage of Total Positions (Count)
+    count_prop = df['GEO_CLASSIFICATION'].value_counts(normalize=True) * 100
+    
+    # Percentage of Total Share Volume
+    vol_sum = df.groupby('GEO_CLASSIFICATION')['TOTAL_HOLDING_SHARES'].sum()
+    vol_prop = (vol_sum / vol_sum.sum()) * 100
+
+    # Ensure indexes align for plotting
+    categories = ['Domestic (Indonesia)', 'Foreign']
+    
+    counts = [count_prop.get(cat, 0) for cat in categories]
+    volumes = [vol_prop.get(cat, 0) for cat in categories]
+
+    # --- 3. PLOT GROUPED BAR CHART ---
+    fig = go.Figure(data=[
+        go.Bar(
+            name='% of Total Positions (Headcount)', 
+            x=categories, 
+            y=counts,
+            text=[f"{val:.1f}%" for val in counts],
+            textposition='auto',
+            marker_color='#3A5FCD'  # Royal Blue
+        ),
+        go.Bar(
+            name='% of Total Share Volume (Wealth)', 
+            x=categories, 
+            y=volumes,
+            text=[f"{val:.1f}%" for val in volumes],
+            textposition='auto',
+            marker_color='#FF8C00'  # Dark Orange
+        )
+    ])
+
+    # --- 4. CUSTOMIZE LAYOUT & FIX MARGINS ---
+    fig.update_layout(
+        # Pin title to the top center
+        title=dict(
+            text='The Foreign Whale Effect: Investor Headcount vs. Actual Volume Controlled',
+            y=0.98,
+            yanchor='top',
+            x=0.5,
+            xanchor='center'
+        ),
+        barmode='group',
+        xaxis_title='Investor Domicile',
+        yaxis_title='Percentage (%)',
+        yaxis=dict(range=[0, 100]), # Standardize y-axis to 100%
+        # Drop legend slightly below the title
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=0.88,
+            xanchor="center",
+            x=0.5
+        ),
+        # Increase top margin to make room for both
+        margin=dict(t=110, b=40, l=40, r=40),
+        template='plotly_white'
+    )
+    
+    # --- 5. HIDE PLOTLY BUTTONS ---
+    fig.show(config={'displayModeBar': False})
+
+# Run the updated visualization
+df = pd.read_csv("cleaned_ownership_data.csv")
+analyze_whale_discrepancy(df)
+
+```
+
+### Section 2: Mapping the Offshore Capital Pipeline
+To understand the nature of this foreign capital, we must look at where these offshore whales are domiciled. Because traditional choropleth maps struggle to represent financial havens geographically, we utilize a high-resolution bubble map to visualize capital origin by the number of holdings.
+
+While Indonesia naturally anchors the map, the visualization immediately exposes the primary conduits of offshore capital. Singapore emerges as the dominant regional hub for Indonesian equity investment. Further afield, traditional tax and structuring havens, such as the British Virgin Islands, show significant financial density. 
+
+This geographic distribution underscores how much of the "foreign" capital might actually be routed through institutional structuring rather than pure international retail investment.
+```{python}
+#| label: globaloffshoremap
+#| warning: false
+#| message: false
+
+import plotly.express as px
+import pandas as pd
+
+def analyze_ownership_bubble_map(df):
+    df['DOMICILE_CLEAN'] = df['DOMICILE'].fillna('UNKNOWN').astype(str).str.upper().str.strip()
+    
+    # Count holdings (including Indonesia this time for scale)
+    country_counts = df['DOMICILE_CLEAN'].value_counts().reset_index()
+    country_counts.columns = ['Country', 'Number of Holdings']
+    
+    # Fix Plotly mapping for financial havens
+    country_counts['Country'] = country_counts['Country'].replace({
+        'VIRGIN ISLANDS, BRITISH': 'British Virgin Islands',
+        'UNITED STATES': 'United States',
+        'UNKNOWN': 'Unknown' # Plotly will ignore this, which is fine for the map
+    })
+
+    # Use a Bubble Map instead of Choropleth
+    fig = px.scatter_geo(
+        country_counts,
+        locations="Country",
+        locationmode="country names",
+        size="Number of Holdings", # The size of the bubble dictates the volume
+        color="Number of Holdings",
+        hover_name="Country",
+        projection="natural earth",
+        title="Global Footprint: Origin of Capital by Number of Holdings",
+        size_max=60, # Caps the maximum size so Indonesia doesn't cover all of Asia
+        color_continuous_scale=px.colors.sequential.Plasma
+    )
+    
+    fig.update_layout(
+        geo=dict(showframe=False, showcoastlines=True, landcolor='lightgray', resolution=50),
+        width=None, 
+        height=650, 
+        margin=dict(l=20, r=20, t=50, b=20)
+    )
+    fig.show()
+
+analyze_ownership_bubble_map(df)
+
+```
+
+### Section 3: The Scrip Reality: Assessing Clearing Modernization
+The 2026 OJK mandate draws a clear distinction between scripless (C-BEST) and physical scrip (eBAE) holdings. While the Indonesian market has largely modernized, physical paper shares still present a structural friction point for rapid clearing and settlement.
+
+To identify the true laggards in modernization, we cannot rely solely on the ratio of scrip shares, nor can we look purely at nominal volume, which is easily skewed by arbitrary stock splits. By plotting the physical scrip percentage against the logarithmic scale of total block shares issued, we isolate the systemic risks. 
+
+Companies clustered in the top-right quadrant represent massive market footprints that are still heavily bogged down by legacy paper structures, posing potential liquidity bottlenecks.
+```{python}
+#| label: scripholdings
+#| warning: false
+#| message: false
+
+import plotly.express as px
+import pandas as pd
+
+def analyze_scrip_reality(df):
+    # Clean the numeric data
+    df['HOLDINGS_SCRIP'] = df['HOLDINGS_SCRIP'].fillna(0).astype(str).str.replace('.', '', regex=False).str.replace(',', '.', regex=False)
+    df['HOLDINGS_SCRIP'] = pd.to_numeric(df['HOLDINGS_SCRIP'], errors='coerce')
+    
+    df['TOTAL_HOLDING_SHARES'] = df['TOTAL_HOLDING_SHARES'].astype(str).str.replace('.', '', regex=False).str.replace(',', '.', regex=False)
+    df['TOTAL_HOLDING_SHARES'] = pd.to_numeric(df['TOTAL_HOLDING_SHARES'], errors='coerce')
+
+    # Aggregate by company
+    issuer_scrip = df.groupby(['SHARE_CODE', 'ISSUER_NAME']).agg(
+        TOTAL_SCRIP=('HOLDINGS_SCRIP', 'sum'),
+        TOTAL_SHARES=('TOTAL_HOLDING_SHARES', 'sum') 
+    ).reset_index()
+    
+    # Calculate True Ratio
+    issuer_scrip['SCRIP_PERCENTAGE'] = (issuer_scrip['TOTAL_SCRIP'] / issuer_scrip['TOTAL_SHARES']) * 100
+    issuer_scrip['SCRIP_PERCENTAGE'] = issuer_scrip['SCRIP_PERCENTAGE'].fillna(0)
+    
+    # Filter out fully modernized companies (0% scrip)
+    legacy_companies = issuer_scrip[issuer_scrip['SCRIP_PERCENTAGE'] > 0]
+    
+    fig = px.scatter(
+        legacy_companies,
+        x='TOTAL_SHARES',
+        y='SCRIP_PERCENTAGE',
+        hover_name='ISSUER_NAME',
+        hover_data=['SHARE_CODE', 'TOTAL_SCRIP'],
+        log_x=True, # Applies a logarithmic scale to account for arbitrary share splits
+        title="The Scrip Reality: Proportion of Physical Shares vs. Scale of Holdings",
+        labels={
+            'TOTAL_SHARES': 'Total Block Shares Issued (Log Scale)',
+            'SCRIP_PERCENTAGE': 'Physical Scrip Percentage (%)'
+        },
+        color='SCRIP_PERCENTAGE',
+        color_continuous_scale='Reds'
+    )
+    
+    # Add styling
+    fig.update_traces(marker=dict(size=10, opacity=0.7, line=dict(width=1, color='DarkRed')))
+    fig.show()
+
+analyze_scrip_reality(df)
+```
+
+### Section 4: Whale Fragmentation: Single Dominance vs. Institutional Crowds
+Not all concentrated ownership structures are built the same. A company with 60% of its float locked up by a single parent conglomerate behaves very differently in the market than a company with 60% of its float locked up across twenty different mid-sized institutional funds.
+
+By plotting Total Block Ownership against the Number of >1% Investors, we map out the fragmentation of market power. The 50% majority control threshold provides a critical visual baseline. Companies positioned high on the Y-axis but far to the left on the X-axis represent classic conglomerate dominance (a single whale). Conversely, companies drifting further to the right reveal a crowded trade of institutional players, where coordination is low but total block lock-up remains high.
+```{python}
+#| label: segmentedwhales
+#| warning: false
+#| message: false
+
+import plotly.express as px
+import pandas as pd
+
+def analyze_whale_fragmentation(df):
+    # Group by issuer to find total concentration AND the count of >1% investors
+    fragmentation = df.groupby(['SHARE_CODE', 'ISSUER_NAME']).agg(
+        TOTAL_BLOCK_OWNERSHIP=('PERCENTAGE', 'sum'),
+        INVESTOR_COUNT=('INVESTOR_NAME', 'count') # How many entities make up that block?
+    ).reset_index()
+    
+    # Cap total ownership at 100% just in case of data rounding errors
+    fragmentation['TOTAL_BLOCK_OWNERSHIP'] = fragmentation['TOTAL_BLOCK_OWNERSHIP'].clip(upper=100)
+    
+    fig = px.scatter(
+        fragmentation, 
+        x='INVESTOR_COUNT', 
+        y='TOTAL_BLOCK_OWNERSHIP', 
+        hover_name='ISSUER_NAME',
+        hover_data=['SHARE_CODE'],
+        title='Ownership Structure: Single Whale vs. Fragmented Funds',
+        labels={
+            'TOTAL_BLOCK_OWNERSHIP': 'Total Block Ownership (%)', 
+            'INVESTOR_COUNT': 'Number of >1% Investors'
+        },
+        color='TOTAL_BLOCK_OWNERSHIP',
+        color_continuous_scale=px.colors.sequential.Viridis
+    )
+    
+    # Add styling
+    fig.update_traces(marker=dict(size=9, opacity=0.7, line=dict(width=1, color='DarkSlateGrey')))
+    # Add a horizontal line at 50% for majority control visual threshold
+    fig.add_hline(y=50, line_dash="dash", line_color="red", annotation_text="Majority Control Threshold")
+    
+    fig.show()
+
+analyze_whale_fragmentation(df)
+
+```
+
+### Section 5: Unmasking the Offshore Tycoons
+Finally, the strict dichotomy between "Domestic" and "Foreign" capital is often blurred by high-net-worth individuals utilizing offshore vehicles for their domestic investments. By cross-referencing prominent Indonesian conglomerate and tycoon surnames against non-Indonesian domiciles, we can identify "hidden" domestic whales.
+
+The interactive table below isolates offshore entities controlled by major domestic business families. Use the column filters to search for specific tickers or surnames to track how local market power is projected from abroad.
+
+```{python}
+#| label: offshoretycoons
+#| warning: false
+#| message: false
+
+from itables import show
+
+def analyze_hidden_whales_datatable(df):
+    df['DOMICILE_CLEAN'] = df['DOMICILE'].fillna('UNKNOWN').astype(str).str.upper().str.strip()
+    foreign_df = df[~df['DOMICILE_CLEAN'].str.contains('INDONESIA')]
+    
+    # Expanded list of tycoon/conglomerate keywords
+    tycoon_keywords = [
+        'SALIM', 'BAKRIE', 'WIDJAJA', 'HARTONO', 'PANGESTU', 'TANOTO', 
+        'THOHIR', 'PANIGORO', 'TJIPUTRA', 'RIADY', 'SUTANTO', 'WONOWIDJOJO', 
+        'KALLA', 'DJUHARI', 'SUDONO', 'TANOESOEDIBJO', 'PRAYOGO', 
+        'SOERYADJAYA', 'LO KHENG HONG', 'KARTONO'
+    ]
+    pattern = '|'.join(tycoon_keywords)
+    
+    hidden_whales = foreign_df[foreign_df['INVESTOR_NAME'].str.upper().str.contains(pattern, na=False)]
+    
+    cols_to_show = ['INVESTOR_NAME', 'SHARE_CODE', 'DOMICILE_CLEAN', 'PERCENTAGE']
+    final_df = hidden_whales[cols_to_show].sort_values(by='PERCENTAGE', ascending=False)
+    
+    # Render the interactive HTML table
+    show(
+    final_df, 
+    classes="display", 
+    scrollX=True, 
+    paging=True, 
+    column_filters="header"
+    )
+
+analyze_hidden_whales_datatable(df)
+
+```
+
+### Section 6: The "Shadow Whale" Phenomenon: Caught in the Regulatory Net
+One of the most fascinating psychological elements in financial markets is "threshold bunching." Under the legacy regulatory framework, any investor holding 5% or more of a listed company's shares was legally required to disclose their identity and transaction history to the public. As a result, a sophisticated class of investors—which we will call "Shadow Whales"—deliberately optimized their portfolios to sit at 4.98% or 4.99%. This allowed them to maximize their capital allocation and voting influence while remaining legally invisible to retail traders and rival institutions.
+
+When the OJK suddenly lowered the mandatory reporting threshold to 1% in early 2026, it acted as a sudden dragnet. Because the implementation occurred rapidly, these Shadow Whales lacked the time (or the market liquidity) to quietly dump or restructure millions of shares without crashing the stock prices.
+
+By plotting the distribution of all newly revealed holdings between 1.0% and 4.99%, we can clearly see the impact. The histogram reveals a distinct, unnatural cluster of investors densely packed between 4.5% and 4.99%. Our analysis exposed dozens of these sophisticated positions that were "hugging the line." Overnight, billions of shares previously operating in the dark were forced into the light, drastically changing the perceived ownership structure of numerous mid-cap and large-cap Indonesian equities.
+
+```{python}
+#| label: caughtshadowwhales
+#| warning: false
+#| message: false
+
+import pandas as pd
+import plotly.express as px
+
+def analyze_shadow_whales(df):
+    # --- 1. CLEANING ---
+    df['PERCENTAGE'] = pd.to_numeric(
+        df['PERCENTAGE'].astype(str).str.replace(',', '.'), errors='coerce'
+    )
+    df['TOTAL_HOLDING_SHARES'] = pd.to_numeric(
+        df['TOTAL_HOLDING_SHARES'].astype(str).str.replace('.', '', regex=False).str.replace(',', '.', regex=False), errors='coerce'
+    )
+    
+    # --- 2. ISOLATE THE NEWLY REVEALED BRACKET (1% to <5%) ---
+    exposed_bracket = df[(df['PERCENTAGE'] >= 1.0) & (df['PERCENTAGE'] < 5.0)].copy()
+    
+    # Flag the "Shadow Whales" (those hugging the old 5% line, e.g., 4.5% to 4.99%)
+    exposed_bracket['IS_SHADOW_WHALE'] = exposed_bracket['PERCENTAGE'] >= 4.5
+    
+    # --- 3. PLOT THE DISTRIBUTION ---
+    fig = px.histogram(
+        exposed_bracket,
+        x='PERCENTAGE',
+        nbins=40, # Creates bins of roughly 0.1% each
+        color='IS_SHADOW_WHALE',
+        color_discrete_map={True: '#B22222', False: '#708090'}, # Firebrick Red vs Slate Gray
+        title='Exposing the "Shadow Whales": Distribution of Newly Revealed 1-4.99% Holdings',
+        hover_data=['ISSUER_NAME', 'INVESTOR_NAME', 'TOTAL_HOLDING_SHARES']
+    )
+    
+    # Calculate stats for annotation
+    shadow_count = exposed_bracket['IS_SHADOW_WHALE'].sum()
+    shadow_volume = exposed_bracket.loc[exposed_bracket['IS_SHADOW_WHALE'], 'TOTAL_HOLDING_SHARES'].sum()
+    
+    # Make it look good
+    fig.update_layout(
+        barmode='stack',
+        xaxis_title='Ownership Percentage (%)',
+        yaxis_title='Number of Investor Positions',
+        showlegend=False,
+        template='plotly_white'
+    )
+    
+    # Add annotation pointing to the 4.5-4.99% cluster
+    fig.add_annotation(
+        x=4.8, y=shadow_count + 10,
+        text=f"<b>{shadow_count} Shadow Whales</b><br>Caught hugging the<br>old 5% radar",
+        showarrow=True, arrowhead=2, arrowcolor="#B22222",
+        font=dict(color="#B22222"), ax=-60, ay=-40
+    )
+    
+    fig.show(config={'displayModeBar': False})
+    
+    # Print summary statistics
+    print("--- THE SHADOW WHALE IMPACT ---")
+    print(f"Total positions exposed between 1% and 4.99%: {len(exposed_bracket)}")
+    print(f"Positions caught specifically between 4.5% and 4.99%: {shadow_count}")
+    print(f"Total share volume exposed in the 4.5-4.99% bracket: {shadow_volume:,.0f} shares")
+
+# Run the analysis
+df = pd.read_csv("cleaned_ownership_data.csv")
+analyze_shadow_whales(df)
 
 ```

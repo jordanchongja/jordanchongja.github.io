@@ -39,7 +39,7 @@ include-before-body:
 
 ## From Textbook Math to Trading Floor Tool
 
-A robust mathematical model is only as valuable as a trader or risk analyst's ability to interact with it. [cite_start]The objective of this project was abstracting the math into a scalable software architecture and deploying it via Streamlit[cite: 39]. 
+A robust mathematical model is only as valuable as a trader or risk analyst's ability to interact with it. The objective of this project was abstracting the math into a scalable software architecture and deploying it via Streamlit. 
 
 This workbench allows users to dynamically construct multi-leg derivatives portfolios, visualize complex payoff horizons, and stress-test positions under advanced pricing models like Heston and Merton.
 
@@ -54,7 +54,7 @@ This workbench allows users to dynamically construct multi-leg derivatives portf
 ### 1. The Object-Oriented Engine
 Procedural Jupyter Notebooks are not suitable for dynamic portfolio construction. To solve this, I entirely refactored the pricing engine using Object-Oriented Programming (OOP). 
 
-* **Abstract Base Classes:** I designed a core `Instrument` class enforcing strict polymorphic protocols (`price()`, `payoff()`)[cite: 42].
+* **Abstract Base Classes:** I designed a core `Instrument` class enforcing strict polymorphic protocols (`price()`, `payoff()`).
 * **Encapsulation:** Subclasses like `ZeroCouponBond` and `VanillaOption` inherit this base, encapsulating their specific Black-Scholes or intrinsic math. 
 
 This architecture allows the application to seamlessly aggregate entirely different asset classes natively without complex `if/else` routing.

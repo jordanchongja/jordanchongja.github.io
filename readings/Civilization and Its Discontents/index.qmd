@@ -1,0 +1,33 @@
+---
+title: Civilization and Its Discontents
+author: Sigmund Freud
+date: '2025-11-01'
+categories:
+- Philosophy
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Modern Classics Civilization and Its Discontent
+
+## Reading Notes
+
+
+
+
+
+## Reading Journey
+
+- 2025-11-01: Started

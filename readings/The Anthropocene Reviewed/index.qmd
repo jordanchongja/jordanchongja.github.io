@@ -1,0 +1,28 @@
+---
+title: The Anthropocene Reviewed
+author: John Green
+date: '2025-10-31'
+categories:
+- Literary Collections
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | Essays on a Human-Centered Planet
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Anthropocene Reviewed
+Lovely book that is made up of short stories not too bad quite lovely
+
+## Reading Journey
+
+- 2025-10-31: Finished

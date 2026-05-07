@@ -1,0 +1,33 @@
+---
+title: The Body Keeps the Score
+author: Bessel van der Kolk
+date: '2025-10-31'
+categories:
+- Psychology
+- Book
+image: cover.jpg
+subtitle: ★★★★ | Brain, Mind, and Body in the Healing of Trauma
+rating: 4
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Body Keeps the Score
+Key points: 
+- The mere opportunity to escape does not necessarily make traumatised animals or people take the road to freedom
+- Traumatised people keep secreting large amounts of stress hormones long after the actual danger has passed
+- Reenactments were an unconscious attempt that they could eventually lead to mastery and resolution
+- For traumatised people, re-exposure to stress might provide a similar relief from anxiety as morphine
+- The brain is formed in a use dependent manner, describing neuroplasticity. When a circuit fires repeatedly, become a default setting - the response most likely to occur. If you feel safe and loved, your brain becomes specialized in exploration, play, and cooperation; if you are frightened and unwanted, it specializes in managing feelings of fear and abandonment.
+
+## Reading Journey
+
+- 2025-10-31: Started

@@ -1,0 +1,33 @@
+---
+title: I Want to Die but I Want to Eat Tteokbokki
+author: Baek Sehee
+date: '2025-10-31'
+categories:
+- Biography & Autobiography
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | The International bestseller
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# I Want to Die but I Want to Eat Tteokbokki
+Loved it
+- So sad that the author died... I think at some point things are just too much, and if they were so much that you had to write a book on it just to deal with it then there will a come again, another point where it is also just. Too much.
+
+
+## Reading Journey
+- 2025-12-27: Started
+- 2025-12-27: 1
+    - 1 mins
+- Total Time Taken: 1 minutes
+## Bookmarks

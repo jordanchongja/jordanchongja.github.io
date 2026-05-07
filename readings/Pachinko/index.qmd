@@ -1,0 +1,231 @@
+---
+title: Pachinko
+author: Min Jin Lee
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | The New York Times Bestseller
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+Pachinko - Min Jin Lee (Duration: 9h17m51s over 51 Sessions) Started: 2025-07-09 23:39:39 Finished: 2025-07-21 08:52:58
+
+# Pachinko
+Nice book i think the story was really nice and it was not a pain to read it, was hooked throughout the book and I think there were no dull plot points, each chapter or each scene introduced a character or resulted in a better understanding of a single character so that was good and led to the book being interesting throughout. 
+
+But there were specific scenes or certain scenes where it felt like the author introduced the scene just to prove a point about a character or about a certain real life trend or discrimination and so its abit awkward because it feels abit force fitted without alot of scenario building or all that, like the fingerprinting scene, because the entirety of the book or basically the entirety of the book was build around that one scene it became a very poignant point in the book that, while it stood out, it also felt abit forced as the nucleus of the entire story.
+
+The feel of the children and Solomon was also very different from the portion of the story about Sunja and that generation, which I guess was a good thing because it showed that there was a great disparity between the generation that had to endure the pains of the war and the pains of surviving in a land that did not want them there.
+
+I think the book touches on the great experiences and the emotions of life very well but sometimes the things that the characters do are abit questionable but still within the limits of possibility to the point where you wish the characters knew better but I guess that is the product of good writing. But overall yes I think its a good read and its interesting that through a story and through the lived experiences of others one is able to try and imagine the culture and the experience of an entire generation, im sure that it doesnt directly encapsulate the entire experience and the entire transgressions that these people faced but I think it does give a good insight into the lives of the koreans living in Japan and how it was for them during that time.
+
+
+## Reading Group Guide
+1. _“History has failed us, but no matter.”_ How does the opening line reflect the rest of the book—and do you agree?
+	1. Firstly maybe we begin with an analysis of the quote itself and what it entails; History has - the quote personifies history, making him an actor on the stage of life, with impacts that are not ideal in the schema of the narrative that the speaker points as the ideal given that it has failed the speaker. 
+	2. failed us - there is an illustration that there was an ideal that the narrator expected or some course that life should have taken that was not met and resulted in the failing of 'history'. 
+	3. but no matter - this portion illustrates that there are other recourses that the narrator can use to rectify the situation although this isnt explicitly stated. The full sentence would probably be something like history has failed us, but no matter, man will take over/man will find a way. And i guess i feel like the gist of the quote is that although the systems within society, or even more passive actors like history, but larger than the individual, have not been fair or allowed for a just course of action for those operating within the system, it doesn't matter because: 1. things just are unfair sometimes 2. there are ways to make good the situation
+	4. The opening line reflects the rest of the book - i think history refers to the reader's view of history, of the war in japan and the rammifications for the citizens in korea and japan at the time. It was not ideal and a tough time for all the citizens within these countries and in a sense the countries and history has failed them by giving them an unjust situation and tough times that they have to survive through. However, the tenacity of the characters and ability and willingness to survive means that these touch times are no matter for them, they will make the best of the situation nevertheless and so this reflects the rest of the book.
+	5. Assuming my analysis is correct and history refers to the war, then i disagree with the quote because it begets that history has an obligation to the self to be fair and to give people the rights to a good life. However putting the blame on a faceless individual allows the people responsible, Japan who started the war to shirk responsibility for the hardship that they caused through the war. Although I understand that the author does not intend to delve into details about the war but more about the experiences of the people who lived through those times and lives from the eyes of these people themselves, I do not agree with the reference to this faceless actor as 'history', but i agree that regardless of the situation, 'no matter', people always find a way to make do and to thrive regardless of the situation as illustrated by the characters in the book and the quote quite nicely summarises the book in a very succinct way.
+2. In a way, Sunja’s relationship with Isak progresses in reverse, as her pregnancy by another man brings them together and prompts Isak to propose marriage. How does Lee redefine intimacy and love with these two characters?
+	1. Well i think terming it reverse stipulates that there is a natural progression of marriage as is from proposal of marriage and pregnancy and i mean obviously this makes the most sense, but on whether consensus or social norms dictate the order of social contracts like marriage. I think this 'reversal' is a natural questioning of the natural order of things, especially in a time of war where previously strongly defined social norms are being uprooted and overturned. 
+	2. In redefining we first need to define and the usual definition would be between people who enjoy each other's company and feel a connection or feel seen in the presence of the other and have been comfortable in the presence of the other. However, in this case the love and the intimacy is one that is semi born out of necessity or convenience and so its abit forced of sorts, where it works out into mutually beneficial relationship for both Sunja and Isak.
+	3. We see that they naturally become close since Isak is quite a gentle person and Sunja is a simple person and appreciates being provided for. I guess it has abit of an arranged marriage vibe where the two characters grow closer and start to love each other, initially through Sunja willing herself to and over time her naturally being moved by Isak's care and concern and falling in love herself, whatever her definition of love may be.
+3. “Their eldest brother, Samoel, had been the brave one, the one who would’ve confronted the officers with audacity and grace, but Yoseb knew he was no hero.…Yoseb didn’t see the point of anyone dying for his country or for some greater ideal. He understood survival and family.” What kinds of bravery are shown by different characters, and what motivates this bravery?
+	1. Samoel showcases the bravery that we traditionally imagine, with selflessness and willingness to sacrifice for the greater good of society or a group that extends beyond the boundaries of the immediate people that he knows and into social groups or political parties or even a country, he is willing to fight for what he believes is right, even at the expense of him own life
+	2. Yoseb's bravery is limited to his family, to things that he values and people that he knows and can see. He is willing to go above and beyond for his family as well, moving to a faraway factory to work on his own and being burned by the bomb in some faraway land for the sake of his family. While he does not see the point in dying for some unknown reification of nationalistic ideals or political ideology, he is more than willing to sacrifice his life for his family and he exhibits his bravery in this way.
+	3. Isak's bravery is in his willingness to travel to osaka despite his weakness and with the knowledge that he is going to die. He also ventures to marry Sunja even though he does not know what would happen and instead chooses to believe in blind trust in the lord and there is also bravery in this sense.
+	4. For the women, they exhibit similar kinds of bravery, in the day to day where despite the challenges that they face and the major setbacks that they get in their lives everyday, they choose to soldier on and take it in their strike, continuing to put their best into everything that they do and try to do their best for their family.
+4. Compare Noa’s biological and adoptive fathers, Hansu and Isak: What qualities does each try to foster in Noa, and why? Whom does Noa most resemble?
+	1. Hansu - tries to make Noa into a scholar, encouraging him to take his studies as far as possible and to be a shining star of Koreans, a leader that other Koreans will be able to idolise and imitate
+	2. Isak - doesnt realy try to make Noa a scholar but jsut encourages him and teaches him stuff??? Idk I don't think he was even there for much of Noa's life tbh
+	3. But he is most like Isak, in terms of the quietness and studiousness, juxtoposed with Hansu's brashness and direct nature.
+5. What does “home” mean to each of the main characters? Does it ever change? In what ways does a yearning for home color the tone of the novel?
+	1. A home means a place where family is. I guess for the key character Sunja, the nature of home changes since the people in her life shape what she can expect from the conception of the idea of home. Initially it was where she was used to living her entire life at, back with her parents, tending to the guesthouse. Next it was with Isak and his family and working and finding out ways to make a living, then the barnhouse. 
+	2. Overall i think that the conception of home doesn't feel like one that is solidly rooted, characters bear little to no emotional ties to the physical structure that is their house or home, because they never really lived in places that they really wanted to call home, from the slums in Osaka to the farmhouse where the living conditions were ok but not ideal. 
+	3. But on a higher level, the characters, all of othem korean, yearn for a place where they belong, where they would not be discriminated and viewed as an other or an outsider and where they would not be chased away. They yearned for a motherland and in the absence of that they found home in their family and the people that accepted them for who they are, in their home away from home.
+6. How do courting and marriage alter from one generation to the next?
+	1. The evolution of courtship and marriage across the generations highlights the changing social landscape and the family's shifting circumstances.
+
+- **First Generation (Sunja/Yangjin):** For Yangjin, marriage was arranged, a practical union within her own community. For Sunja, it’s a product of crisis. Her relationship with Hansu is a passionate but illicit affair, not a courtship. Her marriage to Isak is a pragmatic act of salvation, born of compassion and necessity rather than romance. Marriage is fundamentally about survival and honor.
+    
+- **Second Generation (Noa and Mozasu):** This generation faces the challenge of interracial relationships. Noa's relationship with Akiko, a Japanese woman, is intellectual and secretive, but ultimately doomed by the immense social pressure and his own internalized shame about his identity. Mozasu has a long-term relationship with Yumi, who is also Japanese, and they have a child, but the social stigma of his Korean heritage and his pachinko business always looms. For this generation, love and marriage are fraught with the external barrier of racism.
+    
+- **Third Generation (Solomon):** Solomon's relationships are more modern and globalized. His relationship with Phoebe, a Korean-American, seems promising but fails due to a cultural chasm. She cannot comprehend the weight of his family's history in Japan, and he struggles with his own identity. His complicated connection with Hana, a Japanese girl, is rooted in a shared childhood but is destructive. For Solomon, the options for partnership are wider, but the legacy of his family's past and his own identity crisis make true connection difficult.
+
+1. Compare the ways in which the women of this novel—from Sunja to Hana—experience sex.
+Sex is often a catalyst for major life changes and is rarely depicted as simple or purely pleasurable for the women.
+
+- **Sunja:** Her first sexual experience with Hansu is a moment of seeming agency and desire, but it leads to her pregnancy and threatens her with social ruin. It's a transformative act that sets the entire course of her life. Her sexual relationship with Isak is one of duty and tenderness, which grows into a form of love, but it begins as part of their marriage arrangement.
+    
+- **Kyunghee:** Her experience is defined by absence. Her infertility is a source of quiet sorrow and shame in a society where a woman's primary value is often tied to childbearing.
+    
+- **Hana:** Hana represents a complete rebellion against traditional norms. She uses her sexuality for power, for money (as a hostess and through compensated dating), and for self-destruction. For her, sex is a tool and a weapon, often disconnected from emotional intimacy and ultimately linked to her illness and early death. Her experience is a tragic commentary on the limited, often transactional, roles available to some women.
+
+
+1. How much agency and power do you think Sunja really has over her life?
+Sunja's agency is a complex question. While she is often a victim of circumstance—her unplanned pregnancy, the poverty she endures, the discrimination she faces—she consistently makes active choices within her limited options.
+
+- **Moments of Agency:** She chooses to be with Hansu. She chooses to accept Isak’s proposal rather than become Hansu’s mistress. She decides to start selling kimchi to ensure her family's survival. She chooses to protect her family by keeping Noa’s parentage a secret.
+    
+- **Constraints on Power:** Her power is constrained by her gender, her poverty, and her ethnicity as a Korean in Japan. She cannot control the larger historical forces (war, colonialism) or the deep-seated societal prejudice that shape her world.
+    
+
+Ultimately, Sunja’s power lies not in controlling her destiny, but in her resilience and her ability to endure and adapt. Her agency is found in the small, crucial decisions she makes to protect her family and maintain her dignity in a world designed to strip her of both.
+1. Sunja tells Noa that _“Blood doesn’t matter.”_ Do you agree? What parts of the novel support or weaken Sunja’s claim?
+
+
+This is one of the central philosophical questions of the novel.
+
+- **Support for the claim:** Sunja's statement is an expression of her deepest wish and a reflection of her own life. She loves Noa as her own, and Isak was a true father to him in every way that mattered. Mozasu, who is not related by blood to Isak, honors him as his father. The family bond between Sunja and Kyunghee is stronger than many blood relationships. These instances suggest that love, loyalty, and shared experience are what truly constitute a family.
+    
+- **Weakening the claim:** The entire novel tragically demonstrates that, in the context of their society, blood _does_ matter. Noa’s life is destroyed when he learns of his "tainted" bloodline to Hansu, a yakuza. He cannot escape this biological fact, and it leads to his suicide. The family's Korean blood dictates where they can live, what jobs they can hold, and how they are treated by society. Solomon’s career is stymied by his Korean blood. The story relentlessly shows that while Sunja’s sentiment is noble, the world they live in is built on punishing people for their blood.
+
+1. Yangjin and Kyunghee agree that _“A woman’s lot is to suffer.”_ Do you think the women suffer more than the men in this book? If so, in what ways? How does the suffering of Sunja and Kyunghee compare to that of Yoseb? Noa and Mozasu’s?
+
+It's not a competition of suffering, but the _nature_ of their suffering is different, shaped by gender roles.
+
+- **Women's Suffering:** The women endure a constant, grinding suffering. It is social (ostracism), emotional (grief, shame), and physical (endless labor, childbirth). Sunja carries the shame of her pregnancy and the weight of her family's survival. Kyunghee bears the sorrow of infertility and the pain of watching her husband, Yoseb, decline. Their suffering is often private and endured with a quiet fortitude.
+    
+- **Men's Suffering:** The men's suffering is often more public and tied to failures of honor, identity, and providing. Isak suffers from illness and imprisonment for his faith. Yoseb is crippled physically and psychologically by the Nagasaki bomb, his pride shattered. Noa's suffering is a profound identity crisis that he cannot bear, leading to a dramatic, final act. Mozasu suffers from bullying and the social stigma of his profession.
+
+
+1. Much is made of Sunja’s fading beauty, as well as the physical appearance of all the women who surround her. What does this reveal about society at this time? Do you see this emphasis on female beauty reflected in present-day culture?
+2. Throughout the book, characters often must choose between survival and tradition or morality. Can you think of any examples that embody this tension?
+3. Many of the main characters struggle with shame throughout their lives, whether due to their ethnicity, family, life choices, or other factors. How does shame drive both their successes and failures?
+4. The terms “good Korean” and “good Japanese” are used many times throughout the book. What does it mean to be a “good Korean”? A “good Japanese”?
+5. _“Both men had made money from chance and fear and loneliness.” Pachinko_ begins with the family of a humble fisherman that, through the generations—and through times of poverty, violence, and extreme discrimination—gains wealth and success. What were the ways in which the family managed to not only survive, but also eventually thrive? What is the relationship among money, race, power, and class?
+6. _“Wherever he went, the news of his mother’s death preceded him, wrapping the child in a kind of protective cloud; teachers and mothers of his friends were watchful on his behalf.”_ In what other ways does death act as a “protective cloud” in this novel?
+
+The quote refers to how Isak's death protects a young Mozasu from bullying. Death continues to have this strange, protective quality.
+
+- **Isak's Legacy:** Isak's death solidifies him as a saintly, martyred figure. His memory becomes a guiding moral compass for the family, "protecting" them with a standard of kindness and integrity.
+    
+- **Noa's Suicide:** In a tragic way, Noa's death "protects" him from a life of perpetual shame. It also acts as a dark cloud that hangs over the family, a protective warning to Solomon about the dangers of losing one's identity.
+    
+- **Hana's Death:** Hana's long, slow death from AIDS forces Solomon to confront difficult truths about life, love, and responsibility. Her death shatters his corporate ambitions and "protects" him from a potentially empty life, forcing him back toward his family and his roots
+1. Compare the many parent-child relationships in the novel. How do they differ across families and generations? What hopes and dreams does each parent hold for their children—and are these hopes rewarded?
+2. Even in death or physical absence, the presence of many characters lingers on throughout the book. How does this affect your reading experience? How would the book have been different if it were confined to one character’s perspective?
+3. Why do you think the author chose _Pachinko_ for the title?
+4. 
+The title works on both a literal and a powerful metaphorical level.
+
+- **Literal:** The pachinko business is the literal engine of the family's financial ascent. It's the controversial industry that lifts them from poverty to wealth.
+    
+- **Metaphorical:** A pachinko game is a metaphor for the lives of the characters, particularly Koreans in Japan. The game is largely one of chance, where the player has minimal control. The steel balls are shot into the machine and cascade down, bounced around by pins and obstacles. This mirrors how the characters are buffeted by huge, impersonal forces—history, war, colonialism, systemic discrimination. The game is also known to be rigged; the house always has the advantage. This reflects a society where the odds are stacked against them. Despite the rigged nature of the game, people continue to play, hoping for a jackpot. This symbolizes the family's unyielding resilience and hope in the face of impossible odds.
+
+
+## Reading Journey
+- 2025-07-09: Started
+- 2025-07-09: 49
+    - 24 mins
+- 2025-07-10: 104
+    - 27 mins
+- 2025-07-10: 106
+    - 2 mins
+- 2025-07-10: 120
+    - 7 mins
+- 2025-07-10: 169
+    - 22 mins
+- 2025-07-11: 216
+    - 30 mins
+- 2025-07-11: 264
+    - 23 mins
+- 2025-07-12: 333
+    - 34 mins
+- 2025-07-12: 341
+    - 4 mins
+- 2025-07-12: 392
+    - 26 mins
+- 2025-07-14: 448
+    - 28 mins
+- 2025-07-14: 489
+    - 22 mins
+- 2025-07-14: 490
+    - 1 mins
+- 2025-07-14: 543
+    - 18 mins
+- 2025-07-15: 545
+    - 1 mins
+- 2025-07-15: 595
+    - 21 mins
+- 2025-07-16: 627
+    - 18 mins
+- 2025-07-16: 635
+    - 2 mins
+- 2025-07-17: 667
+    - 14 mins
+- 2025-07-17: 673
+    - 3 mins
+- 2025-07-18: 675
+    - 1 mins
+- 2025-07-18: 699
+    - 3 mins
+- 2025-07-18: 710
+    - 3 mins
+- 2025-07-18: 729
+    - 10 mins
+- 2025-07-20: 767
+    - 16 mins
+- 2025-07-20: 769
+    - 1 mins
+- 2025-07-20: 770
+    - 1 mins
+- 2025-07-20: 781
+    - 2 mins
+- 2025-07-20: 808
+    - 2 mins
+- 2025-07-20: 875
+    - 28 mins
+- 2025-07-21: 948
+    - 32 mins
+- 2025-07-21: 949
+    - 1 mins
+- 2025-07-21: 950
+    - 1 mins
+- 2025-07-21: 977
+    - 12 mins
+- 2025-07-21: 1093
+    - 42 mins
+- 2025-07-21: 1098
+    - 5 mins
+- 2025-07-21: 1283
+    - 64 mins
+- 2025-07-24: 1284
+    - 1 mins
+- 2025-11-04: 1285
+    - 1 mins
+- 2025-11-04: Finished
+- Total Time Taken: 9 hours and 12 minutes
+## Bookmarks
+
+> intransigence
+> *Extracted: 2025-07-11 03:42*
+
+
+> Being a mother was what defined her more than any other thing—more than being a daughter, wife, divorced woman, girlfriend, or restaurant owner
+> *Extracted: 2025-07-21 06:20*
+
+
+> There were so many errors. If life allowed revisions, she would let them stay in their bath a little longer, read them one more story before bed, and fix them another plate of shrimp.
+> *Extracted: 2025-07-21 06:22*
+
+
+> Etsuko had failed in this important way—she had not taught her children to hope, to believe in the perhaps-absurd possibility that they might win. Pachinko was a foolish game, but life was not.
+> *Extracted: 2025-07-21 06:26*
+
+
+> Somewhere after being sorry, there had to be another day, and even after a conviction, there could be good in the judgment
+> *Extracted: 2025-07-21 06:30*

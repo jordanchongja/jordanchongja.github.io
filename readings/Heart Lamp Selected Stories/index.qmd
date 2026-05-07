@@ -1,0 +1,28 @@
+---
+title: 'Heart Lamp: Selected Stories'
+author: Banu Mushtaq
+date: '2025-12-04'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★
+rating: 2
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Heart Lamp: Selected Stories
+
+## Reading Journey
+
+- 2025-12-04: Started
+- 2025-12-04: 100

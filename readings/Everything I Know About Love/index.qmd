@@ -1,0 +1,29 @@
+---
+title: Everything I Know About Love
+author: Dolly Alderton
+date: '2025-10-31'
+categories:
+- Biography & Autobiography
+- Book
+image: cover.jpg
+subtitle: ★★★★ | The bestselling love letter to female friendship and major BBC One
+  series
+rating: 4
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Everything I Know About Love
+Very nice book that writes about life and how growing up is like in UK. This book has showed that there are some things in life that turn out to be shared experiences with the rest of the world and there is some comfort in that; everyone is just finding their way in life, nobody really knows what is going on.
+
+## Reading Journey
+
+- 2025-10-31: Finished

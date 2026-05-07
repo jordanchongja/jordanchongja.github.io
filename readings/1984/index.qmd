@@ -1,0 +1,28 @@
+---
+title: '1984'
+author: George Orwell
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★★★
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# 1984
+Classic dystopian novel, I remember reading it and i rmb quite enjoying it but i rmb it could be quite hard to follow at times and at some points idk what the author included some points for
+
+## Reading Journey
+
+- 2025-10-31: Finished

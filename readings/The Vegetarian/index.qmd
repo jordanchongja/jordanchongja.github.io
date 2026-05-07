@@ -1,0 +1,183 @@
+---
+title: The Vegetarian
+author: Han Kang
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | A Novel
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Vegetarian
+Analysis of the title 'vegetarian'
+1. Represents unorthodox views within society where meat eating is represented as the norm
+2. Illustrates 'meat eating' as the normalisation of cruelty and the power divide
+	1. Animal/livestock VS man
+		1. Example of the dog who is tortured to a state worse than death when defiant and bit its owner, a man, who is the head of the patriarchal society
+	2. Woman VS man
+		1. Drawing tangents to their lives where only the woman that is useful and makes soup is allowed to live and not be punished in so far that she is obedient
+3. Represents a removal from the cycle of oppression and flesh on flesh violence beyond the bodily desires
+4. **A Passive Word for a Violent Act:** The word 'vegetarian' sounds benign, but Yeong-hye's adoption of it is the catalyst for all the violence that follows. It is a passive refusal that enrages a society built on active compliance.
+5. **Rejection of Social Ritual:** Sharing meals, particularly meat-centric ones, is a cornerstone of family and social bonding in Korea. By refusing meat, Yeong-hye is not just refusing food; she is refusing to participate in the rituals of family, community, and nation. She is making herself an outsider.
+
+Manifestations of the power divide within the book:
+1. Physical beatings as a child (parent child relationship, man woman relationship)
+2. Forced feeding of meat (parent child relationship, man woman relationship)
+
+- **Yeong-hye (Rebellion):** Her rebellion is not a calculated political statement but a visceral, pathological response to trauma. It begins in her mind (the dream) and manifests through her body. Her desire to become a tree is the ultimate rebellion: a rejection of her human form, which is a site of pain, violation, and consumption. It is a desire to become something rooted, silent, and non-violent—something that lives on water and sunlight, not flesh. Her self-harm is a desperate, final attempt to assert agency over her own body when all other control has been stripped away.
+    
+- **In-hye (Acceptance):** Her "acceptance" is the quiet, grinding tragedy of the novel. She does everything right by society's standards, yet she is deeply unhappy and invisible. She props up the patriarchal system that oppresses both her and her sister. Her tragedy is that she recognizes the system's cruelty—she witnesses the abuse—but her pragmatism and deep-seated need for normalcy prevent her from truly intervening until it is too late. Her journey in Part 3 of the book is a slow, agonizing breakdown of this acceptance as she begins to question the "sanity" of the world she has tried so hard to belong to.
+
+The sisters as representations of 'acceptance' and 'rebellion' within the system of patriarchal, rigid, violent and exploitative.
+1. Vegetarian
+	1. Refusal to accept her diminished role within society as a child results in her being punished due to low power position and lack of utility to those in power
+	2. Her rebelliousness as a child led to her vegetarianism and manifestation of rebellion as an adult
+	3. Her schizophrenic manifestations of herself as a tree:
+		1. Strong, unbending and unemotive
+			1. Allowed her to dissociate and not be affected by the beatings as a child, but even when those beatings disappeared, the feelings manifested within her and when the stressors returned from the forcing of meat, the loss of control returned as her condition worsened as she struggled to grapple with the agency she had over her life and sought control over the only thing that she could have being her own body. Driving her own body into the ground just to feel like she owned something. Pivotal point where she cut herself and found that she had the option to harm her own body or to exercise some form of control over her own body and that nobody could force her to do anything in this respect led her down the path that would ultimately lead her to refusing any form of nutrients.
+2. Meat
+	1. She takes over the role of caregiver when her mother is tired and is thus allowed to exist because of her utility to the people in the positions of power
+	2. She was a bystander to the abuse of her sister as a child and these patterns continue into adulthood with her bearing witness to the transgressions of her parents to her sister as an adult
+	3. Identity of a well-adjusted, fully functioning member of society
+		1. She opened her own pharmacy, earned her own money and has her own child as her role in society as a parent and a caregiver should be.
+	4. Husbands as their opposites, one is grounded while one is idealistic
+
+Commonality between the two sisters:
+1. Both were never truly seen, by their parents, their spouses or even by their own children
+2. Both subject to their role within the patriarcial korean society and forced to carve their owe piece within it
+3. Coping mechanism of quiet acceptance and denial - represents a common mechanism within eastern societies
+4. Maybe there is some form of generational trauma, where their mother has the stereotypical image of someone that forces their way through and lies to get their way, disregarding the impact that it has on others or on the person that they love, so long as they can get their way they will be satisfied. And ironically this rubs off on their children where the vegetarian now adopts this mentality, not caring about the impact that her actions have on the people around her. Like the example of their mother making her drink the herbal soup, very well knowing that there was lamb within it and i think it was this transgression that led her to realise that even her family members was not people that she could trust? maybe? Im sure she realised way before that tbh
+5. You are right to point out that despite their different paths, the sisters share a core experience of being unseen and subjugated. The idea of generational trauma is a crucial lens through which to view the novel. The mother's actions—lying about the herbal soup, her aggressive and forceful "care"—are not born of malice but of a desperate survival instinct passed down through generations. She believes she is helping Yeong-hye conform and survive, but she uses the very tools of coercion and violence that caused the trauma in the first place. This act of betrayal, as you noted, is likely the final severing of trust between Yeong-hye and her family.
+
+
+Motifs:
+1. Mongolian mark - symbol of childhood, usually lost with age into adulthood and represents her innocence and youth that was never really lost as well as the corresponding idealism and refusal to grow up or mature 
+	1. Could also be a symbol of defiance - of being part of the petals of vegatarianism and becoming of a tree and a refusal to eat meat as society defines for her.
+
+
+Questions:
+1. What did the lump in her stomach represent?
+	1. The lump is a psychosomatic manifestation of trauma. It is the undigested horror of her memories.
+	2. **Physical Embodiment of Revulsion:** It represents the "lump of meat" from her dream—the bloody, raw flesh she is forced to confront. It is the physical sensation of her psychological revulsion to violence and consumption.
+	3. **Undigested Violence:** Just as a stomach digests food, a mind is supposed to process experience. The lump is the violence she has witnessed (the dog, the abuse) and experienced (the force-feeding) that she cannot mentally or emotionally "digest." It is stuck inside her, a constant, physical reminder of the cruelty she wishes to expel from her body and the world.
+2. What is the image of her as a white bird mean? Or as her as a moving thing?
+
+> "All of a sudden, In-hye was struck by a vision of her sister, not in the asylum's white uniform but stark naked, her body covered in painted flowers, doing a handstand. She was a bird, a white bird, spreading its wings."
+
+This vision belongs to In-hye. It symbolizes her final, reluctant understanding of her sister's desperate desire to transcend her human body and fly away from her suffering.
+
+This surreal image is a child's interpretation of his mother's psychological fracturing.
+
+#### 1. The Bird: In-hye's Desire for Escape
+
+As we discussed, the bird represents freedom, fragility, and a desire to escape an unbearable reality. In this case, it is In-hye's own subconscious desire to fly away from the immense weight of her responsibilities: caring for a dying sister, a traumatized son, a failing business, and the memory of a faithless husband. She is trapped, and some part of her wants to dissolve into the sky just as her sister wants to dissolve into the earth.
+
+#### 2. The Voice ("I'm your omom"): The Unbreakable Bond
+
+This is the core of the child's anxiety and recognition. The creature is strange and alien, but the voice is undeniably his mother's. It shows that even as In-hye is transforming internally and breaking down, her identity as a mother remains the core of how her child perceives her. He recognizes that this fracturing being _is_ his mom, which is both a comfort and a source of deep unease.
+
+#### 3. The "Two White Hands": The Central Conflict
+
+This is the most powerful and disturbing part of the image. It perfectly symbolizes In-hye's internal conflict:
+
+- **The Duality of Self:** The image literally splits In-hye in two. There is the **Bird Self**, which is wild, instinctual, and desperate to escape. And there is the **Mother Self**, represented by the hands, which must continue to function, care, hold, and provide.
+    
+- **Caregiving as a Disembodied Function:** The hands, the tools of motherhood, are shown emerging from an alien body. This suggests that In-hye's actions as a mother are becoming disconnected from her true inner self. She is going through the motions of caregiving, but her spirit (the bird) is no longer fully present in those actions.
+    
+- **The Color "White":** The whiteness of the hands is significant. It connects to the white hospital gowns, the sterile environment of the asylum, and the "white bird" she saw in her sister. It implies that her care is becoming strained, bloodless, and ghostly. She is pouring from an empty cup, and her maternal actions are losing their vitality.
+    
+
+#### 4. Ji-woo's Reaction ("it was pretty"): The Innocence of a True Witness
+
+An adult would find the image of a bird with human hands horrifying—a monstrous hybrid. But Ji-woo, in his childhood innocence, finds it **"pretty."** This reaction is heartbreakingly profound.
+
+- **Unconditional Acceptance:** Ji-woo is the only character in the entire novel who witnesses a character's painful transformation and sees it not as grotesque or mad, but as beautiful. He doesn't judge the strangeness; he accepts it. It is a moment of pure, unconditional love for his mother in her broken state.
+    
+- **Challenging Reality:** This highlights one of the novel's central themes: the blurring of lines between beauty and horror, sanity and madness. Ji-woo's fluid, non-judgmental perception of reality allows him to see something his mother can't see in herself.
+    
+- **A Mirror to In-hye:** For In-hye, hearing this must be both terrifying and validating. It confirms that her breakdown is visible even to her child, but it also shows that he accepts her regardless. He sees her pain and transformation and calls it beautiful, offering a sliver of grace that she gets from no one else.
+
+In general, the husband's purpose for including that scene would be for one or more of the following reasons:
+
+#### 1. Pure Aesthetic and Formal Value
+
+To a visual artist, the shot is simply beautiful on a formal level.
+
+- **Abstraction:** He is more interested in the _idea_ of flight than the literal bird. A shadow strips away the distracting details (feathers, colour, species) and leaves only pure form and movement. It's a minimalist, graphic representation of flight.
+    
+- **Visual Contrast:** The image of a stark black shape moving across a bright, static background (like the sky or the ground) is visually powerful and clean. It’s a simple yet compelling composition.
+    
+
+#### 2. The Ultimate Symbol of His Obsession
+
+His art is a desperate search for things that are dynamic, free, and transgressive—everything he feels his life is not.
+
+- **Embodiment of Freedom:** Flight is the ultimate symbol of escape from earthly, mundane constraints. For a man who feels trapped in a domestic, predictable life, the image of a soaring bird is the most potent symbol of the freedom he craves.
+    
+- **Capturing the Ephemeral:** His work is about capturing fleeting moments of beauty and vitality that break through the monotony. A bird's shadow gliding past is a perfect example of a transient, almost magical moment that he can "possess" by filming it.
+
+
+
+
+1. The bra as the physical restraints of the society on women and their very physical being
+	1. **Literal and Metaphorical Constraint:** It physically shapes and restrains the female form, molding it into an acceptable, non-threatening shape. Metaphorically, it represents all the rules, expectations, and gazes that confine women.
+	2. **An Act of Liberation:** Yeong-hye’s refusal to wear a bra is one of her first overt acts of rebellion after her vegetarianism. It is a rejection of being packaged for male consumption and social approval. It makes others uncomfortable because it is a visual rejection of the unspoken rules of femininity. It is her body, and she will no longer allow it to be constrained.
+
+
+### In-Depth Analysis of Major Themes and Motifs
+
+Here is a more consolidated analysis based on your points and further interpretation.
+
+#### Themes
+
+- **Violence, Trauma, and the Body:** The novel argues that the human body, particularly the female body, is the primary site where societal violence is enacted. From the father's beatings to the husband's marital rape, to the force-feeding by her family, Yeong-hye's body is a canvas for the cruelty of others. Her subsequent anorexia and desire for metamorphosis are attempts to reclaim her body, even if it means destroying it.
+    
+- **Sanity vs. Madness:** The novel constantly questions who is truly "mad." Is it Yeong-hye, who retreats from a cruel world into a private, plant-like existence? Or is it the "sane" society around her that normalizes brutality, enforces rigid conformity, and values utility over humanity? The narrative structure, told from three different and increasingly intimate perspectives, forces the reader to confront their own definitions of sanity.
+    
+- **Art, Desire, and Exploitation:** The second part of the book, narrated by the brother-in-law, explores the complex nature of art and desire. He is the only one who sees beauty in Yeong-hye's transformation, but his gaze is also exploitative. He uses her body and her trauma to fulfill his own artistic and sexual fantasies. It asks a difficult question: Can art that is born from another's suffering ever be pure, or is it just another form of consumption?
+    
+- **Humanity vs. Nature (Eco-feminism):** The novel draws a direct line between the oppression of women and the exploitation of nature. The patriarchal society that subjugates Yeong-hye is the same one that sees animals as mere flesh for consumption. Her ultimate desire is to shed her humanity—which she equates with violence—and merge with the plant world, which she perceives as innocent, silent, and pure.
+    
+
+#### Motifs
+
+- **Flesh:** The novel is saturated with images of flesh—animal and human. It is bloody, brutal, and consumed. Yeong-hye's revulsion is to all flesh, including her own, seeing it as the medium of violence.
+    
+- **Dreams and Images:** The narrative is driven by powerful, surreal images from dreams and the subconscious: the bloody faces in the forest, the hanging meat, bodies painted with flowers. These images represent a reality more potent and "true" than the mundane surface of everyday life.
+    
+- **The Mongolian Mark:** As you noted, it's a symbol of a childhood innocence that was violently stolen but whose mark remains. For the brother-in-law, it becomes an object of intense aesthetic and erotic fascination—a unique point on her body that hasn't been "adulterated" by society. It is a mark of her otherness and purity.
+    
+- **Hands:** Hands are dual-purpose tools of both violence and care. The father's hands beat her. Her own hands grip a knife in self-defense. Yet, her sister's hands are the ones that try to care for her, wash her, and hold her at the end. The final image of In-hye gripping the wheel, contemplating the trees, suggests her own hands are now caught between the world of violent action and the world of quiet being.
+    
+- **Trees and Plants:** This is the central metaphor for Yeong-hye's desired state of being. Trees are strong, rooted, non-violent, and asexual. They live without consciousness in the human sense. To become a tree is to achieve the ultimate escape from the trauma of being a human in a violent world.
+    
+
+***
+
+### Thought-Provoking Questions for Further Reflection
+
+1. The novel is told in three parts, by three different narrators (the husband, the brother-in-law, the sister). How does this shifting perspective shape our understanding of Yeong-hye? Is she ever truly given her own voice? Why do you think Han Kang made this choice?
+    
+2. Is Yeong-hye’s transformation an act of empowerment and agency, or is it a tragic descent into mental illness from which she has no control? Can it be both simultaneously?
+    
+3. Consider the character of In-hye. In many ways, she is the book's true protagonist. Does she represent hope at the end of the novel, or does her final reflection on the "implacable" nature of life signify a deeper despair?
+    
+4. What does the novel critique about the institution of "family"? Is it a source of safety or a primary site of violence?
+    
+5. If Yeong-hye’s vegetarianism is a rejection of violence, what does it mean that her actions indirectly cause so much chaos and suffering for those around her? Does personal purity require a disregard for one's community?
+
+## Reading Journey
+
+- 2025-10-31: Finished

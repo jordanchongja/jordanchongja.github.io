@@ -1,0 +1,28 @@
+---
+title: Training for Climbing
+author: Eric J. Hörst
+date: '2025-10-31'
+categories:
+- Sports & Recreation
+- Book
+image: cover.jpg
+subtitle: ★★★ | The Definitive Guide to Improving Your Performance
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Training for Climbing
+Some good info, more about scheduling and the 3-2-1 training plan and how rest is impt
+
+## Reading Journey
+
+- 2025-10-31: Finished

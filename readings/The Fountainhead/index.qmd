@@ -1,0 +1,44 @@
+---
+title: The Fountainhead
+author: Ayn Rand
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★
+rating: 1
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Fountainhead
+Didnt even finish the book, got to where I left it off last time and gave up yet again.
+
+Note: Four main branches of philosophy: Metaphysics, epistemology, logic, and ethics.[6]
+
+The Fountainhead is a novel that is revelled as an excellent testament to the core belief of objectivism of the author Ayn Rand which she describes as “the concept of man as a heroic being, with his own happiness as the moral purpose of his life, with productive achievement as his noblest activity, and reason as his only absolute”.
+
+Objectivism's main tenets are that reality exists independently of consciousness, that human beings have direct contact with reality through sense perception (see direct and indirect realism), that one can attain objective knowledge from perception through the process of concept formation and inductive logic, that the proper moral purpose of one's life is the pursuit of one's own happiness (see rational egoism), that the only social system consistent with this morality is one that displays full respect for individual rights embodied in laissez-faire capitalism, and that the role of art in human life is to transform humans' metaphysical ideas by selective reproduction of reality into a physical form—a work of art—that one can comprehend and to which one can respond emotionally.
+
+Summary:
+
+The Fountainhead speaks of a boy Roark and his “Rival” Keating. Roark is a boy who is the unabashed embodiment of Ayn Rand’s Objectivism ideal while Keating is the opposite, someone whose purpose in life is to please others. Roark is kicked out of Architecture school while Keating is celebrated as the best architect and goes on to work in the finest architectural company while Roark is kick to the gutters by society and rejected at every turn other than by his idol and mentor who unfortunately falls sick. 
+
+The book reads like a fan-fic of someone who has been shunned by society and lives in the illusion that he/she is holding onto his ideals and is thus shunned by society but the fact is that reality is not so clear cut and I am surprised and frankly disappointed that such jejune ideas are able to create a bestseller. 
+
+The idea of objectivism is, in my opinion, a selfish one, which surely must mean something coming from someone who subscribes to the ethical theory of hedonism. Objectivism is way too rigid in its definition and as a life principle, with productive achievement as man’s noblest activity and really does not take into consideration the experiences that life is able to offer if only one were willing to open one’s eyes to it.
+
+Overall, from what I have read, it is a pretty shit book that is not even able to engage me enough to complete it with tons of rambling and being such a long ass book should apologies for the space it is taking up on my kindle. I at the very least rejoice in the fact that I do not own a hardcopy version of this book, which could prove quite useful in the event I happen to have an emergency scarcity of toilet paper.
+
+## Reading Journey
+
+- 2025-10-31: Abandoned

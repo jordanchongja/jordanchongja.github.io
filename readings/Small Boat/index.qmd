@@ -1,0 +1,50 @@
+---
+title: Small Boat
+author: Vincent Delecroix
+date: '2025-11-07'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★
+rating: 2
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Small Boat
+Yeah i thought the concept was good and there are interesting points in the book, but the structure is so bad and so repetitive, the entirety of the story is from a really strange first/third person pov where the protagonist never really has her thoughts she just thinks them out its really weird. And s never written properly its written like a lecture or an intellectual exercise which is really boring after the tenth time she says “oh they were meant to die” at some point its no longer shocking and like ok i get it… they were already dead cos they were migrants and she was “saving” them by letting them die… but is it really the same…. A migrant dying in front a building i would say is different from someone drowning in the ocean and i dont think its the revelation the author thinks it is. Anyways i think the “big revelation” is that the reader and the rest of society wishes that the migrant was saved to alleviate our own conscience but tbh idt its true, its a very forced, “aha” moment that i think resonates with someone with a complete lack of critical thinking but yeah not a good book i think. Pros is that its short but tbh could have been way shorter. Cos wdym you jump to describing the migrant plight BACK TO DESCRIBING HER THOUGHTS thats crazy. Bad read. 
+
+Would give it a one but the fountainhead is defo worse.
+
+## Reading Journey
+- 2025-11-04: Started
+- 2025-11-04: 7
+    - 1 mins
+- 2025-11-04: 18
+    - 14 mins
+- 2025-11-04: 22
+    - 9 mins
+- 2025-11-05: 42
+    - 29 mins
+- 2025-11-05: 57
+    - 11 mins
+- 2025-11-07: 79
+    - 20 mins
+- 2025-11-07: 95
+    - 22 mins
+- 2025-11-07: 97
+    - 5 mins
+- 2025-11-07: Finished
+- Total Time Taken: 1 hours and 52 minutes
+## Bookmarks
+> wanted it for herself, for everyone, so humanity could be reassured about itself, so humanity need not doubt its humanity, and so she would not have to fear what she’d become, that is to say, a woman like me, like the one I’ve become.
+> *2025-11-07*

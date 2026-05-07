@@ -1,51 +1,154 @@
 ---
-title: "East of Eden"
-author: "John Steinbeck"
-date: 2025-01-15
-categories: [Philosophy, Fiction, Classics, Book]
+title: East of Eden
+author: John Steinbeck
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
 image: cover.jpg
 subtitle: ★★★★★
-body-class: "project-detail-view"
+rating: 5
+body-class: project-detail-view
 include-before-body:
-  text: "<div style='margin-top: 50px;'></div>"
+  text: '<div style=''margin-top: 50px;''></div>'
 ---
+
 
 <style>
   #quarto-margin-sidebar {
-    padding-top: 50px; /* Match this to your header margin */
+    padding-top: 50px;
   }
 </style>
 
+# East of Eden
 
-## Summary and the Core Premise of the Book
-A multi-generational epic set in the Salinas Valley that mirrors the biblical story of Cain and Abel, tracking the intertwined destinies of the mythic Trask family and the deeply human Hamilton family.
+## Summary
+Yeah book was really good and sometimes its was a hard read because as a third party you know what is going to happen and its like watching a train wreck but overall the book was really good. Good, realistic characters with good development and character arcs. Was really frustrating seeing Adam make bad decisions again and again but I guess that is just how life works, from Cathy to the Cabbage to his children, it seems he's always floating and never really there but its an interesting element. And Steinbeck has this mastery over the side characters and how he gives them time to breathe and full form, like how he gave Joe his own mind and actions when in reality the purpose of Joe was to make sure that the will saw the light of day and in performing this one purpose, he was given a mind to scheme against Cathy and his anxiety and his confidence and his hubris and at the end of all that, his sudden and uneventful death. 
 
-## Why I Read This Book
-Had heard alot about Steinbeck and read online that this was one of his best books and it did not disappoint.
+Steinbeck really excels at the silence, the side-plots parallel to the main plot and he does it in a way where the reader (me) doesnt yearn to get back to the main plot, and I dont even realise at times that I am even in the side plot, it genuinely just flows. 
 
-## Key Takeaways
-1.  **The power of Timshel:** The Hebrew word for "thou mayest." It represents the ultimate triumph of free will over deterministic fate, whether that fate is inherited by blood or shaped by upbringing. Unfortunately found that this word doesn't really translate well in real life Hebrew.
-2. **The danger of hollow idealism:** Naive, untested "goodness" that bends the world to fit a pure worldview is fragile and ultimately destructive when confronted with reality.
-3. **The utility of societal masks:** Highly intelligent individuals sometimes adopt the prejudices of society to manage expectations and protect their own autonomy.
+Anyway so maybe a short summary, started with the Antangonist, which I would say is Cathy and how she is note! Not Evil! but rather just different, which is an interesting idea, how perhaps some people are just born with the propensity to be mean and to be evil and this is not something that they realise offhand but through interactions with others, they realise that they lack a certain something, a lack of capacity to give and receive love and this leaves them feeling empty or hollow. 
 
-## Reflection
-This book made me think more about the agency that we have in life and whether we are doomed to repeat the mistakes of our forefathers. Steinbeck argues that we all have the human capacity for change and to break the cycle and overcome our circumstances. Steinbeck also touches on the existence of absolute good and evil through Aron and Cathy, shedding light on the nuances of morality. 
+Anyways so she gets beaten up and she goes to Adam and UHHHH idk his brother. And his brother is able to sense the same thing as Cathy. OH I think essentially Cathy is the Devil LOL ok i need to insert the story of Cain and Abel because that is essentially the story repeated twice, and how people have the TIMSHEL - 'thou mayest' symbolizing the power of free will and choice, humans have the choice to overcome their circumstances or "rule over sin". This is in direct contrast to Cathy and how she resigned herself to her own fate of being "evil" and lacking the basic faculties for love. We see this manifest in Charles, with his murderous nature, and in Cal, in his inability to behave as Aron has. We see Adam repeating the mistakes of his own father, by showing favoritism to Aron over Cal, and in doing so, inadvertently perpetuating the mistakes of his father. But one interesting thing to note, rather than the silent mother that only acts as a bystander to the damage, Lee, takes action and illustrates Timshel, making Adam forgive Cal and in doing so, undoes the damage or at the very least mitigates the damage done by Adam. 
+
+But yes ok so a broad summary of the story:
+1. Introduction of Cathy and how evil she is
+2. Introduction of Samuel Hamilton and the Hamilton family and shows how even in poverty, a family can be rich, juxtaposed to the Trask family with somewhat the inverse
+3. Cathy interacting with Trask family 
+4. Adam gets shot and children are abandoned
+5. Cathy gets rich and displays just how evil and scheming she is
+6. Samuel forces Adam to name his children, shaking him out of his slumber
+7. Children meet Abra 
+8. Aron dreams of becoming a pastor, he bends the world to fit in his worldview
+9. Cal semi-resigns to his fate of being an evil person
+10. Aron dies at war after leaving and learning his mother is a whore
+11. Cal needs to reconcile his sense of self and seek approval from his father 
+
+But yeah there are so many themes in the book that its hard to manually list them down so I might get Gemini to provide me with more but just to name a few:
+
+### Nature vs Nurture
+- Whether it is possible to break free from the chains with Timshel and the ability to change one's life
+- At the end it is revealed that even Cathy, in all her evilness, retains some sense of childishness, clinging on to the concept of an Alice, and how even Cathy knows that she is not all powerful and she sometimes wishes, when times are hard, that she can become small and hidden and out of view of people. 
+- Adam vs Charles Trask - whether either or them was just born this way and of a better temperment than the other or whether this was imbued into them by their father through his strict regimentation and favouritism
 
 
-## Favorite Quotes
-> "And now that you don't have to be perfect, you can be good."
+### On the effect and impact of parenthood and the perception of the parent as God
+- Steinbeck draws parallels heavily to the concepts of gifts or offerings from the children to their parents, much like the offerings that Cain and Abel made to God. And just like Cain and Abel, some offerings are much more favored and some not. A puppy was favored, even when it was really low effort, at least in Charles POV but (a gold watch??) that Charles gave? I forgot, was not regarded at all. 
+- **Charles's gift:** You couldn't remember Charles's gift to Cyrus. It was a high-quality, expensive **German clasp knife** that he had saved up for a long time to buy. This makes the rejection even more painful, as Adam's gift (a stray puppy he just _found_) was low-effort but received with far more love, reinforcing the theme of arbitrary parental favor.
+- Similarly, fifteen thousand dollars to cover the Cabbage mistake. A mistake that greatly shaped Cal and Aron's childhood, was not only not regarded, but shunned. 
+- Why did God shun Cain's offering? Did god cause the murder of Cain, or is it Timshel, the ability to do what one wants, and if one wants to murder, not even god can stop you.
 
----
 
-### Steinbeck's Use of Side-plots
-One thing that I really like about Steinbeck's novels is the masterful handling of the sideplots which lead to amazing world-building and immersion. He gives side-characters, like Joe fully realised inner lives and motivations, even when their structural purpose is just to move a plot device. He also has poetic interludes which are really descriptive and vivid, making the novel feel like a lived-in reality. 
+### The Land as Character
+The Salinas Valley isn't just a setting; it's a symbolic landscape.
 
-### Nature vs Nurture and the Morality of Instinct
-I enjoyed how Steinbeck painted Cathy not as a pure evil character filled with pure malice with no origin, but more as someone with a psychic malformation, born lacking the basic human faculties for empathy or love. She is simply operating on pure instinct and her personal incentives from birth. And this calls to question whether this deviation from social norms make her inherently "bad" as per natural law, or is she just fundamentally incompatible with human society? 
+- **A New Eden:** It's the "East of Eden," the land of Nod where Cain was exiled. It's not the original paradise, but a new, harsher land (full of dust and drought) where humanity must _choose_ to be good.
+    
+- **Wealth vs. Poverty:** The land reflects the characters' fortunes. The **Hamiltons** are "rich" in spirit, love, and ingenuity (Samuel can find water), but they are dirt-poor and can barely make a living from their dry, stubborn patch of land. The **Trasks** are "poor" in spirit but sit on a (stolen) fortune and one of the most fertile pieces of land in the valley.
+    
+- **Adam's Failure:** Adam's grand failure is the cabbage shipment. He tries to conquer the land with technology and business (refrigeration) to make a fortune, but he fails spectacularly. This contrasts with Samuel, who works _with_ the land (digging wells) and lives a life of meaning, not riches.
 
-Laing writes on a similar concept in _The Divided Self_, where he argues that what society labels as "madness" or schizophrenia is often not a medical disease, but a desperate survival strategy. He introduces the concept of "ontological insecurity"—when a person feels their very existence is constantly threatened by normal social reality. To survive an environment they find alien and terrifying, they construct a rigid "false self" to interact with the world, while their true self retreats into absolute isolation. Their behavior, while incomprehensible or destructive to the "norm," is actually a logical defense mechanism to maintain control.
+### The Power of Names
+Steinbeck is extremely deliberate with his names, particularly the **"A" and "C" parallel**.
 
-If we read Cathy through this lens, her "evil" is actually a profound ontological insecurity. She lacks the standard human operating system (empathy, connection). Because the normal world is alien to her, she views other humans purely as threats to be neutralized or tools to be manipulated
+- **Cain & Abel:** The first generation is **C**harles and **A**dam. The second is **C**al and **A**ron.
+    
+- **Breaking the Cycle:** The pattern suggests a fated repeat of the biblical tragedy. However, the book introduces **A**bra. She starts as **A**ron's idealized, pure love, but she grows into a real, flawed, and compassionate woman. Her name starts with "A," but she ultimately breaks the pattern by rejecting the "good" (and hollow) Aron and choosing the "dark" (and real) **C**al. She represents the new path forward.
 
-### The Parent as a Capricious God
-I enjoyed Steinbeck's parallel between parenthood and the divine. In the biblical story of Cain and Abel, God arbitrarily favors Abel's offering over Cain's. In the novel, the father figures act as this capricious God. Cyrus rejects Charles's expensive, hard-earned German knife in favor of Adam's low-effort stray puppy. A generation later, Adam rejects Cal's desperate, $15,000 offering. The novel explores the devastating impact of this arbitrary parental favor, suggesting that the "mark of Cain" is often inflicted by the parent's inability to see their children clearly. With parental love being the first love that we can conceive of at birth, I believe it represents the most fundamental form of love. At the end of the day, all the children in the book just want to be seen, because to be loved is to be seen, and the lack of this love causes the characters to seek validation elsewhere, often to undesirable outcomes.
+### Scars and Physical Marks
+Many characters are physically marked by their internal sin or struggles.
+
+- **Charles:** Gets a dark **scar on his forehead** from straining to move a boulder for his father (another rejected "gift"). This mark is a clear parallel to the "Mark of Cain."
+    
+- **Cathy/Kate:** As she ages, her hands become gnarled and crippled with **arthritis**. Her physical form twists to match her internal, monstrous nature.
+    
+- **Adam:** Receives a scar in the army, and later, the "shot" from Cathy is the pivotal wound that sends him into a decade-long emotional coma.
+
+### Wealth and Inheritance
+The "sins of the father" are passed down not just emotionally but financially.
+
+- The **Trask fortune** is built on a lie—Cyrus likely stole it during his time in the army. This "poisoned" inheritance taints everything it touches. Adam tries to lose it, and Cal doubles it through cynical war profiteering (selling beans).
+    
+- The **Hamilton inheritance** is the opposite. They have no money, but Samuel passes down wisdom, stories, and a moral compass. Lee, who is not related by blood, is the one who truly inherits Samuel's philosophical legacy and passes it on to Cal.
+
+### 1. The Role of the Narrator (Steinbeck Himself)
+You noted the side plots, but the most significant "side plot" is the entire Hamilton family. Why are they there?
+
+- **The "I" Voice:** Steinbeck inserts himself as the narrator, "I." He is the grandson of Samuel Hamilton. This is a deliberate choice to break the fictional barrier. The novel isn't just a story; it's a **personal testament**.
+    
+- **The Hamiltons as the "Human" Baseline:** The Trask family is mythic. They are a biblical allegory, larger-than-life, and live in the shadow of a divine curse. The Hamiltons, by contrast, are _human_. They are poor, clever, flawed, loving, and real.
+    
+- **The Bridge:** **Samuel Hamilton** acts as the bridge between these two worlds. He is the only one who can talk to the mythic, "floating" Adam Trask. He is the one who names the twins (like the biblical Adam), gives Adam a conscience, and forces him back into the human race.
+    
+- **Deeper Meaning:** By placing his _own family_ into the story, Steinbeck is saying this isn't just an ancient myth. The struggle of Cain and Abel, of good and evil, of _Timshel_, is not just a story. It is _his_ story, _our_ story, and it is happening right now in the very real, dusty soil of America.
+
+### 2. Lee: The Moral and Intellectual Core
+
+You identified Lee as the one who "takes action," which is perfect. But his role is even more profound. He is arguably the book's true hero and its philosophical engine.
+
+- **The Mask of Pidgin English:** Lee's greatest insight is his explanation for _why_ he speaks pidgin. It's not ignorance; it's a **weapon and a shield**. He explains that people _need_ him to fit their stereotype of a Chinese servant, so he plays the part to be left alone and to manage their expectations. This is a sharp social commentary on race and identity. He is the most intelligent, educated, and articulate character in the book, and he _chooses_ to hide it.
+    
+- **The True Parent:** Adam is the biological father, but Lee is the _true_ parent. He raises Cal and Aron. He cooks, cleans, educates, and provides the moral and philosophical guidance (like the Timshel story) that Adam is too lost to give. He is the novel's true father figure.
+    
+- **The Engine of Timshel:** Lee isn't just the one who explains _Timshel_. He _researched_ it. He spent years with his relatives (the "four old men") in San Francisco, studying the Hebrew text of Genesis to find the _exact_ meaning of the word. He is the book's theologian. The entire novel's central theme is a product of Lee's intellectual and spiritual labor. He _gives_ the book its meaning.
+    
+
+### 3. The Failure of "Goodness": The Problem of Aron
+
+You identified Cal's struggle perfectly, but the flip side is Aron's. Steinbeck isn't just saying "it's hard to be good." He's making a radical argument: **naive, untested "goodness" is just as destructive as "evil."**
+
+- **Hollow Idealism:** Aron is the "Abel" figure, the one favored by his father. But his goodness is hollow. He cannot face reality. He needs his mother to be a saint in heaven and his girlfriend, Abra, to be a pure, virginal ideal.
+    
+- **Weakness, Not Virtue:** When Cal forces him to face the truth (that their mother is a whore), Aron doesn't struggle and overcome; he **shatters**. His "goodness" was just a fragile fantasy. He immediately escapes into the army, an act of self-destruction, and is killed.
+    
+- **The Role of Abra:** Abra is the key. Her name is the feminine version of "Abel." She starts as Aron's idealized "pure girl," but she grows. She admits to Cal that she's not pure, that she has "bad thoughts," and that she's tired of pretending. She finds Aron's pure goodness "cold" and "empty." Her decision to **choose the flawed, dark, and _real_ Cal** over the "good" but hollow Aron is one of the most important moments in the book. She breaks the cycle by choosing a _complete_ human, not a fantasy.
+    
+
+### 4. Cathy/Kate: The "Crack" in the Monster
+
+You're right that Steinbeck presents Cathy as a "monster," a psychic malformation. But your note about her "childishness" is the key to her entire character.
+
+- **The Longing for Alice:** You're right, she clings to _Alice in Wonderland_. This isn't just a quirk. Alice falls down a rabbit hole into a world of nonsense where the rules don't apply, a world she can control. This is _Cathy's_ a-moral worldview.
+    
+- **The Final Act:** Why does she kill herself? It's not just fear of Cal. It happens _after_ she sees a picture of Aron, who is described as looking angelic and innocent. She is confronted with the one thing she cannot understand or control: genuine, naive goodness.
+    
+- **The Will:** Her final, most twisted act is leaving her entire fortune to Aron. This is her last attempt to destroy: to poison the "good" son with her corrupt money.
+    
+- **The "Crack":** But her suicide, her clinging to the Alice book, and her fear of the dark all point to one thing: she is **not a complete monster**. There is a tiny, terrified, undeveloped child inside. This reinforces _Timshel_. Even the most "evil" character in the novel is not 100% evil. This suggests that perhaps, somewhere, she _also_ had a choice, but she spent her entire life refusing to make it. Her evil wasn't a force; it was a vacuum, an _absence_ of humanity.
+
+# Cain and Abel
+
+They are the first two sons of Adam and Eve.
+
+The brothers made sacrifices, each from his own fields to god. God had regard for Abel's offering, but had no regard for Cain's. 
+
+
+
+
+## Reading Journey
+- 2026-04-23: Started
+- 2026-04-23: 2
+    - 2 mins
+- 2026-04-23: Finished
+- Total Time Taken: 1 minutes
+## Bookmarks

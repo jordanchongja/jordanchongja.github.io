@@ -1,0 +1,48 @@
+---
+title: The Four Workarounds
+author: Paulo Savaget
+date: '2025-11-16'
+categories:
+- Business & Economics
+- Book
+image: cover.jpg
+subtitle: ★★ | How the World's Scrappiest Organizations Tackle Complex Problems
+rating: 2
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Four Workarounds
+
+## Reading Journey
+- 2025-11-13: Started
+- 2025-11-13: 12
+    - 7 mins
+- 2025-11-14: 25
+    - 5 mins
+- 2025-11-15: 31
+    - 6 mins
+- 2025-11-16: 55
+    - 18 mins
+- 2025-11-16: 181
+    - 97 mins
+- 2025-11-16: 233
+    - 21 mins
+- 2025-11-22: 235
+    - 3 mins
+- 2025-11-22: Finished
+- Total Time Taken: 2 hours and 37 minutes
+## Bookmarks
+> But if the scope grows too broad, the story becomes clunky and unhelpful. Here we are better off embracing what the poet John Keats called “negative capability,” or what the Heath brothers called “forced prioritization”: appreciate the nuances of multiple perspectives, but don’t linger there too long. Think of how Shakespeare introduces characters without revealing their background and presents issues with no clear answer or solution. Because he recognizes that the world is unsettled and that a story will never be “complete,” the playwright allows readers to explore different angles and imagine how a story could come to any number of different conclusions. That’s why Portia is such a compelling character: through her inventive solution she defies expectations and slyly encourages the audience to do the same.
+> *2025-11-16*
+
+> For example, an intense workout regimen could lead to an exercise addiction or a knee injury. If you go on a long-haul protein-heavy diet, you could develop a liver problem years later or encounter other problems that you can’t now predict. Does this mean you should abandon your weight-loss goal? Of course not. But you need to acknowledge that a limited criterion of good health (like losing some weight) doesn’t, can’t, and shouldn’t account for what is complex and, too often, unpredictable. Instead of fixating on and planning for one be-all and end-all target, find and explore different pathways that embrace complexity and seek health instead of pretending that good planning will lead to a perfect solution that will make the problem disappear
+> *2025-11-16*

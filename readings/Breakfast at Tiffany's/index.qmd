@@ -1,0 +1,28 @@
+---
+title: Breakfast at Tiffany's
+author: Truman Capote
+date: '2025-10-31'
+categories:
+- Fiction
+- Book
+image: cover.jpg
+subtitle: ★★★
+rating: 3
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# Breakfast at Tiffany's
+Somehow liked it, expected it to be a super classic, talking about like an issue or alluding to something or just being a very memorable story but it kind of just is. I feel that its somewhat because of the narration style where its being told from the perspective of a friend, much like the narration style of the great gatsuby and so i feel it kind of detracts from the story a little. But overall its quite a wholesome and enjoyable read, not many like wow moments or interesting moments but it was easy to keep reading and not want to put the book down so I guess it has that going for it.
+
+## Reading Journey
+
+- 2025-10-31: Finished

@@ -1,0 +1,275 @@
+---
+title: The Divided Self
+author: R. D. Laing
+date: '2025-10-31'
+categories:
+- Psychology
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | An Existential Study in Sanity and Madness
+rating: 5
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Divided Self
+## Definitions
+1. Schizoid - A person who is caught between the desire to be connected and the fear of losing himself if he connects 
+	1. There is a chasm in relation with his world
+	2. There is a disruption of his relation with himself
+2. Existentialism - What it means to exist as a human being and how personal freedom, individual responsibility, and deliberate choice are essential to the pursuit of self-discovery and the determination of life's meaning
+3. Phenomenology - How human beings experience the world
+4. Existential Phenomenology - A characterisation of the nature of a person's experience of his world and himself
+5. Concretum - The wholeness of experience as a human, including all feelings and not just descriptive, POV is from the experience of the self.
+6. Conditio sine qua non (Latin) - "A condition without which not" (a necessary condition)
+7. Gestalt (German) - "Form, shape or pattern" The felt whole of an experience, structured and meaningful, not a loose collection of bits
+8. Reification - Treating something non-material, living, dynamic (like a person, thought or relationship) as if it were a static, dead thing. "The person is no longer seen as being-in-the-world with hopes, fears, and struggles, but as a 'case of schizophrenia' or a set os symptoms. This is reification."
+9. Veritable - Genuine, true, authentic
+10. Esse est percipi - "To be is to be perceived"
+11. Imago - A deep internal image or representation of another person, often formed in early childhood, that continues to shape how we relate to others - and ourselves
+12. Shutupness - The self’s last-ditch attempt to survive by sealing itself off — but in doing so, it forgets how to be. Eventually, even joy becomes unfeelable, even pain becomes unshareable, the person may no longer know how to tell if they're alive.
+13. Embodied - Having a sense of being flesh and blood and bones, of being biologically alive and real, he knows himself to be substantial. To the extent that he is throughly 'in' his body, he is likely to have a sense of personal continuity in time. He is implicated in bodily desire, and the gratifications and frustrations of the body. The individual thus has his starting point an experience of his body as a base from which he can be a person with other human beings.
+14. Unembodied - The individual experiences his self as being more or less divorced or detached from the body. The body is felt more as one object among other objects in the world than as the core of the individual's own being. Instead of being the core of his true self, the body is felt as the core of the false self, which a detached, disembodied, "inner", "true" self looks on at with tenderness, amusement, or hatred as the case may be.
+15. Pabulum - Intellectual or emotional nourishment that is bland, unchallenging, and often oversimplified, especially when its offered to someone who is a vulnerable or dependent state. Laing uses pabulum to critique the kind of simplistic, often condescending, intellectual or emotional "feeding" that prevents individuals from truly exploring and understanding their own complex realities, especially in the context of mental distress.
+16. Sclerosis - A metaphorical representation of a process of hardening, rigidity, and loss of adaptive capacity or vitality within the individual's psychological or relational life, often stemming from the pressures and anxieties of a divided self.
+17. Eschewed - deliberately avoided, shunned, or abstained from
+18. Congenial - agreeable, suitable, or naturally fitting, especially in terms of disposition, character or environment
+19. Sentiment du reel - refers to the fundamental feeling of being alive, present, and connected to a shared reality
+20. Contiguously - adjacent, touching, or in close proximity, either physically or conceptually, without necessarily being causally linked or inwardly connected
+21. Onanism - could mean withdrawal of the penis in sexual intercourse so that ejaculation takes place outside the vagina.
+	1. Laing probably refers to existential failure to embody one's potential and express one's true being in the world, leading to a profound sense of unlived life and an absence of genuine fulfillment
+	2. Or the gratification or satisfaction of one's own needs or desires:
+22. Catatonic - Marked by prominent psychomotor disturbances. This means unusual and extreme patterns of movement and behavior
+23. Hebephrenic - prominent disorganization of thought, speech, and behavior, along with a marked disturbance in emotional expression. This type often had an earlier onset, typically in adolescence
+
+
+## Key points 
+
+### 1. The Limitations of Language and Abstract Theory in Understanding Human Experience
+
+- **Summary:** Laing argues that specialized clinical or theoretical language, by abstracting and compartmentalizing human experience (e.g., "mind," "body," "ego"), inherently distorts and isolates the individual. This approach fails to capture the holistic and relational nature of human being, as we are inextricably linked to our world and others.
+- **Original Points Combined:**
+    - 1. "How can one demonstrate the general human relevance and significance of the patient's condition if the words one has to use are specifically designed to isolate the circumscribe the meaning of the patient's life to a particular clinical entity"
+    - 2. The inherent fallibility of any "theory that begins with man or a part of man abstracted from his relation with the other in the world. We all know from our personal experience that we can be ourselves only in and through our world and there is a sense in which 'our' world will die with us although 'the' world will go on without us."
+    - 3. e.g. "Mind and Body", "Psyche and Soma", "Psychological and Physical", "Personality", "the Self", "the Organism", "the Ego", "the Superego", "the Id"
+- **Reasoning for Combination:** All three points speak to the same overarching critique: that the language and conceptual frameworks often used to describe human experience (especially in psychology/psychiatry) are inherently reductive, isolating, and fail to capture the holistic, relational reality of a person in their world. The examples directly illustrate the problematic nature of these abstract terms.
+
+
+### 2. The Power of Initial Perception and its Implications
+
+- **Summary:** Our fundamental way of perceiving something—whether as a mere "organism" or a complex "person"—establishes the entire framework for how we subsequently relate to it. This initial categorization profoundly shapes our interactions and understanding.
+- **Original Points Combined:**
+    - 1. The initial way we see a thing determines all our subsequent dealings with it
+    - 2. One's relationship to an organism is different from one's relation to a person
+- **Reasoning for Combination:** These two points are highly interdependent. The second point ("organism vs. person") serves as a prime example of the principle stated in the first ("initial way we see a thing determines all our subsequent dealings"). Combining them highlights this cause-and-effect relationship.
+
+
+### 3. Sanity as a Social Construct: Power, Consensus, and Conformity
+
+- **Summary:** Laing argues that **sanity is not an absolute state but a relational one, defined by the degree of shared reality or "conjunction" between individuals.** If two people agree on reality, they deem each other sane. However, when disjunction occurs, the power to define who is "mad" often rests with the socially authorized side. This suggests psychiatry, by enforcing consensus, might be punishing deviation rather than curing objective madness.
+- **Original Points Combined:**
+    - 1. "Sanity or psychosis is tested by the degree of conjunction or disjunction between two persons where the one is sane by common consent"
+    - 2. If you and I agree on reality, we call each other sane. But if I disjoin from you, then you might call me mad
+    - 3. e.g. A person sees angels in the room, a psychiatrist doesn't. The person is viewed to be hallucinating while the psychiatrist is viewed to be blind to higher realities. The disjunction is symmetrical but only one side is authorised by society to define the other
+    - 4. Therefore, if sanity is defined by consensus, then psychiatry merely enforces conformity, not truth. Psychiatry may not be curing madness but punishing deviance.
+- **Reasoning for Combination:** All these points directly contribute to Laing's core argument about the socio-political nature of sanity. The examples and the concluding implication flow directly from the initial premise that sanity is defined by consensus.
+
+
+### 4. Existential Anxieties of Ontological Insecurity
+
+**Summary:** Individuals who lack a secure sense of self (ontological insecurity) experience profound anxieties, including the fear of **engulfment** (being consumed by others' perspectives), **implosion** (internal collapse), and **petrification** (loss of vitality or becoming an object).
+
+**Original points combined:**
+
+1. Forms of anxiety encountered by the ontologically insecure person:
+    1. Engulfment
+        1. "You are arguing in order to have the pleasure of triumphing over me. At best you win an argument, at worst you lose an argument. I am arguing in order to preserve my existence."
+    2. Implosion
+    3. Petrification
+
+
+### 5. Paradoxical Defenses to Safeguard the Self
+
+**Summary:** To preempt dreaded dangers, individuals may employ **counterintuitive strategies that seem self-defeating but are designed to secretly preserve their autonomy.** This involves actions like forfeiting overt control to covertly maintain it, or engaging in self-consumption to avoid being consumed by another.
+
+**Original points combined:**
+
+1. The dangers most dreaded can themselves be encompassed to forestall their actual occurrence.
+    1. To forgo one’s autonomy becomes the means of secretly safeguarding it
+    2. To understand oneself (engulf oneself) is a defense against the risk involved in being sucked into the whirlpool of another person’s way to comprehending oneself
+    3. To consume oneself by one’s own love prevents the possibility of being consumed by another
+
+
+### 6. The Autonomy-Dependency Dilemma: Isolation vs. Merging
+
+#### Summary
+
+Individuals lacking a secure sense of **autonomy** cannot experience healthy separateness or relatedness.
+
+#### Original Points Combined
+
+This lack of autonomy means they feel their being is excessively bound to others, or vice versa, in a way that goes beyond normal human connection. Instead of genuine relatedness and attachment, they feel an **ontological dependency** on the other for their very existence. This leads to a constant oscillation between two equally unfeasible extremes: **complete isolation or complete merging of identity**, rather than a healthy balance of separateness and relatedness. This can manifest as withdrawing for months, feeling like they're "dying inside," only to seek brief "doses" of social interaction to avoid an "overdose."
+
+
+### 7. Case Studies in Ontological Insecurity: Seeking Identity and Avoiding Self
+
+#### Summary
+
+These cases illustrate how a lack of early relational support can lead to profound **ontological insecurity**, manifesting as either an inability to maintain a sense of self without external validation or the adoption of a "false self" to cope with unpredictable environments.
+
+#### Original Points Combined
+
+**Case 1: Anxiety at Feeling Alone** describes a patient whose parents were engrossed in each other, leaving her unnoticed. She grew up with a deep longing to be important to someone, never becoming self-sufficient. Her core issue was a **lack of ontological autonomy**; her sense of identity would "drain away" if she wasn't in the actual presence of someone who knew her, or if she couldn't evoke their presence.
+
+**Case 2: The Individual Seems to Be the Vehicle of the Personality That Is Not His Own** features a patient whose parents were unpredictable in expressing affection or disapproval. To cope, she would **become her mother's perceived personality** (e.g., hating everyone), which temporarily alleviated her fear. However, this maneuver left her with profound futility at not being herself and a hatred for the person she had been (her mother) and for her own "self-duplicity," leading her to question if avoiding anxiety by not being herself was a worse "cure than her disease."
+
+
+### 8. The Embodied and Unembodied Self: David's Schizoid Dilemma
+
+#### Summary
+
+David's case exemplifies the **schizoid split between a "true" (unembodied) self and a "personality" (false self).** This individual seeks omnipotence, safety, and freedom by withdrawing their true self from genuine engagement with the world, leading to profound emptiness and an inability to experience true connection or meaning.
+
+#### Original Points Combined
+
+David grew up believing his "self" and "personality" were separate, striving "never to give himself away." This **central split** meant he tried to achieve omnipotence by enclosing within himself, without genuine relationships, the very modes of relating that require others. The imagined advantages were **safety for the true self, isolation and freedom, self-sufficiency, and control.** However, this impossible project leads to persistent despair and a "haunting sense of futility." The hidden, shut-up self, by disowning participation in the false self's activities, lives "only mentally" and becomes increasingly **impoverished**, eventually feeling like a "vacuum."
+
+The world and other people are perceived as dangers, so the self seeks to be **unembodied** to transcend and thus be safe. This constant dread of being overwhelmed is ironically potentiated, yet the self "may at the same time long more than anything for participation in the world." This longing is felt as a weakness, and giving in to it is dreaded, as participation threatens to obliterate the self's "vacuum" or lead to engulfment.
+
+The consequence is that the individual delegates all interactions to a system "which is not 'him'," resulting in an **unreal experience of the world** and a sense that all actions are "false, futile and meaningless." The healthy relationship (Self/body) ↔ other becomes Self ↔ (body/other), precluding the self from direct engagement with real things and people.
+
+
+### 9. The Schizoid Struggle with Friendship and Interdependence
+
+#### Summary
+
+The schizoid person's life often founders on the fundamental question of **self-sufficiency versus genuine need for others**, making true friendship difficult as they question why two "complete" beings would desire anything from each other.
+
+#### Original Points Combined
+
+The discussion of the possibility of friendship gets stuck on a dilemma: if two beings are "not 'wanting' in anything," why should they want anything from the other? This central issue is where the **schizoid person's life is liable to founder** – the profound question of whether they are truly self-sufficient or if they genuinely "want" anything from another person.
+
+
+### 10. Compulsive Caricature as Indirect Expression
+
+#### Summary
+
+James's behavior exemplifies how individuals can **indirectly express unresolved feelings, like aggression, by compulsively exaggerating and mimicking another's irritating traits**, thereby evoking from others the emotions they cannot directly confront in the original relationship.
+
+#### Original Points Combined
+
+James "took after" his father in compulsively asking guests if they'd had enough to eat and pressing them to have more, even when they were satisfied. What started as apparent generosity became a **compulsive nuisance** causing general embarrassment. In this, he "took up what he sensed were the aggressive implications in his father's actions, and exposed these implications, through exaggerating them in his own adaptation, to general ridicule and anger." He effectively **evoked from others the feelings he had towards his father** but couldn't express directly, creating a "satirical comment on his father through the medium of a compulsive caricature of him."
+
+
+### 11. The Dual Role of Self-Consciousness for the Ontologically Insecure
+
+#### Summary
+
+For the ontologically insecure person, **self-consciousness serves a contradictory purpose: it both confirms existence through being seen, yet simultaneously exposes them to profound danger** by making them vulnerable to the gaze of others, often leading to defensive attempts to become "invisible."
+
+#### Original Points Combined
+
+In the ontologically insecure person, self-consciousness plays a **double role.** On one hand, being aware of oneself and knowing that others are aware of them is a crucial **means of assuring themselves of their own existence and the existence of others.** This external validation anchors their fragile sense of being. However, in a perceived world full of danger, to be a "potentially seeable object" means being **constantly exposed to vulnerability.** Self-consciousness, in this context, becomes an **apprehensive awareness of oneself as perpetually at risk** simply by being visible to others. The natural defense against such a pervasive danger is to **make oneself "invisible"** in some manner, whether physically, emotionally, or socially.
+
+
+### 12. The Dual Nature of Self-Consciousness
+
+R.D. Laing proposes that self-consciousness is a complex phenomenon involving two distinct yet interconnected dimensions. Firstly, it encompasses an **awareness of oneself by oneself**—our private, internal sense of our thoughts, feelings, and existence, akin to introspection and self-reflection. Secondly, and equally crucial, it includes an **awareness of oneself as an object of someone else's observation**. This refers to our perception of how we are seen, evaluated, and experienced by others, influencing our social behavior and self-presentation. For individuals experiencing ontological insecurity, Laing argues that both these dimensions become intensely amplified and often distorted, leading to a tormenting hyper-awareness of their inner states and a terrifying preoccupation with how they are perceived by the external world.
+
+
+### 13. The Paradox of Self-Preservation
+
+For individuals experiencing profound ontological insecurity, Laing identifies a paradoxical strategy: **"the denial of being as a means of preserving being."** Faced with the terrifying prospect of their own annihilation or disintegration, they may retreat from authentic existence, disengaging from genuine relationships and even their own embodied self. By denying their "true" self and adopting a "false self" or withdrawing into an inner world, they attempt to create a secure, albeit isolated, haven. This defensive maneuver, however, often leads to a deeper sense of unreality and alienation, as the very act of denying their being ultimately prevents them from truly living and affirming their existence in the world.
+
+
+
+### 14. The Desperate Search for Reality Through Pain
+
+Laing highlights a tragic paradox in the struggle for reality: when the ordinary "sentiment du réel" is absent, some individuals may resort to extreme measures to simply **feel something real**. This can manifest as self-inflicted pain or deliberately courting terror. For instance, a schizophrenic woman might engage in acts like stubbing cigarettes on her hand or tearing out her hair, not for masochistic pleasure, but because these intense sensations offer a fleeting, tangible experience that contrasts with her pervasive feeling of unreality. Similarly, a schizoid person might seek out dangerous thrills or "kicks" in a desperate attempt to "scare some life into themselves," hoping to jolt their system into recognizing its own existence. These acts underscore a profound alienation, where the ability to feel pain remains intact, but the fundamental sensation of being alive and real is agonizingly absent.
+
+### Original Text
+
+A further attempt to experience real alive feelings may be made by subjecting oneself to intense pain or terror. Thus, one schizophrenic woman who was in the habit of stubbing out her cigarettes on the back of her hand, pressing her thumbs hard against her eyeballs, slowly tearing out her hair, etc., explained that she did such things in order to experience something "real'. It is most important to understand that this woman was not courting masochistic gratification; nor was she anaesthetic. Her sensations were not less intense than normal. She could feel everything except being alive and real. Minkowski reports that one of his patients set fire to her clothing for similar reasons. The cold schizoid person may go for kicks' , court extreme thrills, push himself into ex-treme risks in order to 'scare some life into himself".
+
+
+### 15. The Desperate Search for Reality Through Pain
+
+Laing highlights a tragic paradox in the struggle for reality: when the ordinary "sentiment du réel" is absent, some individuals may resort to extreme measures to simply **feel something real**. This can manifest as self-inflicted pain or deliberately courting terror. For instance, a schizophrenic woman might engage in acts like stubbing cigarettes on her hand or tearing out her hair, not for masochistic pleasure, but because these intense sensations offer a fleeting, tangible experience that contrasts with her pervasive feeling of unreality. Similarly, a schizoid person might seek out dangerous thrills or "kicks" in a desperate attempt to "scare some life into themselves," hoping to jolt their system into recognizing its own existence. These acts underscore a profound alienation, where the ability to feel pain remains intact, but the fundamental sensation of being alive and real is agonizingly absent.
+
+
+### 16. From Self-Annihilation to the Quest for "Nobody"
+
+This passage describes a pivotal moment, or perhaps a re-conceptualization, in Rose's journey, suggesting an arrest in her self-destructive trajectory. From an existential viewpoint, she ceased her systematic attempt to "murder herself," recognizing that her life had become a relentless endeavor to obliterate her own identity and become "nobody." She meticulously avoided any action, location, or relationship that could specifically define her as a real person. Instead of using actions to achieve real ends and thereby define herself, she sought to reduce herself to a "vanishing-point" by ensuring her acts had no real consequences, thus making them unreal themselves. This pervasive effort to dissociate from her own actions—even in work, friendships, gestures, and expressions—was her desperate means to achieve non-existence, feeling she had denied herself access to the "freshness and forgivingness of creation" that even the simplest of beings, like a girl in a film finding joy in clowns or a song, could experience.
+
+
+
+## 17. The Self and False-self in a Schizophrenic 
+
+The divorce of the self from the body is both something which is painful to be borne, and which the sufferer desperately longs for someone to help mend, but it is also utilised as the basic means of defence. This in fact defines the essential dilemma. The self wishes to be wedded to and embedded in the body, yet is constantly afraid to lodge in the body for fear of there being subject to attacks and dangers which it cannot escape. Yet the self finds that though it is outside the body it cannot sustain the advantages that it might hope for in this position. 
+
+What happens in this scenario:
+1. Its orientation is a primitive oral one, concerned with the dilemma of sustaining its aliveness, while being terrified to 'take in' anything. It becomes parched with thirst, and desolate. 
+2. It becomes charged with hatred of all that is there. The only way of destroying and of not destroying what is there may be felt to be to destroy itself.
+3. The attempt to kill the self may be undertaken intentionally. It is partly defensive ('If I'm dead, I can't be killed'); partly an attempt to endorse the crushing sense of guilt that oppresses the individual (no sense of a right to be alive).
+4. The 'inner' self becomes itself split, and loses its own identity and integrity.
+5. It loses its own realness and direct access to realness outside itself.
+6. The place of safety of the self becomes a prison. Its would be haven becomes a hell
+	1. It ceases even to have the safety of a solitary cell. Its own enclave becomes a torture chamber. The inner self is persecuted within this chamber by split concretised parts of itself or by its own phantoms which have become uncontrollable
+
+
+
+
+
+
+
+7. ~~Sanity is not an absolute state and is defined relationally~~
+	1. ~~"Sanity or psychosis is tested by the degree of conjunction or disjunction between two persons where the one is sane by common consent"~~
+	2. ~~If you and I agree on reality, we call each other sane. But if I disjoin from you, then you might call me mad~~
+	3. ~~e.g. A person sees angels in the room, a psychiatrist doesn't. The person is viewed to be hallucinating while the psychiatrist is viewed to be blind to higher realities. The disjunction is symmetrical but only one side is authorised by society to define the other~~
+	4. ~~Therefore, if sanity is defined by consensus, then psychiatry merely enforces conformity, not truth. Psychiatry may not be curing madness but punishing deviance.~~ 
+8. ~~Forms of anxiety encountered by the ontologically insecure person:~~
+	1. ~~Engulfment~~
+		1. ~~"You are arguing in order to have the pleasure of triumphing over me. At best you win an argument, at worst you lose an argument. I am arguing in order to preserve my existence."~~
+	2. ~~Implosion~~
+	3. ~~Petrification~~
+9. ~~The dangers most dreaded can themselves be encompassed to forestall their actual occurrence.~~ 
+	1. ~~To forgo one’s autonomy becomes the means of secretly safeguarding it~~
+	2. ~~To understand oneself (engulf oneself) is a defense against the risk involved in being sucked into the whirlpool of another person’s way to comprehending oneself~~
+	3. ~~To consume oneself by one’s own love prevents the possibility of being consumed by another~~
+10. ~~If the individual does not feel himself to be autonomous, this means that he can experience neither his separateness from, or his relatedness to, the other in the usual way.~~ 
+	1. ~~This lack of sense of autonomy implies that one feels one's being to be bound up in the other, or that the other is bound up in oneself, in a sense that transgresses the actual possibilities within the structure of human relatedness.~~
+	2. ~~It means that a feeling that one is in a position of ontological dependency on the other (i.e. dependent on the other for one's very own being), is substituted for a sense of relatedness and attachment to him based on genuine mutuality.~~
+	3. ~~Therefore, the polarity is between complete isolation or complete merging of identity rather than between separateness and relatedness. The individual oscillates perpetually, between the two extremes, each equally unfeasible.~~
+	4. ~~Another patient maintained himself in isolated detachment from the world for months, but in doing this, he began to feel he was dying inside. He would emerge into social life for a brief foray in order to get a 'dose' of other people, but 'not an overdose~~
+	5. ~~Case 1: Anxiety at feeling alone~~
+		1. ~~No open neglect or hostility in her family. But her parents were always too engrossed in each other for either of them to take notice of her. She grew up wanting to fill this hole in her life but never succeeded in becoming self-sufficient or absorbed in her own world. Her longing was always to be important and significant to someone else.~~
+		2. ~~The pivotal point around which all her life is centred is her lack of ontological autonomy. If she is not in the actual presence of another person who knows her, or if she cannot succeed in evoking the persons's presence in his absence, her sense of her own identity drains away from her.~~
+	6. ~~Case 2: The individual seems to be the vehicle of the personality that is not his own.~~
+		1. ~~Her parents were, or she felt they were, completely unpredictable and unreliable in their expression of love or hatred, approval or disapproval.~~ 
+		2. ~~Like her mother (or what her mother is probably assumed to be like), she hated everyone. In fact, life was a misery to her by the fact that she could never be herself but was always being her mother.~~ 
+		3. ~~She knew that if she worked herself up into becoming her mother she did not feel frightened any more. However the backwash of this manoeuvre was that she was oppressed, when the storm had passed, by a sense of futility at not being herself, and a hatred of the person she had been (her mother) and herself for her self-duplicity.~~ 
+		4. ~~Once she had become aware of this false way of overcoming the anxiety she was exposed to when she was herself, had to decide whether avoiding experiencing such anxiety, by avoiding being herself, was a cure worse than her disease.~~
+11. ~~The embodied and unembodied self - David~~
+	1. ~~He had grown up taking entire for granted that what he called his 'self' and his 'personality' were two quite separate things.~~
+	2. ~~His ideal was, never to give himself away to others.~~
+	3. ~~The central split is between his 'own' self and his 'personality'.~~ 
+	4. ~~Such a schizoid individual in one sense is trying to be omnipotent by enclosing within his own being, without recourse to a creative relationship with others, modes of relationship that require the effective presence to him of other people and of the outer world. The imagined advantages are safety for the true self, isolation and hence freedom from others, self-sufficiency, and control.~~
+	5. ~~The disadvantages are that this project is impossible and being a false hope, leads on to persistent despair. Secondly, a persistent, haunting sense of futility is the equally inevitable outcome, since the hidden shut-up self, in disowning participation in the quasi-autonomous activities of the false-self, is living only mentally. Moreover, this shut-up self, being isolated, is unable to be enriched by outer experience, and so the whole inner world comes to be more and more impoverished, until the individual may come to feel he is merely a vacuum.~~
+	6. ~~The world as it is, and other people as they are, are the dangers. The self then seeks by being unembodied to transcend the world and hence to be safe. The constant dread of all that is there, of being overwhelmed, is potentiated rather than mitigated by the need to keep the world at bay. Yet the self may at the same time long more than anything for participation in the world. Thus, its greatest longing is felt as it greatest weakness and giving in to this weakness is its greatest dread, since in participation the individual fears that his vacuum will be obliterated, that he will be engulfed or otherwise lose his identity, which has come to be equated with the transcendence in a void.~~ 
+	7. ~~If the individual delegates all transactions between himself and the other to a system within his being which is not 'him', then the world is experienced to be unreal and all that belongs to this system is felt to be false, futile and meaningless. Instead of (Self/body) <> other, the situation is self <> (body/other).~~
+		1. ~~The self, is precluded from having a direct relationship with real things and real people~~
+12. ~~His act is always the product of a false self. The act or the deed is never his true reality. He wishes to remain perpetually uncommitted 'to the objective element' - hence the deed is always (or at least he believes it to be) a pretended, a supposed performance, and he may actively cultivate as far as he can that 'inner' negation of all that he does in an effort to declare everything that he does 'null and void' so that in the world, in reality, in 'the objective element', nothing of 'him' shall exist, and no footprints or fingerprints of the 'self' shall have been left.~~
+13. ~~The discussion of the possibility of friendship gets stuck at the dilemma: if two beings are not 'wanting' in anything, why should they want anything from the other? It is on this central issue that the schizoid person's life is liable to founder - is he self-sufficient or does he 'want' anything?~~
+14. ~~James in some respects 'took after' his father. One of his father's irritating characteristics was a way of asking people at the table if they had had enough to eat, and a tendency to press them to have more, even when they had said quite clearly that they were satisfied. James 'took after' his father in this respect: he always made a point of politely inquiring this of guests at the table. At first it appeared as no more than a generous concern that others should have enough. But his solicitations then came to be compulsive and to be carried past all tolerable bounds, so that he made himself a complete nuisance and occasioned general embarrassment. In this, he took up what he sensed were the aggressive implications in his father's actions, and exposed these implications, through exaggerating them in his own adaptation, to general ridicule and anger. He, in fact, evoked from others the feelings he had towards his father but was unable to express directly to his face. Instead, he produced what amounted to a satirical comment on his father through the medium of a compulsive caricature of him.~~
+
+## Reading Journey
+
+- 2025-10-31: Finished

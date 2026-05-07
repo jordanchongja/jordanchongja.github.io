@@ -3,12 +3,17 @@ title: "Readings & Reflections"
 subtitle: "Books and papers that have shaped my thinking."
 listing:
   contents: .
-  sort: "date desc"
+  sort: 
+    - "rating desc"
+    - "date desc"
+  sort-ui: [date, rating, subtitle]
+  filter-ui: [title, author, subtitle]
   type: grid 
   categories: true
-  sort-ui: [date, subtitle]
-  filter-ui: [title, author, subtitle]
-  fields: [image, title, description, subtitle, author] # 'author' refers to the book author if you add it to YAML
+  fields: [image, title, description, subtitle, author, rating]
+  # Add this to force integer sorting
+  field-types: 
+    rating: number
 page-layout: full
 title-block-banner: true
 ---
