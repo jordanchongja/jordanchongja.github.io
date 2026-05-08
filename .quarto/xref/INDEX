@@ -190,5 +190,14 @@
   },
   "projects/kobostatisticsdatareader/index.qmd": {
     "index.html": "0da4d5b7"
+  },
+  "notes/posts/paper-attention_is_all_I_need/index.qmd": {
+    "index.html": "16b0f8c6"
+  },
+  "notes/posts/options-pricing-models/_option_pricing_for_main_post_reference.qmd": {
+    "_option_pricing_for_main_post_reference.embed.ipynb": "1209fc2d"
+  },
+  "projects/options-research/index.qmd": {
+    "index.html": "fc7cf5fd"
   }
 }

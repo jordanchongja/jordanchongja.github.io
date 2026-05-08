@@ -200,7 +200,7 @@ window.Quarto = {
   <li><a href="#step-3-the-principle-of-no-arbitrage-and-the-black-scholes-pde" id="toc-step-3-the-principle-of-no-arbitrage-and-the-black-scholes-pde" class="nav-link" data-scroll-target="#step-3-the-principle-of-no-arbitrage-and-the-black-scholes-pde">Step 3: The Principle of No-Arbitrage and the Black-Scholes PDE</a></li>
   <li><a href="#interlude-the-fork-in-the-road-how-do-we-solve-this-pde" id="toc-interlude-the-fork-in-the-road-how-do-we-solve-this-pde" class="nav-link" data-scroll-target="#interlude-the-fork-in-the-road-how-do-we-solve-this-pde">Interlude: The Fork in the Road (How do we solve this PDE?)</a></li>
   <li><a href="#step-4-the-risk-neutral-expectation-feynman-kac" id="toc-step-4-the-risk-neutral-expectation-feynman-kac" class="nav-link" data-scroll-target="#step-4-the-risk-neutral-expectation-feynman-kac">Step 4: The Risk-Neutral Expectation (Feynman-Kac)</a></li>
-  <li><a href="#step-5-splitting-and-solving-the-integrals" id="toc-step-5-splitting-and-solving-the-integrals" class="nav-link" data-scroll-target="#step-5-splitting-and-solving-the-integrals">Step 5: Splitting and Solving the Integrals</a></li>
+  <li><a href="#step-5-splitting-and-solving-the-integrals-the-balance-sheet" id="toc-step-5-splitting-and-solving-the-integrals-the-balance-sheet" class="nav-link" data-scroll-target="#step-5-splitting-and-solving-the-integrals-the-balance-sheet">Step 5: Splitting and Solving the Integrals (The Balance Sheet)</a></li>
   <li><a href="#step-6-the-final-black-scholes-formula" id="toc-step-6-the-final-black-scholes-formula" class="nav-link" data-scroll-target="#step-6-the-final-black-scholes-formula">Step 6: The Final Black-Scholes Formula</a></li>
   </ul></li>
   </ul>
@@ -474,50 +474,53 @@ d\Pi = r \Pi dt
 <section id="path-b-the-analytical-approach" class="level4">
 <h4 class="anchored" data-anchor-id="path-b-the-analytical-approach">Path B: The Analytical Approach</h4>
 <p>While grids are powerful, for European options (which cannot be exercised early), we do not need to step through time mechanically. We can use advanced probability theory to solve the PDE perfectly, instantly, and in one continuous leap.</p>
-<p>This brings us back to our derivation, and the genius of Richard Feynman and Mark Kac.</p>
+<p>This brings us back to our derivation and the genius of Richard Feynman and Mark Kac.</p>
 <hr>
 </section>
 </section>
 <section id="step-4-the-risk-neutral-expectation-feynman-kac" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-the-risk-neutral-expectation-feynman-kac">Step 4: The Risk-Neutral Expectation (Feynman-Kac)</h3>
-<p>Solving this PDE directly requires complex substitutions to turn it into a heat equation. Instead, we use the <strong>Feynman-Kac theorem</strong>, which states that the solution to this PDE, subject to the European Call boundary condition at maturity <span class="math inline">\(V(S, T) = \max(S_T - K, 0)\)</span>, can be written as a discounted expected value under the risk-neutral measure <span class="math inline">\(\mathbb{Q}\)</span>:</p>
+<p>Solving the Black-Scholes PDE directly requires complex algebraic substitutions to strip away the drift and discounting until it looks like a standard heat equation. Instead, we use the <strong>Feynman-Kac theorem</strong>. This theorem acts as a mathematical bridge between local differential equations and global probability.</p>
+<p>It states that the solution to this PDE, subject to the European Call boundary condition at maturity <span class="math inline">\(V(S, T) = \max(S_T - K, 0)\)</span>, can be written simply as a discounted expected value under the risk-neutral measure <span class="math inline">\(\mathbb{Q}\)</span>:</p>
 <p><span class="math display">\[
 C(S,t) = e^{-r(T-t)} \mathbb{E}^{\mathbb{Q}}[\max(S_T - K, 0)]
 \]</span></p>
-<section id="the-risk-neutral-measure-mathbbq" class="level4">
-<h4 class="anchored" data-anchor-id="the-risk-neutral-measure-mathbbq">The Risk-Neutral Measure (<span class="math inline">\(\mathbb{Q}\)</span>)</h4>
+<section id="the-risk-neutral-measure-mathbbq-and-the-fair-game" class="level4">
+<h4 class="anchored" data-anchor-id="the-risk-neutral-measure-mathbbq-and-the-fair-game">The Risk-Neutral Measure (<span class="math inline">\(\mathbb{Q}\)</span>) and the “Fair Game”</h4>
 <p>Notice the <span class="math inline">\(\mathbb{Q}\)</span> above the expectation operator. This indicates that we are calculating the expectation under the <strong>Risk-Neutral Measure</strong>, not the real-world probability measure (<span class="math inline">\(\mathbb{P}\)</span>).</p>
-<p>Why? Remember when we delta-hedged our portfolio in Step 2? The real-world expected return of the stock (<span class="math inline">\(\mu\)</span>) completely disappeared from our math. Because the option price does not care about the stock’s true expected growth, we can pretend we live in a simplified “risk-neutral” universe. In this universe, all assets—including the risky stock—are expected to grow at exactly the risk-free rate <span class="math inline">\(r\)</span>.</p>
+<p>Why does this work? Remember when we delta-hedged our portfolio in Step 2? The real-world expected return of the stock (<span class="math inline">\(\mu\)</span>) completely disappeared from our math because the PDE forces it to zero. By stripping away the real-world trend, the discounted option price becomes a <strong>Martingale</strong> (a mathematically “fair game”).</p>
+<p>In a Martingale, the process has zero drift. The expected future value is simply the current value plus random noise. Because the option price does not care about the stock’s true expected growth, we can pretend we live in a simplified “risk-neutral” universe. In this universe, all assets (including the risky stock) are expected to grow at exactly the risk-free rate <span class="math inline">\(r\)</span>.</p>
 <p>So, we rewrite our stock’s stochastic differential equation (SDE), replacing <span class="math inline">\(\mu\)</span> with <span class="math inline">\(r\)</span>: <span class="math display">\[
 dS_t = r S_t dt + \sigma S_t dW^{\mathbb{Q}}_t
 \]</span></p>
 </section>
-<section id="solving-for-the-terminal-stock-price-s_t" class="level4">
-<h4 class="anchored" data-anchor-id="solving-for-the-terminal-stock-price-s_t">Solving for the Terminal Stock Price (<span class="math inline">\(S_T\)</span>)</h4>
-<p>To evaluate our expected payoff, we need an explicit formula for <span class="math inline">\(S_T\)</span>. We solve the risk-neutral SDE by applying Itô’s Lemma to the natural log of the stock price, <span class="math inline">\(f(S_t) = \ln(S_t)\)</span>.</p>
+<section id="solving-for-the-terminal-stock-price-s_t-and-the-normal-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="solving-for-the-terminal-stock-price-s_t-and-the-normal-distribution">Solving for the Terminal Stock Price (<span class="math inline">\(S_T\)</span>) and the Normal Distribution</h4>
+<p>To evaluate our expected payoff, we need an explicit formula for <span class="math inline">\(S_T\)</span>. At expiration, <span class="math inline">\(S_T - K\)</span> is a solid number. However, looking forward from today, <span class="math inline">\(S_T\)</span> is not a single number; it is a probability density function.</p>
+<p>We solve the risk-neutral SDE by applying Itô’s Lemma to the natural log of the stock price, <span class="math inline">\(f(S_t) = \ln(S_t)\)</span>. We use the natural log because stock prices compound geometrically and cannot fall below zero.</p>
 <p>Using Itô’s Lemma on <span class="math inline">\(\ln(S_t)\)</span> yields: <span class="math display">\[
 d(\ln S_t) = \left( r - \frac{1}{2}\sigma^2 \right) dt + \sigma dW^{\mathbb{Q}}_t
 \]</span></p>
-<p><em>(Notice the <span class="math inline">\(-\frac{1}{2}\sigma^2\)</span> term appearing! This is the exact mathematical origin of the <strong>volatility drag</strong> we discussed in Section 1. The variance mathematically pulls down the expected geometric growth rate.)</em></p>
+<p><em>(Notice the <span class="math inline">\(-\frac{1}{2}\sigma^2\)</span> term appearing! This is the exact mathematical origin of the <strong>volatility drag</strong> we discussed in Section 1. It acts as a mathematical tax where the variance physically pulls down the expected geometric growth rate.)</em></p>
 <p>Because the drift and volatility terms are now constants, we can cleanly integrate both sides from today (<span class="math inline">\(t\)</span>) to expiration (<span class="math inline">\(T\)</span>). Let <span class="math inline">\(\tau = T - t\)</span> (the time to maturity). <span class="math display">\[
 \ln(S_T) - \ln(S_t) = \left( r - \frac{1}{2}\sigma^2 \right)\tau + \sigma (W_T - W_t)
 \]</span></p>
+<p>When we integrate the Wiener process <span class="math inline">\(dW_t\)</span>, we accumulate all the random increments over time <span class="math inline">\(\tau\)</span>. By definition, the change in a Wiener process over time <span class="math inline">\(\tau\)</span> generates a normal distribution with a mean of 0 and a variance of <span class="math inline">\(\tau\)</span>. This creates a standard normal random variable <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> scaled by <span class="math inline">\(\sqrt{\tau}\)</span>.</p>
 <p>By taking the exponential of both sides, we get the explicit, log-normal distribution for the stock price at maturity: <span class="math display">\[
 S_T = S_t \exp\left( \left(r - \frac{\sigma^2}{2}\right)\tau + \sigma \sqrt{\tau} Z \right)
 \]</span></p>
-<p>Where <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> is a standard normal random variable representing the total accumulated randomness between <span class="math inline">\(t\)</span> and <span class="math inline">\(T\)</span>.</p>
 <hr>
 </section>
 </section>
-<section id="step-5-splitting-and-solving-the-integrals" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-splitting-and-solving-the-integrals">Step 5: Splitting and Solving the Integrals</h3>
-<p>We can now rewrite our expectation as an integral over the standard normal Probability Density Function (PDF), which is <span class="math inline">\(\phi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>:</p>
+<section id="step-5-splitting-and-solving-the-integrals-the-balance-sheet" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-splitting-and-solving-the-integrals-the-balance-sheet">Step 5: Splitting and Solving the Integrals (The Balance Sheet)</h3>
+<p>Because <span class="math inline">\(S_T\)</span> is driven by the normally distributed variable <span class="math inline">\(Z\)</span>, we can now rewrite our expectation as an integral over the standard normal Probability Density Function (PDF), which is <span class="math inline">\(\phi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>:</p>
 <p><span class="math display">\[
 C(S,t) = e^{-r\tau} \int_{-\infty}^{\infty} \max(S_T(z) - K, 0) \phi(z) dz
 \]</span></p>
 <section id="finding-the-boundary-condition-dropping-the-max-function" class="level4">
 <h4 class="anchored" data-anchor-id="finding-the-boundary-condition-dropping-the-max-function">Finding the Boundary Condition (Dropping the Max Function)</h4>
-<p>The option only has a payoff when <span class="math inline">\(S_T &gt; K\)</span>. We need to find the critical value of our normal variable <span class="math inline">\(Z\)</span> where the stock price exactly equals the strike price (<span class="math inline">\(S_T = K\)</span>):</p>
+<p>The option only has a payoff when <span class="math inline">\(S_T &gt; K\)</span>. Because we do not care about scenarios where the option expires worthless, we need to find the critical value of our normal variable <span class="math inline">\(Z\)</span> where the stock price exactly equals the strike price (<span class="math inline">\(S_T = K\)</span>):</p>
 <p><span class="math display">\[
 S_t \exp\left( \left(r - \frac{\sigma^2}{2}\right)\tau + \sigma \sqrt{\tau} Z \right) &gt; K
 \]</span> Take the natural log of both sides: <span class="math display">\[
@@ -525,29 +528,31 @@ S_t \exp\left( \left(r - \frac{\sigma^2}{2}\right)\tau + \sigma \sqrt{\tau} Z \r
 \]</span> Isolate <span class="math inline">\(Z\)</span>: <span class="math display">\[
 Z &gt; \frac{\ln(K/S_t) - (r - \frac{\sigma^2}{2})\tau}{\sigma \sqrt{\tau}}
 \]</span></p>
-<p>Let’s define this entire right-side boundary threshold as <span class="math inline">\(-d_2\)</span>. Thus, the option is “in-the-money” and pays off whenever <span class="math inline">\(Z &gt; -d_2\)</span>. Because we know the lower bound, we can drop the <span class="math inline">\(\max()\)</span> function and restrict our integral bounds:</p>
+<p>Let’s define this entire right-side boundary threshold as <span class="math inline">\(-d_2\)</span>. Thus, the option is “in-the-money” and pays off whenever <span class="math inline">\(Z &gt; -d_2\)</span>. Because we know the exact lower bound where the value becomes positive, we can drop the <span class="math inline">\(\max()\)</span> function and restrict our integral bounds strictly to the winning scenarios:</p>
 <p><span class="math display">\[
 C(S,t) = e^{-r\tau} \int_{-d_2}^{\infty} (S_T(z) - K) \phi(z) dz
 \]</span></p>
 </section>
-<section id="splitting-the-integral" class="level4">
-<h4 class="anchored" data-anchor-id="splitting-the-integral">Splitting the Integral</h4>
-<p>We expand the terms and split this into two separate integrals: <span class="math display">\[
-C(S,t) = \underbrace{e^{-r\tau} \int_{-d_2}^{\infty} S_T(z) \phi(z) dz}_{\text{Part A (Stock)}} \quad - \quad \underbrace{K e^{-r\tau} \int_{-d_2}^{\infty} \phi(z) dz}_{\text{Part B (Strike)}}
+<section id="splitting-the-integral-cash-vs.-asset" class="level4">
+<h4 class="anchored" data-anchor-id="splitting-the-integral-cash-vs.-asset">Splitting the Integral: Cash vs.&nbsp;Asset</h4>
+<p>We expand the terms and split this into two separate integrals. This perfectly reflects the dual nature of an option exercise: the expected benefit of receiving the stock minus the expected cost of paying the strike. <span class="math display">\[
+C(S,t) = \underbrace{e^{-r\tau} \int_{-d_2}^{\infty} S_T(z) \phi(z) dz}_{\text{Part A (The Asset Component)}} \quad - \quad \underbrace{K e^{-r\tau} \int_{-d_2}^{\infty} \phi(z) dz}_{\text{Part B (The Cash Component)}}
 \]</span></p>
 </section>
-<section id="solving-part-b-the-strike-portion" class="level4">
-<h4 class="anchored" data-anchor-id="solving-part-b-the-strike-portion">Solving Part B (The Strike Portion)</h4>
-<p>Part B is incredibly straightforward. It is simply the discounted strike price multiplied by the probability that <span class="math inline">\(Z &gt; -d_2\)</span>. Because the standard normal distribution is perfectly symmetric, the probability of being greater than <span class="math inline">\(-d_2\)</span> is identical to the probability of being less than <span class="math inline">\(d_2\)</span>. Let <span class="math inline">\(N(\cdot)\)</span> denote the standard normal Cumulative Distribution Function (CDF). <span class="math display">\[
+<section id="solving-part-b-the-cash-component" class="level4">
+<h4 class="anchored" data-anchor-id="solving-part-b-the-cash-component">Solving Part B (The Cash Component)</h4>
+<p>Part B is incredibly straightforward. It represents a “Cash-or-Nothing” bet. The cost of <span class="math inline">\(K\)</span> is flat, meaning it does not matter if the stock finishes <span class="math inline">\(\$1\)</span> in the money or <span class="math inline">\(\$1,000\)</span> in the money; you still only pay exactly <span class="math inline">\(K\)</span>.</p>
+<p>Therefore, we only care about the base probability that <span class="math inline">\(Z &gt; -d_2\)</span>. Because the standard normal distribution is perfectly symmetric, the probability of being greater than <span class="math inline">\(-d_2\)</span> is identical to the probability of being less than <span class="math inline">\(d_2\)</span>. Let <span class="math inline">\(N(\cdot)\)</span> denote the standard normal Cumulative Distribution Function (CDF). <span class="math display">\[
 P(Z &gt; -d_2) = P(Z &lt; d_2) = N(d_2)
 \]</span></p>
-<p>So, Part B simplifies beautifully to: <span class="math display">\[
+<p>So, Part B simplifies beautifully to the expected, discounted cost of cash: <span class="math display">\[
 K e^{-r\tau} N(d_2)
 \]</span></p>
 </section>
-<section id="solving-part-a-the-stock-portion" class="level4">
-<h4 class="anchored" data-anchor-id="solving-part-a-the-stock-portion">Solving Part A (The Stock Portion)</h4>
-<p>Part A is trickier because <span class="math inline">\(S_T(z)\)</span> also contains an exponential function. Let’s substitute <span class="math inline">\(S_T(z)\)</span> and <span class="math inline">\(\phi(z)\)</span> into the integral: <span class="math display">\[
+<section id="solving-part-a-the-asset-component-and-the-mean-shift" class="level4">
+<h4 class="anchored" data-anchor-id="solving-part-a-the-asset-component-and-the-mean-shift">Solving Part A (The Asset Component and the Mean Shift)</h4>
+<p>Part A is trickier because it represents an “Asset-or-Nothing” bet. Unlike the flat cost of cash, the value of the stock you receive <em>does</em> depend on how deep in the money you are. If the stock finishes much higher, the payoff is much larger.</p>
+<p>To solve this mathematically, we are multiplying the normal distribution by the exponentially growing stock price. Let’s substitute <span class="math inline">\(S_T(z)\)</span> and <span class="math inline">\(\phi(z)\)</span> into the integral: <span class="math display">\[
 e^{-r\tau} \int_{-d_2}^{\infty} S_t e^{(r - \sigma^2/2)\tau + \sigma \sqrt{\tau} z} \left( \frac{1}{\sqrt{2\pi}} e^{-z^2/2} \right) dz
 \]</span></p>
 <p>We pull the constants out of the integral and combine the <span class="math inline">\(e\)</span> exponents: <span class="math display">\[
@@ -564,20 +569,21 @@ S_t e^{-\sigma^2\tau/2} \int_{-d_2}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{
 <p>The <span class="math inline">\(e^{-\sigma^2\tau/2}\)</span> on the outside and <span class="math inline">\(e^{\sigma^2\tau/2}\)</span> on the inside cancel perfectly! We are left with: <span class="math display">\[
 S_t \int_{-d_2}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}(z - \sigma \sqrt{\tau})^2} dz
 \]</span></p>
-<p>This integral is just a standard normal distribution that has been shifted by a mean of <span class="math inline">\(\sigma \sqrt{\tau}\)</span>. Let’s make a final substitution: let <span class="math inline">\(y = z - \sigma \sqrt{\tau}\)</span>, so <span class="math inline">\(dy = dz\)</span>. When <span class="math inline">\(z = -d_2\)</span>, our new lower bound becomes <span class="math inline">\(y = -d_2 - \sigma \sqrt{\tau}\)</span>.</p>
-<p>By mathematical definition, we call this new boundary <span class="math inline">\(-d_1\)</span>. Therefore: <span class="math display">\[
+<p>Notice what happened here. By weighting the probability by the actual asset value (an exponential function), this integral has become a new standard normal distribution that is <strong>shifted to the right</strong> by a mean of <span class="math inline">\(\sigma \sqrt{\tau}\)</span>.</p>
+<p>The “center of gravity” for the expected stock value moves forward by exactly one standard deviation of the randomness. Let’s make a final substitution: let <span class="math inline">\(y = z - \sigma \sqrt{\tau}\)</span>, so <span class="math inline">\(dy = dz\)</span>.</p>
+<p>When <span class="math inline">\(z = -d_2\)</span>, our new lower bound becomes <span class="math inline">\(y = -d_2 - \sigma \sqrt{\tau}\)</span>. By mathematical definition, we call this new boundary <span class="math inline">\(-d_1\)</span>. Therefore: <span class="math display">\[
 d_1 = d_2 + \sigma \sqrt{\tau}
 \]</span></p>
 <p>The integral becomes: <span class="math display">\[
 S_t \int_{-d_1}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-y^2/2} dy
 \]</span></p>
-<p>Just like in Part B, this is simply <span class="math inline">\(S_t \times P(Y &gt; -d_1)\)</span>. Due to symmetry, this equals <span class="math inline">\(S_t N(d_1)\)</span>.</p>
+<p>Just like in Part B, this is simply <span class="math inline">\(S_t \times P(Y &gt; -d_1)\)</span>. Due to symmetry, this equals the expected, weighted value of the asset received: <span class="math inline">\(S_t N(d_1)\)</span>.</p>
 <hr>
 </section>
 </section>
 <section id="step-6-the-final-black-scholes-formula" class="level3">
 <h3 class="anchored" data-anchor-id="step-6-the-final-black-scholes-formula">Step 6: The Final Black-Scholes Formula</h3>
-<p>By recombining our solved integrals (Part A - Part B), we finally arrive at the glorious, closed-form Black-Scholes formula for a European Call option:</p>
+<p>By recombining our solved integrals (Part A minus Part B), we finally arrive at the glorious, closed-form Black-Scholes formula for a European Call option:</p>
 <p><span class="math display">\[
 C(S, t) = S_t N(d_1) - K e^{-r\tau} N(d_2)
 \]</span></p>
@@ -588,10 +594,7 @@ d_2 = d_1 - \sigma \sqrt{\tau} = \frac{\ln(S_t/K) + (r - \frac{\sigma^2}{2})\tau
 \]</span></p>
 <section id="financial-intuition-of-the-formula" class="level4">
 <h4 class="anchored" data-anchor-id="financial-intuition-of-the-formula">Financial Intuition of the Formula</h4>
-<p>The math is beautiful, but what does it actually mean for a trader?<br>
-* <strong><span class="math inline">\(N(d_2)\)</span></strong> is the risk-neutral probability that the option will expire “in-the-money” (that <span class="math inline">\(S_T &gt; K\)</span>). Therefore, <span class="math inline">\(K e^{-r\tau} N(d_2)\)</span> is simply the expected cost of having to pay the strike price at expiration, discounted to today.<br>
-* <strong><span class="math inline">\(N(d_1)\)</span></strong> is the option’s Delta (<span class="math inline">\(\Delta\)</span>). It represents the probability-weighted expected value of the stock, <em>conditional</em> on the option expiring in the money.<br>
-* Therefore, the formula simply says: <strong>Call Price = (Expected Benefit of receiving the stock) - (Expected Cost of paying the strike).</strong></p>
+<p>The math is beautiful, but what does it actually mean for a trader? * <strong><span class="math inline">\(N(d_2)\)</span></strong> is the literal risk-neutral probability that the option will expire “in-the-money” (that <span class="math inline">\(S_T &gt; K\)</span>). Therefore, <span class="math inline">\(K e^{-r\tau} N(d_2)\)</span> is simply the expected cost of having to pay the strike price at expiration, discounted to today. * <strong><span class="math inline">\(N(d_1)\)</span></strong> is the option’s Delta (<span class="math inline">\(\Delta\)</span>). It represents the probability-weighted expected value of the stock, <em>conditional</em> on the option expiring in the money. It is shifted higher than <span class="math inline">\(N(d_2)\)</span> because it accounts for the magnitude of the win. Higher stock prices have more mathematical weight, pulling the expectation upward. * Therefore, the formula is simply a logical balance sheet: <strong>Call Price = (Expected Benefit of receiving the stock) minus (Expected Cost of paying the strike).</strong></p>
 
 
 </section>

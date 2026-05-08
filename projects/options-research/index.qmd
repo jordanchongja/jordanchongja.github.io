@@ -1,0 +1,74 @@
+---
+title: "Options Research"
+description: "A summary of my research into options, including a payoff visualisation tool, a pricing calibration tool, and a look into the Black-Scholes numerical methods, among others."
+date: 2024-02-23
+categories: [Quantitative Finance, Python, OOP, Streamlit, Derivatives, featured] 
+image: featured_vol_smile.png
+image-alt: "Screenshot of the Options Structuring Dashboard"
+client: "Quantitative Developer / Risk Analyst Portfolio" 
+github-repo: "https://github.com/jordanchongja/research-vault/tree/main/options-pricing"
+body-class: "project-detail-view"
+include-before-body:
+  text: "<div style='margin-top: 50px;'></div>"
+---
+
+![](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
+![](https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![](https://img.shields.io/badge/Status-Live_&_Deployed-success)
+[![GitHub](https://img.shields.io/badge/View_Source_Code-181717?logo=github&logoColor=white)](https://github.com/jordanchongja/research-vault/tree/main/options-pricing)
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+  .btn-launch {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FF4B4B;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+  }
+  .btn-launch:hover {
+    background-color: #E03E3E;
+  }
+</style>
+
+# Inception and Continued Direction of the Options Research
+So, the research stemmed from a curiousity into options, how they work and how they are priced. At the start, i struggled to visualise the impact of combining a stock with a vanilla option, which lead to the first chapter, a streamlit dashboard that would help visualise the payoff profiles of different products put together. 
+
+A natural follow up was then, how is the pricing for these models being done? And thus i looked more into the base model for options which was Black-Scholes and how the equation was derived. You can read more about the research into [Black-Scholes Derivation here.](https://jordanchongja.github.io/notes/posts/black-scholes-derivation/)
+
+During this research, i found that there were numerical and analytical methods to solve the Black-Scholes partial differential equation, and my notebooks on the [Black-Scholes Numerical Methods here.](https://jordanchongja.github.io/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html)
+
+Once that was done and i had somewhat of an intuitive understanding of Black-Scholes, i then moved on to other pricing models, like Merton-Jump Diffusion, Merton, and Bates models, trying to calibrate them with the use of option data from WRDS. I tried to contrast [Theoretical against Observed Option Pricing Models here.](https://jordanchongja.github.io/notes/posts/options-pricing-models/)
+
+Alternatively, I have included the subpages in this webpage below as well. Hope this helps.
+
+# Chapter 1: Streamlit Payoff Profile Visualisation
+
+<center>
+  <a href="https://options-payoff-visualisation.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
+</center>
+
+---
+
+# Chapter 2: Black-Scholes Numerical Methods
+
+{{< embed ../../notes/posts/options-numerical-methods-for-black-scholes/_numerical_methods_for_main_post_reference.ipynb >}}
+
+---
+
+# Chapter 3: Theoretical versus Observed Option Pricing Models
+
+{{< embed ../../notes/posts/options-pricing-models/_option_pricing_for_main_post_reference.qmd >}}
+
+
+---
+
+
+# Conclusion
+Hope you read to the end! Thanks!

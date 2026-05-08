@@ -204,7 +204,7 @@ Before training begins, all the numbers in the "Value" rows are **completely ran
 
 Here is how the logical flow looks in python:
 ```{python}
-#| label: PositionalEncoding
+#| label: Hashtables
 #| warning: false
 #| message: false
 import numpy as np
