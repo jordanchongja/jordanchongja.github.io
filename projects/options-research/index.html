@@ -729,6 +729,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <h3 class="anchored" data-anchor-id="data-and-math-engines">1. Data and Math Engines</h3>
 <p>For this project, i got the data from WRDS, mainly for the S&amp;P500, and since most of the math was going to be repeated, i created a separate math_engine.py to run most of the code, keeping it separate from the jupyter notebook to prevent the notebook from becoming too cluttered. This code can be found in my github repo.</p>
 <div id="global-setup" class="cell" data-message="false" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports and Setup</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -849,6 +851,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"⏳ Expiry Date:  </span><span class="sc">{</span>TARGET_EXDATE<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>days_diff<span class="sc">}</span><span class="ss"> days)"</span>)</span>
 <span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"📊 Liquid Strikes: </span><span class="sc">{</span><span class="bu">len</span>(valid_strikes)<span class="sc">}</span><span class="ss"> (within 10% bound)"</span>)</span>
 <span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <hr>
 </section>
@@ -857,6 +860,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>To build an intuition for the Black-Scholes environment, we first simulate the underlying asset’s behavior using Geometric Brownian Motion (GBM). This Monte Carlo simulation projects multiple potential asset paths over a 1-year horizon, governed by a constant drift and volatility.</p>
 <p>It visually reinforces the core Black-Scholes assumption: asset prices follow a log-normal random walk where returns are continuous and normally distributed.</p>
 <div id="montecarlorandomwalk" class="cell" data-message="false" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> simulate_gbm</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Run the corrected simulation</span></span>
@@ -889,6 +894,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="black-scholes-call-pricing-the-greeks" class="level3">
@@ -899,6 +905,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Notice how Gamma (<span class="math inline">\(\Gamma\)</span>) peaks exactly at-the-money (ATM), indicating the highest rate of change for Delta, while Theta (<span class="math inline">\(\Theta\)</span>) accelerates negatively as expiration approaches.</p>
 <p>This interactive view is crucial for understanding how dynamically hedging a portfolio requires constant, non-linear rebalancing as the spot price slides across the strike.</p>
 <div id="greeksvisualisation" class="cell" data-message="false" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_delta, bs_gamma, bs_call_theta, bs_vega, bs_call_rho</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -954,6 +962,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>display(ui, out)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="put-call-parity-with-european-put-options-pricing" class="level3">
@@ -961,6 +970,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>To ensure the underlying Python math engine is fundamentally sound, we run a strict validation check using Put-Call Parity.</p>
 <p>Since European options must adhere to this arbitrage-free relationship, the infinitesimal difference between the synthetic replication and our calculated prices confirms the closed-form Black-Scholes functions are executing flawlessly.</p>
 <div id="putcallparityverification" class="cell" data-message="false" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_price, bs_put_price</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Setup Parameters</span></span>
@@ -1020,6 +1031,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Render to the Quarto Page</span></span>
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>display(Markdown(full_report))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="visualising-the-volatility-surface" class="level3">
@@ -1028,6 +1040,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Visualizing the surface highlights how time decay and moneyness compound together.</p>
 <p>For instance, when switching to the Gamma metric, you can visually observe the “Gamma pin risk” forming a sharp, dangerous ridge exactly at-the-money as the time to expiration collapses toward zero.</p>
 <div id="volatilitysurfacevisualisation" class="cell" data-message="false" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_price</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define the 1D ranges</span></span>
@@ -1120,6 +1134,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Display Everything ---</span></span>
 <span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>display(ui, plot_output)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="visualising-the-implied-volatility-skew-from-spx-option-prices" class="level3">
@@ -1128,6 +1143,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Instead of forming a flat horizontal line at the constant ATM volatility, the market prices downside puts at lower strikes with a significantly higher premium.</p>
 <p>This structural skew proves that participants are actively pricing in crash risks that a standard normal distribution ignores.</p>
 <div id="impliedivfrommarketprices" class="cell" data-message="false" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> implied_volatility</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Back-calculate Market IV with a safety filter</span></span>
@@ -1202,6 +1219,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <hr>
 </section>
@@ -1213,6 +1231,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>To address the flat-volatility flaw of Black-Scholes, we introduce the Heston Model, which treats variance as its own stochastic process. In this simulation, you can see the secondary variance process actively oscillating and reverting to its long-term mean (<span class="math inline">\(\theta\)</span>).</p>
 <p>Because the asset price and its variance are correlated, sudden drops in the simulated asset price are often accompanied by spikes in volatility, mimicking real-world market panic.</p>
 <div id="hestonpricemontecarlo" class="cell" data-message="false" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.colors <span class="im">as</span> pcolors</span>
@@ -1320,6 +1340,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>fig.show(config<span class="op">=</span>{<span class="st">'displayModeBar'</span>: <span class="va">False</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="impact-of-correlation-on-heston-how-asset-classes-affect-heston-iv" class="level3">
@@ -1327,6 +1348,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>The true power of the Heston model lies in the correlation parameter (<span class="math inline">\(\rho\)</span>) between the asset and its variance. By tweaking <span class="math inline">\(\rho\)</span>, we can flexibly bend the volatility surface to fit different asset classes.</p>
 <p>A strongly negative correlation perfectly replicates the steep downside skew seen in equities, while a correlation near zero models the symmetric “smile” characteristic of FX markets.</p>
 <div id="hestonimpliedivfrommarketprices" class="cell" data-message="false" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> heston_call_price, implied_volatility</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Define Model Parameters ---</span></span>
@@ -1413,12 +1436,15 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>fig.show(config<span class="op">=</span>{<span class="st">'displayModeBar'</span>: <span class="va">False</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <hr>
 </section>
 <section id="model-3-the-merton-jump-diffusion-model-mjd" class="level3">
 <h3 class="anchored" data-anchor-id="model-3-the-merton-jump-diffusion-model-mjd">Model 3: The Merton Jump Diffusion Model (MJD)</h3>
 <div id="blackscholesformertonjumpprices" class="cell" data-message="false" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
@@ -1543,6 +1569,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>fig.show(config<span class="op">=</span>{<span class="st">'displayModeBar'</span>: <span class="va">False</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="year-log-return-distribution-for-the-merton-jump-diffusion-and-fat-tails" class="level3">
@@ -1551,6 +1578,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Compared to the normal distribution of Black-Scholes, the Merton model exhibits distinct negative skewness and a pronounced “fat tail” on the left side.</p>
 <p>This accurately reflects the empirical reality that massive market drawdowns occur far more frequently than a standard normal distribution predicts.</p>
 <div id="logdistributionforfattails" class="cell" data-message="false" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1655,6 +1684,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>fig.show(config<span class="op">=</span>{<span class="st">'displayModeBar'</span>: <span class="va">False</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="theoretical-merton-volatility-skew" class="level3">
@@ -1662,6 +1692,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>By translating the Merton jump prices back into implied volatilities, we generate a theoretical volatility skew. The anticipation of sudden jumps forces the model to mathematically assign higher premiums to out-of-the-money options.</p>
 <p>This demonstrates that introducing discontinuous jump risk is an effective mechanism for generating the volatility skew observed in actual option chains.</p>
 <div id="mertonvolatilityskew" class="cell" data-message="false" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -1754,6 +1786,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Debugging diagnostics </span></span>
 <span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Calculated IVs: </span><span class="sc">{</span>merton_ivs[:<span class="dv">5</span>]<span class="sc">}</span><span class="ss">"</span>) </span>
 <span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of NaNs: </span><span class="sc">{</span>np<span class="sc">.</span>isnan(merton_ivs)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> out of </span><span class="sc">{</span><span class="bu">len</span>(merton_ivs)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>
@@ -1762,6 +1795,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>The Bates model represents the culmination of these theories, merging Heston’s stochastic volatility with Merton’s jumps (SVJ).</p>
 <p>By tracking the variance and price paths simultaneously, we see a highly realistic market simulation: volatility drifts and clusters over time, while sudden Poisson-driven price jumps inject immediate shocks into the system. It is a robust theoretical framework for capturing both short-term crash risk and long-term skew.</p>
 <div id="batesmodelwithjumps" class="cell" data-message="false" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.colors <span class="im">as</span> pcolors</span>
@@ -1881,6 +1916,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a>fig.show(config<span class="op">=</span>{<span class="st">'displayModeBar'</span>: <span class="va">False</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <hr>
 <section id="market-data-analysis-and-visualisation" class="level3">
@@ -1888,6 +1924,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>With our theoretical frameworks established, we turn to the empirical data.</p>
 <p>This snapshot confirms the initial state of our chosen SPX options chain, defining the specific spot price, time to maturity, and risk-free rate we will use as ground-truth targets for our calibration algorithms.</p>
 <div id="marketdatavisualisation" class="cell" data-message="false" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Construct the Markdown Display Table</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>intro_report <span class="op">=</span> <span class="ss">f"""</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Market Snapshot: </span><span class="sc">{</span>TARGET_DATE<span class="sc">}</span></span>
@@ -1923,6 +1961,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
 <span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>display(Markdown(intro_report))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="market-data-in-sample-calibration-and-fitting-of-the-model." class="level3">
@@ -1931,6 +1970,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Calibration is a complex optimization problem where we must find the parameter set that minimizes the difference between our theoretical prices and actual market prices.</p>
 <p>Here, we deploy a hybrid optimization routine: a global differential evolution algorithm roughly scopes out the general parameter basin, followed by a local L-BFGS-B sniper to pinpoint the exact minimum.</p>
 <div id="in-samplemodelfit" class="cell" data-message="false" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 0. BULLETPROOF THE MARKET STATE ---</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-extract real market variables in case previous simulation cells overwrote them</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>S0, T, r, q <span class="op">=</span> state[<span class="st">'S0'</span>], state[<span class="st">'T'</span>], state[<span class="st">'r'</span>], state[<span class="st">'q'</span>]</span>
@@ -2102,6 +2143,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb17-169"><a href="#cb17-169" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb17-170"><a href="#cb17-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-171"><a href="#cb17-171" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>The plotted output vividly demonstrates the hierarchy of the models. The Bates SVJ model successfully wraps itself around the curvature of the actual market skew, whereas the rigid Black-Scholes model remains completely flat.</p>
 </section>
@@ -2111,6 +2153,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>By introducing stochastic variance and jumps, the Bates model achieves a “Best-in-Class” fit, drastically minimizing the Root Mean Squared Error (RMSE) against the market IVs.</p>
 <p>It systematically outperforms the baseline models, proving that the added mathematical complexity yields tangible pricing accuracy.</p>
 <div id="modelerrorchecking" class="cell" data-message="false" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, mean_absolute_error</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2174,6 +2218,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
 <span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>display(Markdown(report_md))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="out-of-sample-testing" class="level3">
@@ -2181,6 +2226,8 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>A model that perfectly fits today’s data is flawed if it simply overfit the noise.</p>
 <p>To test true predictive stability, we roll the market forward by one day and evaluate our frozen calibrated parameters against unseen, out-of-sample data to ensure the model retains its structural integrity.</p>
 <div id="out-of-sampletesting" class="cell" data-message="false" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2256,6 +2303,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a><span class="ss">&gt; **Reliability Note:** The small gap between the In-Sample and Out-of-Sample RMSE confirms the Bates model is successfully capturing the underlying physical dynamics of the SPX volatility surface, rather than just mathematically overfitting to a single day's noise.</span></span>
 <span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
 <span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>display(Markdown(oos_summary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="the-ultimate-fit-local-volatility-dupire" class="level3">
