@@ -219,7 +219,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -228,7 +228,16 @@ window.Quarto = {
    
   <ul>
   <li><a href="#inception-and-continued-direction-of-the-options-research" id="toc-inception-and-continued-direction-of-the-options-research" class="nav-link active" data-scroll-target="#inception-and-continued-direction-of-the-options-research">Inception and Continued Direction of the Options Research</a></li>
-  <li><a href="#chapter-1-streamlit-payoff-profile-visualisation" id="toc-chapter-1-streamlit-payoff-profile-visualisation" class="nav-link" data-scroll-target="#chapter-1-streamlit-payoff-profile-visualisation">Chapter 1: Streamlit Payoff Profile Visualisation</a></li>
+  <li><a href="#chapter-1-streamlit-payoff-profile-visualisation" id="toc-chapter-1-streamlit-payoff-profile-visualisation" class="nav-link" data-scroll-target="#chapter-1-streamlit-payoff-profile-visualisation">Chapter 1: Streamlit Payoff Profile Visualisation</a>
+  <ul class="collapse">
+  <li><a href="#features-of-the-streamlit-appliation" id="toc-features-of-the-streamlit-appliation" class="nav-link" data-scroll-target="#features-of-the-streamlit-appliation">Features of the Streamlit Appliation</a>
+  <ul class="collapse">
+  <li><a href="#structuring" id="toc-structuring" class="nav-link" data-scroll-target="#structuring">1. Structuring</a></li>
+  <li><a href="#greeks-explorer" id="toc-greeks-explorer" class="nav-link" data-scroll-target="#greeks-explorer">2. Greeks Explorer</a></li>
+  <li><a href="#pricing-models" id="toc-pricing-models" class="nav-link" data-scroll-target="#pricing-models">3. Pricing Models</a></li>
+  <li><a href="#volitility-surface" id="toc-volitility-surface" class="nav-link" data-scroll-target="#volitility-surface">4. Volitility Surface</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#chapter-2-black-scholes-numerical-methods" id="toc-chapter-2-black-scholes-numerical-methods" class="nav-link" data-scroll-target="#chapter-2-black-scholes-numerical-methods">Chapter 2: Black-Scholes Numerical Methods</a></li>
   <li><a href="#chapter-3-theoretical-versus-observed-option-pricing-models" id="toc-chapter-3-theoretical-versus-observed-option-pricing-models" class="nav-link" data-scroll-target="#chapter-3-theoretical-versus-observed-option-pricing-models">Chapter 3: Theoretical versus Observed Option Pricing Models</a>
   <ul class="collapse">
@@ -265,7 +274,7 @@ window.Quarto = {
 <div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="..\..\notes\posts\options-numerical-methods-for-black-scholes\copy_of_BS_NumericalMethods_for_render-preview.html"><i class="bi bi-journal-code"></i>1. The Implicit Method: Step-by-Step</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 <div style="margin-top: 50px;"></div>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -288,7 +297,7 @@ window.Quarto = {
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
     <div>
@@ -337,9 +346,35 @@ window.Quarto = {
 <section id="chapter-1-streamlit-payoff-profile-visualisation" class="level1">
 <h1>Chapter 1: Streamlit Payoff Profile Visualisation</h1>
 <center>
-<a href="https://options-payoff-visualisation.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
+<a href="https://option-payoff-visualisation.streamlit.app/" target="_blank" class="btn-launch">🚀 Launch Live Structuring App</a>
 </center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/overviewofdashboard.gif" class="img-fluid figure-img"></p>
+<figcaption>Demonstration of Streamlit Application</figcaption>
+</figure>
+</div>
+<section id="features-of-the-streamlit-appliation" class="level2">
+<h2 class="anchored" data-anchor-id="features-of-the-streamlit-appliation">Features of the Streamlit Appliation</h2>
+<section id="structuring" class="level3">
+<h3 class="anchored" data-anchor-id="structuring">1. Structuring</h3>
+<p>So the user can add products like a stock, a vanilla option, a zero bond, or a digital option. I have considered adding more products in for visualisation like up-and-out or down-and-in but I figured that the current set of products keeps things simple and understandable.</p>
+<p>So for each of these you can choose to be long or short as well as the strike price and so it helps create the visualisation for things like Bull Call Spreads, or Straddles. You can’t really change the maturity dates to do calendar spreads, but I think the idea is there.</p>
+</section>
+<section id="greeks-explorer" class="level3">
+<h3 class="anchored" data-anchor-id="greeks-explorer">2. Greeks Explorer</h3>
+<p>So for visualisation of the Greeks and how they differ across time for some of the greeks and how they differ across the strike, this tab helps to visualise and try to gain an intuition for why gamma spikes at-the-money from moneyness and what the shape of the delta looks like across the strike prices.</p>
+</section>
+<section id="pricing-models" class="level3">
+<h3 class="anchored" data-anchor-id="pricing-models">3. Pricing Models</h3>
+<p>So just an intro into the pricing models, and how they are more accurate compared to the Black-Scholes because they take more parameters into consideration.</p>
+</section>
+<section id="volitility-surface" class="level3">
+<h3 class="anchored" data-anchor-id="volitility-surface">4. Volitility Surface</h3>
+<p>And lastly just a visualisation of the 3d volatility surface, just to get a feel for how it would look like, along with the 2D version for IV, which varies just with the strike.</p>
 <hr>
+</section>
+</section>
 </section>
 <section id="chapter-2-black-scholes-numerical-methods" class="level1">
 <h1>Chapter 2: Black-Scholes Numerical Methods</h1>
@@ -716,7 +751,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <section id="chapter-3-theoretical-versus-observed-option-pricing-models" class="level1">
 <h1>Chapter 3: Theoretical versus Observed Option Pricing Models</h1>
 <hr>
-<p>execute: eval: False —</p>
+<p>execute: eval: False format: html: code-fold: true code-summary: “Show Data Processing Code” toc: true page-layout: full —</p>
 <section id="learning-more-about-option-pricing-models" class="level2">
 <h2 class="anchored" data-anchor-id="learning-more-about-option-pricing-models">Learning More About Option Pricing Models</h2>
 <p>Beyond the Black-Scholes model for options pricing, i realised that there were other models that I could use to try and price options, which included the Heston Model which accounts for stochastic volatility by treating variance as a random process that reverts to a long-term mean, rather than a constant, and the Merton Jump model which incorporates discontinuous “jumps” in asset prices using a Poisson process, allowing the model to account for sudden market shocks and “fat-tailed” distributions, as well as the Bates model which effectively merges the two by combining Heston’s stochastic volatility with Merton’s jump-diffusion components, aiming to capture both long-term volatility dynamics and short-term price spikes simultaneously.</p>
@@ -730,7 +765,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>For this project, i got the data from WRDS, mainly for the S&amp;P500, and since most of the math was going to be repeated, i created a separate math_engine.py to run most of the code, keeping it separate from the jupyter notebook to prevent the notebook from becoming too cluttered. This code can be found in my github repo.</p>
 <div id="global-setup" class="cell" data-message="false" data-execution_count="1">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports and Setup</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================================</span></span>
@@ -861,7 +896,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>It visually reinforces the core Black-Scholes assumption: asset prices follow a log-normal random walk where returns are continuous and normally distributed.</p>
 <div id="montecarlorandomwalk" class="cell" data-message="false" data-execution_count="2">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> simulate_gbm</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Run the corrected simulation</span></span>
@@ -906,7 +941,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>This interactive view is crucial for understanding how dynamically hedging a portfolio requires constant, non-linear rebalancing as the spot price slides across the strike.</p>
 <div id="greeksvisualisation" class="cell" data-message="false" data-execution_count="3">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_delta, bs_gamma, bs_call_theta, bs_vega, bs_call_rho</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -971,7 +1006,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Since European options must adhere to this arbitrage-free relationship, the infinitesimal difference between the synthetic replication and our calculated prices confirms the closed-form Black-Scholes functions are executing flawlessly.</p>
 <div id="putcallparityverification" class="cell" data-message="false" data-execution_count="4">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_price, bs_put_price</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Setup Parameters</span></span>
@@ -1041,7 +1076,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>For instance, when switching to the Gamma metric, you can visually observe the “Gamma pin risk” forming a sharp, dangerous ridge exactly at-the-money as the time to expiration collapses toward zero.</p>
 <div id="volatilitysurfacevisualisation" class="cell" data-message="false" data-execution_count="5">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> bs_call_price</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define the 1D ranges</span></span>
@@ -1144,7 +1179,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>This structural skew proves that participants are actively pricing in crash risks that a standard normal distribution ignores.</p>
 <div id="impliedivfrommarketprices" class="cell" data-message="false" data-execution_count="6">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> implied_volatility</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Back-calculate Market IV with a safety filter</span></span>
@@ -1232,7 +1267,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Because the asset price and its variance are correlated, sudden drops in the simulated asset price are often accompanied by spikes in volatility, mimicking real-world market panic.</p>
 <div id="hestonpricemontecarlo" class="cell" data-message="false" data-execution_count="7">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.colors <span class="im">as</span> pcolors</span>
@@ -1349,7 +1384,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>A strongly negative correlation perfectly replicates the steep downside skew seen in equities, while a correlation near zero models the symmetric “smile” characteristic of FX markets.</p>
 <div id="hestonimpliedivfrommarketprices" class="cell" data-message="false" data-execution_count="8">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.models.option_pricing_math_engine <span class="im">import</span> heston_call_price, implied_volatility</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Define Model Parameters ---</span></span>
@@ -1444,7 +1479,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <h3 class="anchored" data-anchor-id="model-3-the-merton-jump-diffusion-model-mjd">Model 3: The Merton Jump Diffusion Model (MJD)</h3>
 <div id="blackscholesformertonjumpprices" class="cell" data-message="false" data-execution_count="9">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
@@ -1579,7 +1614,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>This accurately reflects the empirical reality that massive market drawdowns occur far more frequently than a standard normal distribution predicts.</p>
 <div id="logdistributionforfattails" class="cell" data-message="false" data-execution_count="10">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1693,7 +1728,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>This demonstrates that introducing discontinuous jump risk is an effective mechanism for generating the volatility skew observed in actual option chains.</p>
 <div id="mertonvolatilityskew" class="cell" data-message="false" data-execution_count="11">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -1796,7 +1831,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>By tracking the variance and price paths simultaneously, we see a highly realistic market simulation: volatility drifts and clusters over time, while sudden Poisson-driven price jumps inject immediate shocks into the system. It is a robust theoretical framework for capturing both short-term crash risk and long-term skew.</p>
 <div id="batesmodelwithjumps" class="cell" data-message="false" data-execution_count="12">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.colors <span class="im">as</span> pcolors</span>
@@ -1925,7 +1960,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>This snapshot confirms the initial state of our chosen SPX options chain, defining the specific spot price, time to maturity, and risk-free rate we will use as ground-truth targets for our calibration algorithms.</p>
 <div id="marketdatavisualisation" class="cell" data-message="false" data-execution_count="13">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Construct the Markdown Display Table</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>intro_report <span class="op">=</span> <span class="ss">f"""</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Market Snapshot: </span><span class="sc">{</span>TARGET_DATE<span class="sc">}</span></span>
@@ -1971,7 +2006,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>Here, we deploy a hybrid optimization routine: a global differential evolution algorithm roughly scopes out the general parameter basin, followed by a local L-BFGS-B sniper to pinpoint the exact minimum.</p>
 <div id="in-samplemodelfit" class="cell" data-message="false" data-execution_count="14">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 0. BULLETPROOF THE MARKET STATE ---</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-extract real market variables in case previous simulation cells overwrote them</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>S0, T, r, q <span class="op">=</span> state[<span class="st">'S0'</span>], state[<span class="st">'T'</span>], state[<span class="st">'r'</span>], state[<span class="st">'q'</span>]</span>
@@ -2154,7 +2189,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>It systematically outperforms the baseline models, proving that the added mathematical complexity yields tangible pricing accuracy.</p>
 <div id="modelerrorchecking" class="cell" data-message="false" data-execution_count="15">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, mean_absolute_error</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2227,7 +2262,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 <p>To test true predictive stability, we roll the market forward by one day and evaluate our frozen calibrated parameters against unseen, out-of-sample data to ensure the model retains its structural integrity.</p>
 <div id="out-of-sampletesting" class="cell" data-message="false" data-execution_count="16">
 <details class="code-fold">
-<summary>Code</summary>
+<summary>Show Data Processing Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2326,7 +2361,7 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Hope you read to the end! Thanks!</p>
+<p>And so with that I think my journey and research in options will come to a pause for the time being as I explore other domains of quant. I foresee that after learning about more models or when exploring quant strategies that focus on options, that more research in this domain will be required. But until then.</p>
 
 
 </section>
