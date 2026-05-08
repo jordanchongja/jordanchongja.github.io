@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-04-27">
+<meta name="description" content="An analysis of the Attention Paper: Breaking down the Fundamental Concepts and Replication of the Model.">
+
+<title>Paper: Attention is All You Need – Jordan’s Projects</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//assets/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-443253e461b1d6f7d52c3923baf43cc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7YLYPVKHH"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-V7YLYPVKHH', { 'anonymize_ip': true});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+<script type="text/javascript">
+
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+
+</script>
+
+<script type="module">import "https://cdn.plot.ly/plotly-3.3.1.min"</script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Paper: Attention is All You Need – Jordan’s Projects">
+<meta property="og:description" content="An analysis of the Attention Paper: Breaking down the Fundamental Concepts and Replication of the Model.">
+<meta property="og:image" content="https://jordanchongja.github.io/notes/posts/paper-attention_is_all_I_need/Price Trading Range.png">
+<meta property="og:site_name" content="Jordan's Projects">
+<meta property="og:image:alt" content="Visualization of Optimal Bid-Ask Quotes around an Indifference Price">
+<meta name="twitter:title" content="Paper: Attention is All You Need – Jordan’s Projects">
+<meta name="twitter:description" content="An analysis of the Attention Paper: Breaking down the Fundamental Concepts and Replication of the Model.">
+<meta name="twitter:image" content="https://jordanchongja.github.io/notes/posts/paper-attention_is_all_I_need/Price Trading Range.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Visualization of Optimal Bid-Ask Quotes around an Indifference Price">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Jordan’s Projects</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../notes/index.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../readings/index.html"> 
+<span class="menu-text">Readings</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../assets/Jordan_Chong_CV.pdf" target="_blank"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jordanchongja"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#paper-overview-attention-is-all-you-need." id="toc-paper-overview-attention-is-all-you-need." class="nav-link active" data-scroll-target="#paper-overview-attention-is-all-you-need.">Paper Overview: Attention is All you Need.</a>
+  <ul class="collapse">
+  <li><a href="#content-page" id="toc-content-page" class="nav-link" data-scroll-target="#content-page">Content Page:</a></li>
+  </ul></li>
+  <li><a href="#section-1.-primer-to-the-ml-terms-required-for-understanding-this-paper" id="toc-section-1.-primer-to-the-ml-terms-required-for-understanding-this-paper" class="nav-link" data-scroll-target="#section-1.-primer-to-the-ml-terms-required-for-understanding-this-paper">Section 1. Primer to the ML terms required for understanding this paper</a>
+  <ul class="collapse">
+  <li><a href="#section-1.1.-high-level-philosophy-and-paradigms" id="toc-section-1.1.-high-level-philosophy-and-paradigms" class="nav-link" data-scroll-target="#section-1.1.-high-level-philosophy-and-paradigms">Section 1.1. High Level Philosophy and Paradigms</a></li>
+  <li><a href="#section-1.2.-dealing-with-the-inputs-hashing-and-encoding" id="toc-section-1.2.-dealing-with-the-inputs-hashing-and-encoding" class="nav-link" data-scroll-target="#section-1.2.-dealing-with-the-inputs-hashing-and-encoding">Section 1.2. Dealing with the Inputs, Hashing and Encoding</a></li>
+  <li><a href="#visualizing-the-geometry-the-positional-spiral" id="toc-visualizing-the-geometry-the-positional-spiral" class="nav-link" data-scroll-target="#visualizing-the-geometry-the-positional-spiral">Visualizing the Geometry: The Positional Spiral</a></li>
+  <li><a href="#section-1.3.-the-database-concept-q-k-v" id="toc-section-1.3.-the-database-concept-q-k-v" class="nav-link" data-scroll-target="#section-1.3.-the-database-concept-q-k-v">Section 1.3. The “Database” Concept (Q, K, V)</a></li>
+  <li><a href="#section-1.4.-the-core-math-mechanics" id="toc-section-1.4.-the-core-math-mechanics" class="nav-link" data-scroll-target="#section-1.4.-the-core-math-mechanics">Section 1.4. The Core Math &amp; Mechanics</a></li>
+  <li><a href="#section-1.5.-stabilizing-and-processing-the-network" id="toc-section-1.5.-stabilizing-and-processing-the-network" class="nav-link" data-scroll-target="#section-1.5.-stabilizing-and-processing-the-network">Section 1.5. Stabilizing and Processing the Network</a></li>
+  <li><a href="#section-1.6.-copnclusions-and-the-final-output" id="toc-section-1.6.-copnclusions-and-the-final-output" class="nav-link" data-scroll-target="#section-1.6.-copnclusions-and-the-final-output">Section 1.6. Copnclusions and the Final Output</a></li>
+  </ul></li>
+  <li><a href="#the-encoder-vs.-the-decoder" id="toc-the-encoder-vs.-the-decoder" class="nav-link" data-scroll-target="#the-encoder-vs.-the-decoder">1. The Encoder vs.&nbsp;The Decoder</a>
+  <ul class="collapse">
+  <li><a href="#the-encoder-building-the-context" id="toc-the-encoder-building-the-context" class="nav-link" data-scroll-target="#the-encoder-building-the-context">The Encoder (Building the Context)</a></li>
+  <li><a href="#the-decoder-writing-the-translation" id="toc-the-decoder-writing-the-translation" class="nav-link" data-scroll-target="#the-decoder-writing-the-translation">The Decoder (Writing the Translation)</a></li>
+  </ul></li>
+  <li><a href="#beyond-the-greedy-decoder-making-choices" id="toc-beyond-the-greedy-decoder-making-choices" class="nav-link" data-scroll-target="#beyond-the-greedy-decoder-making-choices">2. Beyond the Greedy Decoder (Making Choices)</a></li>
+  <li><a href="#section-2.-analysis-of-the-paper-itself" id="toc-section-2.-analysis-of-the-paper-itself" class="nav-link" data-scroll-target="#section-2.-analysis-of-the-paper-itself">Section 2. Analysis of the Paper itself</a></li>
+  <li><a href="#step-1-entering-the-matrix-the-input-stage" id="toc-step-1-entering-the-matrix-the-input-stage" class="nav-link" data-scroll-target="#step-1-entering-the-matrix-the-input-stage">Step 1: Entering the Matrix (The Input Stage)</a></li>
+  <li><a href="#step-2-the-encoder-stack-building-the-context" id="toc-step-2-the-encoder-stack-building-the-context" class="nav-link" data-scroll-target="#step-2-the-encoder-stack-building-the-context">Step 2: The Encoder Stack (Building the Context)</a>
+  <ul class="collapse">
+  <li><a href="#sub-layer-1-multi-head-self-attention" id="toc-sub-layer-1-multi-head-self-attention" class="nav-link" data-scroll-target="#sub-layer-1-multi-head-self-attention">Sub-layer 1: Multi-Head Self-Attention</a></li>
+  <li><a href="#sub-layer-2-position-wise-feed-forward-network" id="toc-sub-layer-2-position-wise-feed-forward-network" class="nav-link" data-scroll-target="#sub-layer-2-position-wise-feed-forward-network">Sub-layer 2: Position-wise Feed-Forward Network</a></li>
+  </ul></li>
+  <li><a href="#step-3-the-decoder-stack-writing-the-translation" id="toc-step-3-the-decoder-stack-writing-the-translation" class="nav-link" data-scroll-target="#step-3-the-decoder-stack-writing-the-translation">Step 3: The Decoder Stack (Writing the Translation)</a>
+  <ul class="collapse">
+  <li><a href="#sub-layer-1-masked-multi-head-self-attention" id="toc-sub-layer-1-masked-multi-head-self-attention" class="nav-link" data-scroll-target="#sub-layer-1-masked-multi-head-self-attention">Sub-layer 1: Masked Multi-Head Self-Attention</a></li>
+  <li><a href="#sub-layer-2-multi-head-cross-attention-the-meeting-point" id="toc-sub-layer-2-multi-head-cross-attention-the-meeting-point" class="nav-link" data-scroll-target="#sub-layer-2-multi-head-cross-attention-the-meeting-point">Sub-layer 2: Multi-Head Cross-Attention (The Meeting Point)</a></li>
+  <li><a href="#sub-layer-3-position-wise-feed-forward-network" id="toc-sub-layer-3-position-wise-feed-forward-network" class="nav-link" data-scroll-target="#sub-layer-3-position-wise-feed-forward-network">Sub-layer 3: Position-wise Feed-Forward Network</a></li>
+  </ul></li>
+  <li><a href="#step-4-the-final-linear-and-softmax-layer" id="toc-step-4-the-final-linear-and-softmax-layer" class="nav-link" data-scroll-target="#step-4-the-final-linear-and-softmax-layer">Step 4: The Final Linear and Softmax Layer</a></li>
+  <li><a href="#section-3.-glossary-and-key-terms" id="toc-section-3.-glossary-and-key-terms" class="nav-link" data-scroll-target="#section-3.-glossary-and-key-terms">Section 3. Glossary and key terms</a>
+  <ul class="collapse">
+  <li><a href="#the-foundations" id="toc-the-foundations" class="nav-link" data-scroll-target="#the-foundations">The Foundations</a></li>
+  <li><a href="#the-database-engine" id="toc-the-database-engine" class="nav-link" data-scroll-target="#the-database-engine">The “Database” Engine</a></li>
+  <li><a href="#the-architecture-blocks" id="toc-the-architecture-blocks" class="nav-link" data-scroll-target="#the-architecture-blocks">The Architecture Blocks</a></li>
+  <li><a href="#stability-training" id="toc-stability-training" class="nav-link" data-scroll-target="#stability-training">Stability &amp; Training</a></li>
+  <li><a href="#generation-strategies" id="toc-generation-strategies" class="nav-link" data-scroll-target="#generation-strategies">Generation Strategies</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<div style="margin-top: 50px;"></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Paper: Attention is All You Need</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Transformers Robots in Disguise</div>
+    <div class="quarto-category">EncodeDecode</div>
+    <div class="quarto-category">Machine Learning</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    An analysis of the Attention Paper: Breaking down the Fundamental Concepts and Replication of the Model.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 27, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><img src="https://img.shields.io/badge/Finance-Quantitative-gold?logo=bankofamerica&amp;logoColor=white.png" class="img-fluid"> <img src="https://img.shields.io/badge/Status-Completed-success.png" class="img-fluid"> <a href="https://github.com/jordanchongja"><img src="https://img.shields.io/badge/View_Source_Code-181717?logo=github&amp;logoColor=white.png" class="img-fluid" alt="GitHub"></a></p>
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px; 
+  }
+</style>
+<section id="paper-overview-attention-is-all-you-need." class="level2">
+<h2 class="anchored" data-anchor-id="paper-overview-attention-is-all-you-need.">Paper Overview: Attention is All you Need.</h2>
+<p>Felt the need to understand this seminal attention paper to get an idea into transformers before delving deeper into ML use in finance as a whole and understand more about the ML infrastructure and how gradient descent is able to change the world. Full discloure, most of the article is an AI dump, as are most things on the internet these days, but I still feel the compliation of the information helps one learn i guess. Or at least helps me learn.</p>
+<section id="content-page" class="level3">
+<h3 class="anchored" data-anchor-id="content-page">Content Page:</h3>
+<p>So below is the format that I felt would be most helpful if you’re learning about ML for the first time like me, not much background into ML and want to learn more but even the annotated paper is too much. So i start with a clarification of the terms and all the background that the paper references and an intuitive understanding of what it all means. Then i delve into the paper itself. Then lastly I end off with a glossary of the terms, basically section 1 but if they don’t warrant a whole explanation of their own.</p>
+<ul>
+<li><strong>Section 1:</strong> Primer to the ML terms required for understanding this paper</li>
+<li><strong>Section 2:</strong> Analysis of the Paper itself</li>
+<li><strong>Section 3:</strong> Glossary and key terms</li>
+</ul>
+<p>Also, below are some useful links that really helped me understand the paper, on top of Gemini of course, and I would implore you to take a look and see if that helps you more than my article.</p>
+<ul>
+<li><a href="https://nlp.seas.harvard.edu/annotated-transformer/">Annotated version of the Attention Paper from the team at NLP Harvard</a></li>
+<li><a href="https://www.ibm.com/think/topics/transformer-model#1280257394">IBM Overview on ML/Transformers and all that</a></li>
+<li><a href="https://poloclub.github.io/transformer-explainer/">Visualisation of the Transformer Architecture</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="section-1.-primer-to-the-ml-terms-required-for-understanding-this-paper" class="level2">
+<h2 class="anchored" data-anchor-id="section-1.-primer-to-the-ml-terms-required-for-understanding-this-paper">Section 1. Primer to the ML terms required for understanding this paper</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="model_architecture.png" class="img-fluid figure-img"></p>
+<figcaption>Transformer Model Architecture</figcaption>
+</figure>
+</div>
+<p>Before the Primer, lets start with a background to the paper and all. So above is the image for the overall Model Architecture, and on the left half of the image, there is the encoder, and on the right half of the image, there is the decoder. Together they make up the transformer model.</p>
+<p>The advantage of the transformer model over previous models like RNN is the concept of self-attention. So then with this, the model is able to achieve parallelisation, which greatly speeds up learning, and allows the model to learn dependencies between words. We will look more into these concepts later.</p>
+<p>The topics in the primer are grouped into difference bucket that I feel will aid learning so i hope this structure helps.</p>
+<section id="section-1.1.-high-level-philosophy-and-paradigms" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.1.-high-level-philosophy-and-paradigms">Section 1.1. High Level Philosophy and Paradigms</h3>
+<p>Before we delve into the quirks of the model architecture, lets get a high level intuition of how the model operates first.</p>
+<section id="transformers-vs.-rnns-why-replacing-sequential-processing-rnns-with-parallel-masking-gave-transformers-such-a-massive-advantage" class="level4">
+<h4 class="anchored" data-anchor-id="transformers-vs.-rnns-why-replacing-sequential-processing-rnns-with-parallel-masking-gave-transformers-such-a-massive-advantage">Transformers vs.&nbsp;RNNs: Why replacing sequential processing (RNNs) with parallel masking gave Transformers such a massive advantage</h4>
+<p><strong>Definition:</strong> Before this 2017 paper, the undisputed kings of language translation were <strong>Recurrent Neural Networks (RNNs)</strong> and their advanced cousins, LSTMs. The Transformer paper made a bold claim: you don’t need recurrence at all. You can throw away the old architecture entirely, rely <em>only</em> on the Attention mechanism, and achieve massively better results.</p>
+<p><strong>The Old Way: The RNN Sequential Bottleneck</strong> RNNs process text the same way humans read: sequentially, from left to right. If an RNN wants to translate a 20-word sentence, it has to read word 1, then use that memory to read word 2, then use <em>that</em> memory to read word 3… all the way to word 20.</p>
+<p>This sequential nature created two massive problems:</p>
+<ol type="1">
+<li><p><strong>The Forgetting Curve:</strong> By the time the RNN got to word 20, the mathematical signal from word 1 had often been diluted or lost (the vanishing gradient problem). It struggled to remember context over long paragraphs.</p></li>
+<li><p><strong>The Speed Limit:</strong> You cannot calculate word 20 until you finish calculating word 19. Because of this, RNNs could not be heavily parallelized across modern GPUs. They were fundamentally slow to train.</p></li>
+</ol>
+<p><strong>The New Way: Parallel Masking in Transformers</strong> The Transformer completely abandoned the left-to-right reading strategy. Instead, it ingests the <em>entire sentence at the exact same time</em>.</p>
+<p>This is where the <strong>Masked Multi-Head Attention</strong> comes into play. As we discussed in the “Teacher Forcing” section, the model looks at the whole French answer key at once during training. To prevent the model from “cheating” and looking at word 4 while trying to predict word 4, the attention mechanism applies a mathematical mask. It essentially blinds the model to future words in the matrix, allowing it to calculate the predictions for word 1, word 5, and word 20 all simultaneously.</p>
+<p><strong>The Massive Advantage:</strong> Because the Transformer processes everything in parallel, researchers could suddenly unleash the full power of massive GPU clusters (like those NVIDIA P100s). Training times plummeted. Datasets that would have taken RNNs years to read could be processed by Transformers in days. Furthermore, because Attention looks at all words directly, the distance between word 1 and word 100 doesn’t matter anymore—the model remembers them equally well.</p>
+</section>
+<section id="auto-regressive-generation" class="level4">
+<h4 class="anchored" data-anchor-id="auto-regressive-generation">Auto-Regressive Generation</h4>
+<p>An auto-regressive model generates text one token at a time, where each new token is predicted based on the entire history of tokens generated so far. “Auto” here means self, and means “self-regressive”, meaning it uses its own past predictions to predict the next value it needs to predict.</p>
+<section id="how-it-works-the-illustration" class="level5">
+<h5 class="anchored" data-anchor-id="how-it-works-the-illustration">How it works (The Illustration):</h5>
+<p>Think of the “Next Word Prediction” feature on your phone’s keyboard. If you type “How”, it might suggest “are”. If you pick “are”, it looks at “How are” and suggests “you”.</p>
+<p>The model runs in a rigid, repetitive loop. At every step, the entire history grows by one word, and that new, longer history becomes the new input for the next cycle.</p>
+<p>Step-by-Step Visualization of Auto-Regressive Decoding: Let’s say we are translating from English (“What is your name?”) to French, and we want to generate the French sequence: “Comment vous appelez-vous ?”</p>
+<p><strong>Step 1: Just Starting</strong> * <strong>The Model Sees (Input):</strong> <code>[</code> <code>&lt;START&gt;</code> <code>]</code> * <strong>The Model Thinks:</strong> “Based on the fact I’m just starting… the most likely first word is ‘Comment’.” * <strong>The Model Outputs:</strong> <code>Comment</code></p>
+<p><strong>Step 2: Growing History</strong> * <strong>The Model Sees (New Input):</strong> <code>[</code> <code>&lt;START&gt;</code>, <code>Comment</code> <code>]</code> * <strong>The Model Thinks:</strong> “Based on the English context and the fact I’ve said ‘Comment’… the most likely next word is ‘vous’.” * <strong>The Model Outputs:</strong> <code>vous</code></p>
+<p><strong>Step 3: Appending to the History</strong> * <strong>The Model Sees (New Input):</strong> <code>[</code> <code>&lt;START&gt;</code>, <code>Comment</code>, <code>vous</code> <code>]</code> * <strong>The Model Thinks:</strong> “Okay, history is getting longer. ‘appelez’ comes next.” * <strong>The Model Outputs:</strong> <code>appelez</code></p>
+<p>This loop repeats until the model generates a special <end> token, signaling it is finished. The crucial takeaway is that the model’s own past decisions are necessary to make future decisions.</end></p>
+<p>This is how the model works during inference, but if you notice, it is quite slow for training since backpropogation and computation of the loss function can only be done once each word has been predicted. So an alternative method of “Teacher Forcing” is done instead during learning, which is covered in more detail below.</p>
+<hr>
+</section>
+</section>
+<section id="training-vs.-inference-the-two-faces-of-the-transformer." class="level4">
+<h4 class="anchored" data-anchor-id="training-vs.-inference-the-two-faces-of-the-transformer.">Training vs.&nbsp;Inference: The Two Faces of the Transformer.</h4>
+<p><strong>Definition:</strong> This is the #1 point of confusion in the entire Transformer paper. It is essential to recognize that the Transformer model has two distinct operational modes: <strong>Training</strong> (how it learns) and <strong>Inference</strong> (how it is used in production).</p>
+<p><strong>The Semantic Confusion (Hooking the Paper Diagram):</strong></p>
+<p>When you look at the famous diagram in “Attention is All You Need” (Figure 1), you are looking almost exclusively at how the model behaves during its <strong>Training Phase</strong>.</p>
+<p>The biggest clue that this diagram is for <strong>training</strong> is at the bottom of the Decoder:</p>
+<blockquote class="blockquote">
+<p><strong>“Outputs (shifted right)”</strong></p>
+</blockquote>
+<p>This input is NOT the sequence the model is currently generating auto-regressively. This input is the <strong>entire, correct target sentence</strong> (like the perfect French translation) given to the model as an “Answer Key” during training.</p>
+<section id="why-do-they-look-different-the-big-parallelism-advantage" class="level5">
+<h5 class="anchored" data-anchor-id="why-do-they-look-different-the-big-parallelism-advantage">Why do they look different? The Big Parallelism Advantage</h5>
+<p>If we trained the model auto-regressively, one word at a time, training would be unbearably slow. A mistake made on the 1st word of a 100-word sentence would propagate all the way down, ruining the training signals for the rest of the sequence.</p>
+<p><strong>Training (Parallel Processing):</strong> During training, we have the answer key (the perfect translation). The model takes the full English sentence in the Encoder and the full French sentence in the Decoder <em>all at once</em>. * For word #3 in the French sentence, it doesn’t use the model’s guess for word #2. It looks at the <em>actual, correct human-written word #2</em>. * This allows the Transformer to make guesses for <em>every word in the sequence simultaneously</em>. This massive parallel computation is what allowed the Transformer architecture to be trained on datasets millions of times larger than previous architectures (like RNNs), which <em>had</em> to train sequentially.</p>
+<p><strong>Inference (Sequential Processing):</strong> During inference (real-world use), the model does not have the answer key. It must operate auto-regressively, building the sequence word-by-word. It must wait for its output from step <span class="math inline">\(t-1\)</span> to become its input for step <span class="math inline">\(t\)</span>.</p>
+<p><strong>Visualizing the Divergence:</strong> Imagine a track meet. * <strong>Inference</strong> is a track athlete running a real race. They must run sequentially: from the starting line, past the 100m mark, then the 200m mark, until they finish. Every step they take determines where they are next. * <strong>Training</strong> is an analyst watching high-speed footage of that same athlete. The analyst has access to the “truth” (the entire race). They don’t need to wait for the athlete to run past the 100m mark to evaluate how they did at 200m. They can look at both points in parallel.</p>
+<p>How do we unlock this massive parallelism and allow the model to cheat and look at the whole French sentence at once without it simply copying the answer? This is achieved through a specific training technique that acts as the final “Answer Key,” known as <strong>Teacher Forcing</strong> (coupled with the <strong>Masked Attention</strong> we see in the diagram), which we will unpack in the next section.</p>
+<hr>
+</section>
+</section>
+<section id="teacher-forcing-exposure-bias-why-the-model-is-penalized-for-creative-but-valid-answers-during-training-and-how-massive-datasets-solve-this." class="level4">
+<h4 class="anchored" data-anchor-id="teacher-forcing-exposure-bias-why-the-model-is-penalized-for-creative-but-valid-answers-during-training-and-how-massive-datasets-solve-this.">Teacher Forcing &amp; Exposure Bias: Why the model is penalized for creative but valid answers during training, and how massive datasets solve this.</h4>
+<p><strong>Definition:</strong> “Teacher Forcing” is the exact training technique that allows the Transformer to process a whole sentence in parallel. Instead of letting the model use its own (often terrible, untrained) guesses to predict the next word, we force it to use the <strong>ground truth</strong> from the training data.</p>
+<p><strong>How it works (The Illustration):</strong> Imagine a student taking a math test.</p>
+<ul>
+<li><p><strong>Without Teacher Forcing:</strong> The student gets Question 1 wrong. Because Question 2 relies on the answer to Question 1, they get Question 2 wrong as well, and fail the whole test. The feedback at the end isn’t very helpful for learning Question 2.</p></li>
+<li><p><strong>With Teacher Forcing:</strong> The teacher stands over the student’s shoulder. After the student guesses Question 1, the teacher says, “You guessed 5. That’s wrong. The real answer is 10. Now, use 10 to solve Question 2.”</p></li>
+</ul>
+<p>In the Transformer, we feed the entire perfect French sentence into the bottom of the Decoder. When predicting word #4, the model is “forced” to look at the perfect, true words #1, #2, and #3, completely ignoring whatever garbage it might have guessed for word #3 a millisecond earlier.</p>
+<p><strong>The Catch: Exposure Bias</strong> Teacher Forcing makes training incredibly fast and stable, but it introduces a major flaw known as <strong>Exposure Bias</strong>.</p>
+<p>Because the model is strictly penalized if it deviates from the exact “Answer Key” provided in that specific training pair, it is actively punished for being creative. If the training data translates “What is your name?” specifically to “My name is Gemi”, and the model correctly guesses the perfectly valid variation “Hello! My name is Gemi”, the loss function spikes. It essentially yells, “Wrong! The first word was supposed to be ‘My’!”</p>
+<p>Furthermore, during real-world inference, the teacher is gone. The model <em>must</em> rely on its own past predictions. If it makes a slight grammatical slip, it suddenly finds itself in a scenario it has never seen before (because it only ever saw perfect, human-written histories during training), which can cause the rest of its output to derail completely.</p>
+<p><strong>The Solution:</strong> How do we fix this? By throwing an unimaginable amount of data at it. While <em>one</em> training example might strictly force “My name is…”, another million examples in the dataset will pair similar inputs with “Hello! My name is…”. Over time, the model maps out the statistical probabilities of <em>both</em> valid paths.</p>
+</section>
+<section id="translation-bias-how-the-model-doesnt-just-average-out-language-nuance-but-rather-learns-statistical-probability-based-on-its-specific-training-corpus" class="level4">
+<h4 class="anchored" data-anchor-id="translation-bias-how-the-model-doesnt-just-average-out-language-nuance-but-rather-learns-statistical-probability-based-on-its-specific-training-corpus">Translation Bias: How the model doesn’t just average out language nuance, but rather learns statistical probability based on its specific training corpus</h4>
+<p>Definition: A common misconception is that a Transformer inherently understands the “nuance” of language, or that it naturally “averages out” different translation styles into one objective truth. In reality, a Transformer is simply a highly advanced statistical engine. Its output is entirely a reflection of the distribution of its training data.</p>
+<p>How it works (The Illustration): Think of the model as a chameleon. It doesn’t know what “good” translation is; it only knows what is frequent.</p>
+<p>If you train a model on a massive dataset where 90% of the text consists of dry, literal, word-for-word legal documents (like United Nations transcripts), its mathematical weights will naturally bias toward those literal translations. If it encounters a phrase that has both a literal translation and a beautiful, poetic translation, it will default to the literal one simply because those neural pathways were reinforced 90% of the time.</p>
+<p>It does not average the nuance; it outputs the highest probability sequence.</p>
+<p>Why this matters today: This bias is the exact reason why foundational models (like the raw, base versions of GPT or Gemini) are not very useful out of the box. They are prone to weird quirks, robotic tones, or mimicking internet toxicity. To make them helpful and conversational, they require extensive post-training and fine-tuning (like Reinforcement Learning from Human Feedback, or RLHF) to artificially boost the probabilities of the “nuance” and “tone” we actually want to see.</p>
+</section>
+</section>
+<section id="section-1.2.-dealing-with-the-inputs-hashing-and-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.2.-dealing-with-the-inputs-hashing-and-encoding">Section 1.2. Dealing with the Inputs, Hashing and Encoding</h3>
+<p>Computers do not think in letters; they only understand numbers organized into specific structures like vectors and matrices. In this section, we unpack the pipeline that turns a sentence like “I love AI” into a complex, smart mathematical space that the Transformer can process.</p>
+<section id="tokenization-the-slicing-dicing" class="level4">
+<h4 class="anchored" data-anchor-id="tokenization-the-slicing-dicing">Tokenization (The Slicing &amp; Dicing)</h4>
+<p><strong>Definition:</strong> Tokenization is the very first step. Before text enters any neural network, the model must chop the text into discrete, manageable units called <strong>tokens</strong>.</p>
+<p><strong>Why it matters:</strong> It is mathematically inefficient to assign a unique ID to every single word in existence (handling suffixes, prefixes, and rare words would make the model’s vocabulary explode). To maximize storage efficiency, modern models use algorithms (like Byte-Pair Encoding) to slice text into smaller sub-word chunks.</p>
+<p>For example, the rare word <code>unbelievable</code> might be tokenized into <code>un</code>, <code>believ</code>, and <code>able</code>. The model creates its entire vocabulary by reusing these common building blocks across thousands of words.</p>
+</section>
+<section id="the-embedding-matrix-the-advanced-hash-table" class="level4">
+<h4 class="anchored" data-anchor-id="the-embedding-matrix-the-advanced-hash-table">The Embedding Matrix (The Advanced Hash Table)</h4>
+<p><strong>Definition:</strong> Once we have tokens, we need to turn them into vectors (grids of numbers). The <strong>Embedding Matrix</strong> is fundamentally a massive <strong>Lookup Table</strong>, performing the same logical operation as a traditional computer science <strong>Hash Table</strong>.</p>
+<p>It maps a discrete Token ID to a dense vector (e.g., a 512-dimensional row).</p>
+<section id="a-live-example-lookups-and-convergence" class="level5">
+<h5 class="anchored" data-anchor-id="a-live-example-lookups-and-convergence">A “Live” Example: Lookups and Convergence</h5>
+<p>Think of the Embedding Matrix as a database. - <strong>The Key:</strong> The unique ID assigned to a token by the tokenizer. - <strong>The Value:</strong> A row in the matrix containing 512 numbers.</p>
+<p>Before training begins, all the numbers in the “Value” rows are <strong>completely random</strong>. The model is an empty slate, unable to distinguish between “cat,” “dog,” or “airplane.”</p>
+<p><strong>The Magic of Learning:</strong> As we discussed in the “Add” (Residual Connection) section, backpropagation iteratively tweaks these 512 numbers after every mistake. Over millions of repetitions, tokens that are contextually related (like synonyms or antonyms) are statistically pushed closer together in that 512-dimensional space, naturally forming semantic relationships without any programmed human rules.</p>
+<p>Here is how the logical flow looks in python:</p>
+<div id="hashtables" class="cell" data-message="false" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. The Tokenizer (A Python Dictionary acting as our Hash Table)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It strictly maps strings to integer IDs.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>vocab_to_id <span class="op">=</span> {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The"</span>: <span class="dv">0</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cat"</span>: <span class="dv">1</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sat"</span>: <span class="dv">2</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"on"</span>: <span class="dv">3</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mat"</span>: <span class="dv">4</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. The Embedding Matrix (The "Lookup Table")</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's say our vocabulary is 5 words, and our vector dimension is 4 (instead of 512).</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Initially, these are completely random numbers.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>num_words <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>vector_dim <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a seed so the random numbers stay the same if you run this</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>) </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>embedding_matrix <span class="op">=</span> np.random.rand(num_words, vector_dim)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_word_vector(word):</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step A: Look up the integer ID using the dictionary (Hash Table)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    word_id <span class="op">=</span> vocab_to_id.get(word)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> word_id <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Word not in vocabulary!"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step B: Use that ID as the row index to pull the vector from the matrix</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    word_vector <span class="op">=</span> embedding_matrix[word_id]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> word_id, word_vector</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's test it with the word "cat"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>token_id, vector <span class="op">=</span> get_word_vector(<span class="st">"cat"</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Word: 'cat'"</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Token ID: </span><span class="sc">{</span>token_id<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Embedding Vector: </span><span class="sc">{</span>vector<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Word: 'cat'
+Token ID: 1
+Embedding Vector: [0.15601864 0.15599452 0.05808361 0.86617615]</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Positional Encoding (The Geometry of Order)</li>
+</ol>
+<p><strong>Definition:</strong> Transformers suffer from a critical flaw: they process every word in a sequence simultaneously, meaning they have inherently zero concept of sentence structure or word order. The model sees the sequences “The cat ate the mouse” and “The mouse ate the cat” as mathematically identical sets of words.</p>
+<p>RNNs solved this sequentially, but Transformers abandoned sequential processing for speed. To re-inject the order of words without breaking parallelism, the model sums a <strong>Positional Encoding</strong> (PE) onto every single input embedding.</p>
+<p>The authors of the paper used fixed mathematical functions (overlapping sine and cosine waves) at different frequencies across different dimensions to generate a unique spatial “signature” for every single word position.</p>
+</section>
+</section>
+</section>
+<section id="visualizing-the-geometry-the-positional-spiral" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-geometry-the-positional-spiral">Visualizing the Geometry: The Positional Spiral</h3>
+<p>Because we are pairing sine and cosine functions across dimensions, the Positional Encoding matrix essentially builds a 3D geometric spiral that stretches alongside the text. Words close together (e.g., positions 4 and 5) occupy points close together on that spiral path, while words far apart (positions 4 and 20) are located at completely different geometric locations.</p>
+<p>When added to the raw word embedding, this PE provides a geometric “nudge” that the Multi-Head Attention later uses to “feel” how far apart words are.</p>
+<div id="cell-PositionalEncoding" class="cell" data-message="false" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_positional_encoding(num_tokens, d_model):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Standard Positional Encoding from "Attention is All You Need"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    pe <span class="op">=</span> np.zeros((num_tokens, d_model))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pos <span class="kw">in</span> <span class="bu">range</span>(num_tokens):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, d_model, <span class="dv">2</span>):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="co"># sin for even dimensions, cos for odd dimensions</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            div_term <span class="op">=</span> np.exp(i <span class="op">*</span> <span class="op">-</span>np.log(<span class="fl">10000.0</span>) <span class="op">/</span> d_model)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            pe[pos, i] <span class="op">=</span> np.sin(pos <span class="op">*</span> div_term)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            pe[pos, i <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> np.cos(pos <span class="op">*</span> div_term)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pe</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>MAX_LEN <span class="op">=</span> <span class="dv">100</span>  <span class="co"># Number of words/positions</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>D_MODEL <span class="op">=</span> <span class="dv">12</span>   <span class="co"># Small dimension for clear visualization</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Generate the raw PE matrix</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>pe_matrix <span class="op">=</span> get_positional_encoding(MAX_LEN, D_MODEL)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Select specific dimensions to pair and visualize</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># We pair Dim 2i (sin) with Dim 2i+1 (cos) to create spirals</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>head_idx <span class="op">=</span> <span class="dv">0</span> <span class="co"># Visualize head #1</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>sin_dim <span class="op">=</span> head_idx <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>cos_dim <span class="op">=</span> (head_idx <span class="op">*</span> <span class="dv">2</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Build the Plotly 3D visualization</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[go.Scatter3d(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>np.arange(MAX_LEN),  <span class="co"># Position along sentence</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>pe_matrix[:, sin_dim], <span class="co"># Dimension 2i (sine)</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span>pe_matrix[:, cos_dim], <span class="co"># Dimension 2i+1 (cosine)</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'lines+markers'</span>,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        size<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>np.arange(MAX_LEN), <span class="co"># Color indicates position 0 to 100</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        colorscale<span class="op">=</span><span class="st">'Viridis'</span>, </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        opacity<span class="op">=</span><span class="fl">0.8</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    line<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'lightgray'</span>,</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>)])</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Add layout details</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f'Positional Encoding Spiral: Dim </span><span class="sc">{</span>sin_dim<span class="sc">}</span><span class="ss"> (Sin) vs Dim </span><span class="sc">{</span>cos_dim<span class="sc">}</span><span class="ss"> (Cos) over Position 0-</span><span class="sc">{</span>MAX_LEN<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    scene<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        xaxis_title<span class="op">=</span><span class="st">'Word Position index (0-100)'</span>,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        yaxis_title<span class="op">=</span><span class="st">'Vector Dimension Value (Sine)'</span>,</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        zaxis_title<span class="op">=</span><span class="st">'Vector Dimension Value (Cosine)'</span>,</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        aspectmode<span class="op">=</span><span class="st">'manual'</span>,</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        aspectratio<span class="op">=</span><span class="bu">dict</span>(x<span class="op">=</span><span class="dv">1</span>, y<span class="op">=</span><span class="fl">0.5</span>, z<span class="op">=</span><span class="fl">0.5</span>), <span class="co"># Shrink Y and Z to show the stretching</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">800</span>,</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Render</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="positionalencoding" class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="06bf6ed8-e591-4ecf-926d-2c9c0fa548ac" class="plotly-graph-div" style="height:800px; width:1000px;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("06bf6ed8-e591-4ecf-926d-2c9c0fa548ac")) {                    Plotly.newPlot(                        "06bf6ed8-e591-4ecf-926d-2c9c0fa548ac",                        [{"line":{"color":"lightgray","width":2},"marker":{"color":{"dtype":"i1","bdata":"AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiYw=="},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"opacity":0.8,"size":4},"mode":"lines+markers","x":{"dtype":"i1","bdata":"AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiYw=="},"y":{"dtype":"f8","bdata":"AAAAAAAAAADuDAmPVO3qP0a00er2GO0\u002fW9W2bTgQwj+uHtzduTfovzOZ4PWBr+6\u002fwKKwivHh0b8ICm3CCAblP3vPKKDSqO8\u002fkS8MNiZg2j9ST\u002fP1nmjhv+uTLnbr\u002f++\u002fpWXX95or4b8GxYFIBOTaP0VefDIOs+8\u002f6MLOcSjP5D\u002f4IF8IAm3SvyuIQqzEw+6\u002fJx4TaBYI6L\u002fPhPUoLS\u002fDP+A8XfXYNu0\u002f7dewC+LF6j\u002f0uW6foiCCvwJ9JNA8FOu\u002fDhQZeX\u002f67L+dgB7z5vDAv4Mlw\u002frgZug\u002fMLrlsKGa7j\u002fWFEU7hVbRP+fJpiB9POW\u002fPZAcf\u002fSd77+B\u002fEC2wNvZv2ZlQpFJpeE\u002fOGJBKEf\u002f7z+hfTjQPu7gP+jLjEhYZ9u\u002fxOGMAae8778P6Y9I3Zfkv52aR+qz99I\u002f6gYEbGnX7j8AfwKO99fnP8jRdWO\u002fTcS\u002f7Q9M\u002fyRU7b8TUacQ5p3qv0GwnRV0IJI\u002fA5s9B5o66z+xGKI8c9vsP\u002fb22vh8or8\u002fgU+szIqV6L\u002fXZ4JIJIXuv8jf\u002fOW\u002fytC\u002fglDidIRy5T\u002fHpCQHdJLvP7B47HDWVtk\u002fysdFkpnh4b9soLKP\u002fv3vvxoZJbqLsOC\u002foEPdkx\u002fq2z9OthPcnMXvP8sMmWIoYOQ\u002fwuBGaASC07\u002fqp0jQb+ruv08svkZep+e\u002fDcTMXelrxT\u002fZwTBy2nDtP2rBOWthdeo\u002fYOTQyDkwm794wVhva2Drv\u002fR519TSu+y\u002fnLdGnYlivb+RDP9jtsPoPwT1DSsKb+4\u002fI4SBWKQ+0D8AyrWpHajlvzmcT3NRhu+\u002fYqqEEGrR2L\u002f6yk\u002fDjR3iP9GAGbMR\u002fO8\u002fzRRq8oJy4D9NovWKV2zcv2nsDpTvze+\u002fd6jx3Qoo5L\u002fy0i288AvUPzQWYXfX\u002fO4\u002fi6zOi0t25z9vq6ZapYnGv8kdo7r4jO2\u002fzylz61RM6r\u002fIYybxuR+iPwAmSEawhes\u002fZrgc5J6b7D9BccFg\u002fyG7P+btqtNi8ei\u002fLVQEylNY7r8Ta27EamTPvxHR7KtH3eU\u002fXGHsAY157z8doRtCfkvYPxQuivAkWeK\u002fh6RYnID5778="},"z":{"dtype":"f8","bdata":"AAAAAAAA8D+MBrUPKErhPwVyU1cmotq\u002f0uWFvgSu77\u002fBJNsGpurkv9lKa3CFJ9I\u002f9SJ4Cbe57j8XINme9x\u002foP5QvY7++n8K\u002faxmmpvon7b8fawyJrNnqv98v7kGuIHI\u002f42VrBNoA6z+3DCbVzQntP+2gLOyagME\u002f86ScBl1P6L90L5Z+JaXuv+dYf7BGnNG\u002fcCRdgVAh5T9YghDed6PvPz+oZDkEHto\u002fWTd3g\u002f+G4b\u002farNTYrf\u002fvv3LykdX3DOG\u002fmmAKtb8l2z\u002f\u002fBJX17rfvP+2pkSaQs+Q\u002f1d5Z+Way0r8AJVjRqs3uv0hOMVgW8Oe\u002fUlpQ8oK+wz8gKuHDkUXtP+XoXTD1seo\u002feF\u002f22NYwi7\u002f311HZfCfrv6eUUOoL6+y\u002frDkDOx1hwL+MISCcRX7oP7aMTpr2j+4\u002fl4KMhK0Q0T+PIWh9jlflv9+sYIpImO+\u002fpVWwAVyZ2b+vYXP4fMPhP0SF+GS3\u002fu8\u002fP\u002fA6D3DP4D+JSdWuzajbv\u002fI\u002fVVA2we+\u002f6KtX+w985L9GOTOC6DzTP\u002fr8w28A4e4\u002fYvB8KLq\u002f5z9rlYjE4dzEv49Y6JSSYu2\u002fJ8BMxrSJ6r9p8Qt6ZaiWP7ioXkGUTes\u002ft9AShLXL7D885RXgloK+P6\u002fBiG6wrOi\u002fU2hlySp67r+DiFm5vITQv26meeRejeU\u002f8VPk\u002fHaM7z\u002fwWFlZMBTZP2h4Ejif\u002f+G\u002fXPZcqRz977\u002f\u002feZ74kZHgv7O3y6NNK9w\u002fhC4in9rJ7z\u002fv5iWiJkTkPwhqzEMHx9O\u002f7Il1gbfz7r+J3goI5I7nv+\u002fcqHfV+sU\u002f7XTQhPx+7T98moUZ7GDqP+\u002fPHDHrt5+\u002ftKL8eB9z679YRFRDy6vsv2stL6JWQry\u002f9GyBj5za6D\u002fIrMR7wmPuP9oj3jru8M8\u002fIuVBosDC5b91W0pyA4Dvv+FzJeyDjti\u002fJb+RDWU74j8h7z6u3frvP3I4Zs9eU+A\u002fZWre9Tyt3L\u002f1lJy129Hvv04kETrVC+S\u002f86\u002f1eMBQ1D9CwFSmzwXvPzQNnPGUXec\u002fhzJ0T1gYx7+MArUBz5rtv\u002ffEcPubN+q\u002fLhH5BWdjpD8="},"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"scene":{"aspectratio":{"x":1,"y":0.5,"z":0.5},"xaxis":{"title":{"text":"Word Position index (0-100)"}},"yaxis":{"title":{"text":"Vector Dimension Value (Sine)"}},"zaxis":{"title":{"text":"Vector Dimension Value (Cosine)"}},"aspectmode":"manual"},"title":{"text":"Positional Encoding Spiral: Dim 0 (Sin) vs Dim 1 (Cos) over Position 0-100"},"width":1000,"height":800},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('06bf6ed8-e591-4ecf-926d-2c9c0fa548ac');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<p>This code generates an interactive 3D plot. You can see how positions 0, 1, and 2 are tightly clustered, but stretch far away on the spiral compared to position 99, 100, illustrating how geometric proximity now encodes temporal proximity in the sentence.</p>
+</section>
+<section id="section-1.3.-the-database-concept-q-k-v" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.3.-the-database-concept-q-k-v">Section 1.3. The “Database” Concept (Q, K, V)</h3>
+<p>Once the text is converted into geometric vectors (complete with positional encoding), the Transformer needs to figure out how these words relate to each other. It does this using the Multi-Head Attention mechanism, which relies on three distinct vectors for every single word: the Query (Q), the Key (K), and the Value (V).</p>
+<section id="the-search-engine-analogy" class="level4">
+<h4 class="anchored" data-anchor-id="the-search-engine-analogy">1. The Search Engine Analogy</h4>
+<p><strong>Definition:</strong> The authors of the paper named these vectors Q, K, and V because the mathematical operation mimics the logic of Information Retrieval—exactly like searching for a video on YouTube or a record in a relational database.</p>
+<p>Think of how a search engine works: - <strong>The Query (Q):</strong> This is what you actively type into the search bar. It represents what the word is <em>looking for</em>. (e.g., The word “bank” might project a Query asking, “Where are the adjectives that describe me?”)</p>
+<ul>
+<li><p><strong>The Key (K):</strong> This is the metadata or the tags attached to the files in the database. It represents what the word <em>is</em>. (e.g., The word “river” might project a Key stating, “I am a water-related noun.”)</p></li>
+<li><p><strong>The Value (V):</strong> This is the actual content of the file itself. It is the deep, underlying semantic meaning of the word that will be passed forward if there is a match.</p></li>
+</ul>
+<p>The Attention mechanism takes a word’s <strong>Query</strong>, compares it against every other word’s <strong>Key</strong> to calculate a match score, and then uses that score to extract the relevant <strong>Values</strong>.</p>
+</section>
+<section id="matrix-projections-where-do-q-k-and-v-come-from" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-projections-where-do-q-k-and-v-come-from">2. Matrix Projections: Where do Q, K, and V come from?</h4>
+<p><strong>Definition:</strong> A common misconception is that the model uses the raw word vector (<span class="math inline">\(x\)</span>) to do all of this. It does not. The original vector <span class="math inline">\(x\)</span> contains too much jumbled information to be a good Query, Key, and Value all at once.</p>
+<p>Instead, the model creates three distinct “shadows” or projections of the original word.</p>
+<p><strong>The Mechanics:</strong> Inside the Attention layer, the model contains three separate weight matrices: <span class="math inline">\(W^Q\)</span>, <span class="math inline">\(W^K\)</span>, and <span class="math inline">\(W^V\)</span>. The model mathematically multiplies the original word vector (<span class="math inline">\(x\)</span>) by these matrices to generate the specific Q, K, and V vectors.</p>
+<ul>
+<li><span class="math inline">\(Q = x W^Q\)</span></li>
+<li><span class="math inline">\(K = x W^K\)</span></li>
+<li><span class="math inline">\(V = x W^V\)</span></li>
+</ul>
+<p>You can think of these <span class="math inline">\(W\)</span> matrices as specific camera lenses. - The <span class="math inline">\(W^Q\)</span> lens filters out everything except what the word is looking for. - The <span class="math inline">\(W^K\)</span> lens filters out everything except the word’s descriptive tags. - The <span class="math inline">\(W^V\)</span> lens filters the pure meaning.</p>
+</section>
+<section id="natural-emergence-no-human-hardcoding" class="level4">
+<h4 class="anchored" data-anchor-id="natural-emergence-no-human-hardcoding">3. Natural Emergence (No Human Hardcoding)</h4>
+<p><strong>Definition:</strong> It is crucial to understand that researchers <strong>do not program</strong> grammar rules, noun identifiers, or vocabulary structures into these <span class="math inline">\(W\)</span> matrices.</p>
+<p>Before training begins, <span class="math inline">\(W^Q\)</span>, <span class="math inline">\(W^K\)</span>, and <span class="math inline">\(W^V\)</span> are completely random grids of numbers. The model has absolutely zero concept of what a “subject” or a “verb” is.</p>
+<p>These matrices organize themselves entirely through the trial-and-error of gradient descent. When the model makes a bad translation, backpropagation slightly tweaks the numbers inside <span class="math inline">\(W^Q\)</span> and <span class="math inline">\(W^K\)</span>.</p>
+<p>Over billions of iterations, these matrices naturally converge into a state where they reliably project the geometric data in a way that perfectly aligns subjects with verbs, or pronouns with nouns. The model builds its own internal, highly complex search engine entirely from scratch.</p>
+</section>
+</section>
+<section id="section-1.4.-the-core-math-mechanics" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.4.-the-core-math-mechanics">Section 1.4. The Core Math &amp; Mechanics</h3>
+<p>We know the model generates Queries (what it’s looking for), Keys (what it is), and Values (its meaning). But how does it actually compare them? The answer lies in the famous <strong>Scaled Dot-Product Attention</strong> equation:</p>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]</span></p>
+<p>This equation might look intimidating, but it is just a series of logical filtering steps. Let’s break down the physical blocks.</p>
+<section id="matmul-qkt-calculating-the-match-score" class="level4">
+<h4 class="anchored" data-anchor-id="matmul-qkt-calculating-the-match-score">1. MatMul (<span class="math inline">\(QK^T\)</span>): Calculating the Match Score</h4>
+<p><strong>Definition:</strong> “MatMul” stands for Matrix Multiplication. To find out which words relate to each other, the model multiplies the Query matrix (<span class="math inline">\(Q\)</span>) by the transposed Key matrix (<span class="math inline">\(K^T\)</span>).</p>
+<p><strong>How it works:</strong> In linear algebra, multiplying two vectors together like this calculates their <strong>dot product</strong>. The dot product is essentially a mathematical measurement of similarity.</p>
+<ul>
+<li><p>If the Query vector for “bank” and the Key vector for “river” point in the exact same direction in high-dimensional space, their dot product will be a massive positive number (a strong match).</p></li>
+<li><p>If “bank” and the Key for “finance” point in different directions, the score will be low.</p>
+<p>By running MatMul on the entire sequence at once, the model generates a massive grid of scores, showing exactly how strongly every single word in the sentence aligns with every other word.</p></li>
+</ul>
+</section>
+<section id="the-scaling-factor-sqrtd_k-softmax-saving-the-gradients" class="level4">
+<h4 class="anchored" data-anchor-id="the-scaling-factor-sqrtd_k-softmax-saving-the-gradients">2. The Scaling Factor (<span class="math inline">\(\sqrt{d_k}\)</span>) &amp; Softmax: Saving the Gradients</h4>
+<p><strong>Definition:</strong> We have raw match scores, but we need to turn them into usable percentages (probabilities). We do this using a <strong>Softmax</strong> function, which squashes all the numbers so they fall between 0.0 and 1.0, and forces them to add up to exactly 1.0.</p>
+<p><strong>The Mathematical Danger:</strong> As models get larger, the dimensions of the Keys (<span class="math inline">\(d_k\)</span>) get larger. When you calculate the dot product (<span class="math inline">\(QK^T\)</span>) of massive vectors, the resulting numbers can explode into the thousands.</p>
+<p>If you feed massive numbers into a Softmax function, it behaves aggressively. It will give the top score a probability of <code>0.9999</code> and everything else <code>0.0001</code>.</p>
+<ul>
+<li><p>When this happens, the mathematical slope (the gradient) becomes completely flat.</p></li>
+<li><p>If the gradient is flat, <strong>backpropagation stops working</strong>, and the model cannot learn. This is the dreaded Vanishing Gradient problem.</p></li>
+</ul>
+<p><strong>The Fix:</strong> Before running Softmax, the researchers simply divided the raw <span class="math inline">\(QK^T\)</span> scores by the square root of the dimension size (<span class="math inline">\(\sqrt{d_k}\)</span>). This acts as a mathematical anchor, keeping the numbers small and ensuring the gradients remain healthy and steep during training. Finally, these perfectly scaled percentages are multiplied by the <strong>Values (<span class="math inline">\(V\)</span>)</strong> to extract the actual meaning of the matched words.</p>
+</section>
+<section id="multi-head-attention-vs.-layers" class="level4">
+<h4 class="anchored" data-anchor-id="multi-head-attention-vs.-layers">3. Multi-Head Attention vs.&nbsp;Layers</h4>
+<p><strong>Definition:</strong> It is incredibly common to mix up “Heads” and “Layers” because they both imply multiplicity. However, they operate on completely different axes.</p>
+<ul>
+<li><p><strong>Multi-Head Attention (The Horizontal Split):</strong> This happens <em>inside</em> a single processing block. Instead of doing one massive attention calculation, the model splits its 512 dimensions into 8 smaller “heads” (64 dimensions each) and runs them in parallel. This allows the model to look at different aspects of the same word simultaneously. Head 1 might calculate the grammatical structure, while Head 2 calculates the emotional tone.</p></li>
+<li><p><strong>Layers (The Vertical Stack):</strong> The original Transformer stacks 6 of these entire blocks on top of each other. The final output of Layer 1 becomes the input for Layer 2. As the text moves vertically up the stack, the model builds deeper, more abstract, and more complex representations of the sentence.</p></li>
+</ul>
+</section>
+<section id="masking-blinding-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="masking-blinding-the-model">4. Masking: Blinding the Model</h4>
+<p><strong>Definition:</strong> As we discussed in the Teacher Forcing section, during training, the model receives the entire translated French sentence all at once so it can process it in parallel. But if it has the whole sentence, what stops it from simply “looking ahead” at word 4 when it is supposed to be predicting word 4?</p>
+<p><strong>How it works:</strong> Inside the Decoder, the model uses a <strong>Masked Multi-Head Attention</strong> layer.</p>
+<p>Right before the Softmax function is applied to the <span class="math inline">\(QK^T\)</span> scores, the model applies a mask over the matrix. It replaces all the scores of “future” words with negative infinity (<span class="math inline">\(-\infty\)</span>).</p>
+<p>When you run negative infinity through a Softmax function, the math dictates that the resulting probability is exactly <code>0</code>.</p>
+<p>Therefore, when the model is calculating the attention for word 3, the probabilities for words 4, 5, and 6 are forced to absolute zero. The model is mathematically blinded, unable to draw any data or context from the future, forcing it to actually learn how to predict instead of just copying the answer.</p>
+</section>
+</section>
+<section id="section-1.5.-stabilizing-and-processing-the-network" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.5.-stabilizing-and-processing-the-network">Section 1.5. Stabilizing and Processing the Network</h3>
+<p>Once the Multi-Head Attention mechanism figures out how all the words in a sentence relate to each other, the resulting mathematical matrices are messy. If we just pass these raw numbers deeper and deeper into a 6-layer or 12-layer model, the math will eventually break down. This section covers the architectural tricks used to process the context and keep the network stable.</p>
+<section id="dropout-the-disappearing-neurons" class="level4">
+<h4 class="anchored" data-anchor-id="dropout-the-disappearing-neurons">1. Dropout (The “Disappearing” Neurons)</h4>
+<p><strong>Definition:</strong> Deep neural networks are so powerful that they often suffer from <strong>overfitting</strong>—meaning they just memorize the training data perfectly instead of actually learning the underlying rules of language. To prevent this, researchers use a regularization technique called <strong>Dropout</strong>.</p>
+<p><strong>How it works:</strong> During the training phase, Dropout acts like a controlled sabotage. At every step, the network randomly turns off (or “drops”) a certain percentage of its neurons (e.g., 10%).</p>
+<p><strong>Why this helps:</strong> Imagine a team of workers where one person does all the heavy lifting. If that person gets sick, the whole team fails. Dropout prevents the network from relying too heavily on any single neuron or specific pathway to make a prediction. Because neurons keep randomly vanishing, the network is forced to distribute its learned information across the entire model, creating a highly redundant, robust, and generalized understanding of the data.</p>
+<p><em>(Note: Dropout is strictly a training tool. During real-world inference, it is turned off, and all neurons work together.)</em></p>
+</section>
+<section id="residual-connections-the-add" class="level4">
+<h4 class="anchored" data-anchor-id="residual-connections-the-add">2. Residual Connections (The “Add”)</h4>
+<p><strong>Definition:</strong> In deep networks, the mathematical signals (gradients) used to update the weights during training get smaller and smaller as they travel backward through the layers. If they get too small, the network stops learning entirely—a catastrophic issue known as the <strong>Vanishing Gradient Problem</strong>.</p>
+<p>To fix this, the Transformer uses <strong>Residual Connections</strong> (also called Skip Connections) wrapped around every major sub-layer.</p>
+<p><strong>How it works:</strong> Instead of just taking the input vector <span class="math inline">\(x\)</span>, running it through the Attention layer, and passing the new output forward, the network does something simple but brilliant: it takes the original input <span class="math inline">\(x\)</span> and mathematically adds it to the layer’s output.</p>
+<p>The equation is: <span class="math inline">\(x + \text{Sublayer}(x)\)</span></p>
+<p>This creates an “information highway.” It provides a clean, unobstructed shortcut for both the gradients to flow backward during training and the original word meanings (plus their positional encodings) to flow forward, ensuring the deepest layers of the model never “forget” what the original sentence was.</p>
+</section>
+<section id="layer-normalization-the-norm" class="level4">
+<h4 class="anchored" data-anchor-id="layer-normalization-the-norm">3. Layer Normalization (The “Norm”)</h4>
+<p><strong>Definition:</strong> When you add vectors together (like in the step above), the numbers can start to grow uncontrollably large or shrink to zero. <strong>Layer Normalization</strong> is a technique used immediately after the addition step to rein those numbers back in.</p>
+<p><strong>How it works:</strong></p>
+<p>The model takes the newly added matrix, calculates the mean and standard deviation of its features, and rescales the numbers so they are centered around zero. It essentially “smooths out” the data. By keeping the numbers mathematically consistent and stable at every single layer, the model can train significantly faster and more reliably.</p>
+<p>Together, these two steps form the famous <strong>Add &amp; Norm</strong> block you see repeated throughout the entire Transformer architecture diagram.</p>
+</section>
+<section id="position-wise-feed-forward-networks-the-processing-filter" class="level4">
+<h4 class="anchored" data-anchor-id="position-wise-feed-forward-networks-the-processing-filter">4. Position-wise Feed-Forward Networks (The Processing Filter)</h4>
+<p><strong>Definition:</strong> The Multi-Head Attention layer is brilliant at figuring out <em>context</em> (e.g., it calculates that the word “bank” is closely related to the word “river” in this specific sentence). However, Attention is purely a communication step between words. It doesn’t actually <em>process</em> that new, context-heavy information.</p>
+<p>That is the job of the <strong>Position-wise Feed-Forward Network (FFN)</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcReAGqEyswIyf8RVLy5kSAr1prrsNznQLVA-FZ6fPN_n2WPKnqm884pNTMsnkiEJpsDC0fhvkk7u_KxiDa-6XmZquMCtqpRhTkI49uz8RrJ2hjVqwk.png" class="img-fluid figure-img"></p>
+<figcaption>Transformer Feed Forward Network, AI generated</figcaption>
+</figure>
+</div>
+<p><strong>How it works:</strong> After the Attention and Add &amp; Norm steps, every single word is passed through its own classic, fully connected neural network. It is called “position-wise” because the exact same network is applied to each word individually and independently.</p>
+<p>It consists of two linear transformations with a non-linear activation function (ReLU) sandwiched in between: 1. <strong>Expansion:</strong> It takes the 512-dimensional vector and dramatically expands it (often to 2048 dimensions), allowing the network to unpack and analyze the complex patterns Attention just found.</p>
+<ol start="2" type="1">
+<li><p><strong>Activation:</strong> The ReLU function adds non-linear logic, effectively “firing” certain neurons based on what it finds.</p></li>
+<li><p><strong>Contraction:</strong> It compresses the data back down to 512 dimensions so it can be passed smoothly to the next layer.</p></li>
+</ol>
+<p>If Attention is the “meeting” where words share context, the Feed-Forward Network is the “desk work” where each word individually processes what it just learned.</p>
+</section>
+</section>
+<section id="section-1.6.-copnclusions-and-the-final-output" class="level3">
+<h3 class="anchored" data-anchor-id="section-1.6.-copnclusions-and-the-final-output">Section 1.6. Copnclusions and the Final Output</h3>
+<p>We have looked at the micro-mechanics (Attention, Positional Encoding, Matrices). Now, let’s zoom out and look at the macro-architecture. The original Transformer is split into two distinct towers: the <strong>Encoder</strong> (the left side of the paper’s diagram) and the <strong>Decoder</strong> (the right side).</p>
+</section>
+</section>
+<section id="the-encoder-vs.-the-decoder" class="level2">
+<h2 class="anchored" data-anchor-id="the-encoder-vs.-the-decoder">1. The Encoder vs.&nbsp;The Decoder</h2>
+<p><strong>Definition:</strong> If we are translating English to French, the Encoder’s job is to completely understand the English sentence. The Decoder’s job is to use that understanding to write the French sentence.</p>
+<section id="the-encoder-building-the-context" class="level3">
+<h3 class="anchored" data-anchor-id="the-encoder-building-the-context">The Encoder (Building the Context)</h3>
+<ol type="1">
+<li><p>The English text flows into the bottom of the Encoder.</p></li>
+<li><p>It passes through the Multi-Head Attention, where the English words figure out how they relate to <em>each other</em> (e.g., “bank” relates to “river”).</p></li>
+<li><p>It passes through the Feed-Forward Network to process that context.</p></li>
+<li><p>It repeats this through <span class="math inline">\(N\)</span> layers (usually 6).</p></li>
+<li><p><strong>The Final Output:</strong> The Encoder finishes its job and outputs a final set of <strong>Keys (K)</strong> and <strong>Values (V)</strong>. It essentially holds a massive, highly complex mathematical “database” representing the pure meaning of the English sentence.</p></li>
+</ol>
+</section>
+<section id="the-decoder-writing-the-translation" class="level3">
+<h3 class="anchored" data-anchor-id="the-decoder-writing-the-translation">The Decoder (Writing the Translation)</h3>
+<ol type="1">
+<li><p>The model starts generating the French translation auto-regressively (one token at a time).</p></li>
+<li><p>The French words generated <em>so far</em> flow into the bottom of the Decoder.</p></li>
+<li><p>They pass through the <strong>Masked Multi-Head Attention</strong> (as discussed, the mask prevents it from cheating during training). Here, the French words figure out how they relate to <em>other French words</em>.</p></li>
+<li><p><strong>The Meeting Point (Cross-Attention):</strong> This is the magic step. The Decoder has a second Attention block. Here, the French text generates the <strong>Queries (Q)</strong>, but it checks them against the <strong>Keys (K) and Values (V)</strong> that came directly from the <em>Encoder</em>.</p>
+<ul>
+<li>The Decoder is essentially asking the English database: <em>“Based on the French words I’ve written so far, what English concept should I translate next?”</em></li>
+</ul></li>
+<li><p>This repeats through <span class="math inline">\(N\)</span> layers until the Decoder outputs the final predicted word.</p></li>
+</ol>
+</section>
+</section>
+<section id="beyond-the-greedy-decoder-making-choices" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-greedy-decoder-making-choices">2. Beyond the Greedy Decoder (Making Choices)</h2>
+<p><strong>Definition:</strong> At the very top of the Decoder, the model outputs a probability distribution for the next word (e.g., “Je” = 40%, “Nous” = 30%, “Le” = 5%). How does it actually pick the word that appears on your screen?</p>
+<p>The most basic method is a <strong>Greedy Decoder</strong>. A greedy decoder simply looks at the probabilities and always picks the #1 highest score.</p>
+<p><strong>Why Greedy is Flawed:</strong> Greedy decoding has blinders on. It only cares about the immediate next step. If it makes a slightly sub-optimal choice on word 2, it is locked into that path and cannot backtrack. This often leads to text that is repetitive, gets stuck in logical loops, or sounds robotic.</p>
+<p>To fix this, modern AI uses alternative generation strategies to introduce foresight or controlled creativity:</p>
+<ul>
+<li><p><strong>Beam Search (The Chess Player):</strong> Instead of just picking the #1 word, Beam Search explores multiple paths simultaneously. If the “beam width” is 3, it holds the top 3 most likely words in its memory. It then looks at the <em>next</em> step for all 3 of those branches to see which path yields the highest <em>overall</em> probability for the whole sentence. It prevents the model from painting itself into a corner.</p></li>
+<li><p><strong>Top-K Sampling (The Dice Roll):</strong> The model looks at the top <span class="math inline">\(K\)</span> most likely words (e.g., the top 40 words) and essentially rolls a weighted die to pick one. The #1 word is still the most likely to be chosen, but sometimes it will pick the #5 word or the #12 word. This prevents repetitive loops and makes the text sound more naturally human.</p></li>
+<li><p><strong>Top-p / Nucleus Sampling (The Dynamic Dice):</strong> Instead of a fixed number of words (<span class="math inline">\(K\)</span>), the model dynamically shrinks or expands its pool of choices based on a threshold (<span class="math inline">\(p\)</span>). If <span class="math inline">\(p = 0.90\)</span>, the model pools together just enough top words whose probabilities add up to 90%. If the model is very confident, the pool might only be 2 words. If it’s unsure, the pool might be 50 words. This allows for creativity while preventing complete gibberish.</p></li>
+<li><p><strong>Temperature (The Confidence Slider):</strong> Temperature is a mathematical tweak applied right before the final selection. A low temperature (e.g., 0.1) sharpens the math, making the most likely words even <em>more</em> likely (safe, factual, but robotic). A high temperature (e.g., 0.9) flattens the math, making the less likely words more competitive (creative, chaotic, and sometimes hallucinatory).</p></li>
+</ul>
+</section>
+<section id="section-2.-analysis-of-the-paper-itself" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.-analysis-of-the-paper-itself">Section 2. Analysis of the Paper itself</h2>
+<p>With the foundational concepts locked in, we can finally look at Figure 1 from the “Attention Is All You Need” paper and trace exactly how a piece of text flows through the entire system.</p>
+<p>The paper describes the Transformer as an <strong>Encoder-Decoder structure</strong>. Let’s track the journey of translating the English sentence <em>“The cat sat”</em> into the French sentence <em>“Le chat s’est assis”</em>.</p>
+</section>
+<section id="step-1-entering-the-matrix-the-input-stage" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-entering-the-matrix-the-input-stage">Step 1: Entering the Matrix (The Input Stage)</h2>
+<p>Before the model does any “thinking,” the English source text must be converted into a mathematical format.</p>
+<ol type="1">
+<li><p><strong>Input Embedding:</strong> The English tokens (<code>The</code>, <code>cat</code>, <code>sat</code>) are looked up in the embedding matrix. Each token is converted into a 512-dimensional vector (<span class="math inline">\(d_{model} = 512\)</span>).</p></li>
+<li><p><strong>Positional Encoding:</strong> Because the model will process all these words simultaneously, it has no idea what order they are in. We add the geometric sine/cosine waves to each vector so the model physically “feels” that <code>The</code> is at position 0, and <code>cat</code> is at position 1.</p></li>
+</ol>
+<p>These spatially aware vectors are now bundled together into one large matrix, <span class="math inline">\(X\)</span>, and passed into the Encoder.</p>
+</section>
+<section id="step-2-the-encoder-stack-building-the-context" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-the-encoder-stack-building-the-context">Step 2: The Encoder Stack (Building the Context)</h2>
+<p>The left side of the paper’s diagram is the Encoder. The paper states that the Encoder is composed of a stack of <span class="math inline">\(N = 6\)</span> identical layers. The goal of this entire stack is to output a deep, highly contextualized representation of the English sentence.</p>
+<p>Inside each of the 6 layers, the data flows through two distinct sub-layers:</p>
+<section id="sub-layer-1-multi-head-self-attention" class="level3">
+<h3 class="anchored" data-anchor-id="sub-layer-1-multi-head-self-attention">Sub-layer 1: Multi-Head Self-Attention</h3>
+<p>The matrix <span class="math inline">\(X\)</span> enters the Attention block. Here, the model generates the Queries (<span class="math inline">\(Q\)</span>), Keys (<span class="math inline">\(K\)</span>), and Values (<span class="math inline">\(V\)</span>) by multiplying <span class="math inline">\(X\)</span> against its learned weight matrices.</p>
+<ul>
+<li><p>It is called <strong>Self-Attention</strong> because the Queries, Keys, and Values all come from the exact same place (the English input). The English words are attending to <em>themselves</em>.</p></li>
+<li><p>The model runs the scaled dot-product equation: <span class="math inline">\(\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)</span> across 8 separate “heads” in parallel.</p></li>
+<li><p>This allows the word <code>sat</code> to mathematically connect itself to <code>cat</code> (the entity doing the sitting).</p></li>
+</ul>
+<p><strong>The Wrap-Around:</strong> To prevent the vanishing gradient problem, the original input <span class="math inline">\(X\)</span> bypasses the attention block via a <strong>Residual Connection</strong> and is added to the output. The result is immediately stabilized using <strong>Layer Normalization</strong>.</p>
+</section>
+<section id="sub-layer-2-position-wise-feed-forward-network" class="level3">
+<h3 class="anchored" data-anchor-id="sub-layer-2-position-wise-feed-forward-network">Sub-layer 2: Position-wise Feed-Forward Network</h3>
+<p>The context is set, but it needs to be processed. The normalized matrix passes into the Feed-Forward Network (FFN).</p>
+<ul>
+<li><p>Each word’s 512-dimensional vector is individually expanded to 2048 dimensions, passed through a ReLU activation to learn complex non-linear patterns, and compressed back to 512.</p></li>
+<li><p>This is again wrapped in a Residual Connection and Layer Normalization.</p></li>
+</ul>
+<p>This exact process repeats 6 times. By the time the data exits Layer 6, the Encoder has built the ultimate “Database” of the English sentence. It outputs the final <strong>Keys (K)</strong> and <strong>Values (V)</strong>, which are held in memory.</p>
+</section>
+</section>
+<section id="step-3-the-decoder-stack-writing-the-translation" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-the-decoder-stack-writing-the-translation">Step 3: The Decoder Stack (Writing the Translation)</h2>
+<p>Now we move to the right side of the diagram. The Decoder is also a stack of <span class="math inline">\(N = 6\)</span> identical layers, but it has a fundamentally different job: it must generate the French translation token by token, auto-regressively.</p>
+<p>To do this, it uses <em>three</em> sub-layers. Let’s assume the model has already generated <code>&lt;START&gt; Le chat</code> and is trying to predict the next word.</p>
+<section id="sub-layer-1-masked-multi-head-self-attention" class="level3">
+<h3 class="anchored" data-anchor-id="sub-layer-1-masked-multi-head-self-attention">Sub-layer 1: Masked Multi-Head Self-Attention</h3>
+<p>The French sequence generated so far (<code>&lt;START&gt; Le chat</code>) is embedded, gets its positional encoding, and enters the first block.</p>
+<ul>
+<li><p>This is another <strong>Self-Attention</strong> mechanism. The French words are looking at other French words to build grammatical structure.</p></li>
+<li><p><strong>The Mask:</strong> Because we use Teacher Forcing during training (feeding the whole French sequence at once), a mask of negative infinity (<span class="math inline">\(-\infty\)</span>) is applied to future positions. This mathematically forces the Softmax function to zero out any information from words that haven’t been “generated” yet.</p></li>
+</ul>
+</section>
+<section id="sub-layer-2-multi-head-cross-attention-the-meeting-point" class="level3">
+<h3 class="anchored" data-anchor-id="sub-layer-2-multi-head-cross-attention-the-meeting-point">Sub-layer 2: Multi-Head Cross-Attention (The Meeting Point)</h3>
+<p>This is the bridge between the two halves of the model.</p>
+<ul>
+<li><p>The <strong>Queries (<span class="math inline">\(Q\)</span>)</strong> come from the output of the Decoder’s previous sub-layer (the French context).</p></li>
+<li><p>The <strong>Keys (<span class="math inline">\(K\)</span>) and Values (<span class="math inline">\(V\)</span>)</strong> are pulled directly from the final output of the <strong>Encoder</strong> (the English context).</p></li>
+</ul>
+<p>Here, the French word <code>chat</code> (the Query) searches the English database (the Keys) to figure out what concept it should translate next. It heavily matches with the English word <code>sat</code>, pulling that meaning (the Value) into the Decoder stream.</p>
+</section>
+<section id="sub-layer-3-position-wise-feed-forward-network" class="level3">
+<h3 class="anchored" data-anchor-id="sub-layer-3-position-wise-feed-forward-network">Sub-layer 3: Position-wise Feed-Forward Network</h3>
+<p>Just like in the Encoder, this mixed French-English contextual data is passed through the Feed-Forward network to be processed, complete with Residual Connections and Layer Normalization.</p>
+<p>This process repeats through all 6 Decoder layers, progressively refining the prediction.</p>
+</section>
+</section>
+<section id="step-4-the-final-linear-and-softmax-layer" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-the-final-linear-and-softmax-layer">Step 4: The Final Linear and Softmax Layer</h2>
+<p>After exiting the 6th layer of the Decoder, we have a highly processed 512-dimensional vector representing the model’s “thought” for the next token. But a 512-dimensional vector isn’t a French word.</p>
+<ol type="1">
+<li><p><strong>The Linear Layer:</strong> This is a simple neural network layer that projects the 512-dimensional vector into a massive vector that is the exact size of the model’s entire vocabulary (e.g., 30,000 words).</p></li>
+<li><p><strong>The Softmax Layer:</strong> This function squashes those 30,000 raw numbers into a probability distribution. Every single word in the French vocabulary gets a percentage.</p></li>
+</ol>
+<p>The word with the highest percentage (or the one selected via Beam Search/Top-p sampling) is chosen as the final output. The model outputs <code>s'est</code>, appends it to the sequence, and the entire Decoder loop starts all over again.</p>
+</section>
+<section id="section-3.-glossary-and-key-terms" class="level2">
+<h2 class="anchored" data-anchor-id="section-3.-glossary-and-key-terms">Section 3. Glossary and key terms</h2>
+<p>This glossary provides quick definitions for the core concepts and mathematical operations that power the Transformer architecture.</p>
+<section id="the-foundations" class="level3">
+<h3 class="anchored" data-anchor-id="the-foundations">The Foundations</h3>
+<ul>
+<li><p><strong>Auto-Regressive Generation:</strong> The process of generating text one token at a time, where every new token is predicted based on the sequence generated so far.</p></li>
+<li><p><strong>Tokenization:</strong> The algorithmic slicing of text into smaller, mathematically manageable chunks (sub-words or characters) before entering the model.</p></li>
+<li><p><strong>Embedding Matrix:</strong> A massive lookup table where each discrete token ID is mapped to a dense, high-dimensional vector of numbers (e.g., a 512-dimensional row).</p></li>
+<li><p><strong>Positional Encoding:</strong> The geometric addition of sine and cosine wave functions to a word’s vector, allowing the model to mathematically “feel” the sequential order of words despite processing them in parallel.</p></li>
+</ul>
+</section>
+<section id="the-database-engine" class="level3">
+<h3 class="anchored" data-anchor-id="the-database-engine">The “Database” Engine</h3>
+<ul>
+<li><p><strong>Query (Q):</strong> A vector representing what a specific word is actively <em>looking for</em> within the sentence context.</p></li>
+<li><p><strong>Key (K):</strong> A vector representing the “tags” or metadata of a word, indicating what the word <em>is</em>.</p></li>
+<li><p><strong>Value (V):</strong> A vector containing the actual, deep semantic meaning of the word.</p></li>
+<li><p><strong>MatMul (<span class="math inline">\(QK^T\)</span>):</strong> Matrix Multiplication. The mathematical dot-product operation used to compare Queries and Keys, calculating exactly how strongly two words match.</p></li>
+<li><p><strong>SoftMax:</strong> A mathematical function that squashes raw match scores into a clean probability distribution, forcing all values to fall between 0.0 and 1.0 and sum to exactly 1.0.</p></li>
+</ul>
+</section>
+<section id="the-architecture-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="the-architecture-blocks">The Architecture Blocks</h3>
+<ul>
+<li><p><strong>Self-Attention:</strong> An Attention mechanism where the Queries, Keys, and Values all come from the exact same source text (e.g., the English sentence looking at itself).</p></li>
+<li><p><strong>Cross-Attention:</strong> The bridge between the Encoder and Decoder. The Queries come from the <em>target</em> language (French), while the Keys and Values come from the <em>source</em> language (English).</p></li>
+<li><p><strong>Multi-Head Attention:</strong> Splitting the 512 dimensions into smaller chunks (e.g., 8 heads of 64 dimensions) so the model can calculate multiple different types of relationships (grammar, tone, vocabulary) simultaneously.</p></li>
+<li><p><strong>Position-wise Feed-Forward Network:</strong> A classic, fully connected neural network applied independently to every single word to process the context gathered by the Attention layer.</p></li>
+</ul>
+</section>
+<section id="stability-training" class="level3">
+<h3 class="anchored" data-anchor-id="stability-training">Stability &amp; Training</h3>
+<ul>
+<li><p><strong>Teacher Forcing:</strong> A training technique where the entire “correct” target sentence is fed into the Decoder at once, massively speeding up training by allowing for parallel computation.</p></li>
+<li><p><strong>Masking:</strong> A mathematical blinder (using negative infinity) applied during Teacher Forcing to prevent the model from “looking ahead” at future words before predicting them.</p></li>
+<li><p><strong>Residual Connection (Add):</strong> A mathematical shortcut (<span class="math inline">\(x + \text{Sublayer}(x)\)</span>) that adds the original input of a layer to its output, preventing the network from forgetting the original text and stopping gradients from vanishing.</p></li>
+<li><p><strong>Layer Normalization (Norm):</strong> Re-centering the numbers in a matrix after an addition step (mean of 0, standard deviation of 1) to keep the math stable and prevent values from exploding.</p></li>
+<li><p><strong>Dropout:</strong> A regularization technique used <em>only</em> during training that randomly turns off a percentage of neurons, forcing the network to learn robust patterns instead of just memorizing data.</p></li>
+</ul>
+</section>
+<section id="generation-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="generation-strategies">Generation Strategies</h3>
+<ul>
+<li><p><strong>Greedy Decoding:</strong> Always selecting the single word with the highest probability score at each step. Fast, but prone to repetitive and rigid output.</p></li>
+<li><p><strong>Beam Search:</strong> Keeping multiple probable sentence paths in memory simultaneously to find the sequence with the highest overall probability.</p></li>
+<li><p><strong>Top-K / Top-p Sampling:</strong> Introducing controlled randomness by rolling a weighted die over the top-scoring choices, allowing for more natural and creative text generation.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jordanchongja\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="p-1">Made with <a href="https://quarto.org/">Quarto</a>.</span></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jordanchongja">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/jordan-chong-88a02b172/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:jordanchongjian25@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ |
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/jordanchongja/jordanchongja.github.io">
+<p>Source</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../license.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
