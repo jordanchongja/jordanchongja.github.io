@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-featured-projects .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -86,7 +86,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-featured-projects'] = new List('listing-featured-projects', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-featured-readings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-featured-readings'] = new List('listing-featured-readings', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -250,45 +278,25 @@ window.Quarto = {
   </div>
   <div class="about-contents"><div id="hero-heading">
 <p>Hi! I’m Jordan. I am a recent graduate of Singapore Management University (SMU) with a Bachelor of Business Management with a double major in Finance and Data Science &amp; Analytics.</p>
-<p>I’m highly interested in roles at the intersection of markets, data, and technology—specifically within quantitative finance, equity derivatives, and digital assets trading.</p>
-<p>Currently, I am expanding my knowledge in market microstructure, stochastic control, and volatility modeling, while building simulation engines and replicating academic frameworks like the Avellaneda-Stoikov model.</p>
+<p>I’m interested in roles at the intersection of markets and data within quantitative finance, equity derivatives, and digital assets trading.</p>
+<p>Currently, I am learning about market microstructure and volatility modeling.</p>
+<p>I enjoy bouldering, playing badminton, running and playing the guitar in my free time.</p>
+<p>My favorite book is Grit by Angela Duckworth and my favorite quote is by Theodore Roosevelt, as below:</p>
 </div></div>
 </div>
 
-<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px;">
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">
+<div class="quote-container" style="text-align: center; padding: 1em 0; font-style: italic;">
+<blockquote class="blockquote">
+<p>“It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat.”</p>
+</blockquote>
+</div>
+<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1px;">
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">
 Featured Projects
 </div>
 <p><a href="./projects/index.html" class="btn btn-outline-primary">View all projects →</a></p>
 </div>
-<div id="featured-projects">
-
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const badges = document.querySelectorAll('.listing-category');
-
-    badges.forEach(badge => {
-      badge.addEventListener('click', function (e) {
-        // Stop the click from triggering the project card link
-        e.stopPropagation();
-        e.preventDefault();
-
-        // Use textContent instead of innerText to ignore CSS uppercase styling
-        const category = badge.textContent.trim();
-        
-        // Redirect to the projects page with the correct casing
-        window.location.href = '/projects/#category=' + encodeURIComponent(category);
-      });
-    });
-  });
-</script>
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div id="listing-featured-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1N0b2NoYXN0aWMlMjBDb250cm9sJTJDUHl0aG9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1775577600000" data-listing-file-modified-sort="1776525299809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2795">
 <a href="./projects/avellaneda-stoikov-mm-single-limit-order/index.html" class="quarto-grid-link">
@@ -346,7 +354,7 @@ Gap Challenge Solver
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVzJTJDZmVhdHVyZWQ=" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1778231310916" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="587">
+<div class="g-col-1" data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVzJTJDZmVhdHVyZWQ=" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1778641078021" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="637">
 <a href="./projects/options-research/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -379,7 +387,97 @@ Options Research
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const badges = document.querySelectorAll('.listing-category');
+
+    badges.forEach(badge => {
+      badge.addEventListener('click', function (e) {
+        // Stop the click from triggering the project card link
+        e.stopPropagation();
+        e.preventDefault();
+
+        // Use textContent instead of innerText to ignore CSS uppercase styling
+        const category = badge.textContent.trim();
+        
+        // Redirect to the projects page with the correct casing
+        window.location.href = '/projects/#category=' + encodeURIComponent(category);
+      });
+    });
+  });
+</script>
+<p><br></p>
+<!-- Readings Section -->
+<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;">
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">
+Top Reads of 2026
+</div>
+<p><a href="./readings/index.html" class="btn btn-outline-primary">View all readings →</a></p>
+</div>
+<div id="listing-featured-readings" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0" data-categories="Q2xhc3NpY2FsJTIwbGl0ZXJhdHVyZSUyQ0Jvb2slMkNmZWF0dXJlZA==" data-listing-date-sort="1778601600000" data-listing-file-modified-sort="1778644893060" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="12">
+<a href="./readings/The Grapes of Wrath/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./readings/The Grapes of Wrath/cover.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The Grapes of Wrath
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="RmljdGlvbiUyQ0Jvb2slMkNmZWF0dXJlZA==" data-listing-date-sort="1764691200000" data-listing-file-modified-sort="1778644342965" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3466">
+<a href="./readings/The God of Small Things/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./readings/The God of Small Things/cover.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The God of Small Things
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="QnVzaW5lc3MlMjAlMjYlMjBFY29ub21pY3MlMkNCb29rJTJDZmVhdHVyZWQ=" data-listing-date-sort="1761840000000" data-listing-file-modified-sort="1778644313428" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="525">
+<a href="./readings/Grit/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./readings/Grit/cover.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Grit
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="U2luZ2Fwb3JlYW4lMjBmaWN0aW9uJTIwKEVuZ2xpc2gpLiUyQ0Jvb2slMkNmZWF0dXJlZA==" data-listing-date-sort="1761840000000" data-listing-file-modified-sort="1778644959404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="280">
+<a href="./readings/Ministry of Moral Panic/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./readings/Ministry of Moral Panic/cover.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Ministry of Moral Panic
+</h5>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {

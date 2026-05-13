@@ -11,14 +11,6 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-research/index.html"
-    ]
-  },
-  {
     "listing": "/notes/index.html",
     "items": [
       "/notes/posts/paper-attention_is_all_I_need/index.html",
@@ -27,6 +19,18 @@
       "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
       "/notes/posts/black-scholes-derivation/index.html",
       "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-research/index.html",
+      "/readings/The Grapes of Wrath/index.html",
+      "/readings/The God of Small Things/index.html",
+      "/readings/Grit/index.html",
+      "/readings/Ministry of Moral Panic/index.html"
     ]
   },
   {
@@ -76,7 +80,9 @@
       "/readings/Small Boat/index.html",
       "/readings/The Happiness Fantasy/index.html",
       "/readings/The Fountainhead/index.html",
-      "/readings/Yellow Dog/index.html"
+      "/readings/Yellow Dog/index.html",
+      "/readings/The Grapes of Wrath/index.html",
+      "/readings/Modern Classics Civilization and Its Discontent/index.html"
     ]
   }
 ]
