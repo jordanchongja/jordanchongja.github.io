@@ -292,7 +292,7 @@ window.Quarto = {
 x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
 \end{bmatrix}\]</span></p>
 <p>We can observe the impact of the change in magnitudes of the transmitted numbers below, with white reflecting small numbers and red reflecting big numbers.</p>
-<div id="eaf354d6-3f80-4a69-9e00-5176cde30692" class="cell" data-execution_count="1">
+<div id="eaf354d6-3f80-4a69-9e00-5176cde30692" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> manim <span class="im">import</span> <span class="op">*</span></span>
@@ -331,7 +331,7 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\ProgramData\anaconda3\envs\fin-env\lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+<pre><code>c:\ProgramData\anaconda3\envs\fin-env\lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
   warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -373,8 +373,8 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
 <p>You might wonder why we need the <span class="math inline">\(1/\sqrt{2}\)</span> scaling factor rather than just using 1s and -1s.</p>
 <p>If we transformed the space using just <code>[1, 1]</code> and <code>[-1, 1]</code>, our new basis vectors would have a length of <span class="math inline">\(\sqrt{2}\)</span>. The grid squares would stretch, and the total area (or “magnitude”) of our vectors would artificially increase.</p>
 <p>By dividing by <span class="math inline">\(\sqrt{2}\)</span>, we <strong>normalize</strong> the transformation. Geometrically, this ensures that the transformation is purely a rotation without any scaling. In the context of data science and physics, this is crucial: it means the transform is <em>orthogonal</em>. It preserves the total distance from the origin. The total “energy” of your data remains exactly the same; it has simply been repackaged from “raw values” into “trends and fluctuations.”</p>
-<div id="c818457e-f31d-4a01-b5c6-29b65afcd023" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>manim <span class="op">-</span>qm <span class="op">-</span>v WARNING <span class="op">--</span>embed_media HaarTransformVisualization</span>
+<div id="c818457e-f31d-4a01-b5c6-29b65afcd023" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>manim <span class="op">-</span>qm <span class="op">-</span>v WARNING HaarTransformVisualization</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HaarTransformVisualization(LinearTransformationScene):</span>
@@ -412,14 +412,15 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
 </pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                                                                       </code></pre>
+<pre><code>                                                                                                                         </code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<video src="media\jupyter\HaarTransformVisualization@2026-05-13@13-28-09.mp4" controls="" autoplay="" loop="" style="max-width: 60%;">
+<video src="media\jupyter\HaarTransformVisualization@2026-05-13@15-21-41.mp4" controls="" autoplay="" loop="" style="max-width: 60%;">
       Your browser does not support the <code>video</code> element.
     </video>
 </div>
 </div>
+{{&lt; media_jupyter_HaarTransformVisualization@2026-05-13@13-28-09.mp4 &gt;}}
 </section>
 </section>
 <section id="filtering-the-signal-from-the-noise-a-frequency-perspective" class="level3">
