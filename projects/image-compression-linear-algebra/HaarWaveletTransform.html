@@ -373,39 +373,42 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
 <p>You might wonder why we need the <span class="math inline">\(1/\sqrt{2}\)</span> scaling factor rather than just using 1s and -1s.</p>
 <p>If we transformed the space using just <code>[1, 1]</code> and <code>[-1, 1]</code>, our new basis vectors would have a length of <span class="math inline">\(\sqrt{2}\)</span>. The grid squares would stretch, and the total area (or “magnitude”) of our vectors would artificially increase.</p>
 <p>By dividing by <span class="math inline">\(\sqrt{2}\)</span>, we <strong>normalize</strong> the transformation. Geometrically, this ensures that the transformation is purely a rotation without any scaling. In the context of data science and physics, this is crucial: it means the transform is <em>orthogonal</em>. It preserves the total distance from the origin. The total “energy” of your data remains exactly the same; it has simply been repackaged from “raw values” into “trends and fluctuations.”</p>
-<div id="c818457e-f31d-4a01-b5c6-29b65afcd023" class="cell" data-execution_count="5">
+<div id="c818457e-f31d-4a01-b5c6-29b65afcd023" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>manim <span class="op">-</span>qm <span class="op">-</span>v WARNING HaarTransformVisualization</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HaarTransformVisualization(LinearTransformationScene):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">**</span>kwargs):</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        LinearTransformationScene.<span class="fu">__init__</span>(</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            show_coordinates<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            leave_ghost_vectors<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            show_basis_vectors<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="op">**</span>kwargs <span class="co"># Pass them up here too</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> construct(<span class="va">self</span>):</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># The Normalized Haar Matrix W2</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        s2 <span class="op">=</span> np.sqrt(<span class="dv">2</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        W2 <span class="op">=</span> np.array([</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">1</span><span class="op">/</span>s2, <span class="dv">1</span><span class="op">/</span>s2],   <span class="co"># Row 1: Average (Low-pass)</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            [<span class="op">-</span><span class="dv">1</span><span class="op">/</span>s2, <span class="dv">1</span><span class="op">/</span>s2]   <span class="co"># Row 2: Difference (High-pass)</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        ])</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A vector representing a 2-pixel 'image'</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">2</span>])</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        vector <span class="op">=</span> <span class="va">self</span>.add_vector(v, color<span class="op">=</span>YELLOW)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> MathTex(<span class="st">"v = [5, 2]"</span>).next_to(vector.get_end(), LEFT)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add(label)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wait()</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Apply the matrix transformation</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.apply_matrix(W2)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wait(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>config.media_embed <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HaarTransformVisualization(LinearTransformationScene):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        LinearTransformationScene.<span class="fu">__init__</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            show_coordinates<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            leave_ghost_vectors<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            show_basis_vectors<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">**</span>kwargs <span class="co"># Pass them up here too</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> construct(<span class="va">self</span>):</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># The Normalized Haar Matrix W2</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        s2 <span class="op">=</span> np.sqrt(<span class="dv">2</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        W2 <span class="op">=</span> np.array([</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">1</span><span class="op">/</span>s2, <span class="dv">1</span><span class="op">/</span>s2],   <span class="co"># Row 1: Average (Low-pass)</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            [<span class="op">-</span><span class="dv">1</span><span class="op">/</span>s2, <span class="dv">1</span><span class="op">/</span>s2]   <span class="co"># Row 2: Difference (High-pass)</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A vector representing a 2-pixel 'image'</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">2</span>])</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        vector <span class="op">=</span> <span class="va">self</span>.add_vector(v, color<span class="op">=</span>YELLOW)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> MathTex(<span class="st">"v = [5, 2]"</span>).next_to(vector.get_end(), LEFT)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add(label)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wait()</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Apply the matrix transformation</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.apply_matrix(W2)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wait(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Manim Community <span style="color: #008000; text-decoration-color: #008000">v0.19.1</span>
 
@@ -420,7 +423,6 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\ x_7 \\ x_8
     </video>
 </div>
 </div>
-{{&lt; media_jupyter_HaarTransformVisualization@2026-05-13@13-28-09.mp4 &gt;}}
 </section>
 </section>
 <section id="filtering-the-signal-from-the-noise-a-frequency-perspective" class="level3">
