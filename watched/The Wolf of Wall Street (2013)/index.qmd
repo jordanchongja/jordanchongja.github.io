@@ -1,0 +1,28 @@
+---
+title: The Wolf of Wall Street
+author: Martin Scorsese
+date: '2026-10-31'
+categories:
+- Comedy
+- Drama
+- Crime
+- Movie
+image: poster.jpg
+subtitle: ★★★★
+rating: 4.0
+year: '2013'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/the-wolf-of-wall-street/)

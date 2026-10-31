@@ -1,0 +1,28 @@
+---
+title: 'Avengers: Infinity War'
+author: Anthony Russo, Joe Russo
+date: '2026-10-31'
+categories:
+- Action
+- Science Fiction
+- Adventure
+- Movie
+image: poster.jpg
+subtitle: ★★★★
+rating: 4.0
+year: '2018'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/avengers-infinity-war/)

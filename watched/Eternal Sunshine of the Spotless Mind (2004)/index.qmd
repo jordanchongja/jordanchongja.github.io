@@ -1,0 +1,28 @@
+---
+title: Eternal Sunshine of the Spotless Mind
+author: Michel Gondry
+date: '2026-10-31'
+categories:
+- Science Fiction
+- Romance
+- Drama
+- Movie
+image: poster.jpg
+subtitle: ★★★★★
+rating: 5.0
+year: '2004'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/eternal-sunshine-of-the-spotless-mind/)

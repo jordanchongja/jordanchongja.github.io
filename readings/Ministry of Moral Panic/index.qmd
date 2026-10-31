@@ -5,6 +5,7 @@ date: '2025-10-31'
 categories:
 - Singaporean fiction (English).
 - Book
+- featured
 image: cover.png
 subtitle: ★★★★★ | Stories
 rating: 5

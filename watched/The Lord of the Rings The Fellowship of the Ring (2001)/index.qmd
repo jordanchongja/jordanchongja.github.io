@@ -1,0 +1,28 @@
+---
+title: 'The Lord of the Rings: The Fellowship of the Ring'
+author: Peter Jackson
+date: '2026-10-31'
+categories:
+- Adventure
+- Action
+- Fantasy
+- Movie
+image: poster.jpg
+subtitle: ★★★★
+rating: 4.0
+year: '2001'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/the-lord-of-the-rings-the-fellowship-of-the-ring/)

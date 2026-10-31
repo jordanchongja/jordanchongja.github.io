@@ -1,0 +1,28 @@
+---
+title: The Grapes of Wrath
+author: John Steinbeck
+date: '2026-05-13'
+categories:
+- Classical literature
+- Book
+- featured
+image: cover.jpg
+subtitle: ''
+rating: 0
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+# The Grapes of Wrath
+
+
+
+# Bookmarks

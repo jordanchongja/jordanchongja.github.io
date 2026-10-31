@@ -1,0 +1,28 @@
+---
+title: Once Upon a Time... in Hollywood
+author: Quentin Tarantino
+date: '2026-10-31'
+categories:
+- Thriller
+- Drama
+- Comedy
+- Movie
+image: poster.jpg
+subtitle: ★★★
+rating: 3.0
+year: '2019'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/once-upon-a-time-in-hollywood/)

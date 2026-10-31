@@ -5,6 +5,7 @@ date: '2025-10-31'
 categories:
 - Business & Economics
 - Book
+- featured
 image: cover.jpg
 subtitle: ★★★★ | (Vermilion Life Essentials)
 rating: 4

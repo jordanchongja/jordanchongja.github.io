@@ -1,0 +1,27 @@
+---
+title: 'Kill Bill: Vol. 1'
+author: Quentin Tarantino
+date: '2026-10-31'
+categories:
+- Crime
+- Action
+- Movie
+image: poster.jpg
+subtitle: ★★
+rating: 2.0
+year: '2003'
+body-class: project-detail-view
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/kill-bill-vol-1/)

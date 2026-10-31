@@ -31,10 +31,12 @@ website:
         text: Notes
       - href: readings/index.qmd
         text: Readings
+      - href: watched/index.qmd
+        text: Watched
     right:
       # CV stays here as a "Utility" link
       - text: CV
-        href: /assets/Jordan_Chong_CV.pdf
+        href: /assets/JordanChong_CV.pdf
         target: _blank 
       - icon: linkedin
         href: https://www.linkedin.com/in/jordan-chong-88a02b172/
