@@ -1,7 +1,7 @@
 ---
 title: Ratatouille
 author: Brad Bird
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Family
 - Fantasy
@@ -12,11 +12,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2007'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -32,6 +32,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+haha shit i forgot but remy is just too ingrained in pop culture and just has too many memes to not give this movie five stars.
 
 [View on Letterboxd](https://letterboxd.com/film/ratatouille/)

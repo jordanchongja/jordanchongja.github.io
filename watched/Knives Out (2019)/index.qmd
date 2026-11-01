@@ -1,21 +1,21 @@
 ---
 title: Knives Out
 author: Rian Johnson
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Mystery
 - Comedy
 - Crime
 - Movie
 image: poster.jpg
-subtitle: ★★★★★
-rating: 5.0
+subtitle: ★★★★
+rating: 4.0
 year: '2019'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -31,6 +31,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+So i remember this movie was good, but i think not crazy good, but still good enough for a four star, good watch
 
 [View on Letterboxd](https://letterboxd.com/film/knives-out-2019/)

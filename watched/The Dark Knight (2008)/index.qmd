@@ -11,11 +11,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2008'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -35,5 +35,9 @@ include-before-body:
 - **Director**: Christopher Nolan
 - **Year**: 2008
 - **IMDb Rating**: 9.1
+
+
+## Letterboxd Review
+Amazing
 
 [View on Letterboxd](https://letterboxd.com/film/the-dark-knight/)

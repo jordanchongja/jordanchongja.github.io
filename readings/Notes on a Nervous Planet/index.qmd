@@ -3,9 +3,10 @@ title: Notes on a Nervous Planet
 author: Matt Haig
 date: '2026-10-28'
 categories:
+- Psychology
+- Book
 - Anxiety
 - Stress management
-- Book
 image: cover.jpg
 subtitle: ★★★★
 rating: 4

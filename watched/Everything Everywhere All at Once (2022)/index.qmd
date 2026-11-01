@@ -1,7 +1,7 @@
 ---
 title: Everything Everywhere All at Once
 author: Daniel Scheinert, Daniel Kwan
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Science Fiction
 - Adventure
@@ -9,14 +9,14 @@ categories:
 - Action
 - Movie
 image: poster.jpg
-subtitle: ★★★★★
+subtitle: ★★★★★ ♥
 rating: 5.0
 year: '2022'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -32,6 +32,11 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+My absolute favorite movie. As someone that relates to Joy, that made up a large part of me enjoying the movie. I've always struggled to find the balance between nihilism and radical kindness and presence and i think the tension between Joy and Jobu Tupaki really brought that to life. The scene about the rocks was really just beautiful and resonated with me. Sometimes one just wants to be, no work no commitments no thoughts, a human being, not a human doing, and having a scene that really put that into a reality was nice. 
+
+With the multiverse and it representing the internet and the endless informational overload, especially in this age of AI, i've felt the benefits when i just disconnect from the multiverse in my own life and find joy in the moments of life. It really is that damn phone. 
+
+Yeah ok anyways, been awhile since i saw the movie, but overall like the use of motifs like the bagel throughout the movie, will watch again.
 
 [View on Letterboxd](https://letterboxd.com/film/everything-everywhere-all-at-once/)

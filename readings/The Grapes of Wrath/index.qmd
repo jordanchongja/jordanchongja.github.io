@@ -3,8 +3,9 @@ title: The Grapes of Wrath
 author: John Steinbeck
 date: '2025-11-04'
 categories:
-- Classical literature
+- Fiction
 - Book
+- Classical literature
 - featured
 image: cover.jpg
 subtitle: ★★★★★

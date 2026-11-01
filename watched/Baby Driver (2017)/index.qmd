@@ -1,7 +1,7 @@
 ---
 title: Baby Driver
 author: Edgar Wright
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Crime
 - Action
@@ -10,11 +10,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2017'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -30,6 +30,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+Don't really remember the plot, but remember it was really good, love these indie? ok i guess just not super super mainstream movies.
 
 [View on Letterboxd](https://letterboxd.com/film/baby-driver/)

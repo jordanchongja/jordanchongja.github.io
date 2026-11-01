@@ -1,7 +1,7 @@
 ---
 title: The Perks of Being a Wallflower
 author: Stephen Chbosky
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Drama
 - Movie
@@ -9,11 +9,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2012'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -29,6 +29,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+Classic, the tunnel scene is forever imprinted in my brain
 
 [View on Letterboxd](https://letterboxd.com/film/the-perks-of-being-a-wallflower/)

@@ -1,7 +1,7 @@
 ---
 title: The Grand Budapest Hotel
 author: Wes Anderson
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Comedy
 - Drama
@@ -10,11 +10,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2014'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -30,6 +30,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+I do love me some wes anderson shots and quirky little story, just a delicious story. The vibes are just immaculate somehow.
 
 [View on Letterboxd](https://letterboxd.com/film/the-grand-budapest-hotel/)

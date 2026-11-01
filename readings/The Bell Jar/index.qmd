@@ -3,9 +3,10 @@ title: The Bell Jar
 author: Sylvia Plath
 date: '2026-08-12'
 categories:
+- Fiction
+- Book
 - women college students
 - summer
-- Book
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5

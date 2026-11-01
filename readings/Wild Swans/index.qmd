@@ -3,9 +3,10 @@ title: Wild Swans
 author: Jung Chang
 date: '2026-07-06'
 categories:
+- Biography & Autobiography
+- Book
 - Mujeres en China
 - Biography
-- Book
 image: cover.jpg
 subtitle: ★★★★★ | Three Daughters of China
 rating: 5

@@ -3,9 +3,10 @@ title: Reasons to stay alive
 author: Matt Haig
 date: '2026-10-27'
 categories:
+- Biography & Autobiography
+- Book
 - Mental Depression
 - Depressed persons
-- Book
 image: cover.jpg
 subtitle: ★★★★
 rating: 4

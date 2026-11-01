@@ -1,20 +1,20 @@
 ---
 title: The Shawshank Redemption
 author: Frank Darabont
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Crime
 - Drama
 - Movie
 image: poster.jpg
-subtitle: ★★★★★
-rating: 5.0
+subtitle: ★★★★
+rating: 4.0
 year: '1994'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -30,6 +30,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+Classic, but yeah story was slightly boring, but characters had depth and that was nice.
 
 [View on Letterboxd](https://letterboxd.com/film/the-shawshank-redemption/)

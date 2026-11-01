@@ -3,8 +3,9 @@ title: Norwegian Wood
 author: Haruki Murakami
 date: '2025-11-04'
 categories:
-- Indonesian fiction
+- Fiction
 - Book
+- Indonesian fiction
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5

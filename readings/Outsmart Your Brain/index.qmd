@@ -3,6 +3,7 @@ title: Outsmart Your Brain
 author: Daniel T. Willingham
 date: '2026-07-10'
 categories:
+- Psychology
 - Book
 image: cover.jpg
 subtitle: ★★

@@ -1,7 +1,7 @@
 ---
 title: Past Lives
 author: Celine Song
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Drama
 - Romance
@@ -10,11 +10,11 @@ image: poster.jpg
 subtitle: ★★★★★ ♥
 rating: 5.0
 year: '2023'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -30,6 +30,9 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+GAGGED. Love these kind of bittersweet slice of life kinda movies because in life, the ending is not always happy, there's always a nuance to everything. The cinematography was crazy amazing, i love some of the shots like the camera looking in on the glass. The use of language as not just a "physical" but a spiritual barrier was something that i found interesting. And as the manifestation of "right person wrong time", this movie made me think if there ever is a wrong time or if its all just a fig tree. Seasons change, people come and go, it matters not if the fig plucked was the right one, and if one consumes the chosen fig while always thinking about the sweetness of the others, come winter they'll be starved and the tree will be bare. 
+
+I enjoy the idea of Inyeon, letting what will be be, noodles, don't noodles. I guess living life without trying to control the flow of the river, simply feeling the water run through your hands. Everything works out in the end because that's the only thing that can happen.
 
 [View on Letterboxd](https://letterboxd.com/film/past-lives/)

@@ -3,9 +3,10 @@ title: Klara and the Sun
 author: Kazuo Ishiguro
 date: '2026-09-15'
 categories:
+- Fiction
+- Book
 - Fiction, science fiction, general
 - speculative fiction
-- Book
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5

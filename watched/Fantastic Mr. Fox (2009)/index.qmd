@@ -1,7 +1,7 @@
 ---
 title: Fantastic Mr. Fox
 author: Wes Anderson
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - Comedy
 - Animation
@@ -12,11 +12,11 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2009'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -32,6 +32,7 @@ include-before-body:
 ![](poster.jpg){fig-alt="Cover"}
 :::
 
-*No review yet.*
+## Letterboxd Review
+another wesy anderson classic. i just love the character development, the characters are really 5d, bad fox just has to keep being bad. What was the point of the Canis lupus scene? Somehow things that have vague meanings are the most beautiful because it leaves space for interpretation, if done tastefully.
 
 [View on Letterboxd](https://letterboxd.com/film/fantastic-mr-fox/)
