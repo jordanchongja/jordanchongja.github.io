@@ -9,6 +9,7 @@ image: cover.jpg
 subtitle: ★★★ | One million copies sold
 rating: 3
 read_year: earlier
+top_read: false
 body-classes: project-detail-view
 language:
   title-block-published: Added

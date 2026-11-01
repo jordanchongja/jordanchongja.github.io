@@ -10,6 +10,7 @@ subtitle: ★★★★ | The bestselling love letter to female friendship and ma
   series
 rating: 4
 read_year: earlier
+top_read: false
 body-classes: project-detail-view
 language:
   title-block-published: Added

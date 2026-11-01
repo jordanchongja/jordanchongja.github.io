@@ -1,0 +1,37 @@
+---
+title: The Hunger Games
+author: Gary Ross
+date: '2026-11-01'
+categories:
+- Action
+- Science Fiction
+- Thriller
+- Adventure
+- Movie
+image: poster.jpg
+subtitle: ★★★★
+rating: 4.0
+year: '2012'
+read_year: earlier
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Added
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/the-hunger-games/)

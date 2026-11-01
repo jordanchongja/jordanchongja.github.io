@@ -9,6 +9,7 @@ image: cover.jpg
 subtitle: ★★★★ | Brain, Mind, and Body in the Healing of Trauma
 rating: 4
 read_year: earlier
+top_read: false
 body-classes: project-detail-view
 language:
   title-block-published: Added

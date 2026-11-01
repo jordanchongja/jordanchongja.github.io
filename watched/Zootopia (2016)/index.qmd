@@ -1,0 +1,37 @@
+---
+title: Zootopia
+author: Byron Howard, Rich Moore
+date: '2026-11-01'
+categories:
+- Animation
+- Family
+- Comedy
+- Adventure
+- Movie
+image: poster.jpg
+subtitle: ★★★★★
+rating: 5.0
+year: '2016'
+read_year: '2026'
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Watched
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/zootopia/)
