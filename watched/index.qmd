@@ -1,6 +1,6 @@
 ---
 title: "Watched"
-subtitle: "Films I've watched, rated and (sometimes) reviewed."
+subtitle: "Films and shows I've watched, rated and (sometimes) reviewed."
 listing:
   - id: y2026
     contents: "*/index.qmd"
