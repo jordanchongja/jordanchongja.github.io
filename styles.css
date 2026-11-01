@@ -396,41 +396,41 @@ body {
 @media (max-width: 767.98px) {
 
   /* ---- Projects / Notes / homepage featured projects: list rows, not giant cards ---- */
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .list.grid {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .list.grid {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .list.grid > * {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .list.grid > * {
     grid-column: auto !important;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .quarto-grid-item {
     flex-direction: row;
     align-items: stretch;
     overflow: hidden;
     border-radius: 8px;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-img-top {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .quarto-grid-item .card-img-top {
     flex: 0 0 96px;
     margin: 0;
     overflow: hidden;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-img-top img {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .quarto-grid-item .card-img-top img {
     width: 96px;
     height: 100% !important;
     min-height: 96px;
     object-fit: cover;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-body {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .quarto-grid-item .card-body {
     padding: 0.6rem 0.75rem;
     min-width: 0;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-title {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .listing-title {
     font-size: 0.98rem;
     line-height: 1.3;
     margin-bottom: 0.25rem;
@@ -440,11 +440,11 @@ body {
     overflow: hidden;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-categories {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .listing-categories {
     display: none;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-description {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .listing-description {
     font-size: 0.82rem;
     line-height: 1.4;
     margin-bottom: 0;
@@ -454,7 +454,7 @@ body {
     overflow: hidden;
   }
 
-  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .card-attribution {
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings):not(#listing-recent-films) .card-attribution {
     font-size: 0.7rem;
     padding-top: 0.25rem;
   }
@@ -809,5 +809,217 @@ a.cr-item:hover {
 
   .yr-genre {
     grid-template-columns: 110px 1fr 24px;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION 10: PROJECT / NOTE CARDS (Projects, Notes, homepage featured projects)
+   ========================================================================== */
+
+.projects-listing-view .quarto-grid-item,
+#listing-featured-projects .quarto-grid-item {
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.projects-listing-view .quarto-grid-item:hover,
+#listing-featured-projects .quarto-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #d0d7de;
+}
+
+/* Show charts/screenshots whole, at one consistent shape */
+.projects-listing-view .quarto-grid-item .card-img-top,
+#listing-featured-projects .quarto-grid-item .card-img-top {
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  background: #fbfbfc;
+  border-bottom: 1px solid #f1f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.projects-listing-view .quarto-grid-item .card-img-top img,
+#listing-featured-projects .quarto-grid-item .card-img-top img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.projects-listing-view .quarto-grid-item .card-body,
+#listing-featured-projects .quarto-grid-item .card-body {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.projects-listing-view .card-title,
+#listing-featured-projects .card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+}
+
+/* Tags: smaller, and at most three */
+.projects-listing-view .listing-categories,
+#listing-featured-projects .listing-categories {
+  margin-bottom: 0.5rem;
+}
+
+.projects-listing-view .listing-category,
+#listing-featured-projects .listing-category {
+  font-size: 0.62rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.projects-listing-view .listing-categories .listing-category:nth-child(n + 4),
+#listing-featured-projects .listing-categories .listing-category:nth-child(n + 4) {
+  display: none;
+}
+
+.projects-listing-view .listing-description,
+#listing-featured-projects .listing-description {
+  font-size: 0.9rem;
+  color: #495057;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects-listing-view .listing-date {
+  font-size: 0.75rem;
+  color: #868e96;
+}
+
+/* Phones keep the compact list rows from section 8 */
+@media (max-width: 767.98px) {
+  .projects-listing-view .quarto-grid-item .card-img-top,
+  #listing-featured-projects .quarto-grid-item .card-img-top {
+    aspect-ratio: auto;
+    border-bottom: none;
+    border-right: 1px solid #f1f3f5;
+  }
+
+  .projects-listing-view .quarto-grid-item .card-img-top img,
+  #listing-featured-projects .quarto-grid-item .card-img-top img {
+    padding: 3px;
+  }
+
+  .projects-listing-view .quarto-grid-item:hover,
+  #listing-featured-projects .quarto-grid-item:hover {
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION 11: HOMEPAGE (hero, quote, this-year strip, recently watched)
+   ========================================================================== */
+
+.home-quote {
+  margin: 0.5rem 0 1.5rem;
+  border-left: 3px solid #dee2e6;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: #495057;
+  font-style: italic;
+}
+
+.home-quote summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.home-quote summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-quote summary .more {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: #0d6efd;
+  margin-left: 0.4rem;
+}
+
+.home-quote[open] summary .more {
+  display: none;
+}
+
+.home-quote .full {
+  margin-top: 0.5rem;
+}
+
+.home-quote .who {
+  display: block;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: #868e96;
+  margin-top: 0.3rem;
+}
+
+.home-glance {
+  margin: 1rem 0 0.5rem;
+}
+
+.home-glance .stat-cards {
+  margin-bottom: 0.75rem;
+}
+
+.home-glance a.stat-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-glance a.stat-card:hover {
+  border-color: #0d6efd;
+}
+
+#listing-recent-films .quarto-grid-item .thumbnail-image {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+
+#listing-recent-films .quarto-grid-item .card-body {
+  padding: 0.35rem 0.1rem;
+}
+
+#listing-recent-films .listing-title,
+#listing-featured-readings .listing-title {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 767.98px) {
+  #listing-recent-films .list.grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  #listing-recent-films .list.grid > * {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* homepage "this year" strip: 2 x 2 on phones */
+  .home-glance .stat-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #listing-recent-films .quarto-grid-item .card-body,
+  #listing-featured-readings .quarto-grid-item .card-body {
+    padding: 0.3rem 0.1rem;
   }
 }

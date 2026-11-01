@@ -71,5 +71,6 @@ format:
   html:
     theme: cosmo
     css: styles.css # This links your new CSS file
+    include-after-body: assets/site-scripts.html
     toc: true
     fig-align: center

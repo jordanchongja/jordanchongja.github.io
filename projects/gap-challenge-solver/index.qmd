@@ -8,7 +8,7 @@ image: "featured.png"
 image-alt: "Screenshot of the dashboard"
 client: "Personal Project" 
 github-repo: "https://github.com/jordanchongja/gap-solver-app"
-body-class: "project-detail-view"
+body-classes: "project-detail-view"
 include-before-body:
   text: "<div style='margin-top: 50px;'></div>"
 ---

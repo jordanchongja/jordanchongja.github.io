@@ -2,7 +2,9 @@
 title: "Projects"
 subtitle: "A selection of my data science and quantitative finance work."
 listing:
-  contents: "*/index.qmd"
+  contents: 
+  - "*/index.qmd"
+  - "/image-compression-linear-algebra/*.ipynb"
   sort: "date desc"
   type: grid 
   categories: true
@@ -11,5 +13,5 @@ listing:
   fields: [image, title, description, date, categories]
 page-layout: full
 title-block-banner: true
-body-class: "projects-listing-view" 
+body-classes: "projects-listing-view" 
 ---

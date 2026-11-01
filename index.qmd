@@ -1,11 +1,42 @@
 ---
 title: "Jordan Chong"
-image: \assets\avatar.jpg # Ensure this file exists!
+image: \assets\avatar.jpg
 image-alt: "Jordan Chong"
 
-# --- MULTIPLE LISTINGS CONFIG ---
+# --- LISTINGS ---
 listing:
-  # 1. Featured Projects (Keeps your full details)
+  # Recent top reads: picked automatically by the reading sync (top_read: true =
+  # 4+ star books finished in the last 12 months)
+  - id: featured-readings
+    contents: "readings/*/index.qmd"
+    sort:
+      - "rating desc"
+      - "date desc"
+    max-items: 6
+    type: grid
+    grid-columns: 6
+    grid-item-border: false
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title]
+    include:
+      top_read: true
+
+  # Recently watched: latest films from the Watched page
+  - id: recent-films
+    contents: "watched/*/index.qmd"
+    sort: "date desc"
+    max-items: 6
+    type: grid
+    grid-columns: 6
+    grid-item-border: false
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title]
+
+  # Featured projects: projects tagged "featured" (the tag itself is hidden on the site)
   - id: featured-projects
     contents: projects
     sort: "date desc"
@@ -13,32 +44,14 @@ listing:
     categories: false
     sort-ui: false
     filter-ui: false
-    fields: [image, title, description, categories] # <-- Your original fields
+    fields: [image, title, description]
     include:
       categories: featured
 
-  # 2. Recent top reads: picked automatically by the reading sync (top_read: true =
-  #    4+ star books finished in the last 12 months)
-  - id: featured-readings
-    contents: readings
-    sort:
-      - "rating desc"
-      - "date desc"
-    max-items: 8
-    type: grid
-    grid-columns: 4 # Forces the 4-column look
-    grid-item-border: false # Removes border for a cleaner "bookshelf" look
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    fields: [image, title] # <-- Only shows cover and title
-    include:
-      top_read: true
-
-# --- HERO SECTION CONFIG ---
+# --- HERO ---
 about:
   template: trestles
-  image-width: 15em
+  image-width: 13em
   image-shape: round
   id: hero-heading
   links:
@@ -51,76 +64,60 @@ about:
     - icon: envelope
       text: Email
       href: mailto:jordanchongjian25@gmail.com
-    # DIRECT PDF LINK (Best for Recruiters)
     - icon: file-earmark-pdf
       text: CV
       href: /assets/JordanChong_CV.pdf
-      target: _blank # Opens in new tab
+      target: _blank
 
 # --- PAGE SETTINGS ---
 page-layout: full
-toc: false # Disabled because the page is short
+toc: false
 comments: false
-body-class: "homepage-view"
+body-classes: "homepage-view"
 ---
 
 <style>
   .about-entity img {
-    object-position: 0 20%; /* Adjust this to nudge the crop */
+    object-position: 0 20%; /* nudge the photo crop */
   }
 </style>
 
 :::{#hero-heading}
-Hi! I'm Jordan. I graduated from Singapore Management University (SMU) with a Bachelor of Business Management, double majoring in Finance and Data Science & Analytics.
+Hi! I'm Jordan, an SMU graduate in Finance and Data Science & Analytics, currently learning about market microstructure and volatility modelling.
 
-This site is my notebook: the books I read and the films I watch, research notes on markets and quantitative finance, and the projects I build along the way. Each year gets an automatic [year in review](review/index.qmd).
-
-Right now I'm learning about market microstructure and volatility modeling.
-
-Outside of that I enjoy bouldering, badminton, running and playing the guitar.
-
-My favourite book is Grit by Angela Duckworth, and my favourite quote is by Theodore Roosevelt:
-:::
-
-::: {.quote-container style="text-align: center; padding: 1em 0; font-style: italic;"}
-> "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
-:::
-::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1px;"}
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">Featured Projects</div>
-
-[View all projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
-:::
-:::{#featured-projects}
-:::
+This site is my notebook: the books I read, the films I watch, research notes on markets, and the projects I build along the way. Outside of that I boulder, play badminton, run and play the guitar.
 
 ```{=html}
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const badges = document.querySelectorAll('.listing-category');
+<details class="home-quote">
+  <summary>"The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood…"<span class="more">Read the full quote</span></summary>
+  <div class="full">"It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."</div>
+  <span class="who">Theodore Roosevelt · my favourite book is Grit by Angela Duckworth</span>
+</details>
+```
+:::
 
-    badges.forEach(badge => {
-      badge.addEventListener('click', function (e) {
-        // Stop the click from triggering the project card link
-        e.stopPropagation();
-        e.preventDefault();
+{{< include _home_glance.md >}}
 
-        // Use textContent instead of innerText to ignore CSS uppercase styling
-        const category = badge.textContent.trim();
-        
-        // Redirect to the projects page with the correct casing
-        window.location.href = '/projects/#category=' + encodeURIComponent(category);
-      });
-    });
-  });
-</script>
-
-<br>
-
-<!-- Readings Section -->
 ::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
 <div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Recent top reads</div>
-[View all readings &rarr;](readings/index.qmd){.btn .btn-outline-primary}
+[All readings &rarr;](readings/index.qmd){.btn .btn-outline-primary}
 :::
 
 :::{#featured-readings}
+:::
+
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Recently watched</div>
+[All films &rarr;](watched/index.qmd){.btn .btn-outline-primary}
+:::
+
+:::{#recent-films}
+:::
+
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">Featured projects</div>
+[All projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
+:::
+
+:::{#featured-projects}
 :::
