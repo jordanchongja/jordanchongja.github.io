@@ -40,6 +40,7 @@ include-before-body:
     - 3 mins
 - 2025-11-22: Finished
 - Total Time Taken: 2 hours and 37 minutes
+
 ## Bookmarks
 > But if the scope grows too broad, the story becomes clunky and unhelpful. Here we are better off embracing what the poet John Keats called “negative capability,” or what the Heath brothers called “forced prioritization”: appreciate the nuances of multiple perspectives, but don’t linger there too long. Think of how Shakespeare introduces characters without revealing their background and presents issues with no clear answer or solution. Because he recognizes that the world is unsettled and that a story will never be “complete,” the playwright allows readers to explore different angles and imagine how a story could come to any number of different conclusions. That’s why Portia is such a compelling character: through her inventive solution she defies expectations and slyly encourages the audience to do the same.
 > *2025-11-16*

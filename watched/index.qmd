@@ -1,6 +1,6 @@
 ---
 title: "Watched"
-subtitle: "Films I've watched, rated and (sometimes) reviewed. Synced from Letterboxd."
+subtitle: "Films I've watched, rated and (sometimes) reviewed."
 listing:
   contents: .
   sort:
@@ -9,6 +9,7 @@ listing:
   sort-ui: [date, rating, title]
   filter-ui: [title, author, subtitle]
   type: grid
+  grid-columns: 5
   categories: true
   fields: [image, title, subtitle, author, rating]
   field-display-names:
@@ -16,5 +17,6 @@ listing:
   field-types:
     rating: number
 page-layout: full
+body-classes: "media-listing-view"
 title-block-banner: true
 ---

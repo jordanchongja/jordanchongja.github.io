@@ -67,6 +67,7 @@ include-before-body:
     - 1 mins
 - 2025-12-08: Finished
 - Total Time Taken: 7 hours and 6 minutes
+
 ## Book Review
 Really really good book, every section was interesting and brings to mind Steinbeck's writing style, reflecting the small things (pun intended) in people and how small actions and small details complete a scene. The people in the story feel lifelike and the things that they do are understandable and completely human. 
 

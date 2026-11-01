@@ -8,12 +8,14 @@ listing:
     - "date desc"
   sort-ui: [date, rating, subtitle]
   filter-ui: [title, author, subtitle]
-  type: grid 
+  type: grid
+  grid-columns: 4 
   categories: true
   fields: [image, title, description, subtitle, author, rating]
   # Add this to force integer sorting
   field-types: 
     rating: number
 page-layout: full
+body-classes: "media-listing-view"
 title-block-banner: true
 ---

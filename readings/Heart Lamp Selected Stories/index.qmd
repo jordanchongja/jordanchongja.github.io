@@ -23,6 +23,38 @@ include-before-body:
 # Heart Lamp: Selected Stories
 
 ## Reading Journey
-
-- 2025-12-04: Started
-- 2025-12-04: 100
+- 2025-07-02: Started
+- 2025-07-02: 50
+    - 20 mins
+- 2025-07-04: 98
+    - 22 mins
+- 2025-07-05: 101
+    - 1 mins
+- 2025-07-05: 102
+    - 1 mins
+- 2025-07-07: 130
+    - 12 mins
+- 2025-07-07: 148
+    - 11 mins
+- 2025-07-07: 154
+    - 7 mins
+- 2025-07-09: 156
+    - 2 mins
+- 2025-07-09: 194
+    - 21 mins
+- 2025-07-21: 215
+    - 11 mins
+- 2025-07-21: 220
+    - 1 mins
+- 2025-07-21: 223
+    - 1 mins
+- 2025-08-18: 273
+    - 19 mins
+- 2025-08-18: 277
+    - 1 mins
+- 2025-12-04: 279
+    - 1 mins
+- 2026-01-07: 288
+    - 2 mins
+- 2026-01-07: Finished
+- Total Time Taken: 2 hours and 12 minutes
