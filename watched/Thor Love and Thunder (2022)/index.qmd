@@ -1,0 +1,36 @@
+---
+title: 'Thor: Love and Thunder'
+author: Taika Waititi
+date: '2026-11-01'
+categories:
+- Action
+- Fantasy
+- Comedy
+- Movie
+image: poster.jpg
+subtitle: ★★
+rating: 2.0
+year: '2022'
+read_year: earlier
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Added
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/thor-love-and-thunder/)

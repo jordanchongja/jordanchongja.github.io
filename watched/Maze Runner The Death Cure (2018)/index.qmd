@@ -1,0 +1,37 @@
+---
+title: 'Maze Runner: The Death Cure'
+author: Wes Ball
+date: '2026-11-01'
+categories:
+- Action
+- Science Fiction
+- Adventure
+- Thriller
+- Movie
+image: poster.jpg
+subtitle: ★★★
+rating: 3.0
+year: '2018'
+read_year: earlier
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Added
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/maze-runner-the-death-cure/)

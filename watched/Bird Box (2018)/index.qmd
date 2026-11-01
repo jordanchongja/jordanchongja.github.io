@@ -1,0 +1,36 @@
+---
+title: Bird Box
+author: Susanne Bier
+date: '2026-11-01'
+categories:
+- Thriller
+- Drama
+- Horror
+- Movie
+image: poster.jpg
+subtitle: ★★
+rating: 2.0
+year: '2018'
+read_year: '2026'
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Watched
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
+
+*No review yet.*
+
+[View on Letterboxd](https://letterboxd.com/film/bird-box/)

@@ -1,18 +1,18 @@
 ---
 title: The Divided Self
 author: R. D. Laing
-date: '2025-10-31'
+date: '2025-02-23'
 categories:
 - Psychology
 - Book
 image: cover.jpg
 subtitle: ★★★★★ | An Existential Study in Sanity and Madness
 rating: 5
-read_year: earlier
+read_year: '2025'
 top_read: false
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
