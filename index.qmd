@@ -3,18 +3,33 @@ title: "Jordan Chong"
 image: \assets\avatar.jpg # Ensure this file exists!
 image-alt: "Jordan Chong"
 
-# --- FEATURED PROJECTS CONFIG ---
+# --- MULTIPLE LISTINGS CONFIG ---
 listing:
-  contents: projects
-  sort: "date desc"
-  type: grid
-  categories: false
-  sort-ui: false
-  filter-ui: false
-  fields: [image, title, description, categories]
-  # This makes the grid ONLY show projects with the 'featured' category
-  include:
-    categories: featured
+  # 1. Featured Projects (Keeps your full details)
+  - id: featured-projects
+    contents: projects
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title, description, categories] # <-- Your original fields
+    include:
+      categories: featured
+
+  # 2. Featured Readings (New, compact 4-column layout)
+  - id: featured-readings
+    contents: readings
+    sort: "date desc" # Or "title asc" depending on how you want them ordered
+    type: grid
+    grid-columns: 4 # Forces the 4-column look
+    grid-item-border: false # Removes border for a cleaner "bookshelf" look
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [image, title] # <-- Only shows cover and title
+    include:
+      categories: featured # Make sure your book .qmd files have 'featured' in their categories
 
 # --- HERO SECTION CONFIG ---
 about:
@@ -35,7 +50,7 @@ about:
     # DIRECT PDF LINK (Best for Recruiters)
     - icon: file-earmark-pdf
       text: CV
-      href: /assets/Jordan_Chong_CV.pdf # Make sure this file exists
+      href: /assets/JordanChong_CV.pdf
       target: _blank # Opens in new tab
 
 # --- PAGE SETTINGS ---
@@ -52,25 +67,27 @@ body-class: "homepage-view" # <--- ADD THIS
 </style>
 
 :::{#hero-heading}
-
-
 Hi! I'm Jordan. I am a recent graduate of Singapore Management University (SMU) with a Bachelor of Business Management with a double major in Finance and Data Science & Analytics. 
 
-I'm highly interested in roles at the intersection of markets, data, and technology—specifically within quantitative finance, equity derivatives, and digital assets trading. 
+I'm interested in roles at the intersection of markets and data within quantitative finance, equity derivatives, and digital assets trading. 
 
-Currently, I am expanding my knowledge in market microstructure, stochastic control, and volatility modeling, while building simulation engines and replicating academic frameworks like the Avellaneda-Stoikov model.
+Currently, I am learning about market microstructure and volatility modeling.
 
+I enjoy bouldering, playing badminton, running and playing the guitar in my free time. 
+
+My favorite book is Grit by Angela Duckworth and my favorite quote is by Theodore Roosevelt, as below:
 :::
 
-::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px;"}
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Featured Projects</div>
+::: {.quote-container style="text-align: center; padding: 1em 0; font-style: italic;"}
+> "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
+:::
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">Featured Projects</div>
 
 [View all projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
 :::
-
 :::{#featured-projects}
 :::
-
 
 ```{=html}
 <script>
@@ -92,3 +109,15 @@ Currently, I am expanding my knowledge in market microstructure, stochastic cont
     });
   });
 </script>
+
+<br>
+
+<!-- Readings Section -->
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Top Reads of 2026</div>
+[View all readings &rarr;](readings/index.qmd){.btn .btn-outline-primary}
+:::
+
+:::{#featured-readings}
+<!-- Your compact 4x4 book covers will load here -->
+:::
