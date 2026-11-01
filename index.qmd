@@ -23,19 +23,6 @@ listing:
     include:
       top_read: true
 
-  # Recently watched: latest films from the Watched page
-  - id: recent-films
-    contents: "watched/*/index.qmd"
-    sort: "date desc"
-    max-items: 6
-    type: grid
-    grid-columns: 6
-    grid-item-border: false
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    fields: [image, title]
-
   # Featured projects: projects tagged "featured" (the tag itself is hidden on the site)
   - id: featured-projects
     contents: projects
@@ -83,7 +70,7 @@ body-classes: "homepage-view"
 </style>
 
 :::{#hero-heading}
-Hi! I'm Jordan, an SMU graduate in Finance and Data Science & Analytics, currently learning about market microstructure and volatility modelling.
+Hi! I'm Jordan, an SMU graduate in Finance and Data Science & Analytics. I'm interested in roles at the intersection of markets and data: quantitative finance, equity derivatives and digital assets trading, and I'm currently learning about market microstructure and volatility modelling.
 
 This site is my notebook: the books I read, the films I watch, research notes on markets, and the projects I build along the way. Outside of that I boulder, play badminton, run and play the guitar.
 
@@ -96,6 +83,18 @@ This site is my notebook: the books I read, the films I watch, research notes on
 ```
 :::
 
+::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">Featured projects</div>
+[All projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
+:::
+
+:::{#featured-projects}
+:::
+
+```{=html}
+<div class="home-divider"><span>Outside of work</span></div>
+```
+
 {{< include _home_glance.md >}}
 
 ::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
@@ -104,20 +103,4 @@ This site is my notebook: the books I read, the films I watch, research notes on
 :::
 
 :::{#featured-readings}
-:::
-
-::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Recently watched</div>
-[All films &rarr;](watched/index.qmd){.btn .btn-outline-primary}
-:::
-
-:::{#recent-films}
-:::
-
-::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">Featured projects</div>
-[All projects &rarr;](projects/index.qmd){.btn .btn-outline-primary}
-:::
-
-:::{#featured-projects}
 :::
