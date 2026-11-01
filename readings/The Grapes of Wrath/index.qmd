@@ -7,8 +7,8 @@ categories:
 - Book
 - featured
 image: cover.jpg
-subtitle: ''
-rating: 0
+subtitle: ★★★★★
+rating: 5
 read_year: '2025'
 body-classes: project-detail-view
 language:

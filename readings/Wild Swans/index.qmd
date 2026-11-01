@@ -1,0 +1,98 @@
+---
+title: Wild Swans
+author: Jung Chang
+date: '2026-07-06'
+categories:
+- Mujeres en China
+- Biography
+- Book
+image: cover.jpg
+subtitle: ★★★★★ | Three Daughters of China
+rating: 5
+read_year: '2026'
+body-classes: project-detail-view
+language:
+  title-block-published: Finished
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
+## Summary
+
+## Reading Journey
+- 2026-05-14: Started
+- 2026-05-14: 62
+    - 59 mins
+- 2026-05-15: 101
+    - 50 mins
+- 2026-05-16: 128
+    - 35 mins
+- 2026-05-19: 146
+    - 26 mins
+- 2026-05-19: 170
+    - 14 mins
+- 2026-05-20: 182
+    - 21 mins
+- 2026-05-20: 186
+    - 3 mins
+- 2026-05-20: 215
+    - 51 mins
+- 2026-05-20: 223
+    - 8 mins
+- 2026-05-26: 240
+    - 19 mins
+- 2026-06-09: 260
+    - 27 mins
+- 2026-06-10: 292
+    - 29 mins
+- 2026-06-10: 299
+    - 10 mins
+- 2026-06-10: 303
+    - 7 mins
+- 2026-06-10: 312
+    - 16 mins
+- 2026-06-12: 333
+    - 33 mins
+- 2026-06-24: 392
+    - 57 mins
+- 2026-06-24: 409
+    - 19 mins
+- 2026-06-24: 430
+    - 19 mins
+- 2026-06-25: 466
+    - 37 mins
+- 2026-06-26: 499
+    - 17 mins
+- 2026-06-29: 512
+    - 12 mins
+- 2026-06-29: 560
+    - 56 mins
+- 2026-07-01: 623
+    - 52 mins
+- 2026-07-04: 663
+    - 48 mins
+- 2026-07-04: 671
+    - 9 mins
+- 2026-07-04: 675
+    - 4 mins
+- 2026-07-04: 695
+    - 20 mins
+- 2026-07-05: 721
+    - 31 mins
+- 2026-07-06: 736
+    - 14 mins
+- 2026-07-06: 776
+    - 39 mins
+- 2026-07-06: Finished
+- Total Time Taken: 14 hours and 2 minutes

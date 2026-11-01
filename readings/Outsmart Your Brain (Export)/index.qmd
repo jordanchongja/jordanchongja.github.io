@@ -1,0 +1,52 @@
+---
+title: Outsmart Your Brain (Export)
+author: Daniel T. Willingham
+date: '2026-07-10'
+categories:
+- Book
+image: cover.jpg
+subtitle: ★★
+rating: 2
+read_year: '2026'
+body-classes: project-detail-view
+language:
+  title-block-published: Finished
+include-before-body:
+  text: '<div style=''margin-top: 50px;''></div>'
+---
+
+
+<style>
+  #quarto-margin-sidebar {
+    padding-top: 50px;
+  }
+</style>
+
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
+# Outsmart Your Brain
+
+## Summary
+
+## Reading Journey
+- 2026-07-08: Started
+- 2026-07-08: 59
+    - 54 mins
+- 2026-07-08: 61
+    - 2 mins
+- 2026-07-09: 86
+    - 9 mins
+- 2026-07-09: 155
+    - 35 mins
+- 2026-07-10: 189
+    - 6 mins
+- 2026-07-10: 190
+    - 2 mins
+- 2026-07-10: 191
+    - 2 mins
+- 2026-07-10: 192
+    - 2 mins
+- 2026-07-10: Finished
+- Total Time Taken: 1 hours and 51 minutes

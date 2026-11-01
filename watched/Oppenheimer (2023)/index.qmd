@@ -1,21 +1,21 @@
 ---
 title: Oppenheimer
 author: Christopher Nolan
-date: '2026-10-31'
+date: '2026-11-01'
 categories:
 - War
 - Drama
 - History
 - Movie
 image: poster.jpg
-subtitle: ★★★★★
-rating: 5.0
+subtitle: ★★★★
+rating: 4.0
 year: '2023'
-read_year: earlier
+read_year: '2026'
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Added
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

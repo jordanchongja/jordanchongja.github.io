@@ -8,14 +8,14 @@ execute:
 
 website:
   site-url: "https://jordanchongja.github.io"
-  title: "Jordan's Projects"
+  title: "Jordan's Notebook"
   open-graph:
     image: "/assets/homepage-preview.png"
   twitter-card:
     image: homepage-preview.png
     card-style: summary_large_image
   image: "/assets/avatar.jpg"
-  description: "Portfolio of Jordan Chong - Finance & Data Science"
+  description: "Jordan Chong's notebook: books, films, research notes and projects."
   favicon: /assets/favicon.png
   google-analytics: "G-V7YLYPVKHH"
   back-to-top-navigation: true
@@ -33,6 +33,8 @@ website:
         text: Readings
       - href: watched/index.qmd
         text: Watched
+      - href: review/index.qmd
+        text: Year in Review
     right:
       # CV stays here as a "Utility" link
       - text: CV
