@@ -1,5 +1,44 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/kobostatisticsdatareader/index.html",
+      "/projects/options-research/index.html"
+    ]
+  },
+  {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/paper-attention_is_all_I_need/index.html",
+      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html",
+      "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-research/index.html",
+      "/readings/Klara and the Sun/index.html",
+      "/readings/The Bell Jar/index.html",
+      "/readings/I Want to Die but I Want to Eat Tteokbokki/index.html",
+      "/readings/Wild Swans/index.html",
+      "/readings/East of Eden/index.html",
+      "/readings/Tuesdays With Morrie/index.html",
+      "/readings/The God of Small Things/index.html",
+      "/readings/The Vegetarian/index.html"
+    ]
+  },
+  {
     "listing": "/readings/index.html",
     "items": [
       "/readings/Notes on a Nervous Planet/index.html",
@@ -58,78 +97,104 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-research/index.html",
-      "/readings/Grit/index.html",
-      "/readings/The God of Small Things/index.html",
-      "/readings/Ministry of Moral Panic/index.html",
-      "/readings/The Grapes of Wrath/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/paper-attention_is_all_I_need/index.html",
-      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
-      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
-      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
-      "/notes/posts/black-scholes-derivation/index.html",
-      "/notes/posts/options-pricing-models/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
-      "/projects/iran-war-geopolitical-shock-analysis/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/kobostatisticsdatareader/index.html",
-      "/projects/options-research/index.html"
-    ]
-  },
-  {
     "listing": "/watched/index.html",
     "items": [
+      "/watched/About Time (2013)/index.html",
+      "/watched/Alien (1979)/index.html",
       "/watched/American Psycho (2000)/index.html",
+      "/watched/Ant-Man (2015)/index.html",
+      "/watched/Avatar The Way of Water (2022)/index.html",
       "/watched/Avengers Infinity War (2018)/index.html",
       "/watched/Baby Driver (2017)/index.html",
+      "/watched/Back to the Future (1985)/index.html",
+      "/watched/Black Panther (2018)/index.html",
       "/watched/Black Swan (2010)/index.html",
+      "/watched/Captain Marvel (2019)/index.html",
+      "/watched/Cars (2006)/index.html",
       "/watched/Dead Poets Society (1989)/index.html",
+      "/watched/Doctor Strange in the Multiverse of Madness (2022)/index.html",
       "/watched/Eternal Sunshine of the Spotless Mind (2004)/index.html",
       "/watched/Everything Everywhere All at Once (2022)/index.html",
       "/watched/Fantastic Mr. Fox (2009)/index.html",
       "/watched/Fight Club (1999)/index.html",
       "/watched/Forrest Gump (1994)/index.html",
       "/watched/Get Out (2017)/index.html",
+      "/watched/Guardians of the Galaxy Vol. 3 (2023)/index.html",
+      "/watched/Harry Potter and the Deathly Hallows Part 1 (2010)/index.html",
+      "/watched/Harry Potter and the Deathly Hallows Part 2 (2011)/index.html",
+      "/watched/Harry Potter and the Half-Blood Prince (2009)/index.html",
+      "/watched/Harry Potter and the Order of the Phoenix (2007)/index.html",
+      "/watched/How to Train Your Dragon (2010)/index.html",
+      "/watched/Howl's Moving Castle (2004)/index.html",
       "/watched/Inception (2010)/index.html",
       "/watched/Inglourious Basterds (2009)/index.html",
       "/watched/Interstellar (2014)/index.html",
+      "/watched/Isle of Dogs (2018)/index.html",
+      "/watched/Kiki's Delivery Service (1989)/index.html",
       "/watched/Kill Bill Vol. 1 (2003)/index.html",
       "/watched/Knives Out (2019)/index.html",
       "/watched/La La Land (2016)/index.html",
       "/watched/Midsommar (2019)/index.html",
+      "/watched/Mr. & Mrs. Smith (2005)/index.html",
+      "/watched/My Neighbor Totoro (1988)/index.html",
+      "/watched/Now You See Me Now You Don't (2025)/index.html",
       "/watched/Once Upon a Time... in Hollywood (2019)/index.html",
       "/watched/Oppenheimer (2023)/index.html",
       "/watched/Parasite (2019)/index.html",
       "/watched/Past Lives (2023)/index.html",
+      "/watched/Pitch Perfect (2012)/index.html",
+      "/watched/Ponyo (2008)/index.html",
+      "/watched/Pretty Woman (1990)/index.html",
+      "/watched/Princess Mononoke (1997)/index.html",
       "/watched/Pulp Fiction (1994)/index.html",
       "/watched/Ratatouille (2007)/index.html",
+      "/watched/Scott Pilgrim vs. the World (2010)/index.html",
       "/watched/Se7en (1995)/index.html",
+      "/watched/Shrek (2001)/index.html",
+      "/watched/Shrek 2 (2004)/index.html",
+      "/watched/Soul (2020)/index.html",
+      "/watched/Spider-Man 3 (2007)/index.html",
       "/watched/Spirited Away (2001)/index.html",
       "/watched/Taxi Driver (1976)/index.html",
+      "/watched/Tenet (2020)/index.html",
+      "/watched/The Amazing Spider-Man 2 (2014)/index.html",
       "/watched/The Dark Knight (2008)/index.html",
+      "/watched/The Fast and the Furious (2001)/index.html",
       "/watched/The Grand Budapest Hotel (2014)/index.html",
+      "/watched/The Greatest Showman (2017)/index.html",
+      "/watched/The Hunger Games Mockingjay – Part 1 (2014)/index.html",
+      "/watched/The Hunger Games Mockingjay – Part 2 (2015)/index.html",
+      "/watched/The Hunger Games The Ballad of Songbirds & Snakes (2023)/index.html",
+      "/watched/The Incredible Hulk (2008)/index.html",
       "/watched/The Lord of the Rings The Fellowship of the Ring (2001)/index.html",
+      "/watched/The Martian (2015)/index.html",
+      "/watched/The Maze Runner (2014)/index.html",
       "/watched/The Odyssey (2026)/index.html",
       "/watched/The Perks of Being a Wallflower (2012)/index.html",
       "/watched/The Shawshank Redemption (1994)/index.html",
       "/watched/The Wolf of Wall Street (2013)/index.html",
-      "/watched/Whiplash (2014)/index.html"
+      "/watched/Thor (2011)/index.html",
+      "/watched/Thor Ragnarok (2017)/index.html",
+      "/watched/Thor The Dark World (2013)/index.html",
+      "/watched/Toy Story 2 (1999)/index.html",
+      "/watched/Toy Story 3 (2010)/index.html",
+      "/watched/Toy Story 4 (2019)/index.html",
+      "/watched/WALL·E (2008)/index.html",
+      "/watched/Whiplash (2014)/index.html",
+      "/watched/Wicked (2024)/index.html",
+      "/watched/X-Men (2000)/index.html",
+      "/watched/Zootopia (2016)/index.html",
+      "/watched/Avengers Age of Ultron (2015)/index.html",
+      "/watched/Django Unchained (2012)/index.html",
+      "/watched/Gone Girl (2014)/index.html",
+      "/watched/Iron Man (2008)/index.html",
+      "/watched/It (2017)/index.html",
+      "/watched/Mamma Mia! (2008)/index.html",
+      "/watched/Me Before You (2016)/index.html",
+      "/watched/The Devil Wears Prada (2006)/index.html",
+      "/watched/The Hunger Games (2012)/index.html",
+      "/watched/White Chicks (2004)/index.html",
+      "/watched/Wicked For Good (2025)/index.html"
     ]
   }
 ]
