@@ -8,6 +8,7 @@ categories:
 image: cover.jpg
 subtitle: ★★★ | The inspiration behind Blade Runner and Blade Runner 2049
 rating: 3
+read_year: earlier
 body-classes: project-detail-view
 language:
   title-block-published: Added

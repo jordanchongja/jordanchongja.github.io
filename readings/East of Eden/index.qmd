@@ -1,16 +1,17 @@
 ---
 title: East of Eden
 author: John Steinbeck
-date: '2025-10-31'
+date: '2026-04-23'
 categories:
 - Fiction
 - Book
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5
+read_year: '2026'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

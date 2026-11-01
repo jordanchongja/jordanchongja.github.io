@@ -9,6 +9,7 @@ image: cover.jpg
 subtitle: ★★★★ | The bestselling love letter to female friendship and major BBC One
   series
 rating: 4
+read_year: earlier
 body-classes: project-detail-view
 language:
   title-block-published: Added

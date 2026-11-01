@@ -11,10 +11,11 @@ image: poster.jpg
 subtitle: ★★★★
 rating: 4.0
 year: '2001'
+read_year: earlier
 body-classes: project-detail-view
 language:
   title-block-author-single: Director
-  title-block-published: Watched
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

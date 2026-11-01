@@ -1,7 +1,7 @@
 ---
 title: Tuesdays With Morrie
 author: Mitch Albom
-date: '2025-12-20'
+date: '2025-12-19'
 categories:
 - Biography & Autobiography
 - Book
@@ -9,9 +9,10 @@ image: cover.jpg
 subtitle: ★★★★★ | The most uplifting book ever written about the importance of human
   connection
 rating: 5
+read_year: '2025'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

@@ -1,7 +1,7 @@
 ---
 title: The God of Small Things
 author: Arundhati Roy
-date: '2025-12-03'
+date: '2025-12-08'
 categories:
 - Fiction
 - Book
@@ -9,9 +9,10 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | A Novel
 rating: 5
+read_year: '2025'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

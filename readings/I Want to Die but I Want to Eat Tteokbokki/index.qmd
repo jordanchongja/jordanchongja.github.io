@@ -1,16 +1,17 @@
 ---
 title: I Want to Die but I Want to Eat Tteokbokki
 author: Baek Sehee
-date: '2025-10-31'
+date: '2026-07-08'
 categories:
 - Biography & Autobiography
 - Book
 image: cover.jpg
 subtitle: ★★★★★ | The International bestseller
 rating: 5
+read_year: '2026'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

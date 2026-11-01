@@ -1,7 +1,7 @@
 ---
 title: Ministry of Moral Panic
 author: Amanda Lee Koe
-date: '2025-10-31'
+date: '2025-11-04'
 categories:
 - Singaporean fiction (English).
 - Book
@@ -9,9 +9,10 @@ categories:
 image: cover.png
 subtitle: ★★★★★ | Stories
 rating: 5
+read_year: '2025'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---

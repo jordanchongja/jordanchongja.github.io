@@ -8,6 +8,7 @@ categories:
 image: cover.jpg
 subtitle: ★★★
 rating: 3
+read_year: earlier
 body-classes: project-detail-view
 language:
   title-block-published: Added

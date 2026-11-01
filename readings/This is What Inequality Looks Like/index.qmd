@@ -1,16 +1,17 @@
 ---
 title: This is What Inequality Looks Like
 author: Teo You Yenn
-date: '2025-10-31'
+date: '2025-08-19'
 categories:
 - Social Science
 - Book
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5
+read_year: '2025'
 body-classes: project-detail-view
 language:
-  title-block-published: Added
+  title-block-published: Finished
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
