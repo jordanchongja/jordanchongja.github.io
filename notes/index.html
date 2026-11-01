@@ -153,7 +153,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed projects-listing-view quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -291,7 +291,7 @@ Paper: Attention is All You Need
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ01hcmtldCUyMFJlZ2ltZSUyQ1B5dGhvbiUyQ1Bsb3RseSUyQ0RhdGElMjBWaXN1YWxpemF0aW9u" data-listing-date-sort="1776750251000" data-listing-file-modified-sort="1776750251868" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3767">
+<div class="g-col-1" data-index="1" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ01hcmtldCUyMFJlZ2ltZSUyQ1B5dGhvbiUyQ1Bsb3RseSUyQ0RhdGElMjBWaXN1YWxpemF0aW9u" data-listing-date-sort="1776750251000" data-listing-file-modified-sort="1776750251000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3767">
 <a href="../notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -393,7 +393,7 @@ Concept: The Black-Scholes Model
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVz" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1778229331234" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9434">
+<div class="g-col-1" data-index="5" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVz" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1793529281815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9434">
 <a href="../notes/posts/options-pricing-models/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -425,6 +425,13 @@ Theoretical and Observed Option Pricing Models
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+// "featured" is an internal tag (it picks the homepage projects). Hide it from cards and category lists.
+document.addEventListener("DOMContentLoaded", function () {
+  const hide = (el) => { if (el && el.textContent.trim().toLowerCase().startsWith("featured")) el.style.display = "none"; };
+  document.querySelectorAll(".listing-category, .quarto-category, .quarto-listing-category .category").forEach(hide);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

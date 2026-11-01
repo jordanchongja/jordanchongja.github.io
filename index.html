@@ -73,34 +73,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-featured-projects .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-featured-projects'] = new List('listing-featured-projects', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-featured-readings .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -115,6 +87,63 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-featured-readings'] = new List('listing-featured-readings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-recent-films .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-recent-films'] = new List('listing-recent-films', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-featured-projects .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-featured-projects'] = new List('listing-featured-projects', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -178,7 +207,7 @@ window.Quarto = {
 <meta name="twitter:image:alt" content="Jordan Chong">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed homepage-view quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -251,13 +280,13 @@ window.Quarto = {
 
 <style>
   .about-entity img {
-    object-position: 0 20%; /* Adjust this to nudge the crop */
+    object-position: 0 20%; /* nudge the photo crop */
   }
 </style>
 <div class="quarto-about-trestles column-page">
   <div class="about-entity">
     <img src="\assets\avatar.jpg" alt="Jordan Chong" class="about-image
-  round " style="height: 15em; width: 15em;">
+  round " style="height: 13em; width: 13em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Jordan Chong</h1>
@@ -285,146 +314,26 @@ window.Quarto = {
 </div>
   </div>
   <div class="about-contents"><div id="hero-heading">
-<p>Hi! I’m Jordan. I graduated from Singapore Management University (SMU) with a Bachelor of Business Management, double majoring in Finance and Data Science &amp; Analytics.</p>
-<p>This site is my notebook: the books I read and the films I watch, research notes on markets and quantitative finance, and the projects I build along the way. Each year gets an automatic <a href="./review/index.html">year in review</a>.</p>
-<p>Right now I’m learning about market microstructure and volatility modeling.</p>
-<p>Outside of that I enjoy bouldering, badminton, running and playing the guitar.</p>
-<p>My favourite book is Grit by Angela Duckworth, and my favourite quote is by Theodore Roosevelt:</p>
+<p>Hi! I’m Jordan, an SMU graduate in Finance and Data Science &amp; Analytics, currently learning about market microstructure and volatility modelling.</p>
+<p>This site is my notebook: the books I read, the films I watch, research notes on markets, and the projects I build along the way. Outside of that I boulder, play badminton, run and play the guitar.</p>
+<details class="home-quote">
+  <summary>"The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood…"<span class="more">Read the full quote</span></summary>
+  <div class="full">"It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."</div>
+  <span class="who">Theodore Roosevelt · my favourite book is Grit by Angela Duckworth</span>
+</details>
 </div></div>
 </div>
 
-<div class="quote-container" style="text-align: center; padding: 1em 0; font-style: italic;">
-<blockquote class="blockquote">
-<p>“It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat.”</p>
-</blockquote>
-</div>
-<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1px;">
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">
-Featured Projects
-</div>
-<p><a href="./projects/index.html" class="btn btn-outline-primary">View all projects →</a></p>
-</div>
-<div id="listing-featured-projects" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1N0b2NoYXN0aWMlMjBDb250cm9sJTJDUHl0aG9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1775577600000" data-listing-file-modified-sort="1776525299809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2795">
-<a href="./projects/avellaneda-stoikov-mm-single-limit-order/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/avellaneda-stoikov-mm-single-limit-order/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-The Math of Market Making: Avellaneda-Stoikov
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENvbnRyb2w='); return false;">Stochastic Control</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Pitting an inventory-based stochastic control strategy against naive market making in high-frequency limit order books.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1775633054098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1488">
-<a href="./projects/gap-challenge-solver/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Gap Challenge Solver
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWxnb3JpdGhtcw=='); return false;">Algorithms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVzJTJDZmVhdHVyZWQ=" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1778641078021" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="637">
-<a href="./projects/options-research/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/options-research/featured_vol_smile.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the Options Structuring Dashboard">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Options Research
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhbnRpdGF0aXZlJTIwRmluYW5jZQ=='); return false;">Quantitative Finance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T09Q'); return false;">OOP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGVyaXZhdGl2ZXM='); return false;">Derivatives</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVhdHVyZWQ='); return false;">featured</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A summary of my research into options, including a payoff visualisation tool, a pricing calibration tool, and a look into the Black-Scholes numerical methods, among others.</p>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const badges = document.querySelectorAll('.listing-category');
-
-    badges.forEach(badge => {
-      badge.addEventListener('click', function (e) {
-        // Stop the click from triggering the project card link
-        e.stopPropagation();
-        e.preventDefault();
-
-        // Use textContent instead of innerText to ignore CSS uppercase styling
-        const category = badge.textContent.trim();
-        
-        // Redirect to the projects page with the correct casing
-        window.location.href = '/projects/#category=' + encodeURIComponent(category);
-      });
-    });
-  });
-</script>
-<p><br></p>
-<!-- Readings Section -->
+<!-- Generated by reading-sync (kobostatisticsdatareader). Edits here get overwritten. -->
+<div class="home-glance"><div class="stat-cards"><a class="stat-card" href="readings/index.html"><div class="stat-value">14<span class="stat-of"> / 20</span></div><div class="stat-label">Books read in 2026</div><div class="stat-bar"><div class="stat-bar-fill" style="width:70%"></div></div></a><a class="stat-card" href="readings/index.html"><div class="stat-value">46</div><div class="stat-label">Hours read in 2026</div></a><a class="stat-card" href="watched/index.html"><div class="stat-value">135</div><div class="stat-label">Films logged in 2026</div></a><a class="stat-card" href="review/index.html"><div class="stat-value">2026</div><div class="stat-label">Year in review →</div></a></div></div>
 <div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;">
 <div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">
 Recent top reads
 </div>
-<p><a href="./readings/index.html" class="btn btn-outline-primary">View all readings →</a></p>
+<p><a href="./readings/index.html" class="btn btn-outline-primary">All readings →</a></p>
 </div>
 <div id="listing-featured-readings" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-4">
+<div class="list grid quarto-listing-cols-6">
 <div class="g-col-1" data-index="0" data-categories="RmljdGlvbiUyQ0Jvb2slMkNGaWN0aW9uJTJDJTIwc2NpZW5jZSUyMGZpY3Rpb24lMkMlMjBnZW5lcmFsJTJDc3BlY3VsYXRpdmUlMjBmaWN0aW9u" data-listing-date-sort="1789401600000" data-listing-file-modified-sort="1793511993949" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="730">
 <a href="./readings/Klara and the Sun/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left borderless">
@@ -503,29 +412,151 @@ Tuesdays With Morrie
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="RmljdGlvbiUyQ0Jvb2s=" data-listing-date-sort="1765123200000" data-listing-file-modified-sort="1793511994132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3465">
-<a href="./readings/The God of Small Things/index.html" class="quarto-grid-link">
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;">
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">
+Recently watched
+</div>
+<p><a href="./watched/index.html" class="btn btn-outline-primary">All films →</a></p>
+</div>
+<div id="listing-recent-films" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-6">
+<div class="g-col-1" data-index="0" data-categories="Q3JpbWUlMkNBY3Rpb24lMkNUaHJpbGxlciUyQ01vdmll" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793529114911" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="./watched/2 Fast 2 Furious (2003)/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top">
-<img loading="lazy" src="./readings/The God of Small Things/cover.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./watched/2 Fast 2 Furious (2003)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-The God of Small Things
+2 Fast 2 Furious
 </h5>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="RmljdGlvbiUyQ0Jvb2s=" data-listing-date-sort="1762185600000" data-listing-file-modified-sort="1793511994206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3010">
-<a href="./readings/The Vegetarian/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-categories="RHJhbWElMkNGYW50YXN5JTJDUm9tYW5jZSUyQ01vdmll" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793512079633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="./watched/About Time (2013)/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top">
-<img loading="lazy" src="./readings/The Vegetarian/cover.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./watched/About Time (2013)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-The Vegetarian
+About Time
 </h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="RHJhbWElMkNDcmltZSUyQ01vdmll" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793529115015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="./watched/Adolescence (2025)/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./watched/Adolescence (2025)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Adolescence
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="SG9ycm9yJTJDU2NpZW5jZSUyMEZpY3Rpb24lMkNNb3ZpZQ==" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793512079722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="./watched/Alien (1979)/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./watched/Alien (1979)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Alien
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="RHJhbWElMkNNb3ZpZQ==" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793529115094" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="./watched/American Beauty (1999)/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./watched/American Beauty (1999)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+American Beauty
+</h5>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="Q3JpbWUlMkNEcmFtYSUyQ1RocmlsbGVyJTJDSG9ycm9yJTJDTW92aWU=" data-listing-date-sort="1793462400000" data-listing-file-modified-sort="1793510081563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22">
+<a href="./watched/American Psycho (2000)/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left borderless">
+<p class="card-img-top">
+<img loading="lazy" src="./watched/American Psycho (2000)/poster.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+American Psycho
+</h5>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div class="featured-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;">
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 1px;">
+Featured projects
+</div>
+<p><a href="./projects/index.html" class="btn btn-outline-primary">All projects →</a></p>
+</div>
+<div id="listing-featured-projects" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1N0b2NoYXN0aWMlMjBDb250cm9sJTJDUHl0aG9uJTJDZmVhdHVyZWQ=" data-listing-date-sort="1775577600000" data-listing-file-modified-sort="1793529169351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2795">
+<a href="./projects/avellaneda-stoikov-mm-single-limit-order/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/avellaneda-stoikov-mm-single-limit-order/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The Math of Market Making: Avellaneda-Stoikov
+</h5>
+<div class="card-text listing-description delink">
+<p>Pitting an inventory-based stochastic control strategy against naive market making in high-frequency limit order books.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNQeXRob24lMkNTdHJlYW1saXQlMkNBbGdvcml0aG1zJTJDZmVhdHVyZWQ=" data-listing-date-sort="1739030400000" data-listing-file-modified-sort="1793528950469" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1488">
+<a href="./projects/gap-challenge-solver/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/gap-challenge-solver/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the dashboard">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Gap Challenge Solver
+</h5>
+<div class="card-text listing-description delink">
+<p>Evolution of a Computer Vision pipeline: From brittle Template Matching to robust SVMs, integrated with a Backtracking solver.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwRmluYW5jZSUyQ1B5dGhvbiUyQ09PUCUyQ1N0cmVhbWxpdCUyQ0Rlcml2YXRpdmVzJTJDZmVhdHVyZWQ=" data-listing-date-sort="1708617600000" data-listing-file-modified-sort="1793529281823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="637">
+<a href="./projects/options-research/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/options-research/featured_vol_smile.png" class="thumbnail-image card-img" style="height: 150px;" alt="Screenshot of the Options Structuring Dashboard">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Options Research
+</h5>
+<div class="card-text listing-description delink">
+<p>A summary of my research into options, including a payoff visualisation tool, a pricing calibration tool, and a look into the Black-Scholes numerical methods, among others.</p>
+</div>
 </div>
 </div></a>
 </div>
@@ -538,6 +569,13 @@ The Vegetarian
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+// "featured" is an internal tag (it picks the homepage projects). Hide it from cards and category lists.
+document.addEventListener("DOMContentLoaded", function () {
+  const hide = (el) => { if (el && el.textContent.trim().toLowerCase().startsWith("featured")) el.style.display = "none"; };
+  document.querySelectorAll(".listing-category, .quarto-category, .quarto-listing-category .category").forEach(hide);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {

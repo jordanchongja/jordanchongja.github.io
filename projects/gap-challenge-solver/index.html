@@ -164,7 +164,7 @@ window.Quarto = {
 <meta name="twitter:image:alt" content="Screenshot of the dashboard">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed project-detail-view quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -590,6 +590,13 @@ However, I realised that the SVM was not performing well, because the cropping m
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+// "featured" is an internal tag (it picks the homepage projects). Hide it from cards and category lists.
+document.addEventListener("DOMContentLoaded", function () {
+  const hide = (el) => { if (el && el.textContent.trim().toLowerCase().startsWith("featured")) el.style.display = "none"; };
+  document.querySelectorAll(".listing-category, .quarto-category, .quarto-listing-category .category").forEach(hide);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

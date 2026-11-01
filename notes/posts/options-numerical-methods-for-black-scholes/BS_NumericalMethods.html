@@ -898,6 +898,13 @@ b_1 &amp; -c_1 &amp; 0 &amp; \dots &amp; 0 \\
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+// "featured" is an internal tag (it picks the homepage projects). Hide it from cards and category lists.
+document.addEventListener("DOMContentLoaded", function () {
+  const hide = (el) => { if (el && el.textContent.trim().toLowerCase().startsWith("featured")) el.style.display = "none"; };
+  document.querySelectorAll(".listing-category, .quarto-category, .quarto-listing-category .category").forEach(hide);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
