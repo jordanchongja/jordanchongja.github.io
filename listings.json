@@ -2,6 +2,7 @@
   {
     "listing": "/watched/index.html",
     "items": [
+      "/watched/Oppenheimer (2023)/index.html",
       "/watched/Inception (2010)/index.html",
       "/watched/The Dark Knight (2008)/index.html",
       "/watched/American Psycho (2000)/index.html",
@@ -22,7 +23,6 @@
       "/watched/La La Land (2016)/index.html",
       "/watched/Midsommar (2019)/index.html",
       "/watched/Once Upon a Time... in Hollywood (2019)/index.html",
-      "/watched/Oppenheimer (2023)/index.html",
       "/watched/Parasite (2019)/index.html",
       "/watched/Past Lives (2023)/index.html",
       "/watched/Pulp Fiction (1994)/index.html",
@@ -39,9 +39,50 @@
     ]
   },
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/kobostatisticsdatareader/index.html",
+      "/projects/options-research/index.html"
+    ]
+  },
+  {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/paper-attention_is_all_I_need/index.html",
+      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html",
+      "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-research/index.html",
+      "/readings/Grit/index.html",
+      "/readings/The God of Small Things/index.html",
+      "/readings/Ministry of Moral Panic/index.html",
+      "/readings/The Grapes of Wrath/index.html"
+    ]
+  },
+  {
     "listing": "/readings/index.html",
     "items": [
+      "/readings/Notes on a Nervous Planet/index.html",
+      "/readings/Reasons to stay alive/index.html",
+      "/readings/Klara and the Sun/index.html",
+      "/readings/The Bell Jar/index.html",
+      "/readings/Outsmart Your Brain/index.html",
       "/readings/I Want to Die but I Want to Eat Tteokbokki/index.html",
+      "/readings/Wild Swans/index.html",
       "/readings/Grit/index.html",
       "/readings/East of Eden/index.html",
       "/readings/Never Let Me Go/index.html",
@@ -88,41 +129,6 @@
       "/readings/To Kill a Mockingbird/index.html",
       "/readings/Training for Climbing/index.html",
       "/readings/Yellow Dog/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-research/index.html",
-      "/readings/Grit/index.html",
-      "/readings/The God of Small Things/index.html",
-      "/readings/Ministry of Moral Panic/index.html",
-      "/readings/The Grapes of Wrath/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/paper-attention_is_all_I_need/index.html",
-      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
-      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
-      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
-      "/notes/posts/black-scholes-derivation/index.html",
-      "/notes/posts/options-pricing-models/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
-      "/projects/iran-war-geopolitical-shock-analysis/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/kobostatisticsdatareader/index.html",
-      "/projects/options-research/index.html"
     ]
   }
 ]
