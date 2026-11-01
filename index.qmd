@@ -57,7 +57,7 @@ about:
 page-layout: full
 toc: false # Disabled because the page is short
 comments: false
-body-class: "homepage-view" # <--- ADD THIS
+body-class: "homepage-view"
 ---
 
 <style>
@@ -67,15 +67,15 @@ body-class: "homepage-view" # <--- ADD THIS
 </style>
 
 :::{#hero-heading}
-Hi! I'm Jordan. I am a recent graduate of Singapore Management University (SMU) with a Bachelor of Business Management with a double major in Finance and Data Science & Analytics. 
+Hi! I'm Jordan. I graduated from Singapore Management University (SMU) with a Bachelor of Business Management, double majoring in Finance and Data Science & Analytics.
 
-I'm interested in roles at the intersection of markets and data within quantitative finance, equity derivatives, and digital assets trading. 
+This site is my notebook: the books I read and the films I watch, research notes on markets and quantitative finance, and the projects I build along the way. Each year gets an automatic [year in review](review/index.qmd).
 
-Currently, I am learning about market microstructure and volatility modeling.
+Right now I'm learning about market microstructure and volatility modeling.
 
-I enjoy bouldering, playing badminton, running and playing the guitar in my free time. 
+Outside of that I enjoy bouldering, badminton, running and playing the guitar.
 
-My favorite book is Grit by Angela Duckworth and my favorite quote is by Theodore Roosevelt, as below:
+My favourite book is Grit by Angela Duckworth, and my favourite quote is by Theodore Roosevelt:
 :::
 
 ::: {.quote-container style="text-align: center; padding: 1em 0; font-style: italic;"}
