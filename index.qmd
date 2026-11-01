@@ -17,10 +17,14 @@ listing:
     include:
       categories: featured
 
-  # 2. Featured Readings (New, compact 4-column layout)
+  # 2. Recent top reads: picked automatically by the reading sync (top_read: true =
+  #    4+ star books finished in the last 12 months)
   - id: featured-readings
     contents: readings
-    sort: "date desc" # Or "title asc" depending on how you want them ordered
+    sort:
+      - "rating desc"
+      - "date desc"
+    max-items: 8
     type: grid
     grid-columns: 4 # Forces the 4-column look
     grid-item-border: false # Removes border for a cleaner "bookshelf" look
@@ -29,7 +33,7 @@ listing:
     filter-ui: false
     fields: [image, title] # <-- Only shows cover and title
     include:
-      categories: featured # Make sure your book .qmd files have 'featured' in their categories
+      top_read: true
 
 # --- HERO SECTION CONFIG ---
 about:
@@ -114,10 +118,9 @@ My favourite book is Grit by Angela Duckworth, and my favourite quote is by Theo
 
 <!-- Readings Section -->
 ::: {.featured-header-row style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;"}
-<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Top Reads of 2026</div>
+<div style="font-size: 1.6rem; font-weight: bold; margin-bottom: 0;">Recent top reads</div>
 [View all readings &rarr;](readings/index.qmd){.btn .btn-outline-primary}
 :::
 
 :::{#featured-readings}
-<!-- Your compact 4x4 book covers will load here -->
 :::
