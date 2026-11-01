@@ -386,3 +386,191 @@ body {
     font-size: 1.5rem;
   }
 }
+
+
+/* ==========================================================================
+   SECTION 8: COMPACT PHONE LAYOUT (< 768px)
+   One page for every device: these rules only kick in on narrow screens.
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+
+  /* ---- Projects / Notes / homepage featured projects: list rows, not giant cards ---- */
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .list.grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .list.grid > * {
+    grid-column: auto !important;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item {
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-img-top {
+    flex: 0 0 96px;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-img-top img {
+    width: 96px;
+    height: 100% !important;
+    min-height: 96px;
+    object-fit: cover;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .quarto-grid-item .card-body {
+    padding: 0.6rem 0.75rem;
+    min-width: 0;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-title {
+    font-size: 0.98rem;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-categories {
+    display: none;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .listing-description {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body:not(.media-listing-view) div[id^="listing-"]:not(#listing-featured-readings) .card-attribution {
+    font-size: 0.7rem;
+    padding-top: 0.25rem;
+  }
+
+  /* ---- Readings / Watched: three covers per row, less text ---- */
+  .media-listing-view .list.grid,
+  #listing-featured-readings .list.grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .media-listing-view .quarto-grid-item .card-body,
+  #listing-featured-readings .quarto-grid-item .card-body {
+    padding: 0.4rem 0.45rem 0.5rem;
+  }
+
+  .media-listing-view .listing-title,
+  #listing-featured-readings .listing-title {
+    font-size: 0.78rem;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .media-listing-view .listing-subtitle {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .media-listing-view .listing-author,
+  .media-listing-view .card-attribution {
+    display: none;
+  }
+
+  /* ---- Stat cards: 3 per row ---- */
+  .stat-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .stat-card {
+    padding: 0.55rem 0.6rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-of {
+    font-size: 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  .stat-sub {
+    display: none;
+  }
+
+  /* ---- Homepage hero ---- */
+  div.quarto-about-trestles .about-entity .about-image {
+    width: 8.5rem !important;
+    height: 8.5rem !important;
+  }
+
+  div.quarto-about-trestles .about-entity .about-links {
+    flex-direction: row !important;
+    padding-bottom: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  div.quarto-about-trestles .about-entity .about-link {
+    width: auto !important;
+    flex: 0 1 auto;
+    margin: 0 !important;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  #hero-heading p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* The long quote: show the first few lines on phones */
+  .quote-container blockquote p {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+
+  .quote-container {
+    padding: 0.25em 0 !important;
+  }
+
+  /* Listing category sidebars (Projects / Notes) take a whole screen on phones */
+  #quarto-margin-sidebar .quarto-listing-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  #quarto-margin-sidebar .quarto-listing-category .category {
+    font-size: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+  }
+}
