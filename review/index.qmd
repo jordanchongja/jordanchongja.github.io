@@ -27,10 +27,10 @@ Other years: **2026** · [2025](2025.qmd)
 <div class="yr-facts"><div class="yr-fact"><div class="yr-fact-label">Most time spent</div><div class="yr-fact-value">Wild Swans</div><div class="yr-fact-sub">14.0 hours</div></div><div class="yr-fact"><div class="yr-fact-label">Quickest finish</div><div class="yr-fact-value">The Midnight Library</div><div class="yr-fact-sub">1 day</div></div><div class="yr-fact"><div class="yr-fact-label">Longest book</div><div class="yr-fact-value">East of Eden</div><div class="yr-fact-sub">235,826 words</div></div><div class="yr-fact"><div class="yr-fact-label">Most-read author</div><div class="yr-fact-value">Matt Haig</div><div class="yr-fact-sub">3 books</div></div><div class="yr-fact"><div class="yr-fact-label">Biggest month</div><div class="yr-fact-value">Feb</div><div class="yr-fact-sub">3 books finished</div></div><div class="yr-fact"><div class="yr-fact-label">Favourite reading day</div><div class="yr-fact-value">Wednesday</div></div></div>
 ```
 
-## Favourite books (1)
+## Favourite books (3)
 
 ```{=html}
-<div class="yr-covers yr-books"><a class="yr-cover" href="../readings/East%20of%20Eden/"><img src="../readings/East%20of%20Eden/cover.jpg" alt="East of Eden" loading="lazy"><div class="yr-cap">East of Eden<span>★★★★★</span></div></a></div>
+<div class="yr-covers yr-books"><a class="yr-cover" href="../readings/East%20of%20Eden/"><img src="../readings/East%20of%20Eden/cover.jpg" alt="East of Eden" loading="lazy"><div class="yr-cap">East of Eden<span>★★★★★</span></div></a><a class="yr-cover" href="../readings/Grit/"><img src="../readings/Grit/cover.jpg" alt="Grit" loading="lazy"><div class="yr-cap">Grit<span>★★★★</span></div></a><a class="yr-cover" href="../readings/The%20Bell%20Jar/"><img src="../readings/The%20Bell%20Jar/cover.jpg" alt="The Bell Jar" loading="lazy"><div class="yr-cap">The Bell Jar<span>★★★★★</span></div></a></div>
 ```
 
 ## What I read

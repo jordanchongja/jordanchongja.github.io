@@ -27,6 +27,12 @@ Other years: [2026](2026.qmd) · **2025**
 <div class="yr-facts"><div class="yr-fact"><div class="yr-fact-label">Most time spent</div><div class="yr-fact-value">Pachinko</div><div class="yr-fact-sub">9.2 hours</div></div><div class="yr-fact"><div class="yr-fact-label">Quickest finish</div><div class="yr-fact-value">Yellowface</div><div class="yr-fact-sub">1 day</div></div><div class="yr-fact"><div class="yr-fact-label">Longest book</div><div class="yr-fact-value">The Grapes of Wrath</div><div class="yr-fact-sub">187,869 words</div></div><div class="yr-fact"><div class="yr-fact-label">Biggest month</div><div class="yr-fact-value">Nov</div><div class="yr-fact-sub">12 books finished</div></div><div class="yr-fact"><div class="yr-fact-label">Favourite reading day</div><div class="yr-fact-value">Friday</div></div></div>
 ```
 
+## Favourite books (5)
+
+```{=html}
+<div class="yr-covers yr-books"><a class="yr-cover" href="../readings/This%20is%20What%20Inequality%20Looks%20Like/"><img src="../readings/This%20is%20What%20Inequality%20Looks%20Like/cover.jpg" alt="This is What Inequality Looks Like" loading="lazy"><div class="yr-cap">This is What Inequality Looks Like<span>★★★★★</span></div></a><a class="yr-cover" href="../readings/Ministry%20of%20Moral%20Panic/"><img src="../readings/Ministry%20of%20Moral%20Panic/cover.jpg" alt="Ministry of Moral Panic" loading="lazy"><div class="yr-cap">Ministry of Moral Panic<span>★★★★★</span></div></a><a class="yr-cover" href="../readings/The%20Grapes%20of%20Wrath/"><img src="../readings/The%20Grapes%20of%20Wrath/cover.jpg" alt="The Grapes of Wrath" loading="lazy"><div class="yr-cap">The Grapes of Wrath<span>★★★★★</span></div></a><a class="yr-cover" href="../readings/The%20Vegetarian/"><img src="../readings/The%20Vegetarian/cover.jpg" alt="The Vegetarian" loading="lazy"><div class="yr-cap">The Vegetarian<span>★★★★★</span></div></a><a class="yr-cover" href="../readings/The%20God%20of%20Small%20Things/"><img src="../readings/The%20God%20of%20Small%20Things/cover.jpg" alt="The God of Small Things" loading="lazy"><div class="yr-cap">The God of Small Things<span>★★★★★</span></div></a></div>
+```
+
 ## What I read
 
 ```{=html}
