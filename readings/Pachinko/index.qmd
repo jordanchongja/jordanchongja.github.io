@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | The New York Times Bestseller
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,9 +22,13 @@ include-before-body:
   }
 </style>
 
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Pachinko - Min Jin Lee (Duration: 9h17m51s over 51 Sessions) Started: 2025-07-09 23:39:39 Finished: 2025-07-21 08:52:58
 
-# Pachinko
+
 Nice book i think the story was really nice and it was not a pain to read it, was hooked throughout the book and I think there were no dull plot points, each chapter or each scene introduced a character or resulted in a better understanding of a single character so that was good and led to the book being interesting throughout. 
 
 But there were specific scenes or certain scenes where it felt like the author introduced the scene just to prove a point about a character or about a certain real life trend or discrimination and so its abit awkward because it feels abit force fitted without alot of scenario building or all that, like the fingerprinting scene, because the entirety of the book or basically the entirety of the book was build around that one scene it became a very poignant point in the book that, while it stood out, it also felt abit forced as the nucleus of the entire story.
@@ -84,6 +90,7 @@ Sunja's agency is a complex question. While she is often a victim of circumstanc
     
 
 Ultimately, Sunja’s power lies not in controlling her destiny, but in her resilience and her ability to endure and adapt. Her agency is found in the small, crucial decisions she makes to protect her family and maintain her dignity in a world designed to strip her of both.
+
 1. Sunja tells Noa that _“Blood doesn’t matter.”_ Do you agree? What parts of the novel support or weaken Sunja’s claim?
 
 

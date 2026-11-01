@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | A Novel
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,8 +22,12 @@ include-before-body:
   }
 </style>
 
-# The Vegetarian
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Analysis of the title 'vegetarian'
+
 1. Represents unorthodox views within society where meat eating is represented as the norm
 2. Illustrates 'meat eating' as the normalisation of cruelty and the power divide
 	1. Animal/livestock VS man
@@ -33,6 +39,7 @@ Analysis of the title 'vegetarian'
 5. **Rejection of Social Ritual:** Sharing meals, particularly meat-centric ones, is a cornerstone of family and social bonding in Korea. By refusing meat, Yeong-hye is not just refusing food; she is refusing to participate in the rituals of family, community, and nation. She is making herself an outsider.
 
 Manifestations of the power divide within the book:
+
 1. Physical beatings as a child (parent child relationship, man woman relationship)
 2. Forced feeding of meat (parent child relationship, man woman relationship)
 
@@ -41,6 +48,7 @@ Manifestations of the power divide within the book:
 - **In-hye (Acceptance):** Her "acceptance" is the quiet, grinding tragedy of the novel. She does everything right by society's standards, yet she is deeply unhappy and invisible. She props up the patriarchal system that oppresses both her and her sister. Her tragedy is that she recognizes the system's cruelty—she witnesses the abuse—but her pragmatism and deep-seated need for normalcy prevent her from truly intervening until it is too late. Her journey in Part 3 of the book is a slow, agonizing breakdown of this acceptance as she begins to question the "sanity" of the world she has tried so hard to belong to.
 
 The sisters as representations of 'acceptance' and 'rebellion' within the system of patriarchal, rigid, violent and exploitative.
+
 1. Vegetarian
 	1. Refusal to accept her diminished role within society as a child results in her being punished due to low power position and lack of utility to those in power
 	2. Her rebelliousness as a child led to her vegetarianism and manifestation of rebellion as an adult
@@ -55,6 +63,7 @@ The sisters as representations of 'acceptance' and 'rebellion' within the system
 	4. Husbands as their opposites, one is grounded while one is idealistic
 
 Commonality between the two sisters:
+
 1. Both were never truly seen, by their parents, their spouses or even by their own children
 2. Both subject to their role within the patriarcial korean society and forced to carve their owe piece within it
 3. Coping mechanism of quiet acceptance and denial - represents a common mechanism within eastern societies
@@ -63,11 +72,13 @@ Commonality between the two sisters:
 
 
 Motifs:
+
 1. Mongolian mark - symbol of childhood, usually lost with age into adulthood and represents her innocence and youth that was never really lost as well as the corresponding idealism and refusal to grow up or mature 
 	1. Could also be a symbol of defiance - of being part of the petals of vegatarianism and becoming of a tree and a refusal to eat meat as society defines for her.
 
 
 Questions:
+
 1. What did the lump in her stomach represent?
 	1. The lump is a psychosomatic manifestation of trauma. It is the undigested horror of her memories.
 	2. **Physical Embodiment of Revulsion:** It represents the "lump of meat" from her dream—the bloody, raw flesh she is forced to confront. It is the physical sensation of her psychological revulsion to violence and consumption.

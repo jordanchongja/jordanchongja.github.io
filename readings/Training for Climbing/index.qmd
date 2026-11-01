@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★ | The Definitive Guide to Improving Your Performance
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# Training for Climbing
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Some good info, more about scheduling and the 3-2-1 training plan and how rest is impt
 
 ## Reading Journey

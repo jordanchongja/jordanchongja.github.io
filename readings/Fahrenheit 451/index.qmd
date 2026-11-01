@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★ | A Novel
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# Fahrenheit 451
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Story about "Firemen" that set books on fire instead of putting fires out. Is set in a apocolyptic war torn world where people are no longer intellectually stimulated and are happy about it. The protagonist reads a book and is "awoken" and he tries to escape the city that he is trapped in.
 
 Like Electric sheep book, interesting idea that possibly has alot of potential to be an engaging plot point but not really that good. Characters don't act like "real" people and are not relatable. Has the air of trying to be a great book but really falling short. Linear plot and straighforward story, clean book that presents an idea instead of a plot

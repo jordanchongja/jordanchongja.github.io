@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# Norwegian Wood
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Great book. I think Murakami is able to capture the human condition in a very convincing manner that just draws the reader in. I think there are catcher in the rye vibes from the protagonist and i think the characters are the same people in different contexts. The sex scenes are a little weird though, esp the last one with the motherly figure? That was quite weird. And i liked that it had a semi happy ending? That the protagonist may in the end find joy and light at the end of a very dark tunnel. Overall the storytelling is excellent and i hope the rest of the books from Murakami is as good as this.
 
 ## Reading Journey

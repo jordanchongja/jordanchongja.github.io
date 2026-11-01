@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# The Stranger
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 This is a review after about 2 months from reading, not sure why i didnt put a review at the time. This story was quite short and succinct and i think it zooms in more on the emotions and rational bargaining of the protagonist as he reflects on the actions that he has taken and i believe this to be the absurdist genre?? Where the protagonist's actions are absurd? However, the lack of reasoning behind the protagonists actions is something that i cannot look past and it is just very strange and incoherent with the protagonists thought process given that he seems to possess the cognitive function to post rationalise those actions. However, overall an interesting read but certainly not a page turner
 
 ## Reading Journey

@@ -11,7 +11,10 @@ image: poster.jpg
 subtitle: ★★★★★
 rating: 5.0
 year: '2001'
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-author-single: Director
+  title-block-published: Watched
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -22,6 +25,10 @@ include-before-body:
     padding-top: 50px;
   }
 </style>
+
+::: {.media-cover}
+![](poster.jpg){fig-alt="Cover"}
+:::
 
 *No review yet.*
 

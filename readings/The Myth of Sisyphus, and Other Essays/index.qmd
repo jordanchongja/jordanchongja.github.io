@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,6 +22,8 @@ include-before-body:
   }
 </style>
 
-# The Myth of Sisyphus, and Other Essays
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
 
 ## Reading Journey

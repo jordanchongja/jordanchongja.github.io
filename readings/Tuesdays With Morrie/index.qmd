@@ -9,7 +9,9 @@ image: cover.jpg
 subtitle: ★★★★★ | The most uplifting book ever written about the importance of human
   connection
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -21,7 +23,9 @@ include-before-body:
   }
 </style>
 
-# Tuesdays With Morrie
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
 
 ## Reading Journey
 - 2025-12-15: Started

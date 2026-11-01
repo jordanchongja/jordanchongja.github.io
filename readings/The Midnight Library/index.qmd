@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★ | A Novel
 rating: 4
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# The Midnight Library
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 I liked the concept; being able to expereince every life that there is to experience and still going back to the original life of the author, but it comes off as a little preachy? Feels like too much of a feel good story and is a little slow at times, but overall a good read
 
 ## Reading Journey

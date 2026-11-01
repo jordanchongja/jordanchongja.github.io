@@ -9,7 +9,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | A Novel
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -21,7 +23,9 @@ include-before-body:
   }
 </style>
 
-# The God of Small Things
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
 
 ## Reading Journey
 - 2025-11-04: Started
@@ -76,26 +80,31 @@ I think one thing that Roy did well was the foreshadowing where at the very star
 ## Analysis
 ### **Phonetic Deconstruction & Neologisms**
 Roy often breaks words apart or capitalizes them strangely to show how the twins hear them. This emphasizes their innocence—they hear the sound before they understand the social meaning.
+
 - **Examples:** "Locusts Stand I" (Locus Standi), "Prer NUN sea ayshun" (Pronunciation), or "Thang God" (Thank God).
 - **Function:** This technique creates an "insider language" between the twins. It isolates them from the adults and highlights their vulnerability. It also satirizes the English-obsessed, Anglophile culture of their family (like Baby Kochamma), who value "correct" English over human connection.
     
 ### **Reading Backwards**
 Rahel and Estha often read signs backwards (e.g., sisoD for Diagnosis).
+
 - **Analysis:** This suggests a desire to reverse time or undo events. If you can read backwards, perhaps you can un-live the tragedy. It also reflects their dissociation; they are observing reality from a detached, skewed angle.
     
 ### **Prolepsis (Foreshadowing/Spiraling Time)**
 The novel is not linear. It starts at the end (the funeral) and spirals inward toward the traumatic event (Sophie Mol’s death and Velutha’s murder).
+
 - **The "Little" vs. "Big" Events:** Roy constantly hints at the tragedy ("in a plausible way," "it was a small thing").
 - **Effect:** This creates a sense of inevitable doom. As a reader, you are not asking _what_ happens, but _how_ and _why_. It forces you to focus on the social structures (The Love Laws) rather than just the plot twists.
     
 ### **Synesthesia and Visceral Imagery**
 Roy describes abstract feelings using physical, often rotting, imagery.
+
 - **Examples:** The "Green" of the swamp, the "smell of old roses," "blood-red," or the "yellow church."
 - **Function:** The setting (Kerala) is not just a backdrop; it is a living, breathing, and sometimes malevolent force that swallows the characters.
     
 ## **II. Major Themes**
 ### The "Love Laws"
 This is the central thesis of the book. Roy writes that these are the laws that dictate "who should be loved, and how. And how much."
+
 - **Forbidden Love:** The tragedy stems from breaking these laws. Ammu (a high-caste Syrian Christian) loves Velutha (a Paravan/Untouchable).
 - **Parental Love:** The failure of parental love is stark. Mammachi loves Chacko blindly but abuses Ammu. Ammu loves the twins fiercely but hurts them in her grief ("I love you a little less").
     
@@ -105,6 +114,7 @@ This is the central thesis of the book. Roy writes that these are the laws that 
     
 ### History as a House
 Roy metaphorically treats History not as a timeline, but as a physical house that traps people.
+
 - **Chacko’s Metaphor:** He tells the twins that they are trapped outside the "History House," unable to understand their ancestors because of colonialism (Anglophilia).
 - **Literal Manifestation:** The actual History House across the river is where the children hide, where Velutha is beaten, and where innocence ends. It is where the past physically destroys the present.
     
@@ -125,6 +135,7 @@ You are spot on. That capitalization is one of the most brilliant psychological 
 > _"The air was full of Thoughts and Things to Say."_
 
 By capitalizing these abstract concepts, Roy does two things:
+
 1. **Child’s Perspective:** To a child, a "Thought" that you aren't allowed to say feels as big and physical as a table or a chair. It occupies space in the room.
 2. **The Weight of the Unsaid:** It turns "silence" into a tangible object. The car isn't empty; it is crowded with these invisible, capitalized "Things." It validates the children’s anxiety—they aren't just imagining the tension; the tension is a physical presence sitting next to them.
 
@@ -144,6 +155,7 @@ By capitalizing these abstract concepts, Roy does two things:
 
 **Analysis of the Scene:**
 **A. The Suffocation of Politeness (Mianzi)** This scene perfectly illustrates the "silence" you mentioned earlier. The "Big Things" in the car are screaming to be addressed:
+
 - Ammu’s humiliation at being treated like a servant.
 - The racial tension of the white ex-wife returning.
 - The jealousy the twins feel toward Sophie Mol (the "Loved" child).
@@ -151,10 +163,12 @@ By capitalizing these abstract concepts, Roy does two things:
 However, if anyone spoke of these "Big Things," the family unit would explode. So, they retreat to **Small Things** as a survival mechanism. They talk about the traffic, the heat, the luggage, or the car's engine.
 
 **B. "Small Things" as a Distraction vs. "Small Things" as Truth** Here is the irony:
+
 - **For Velutha**, "Small Things" are **truth** (love, play, connection).
 - **For the Family in the Car**, "Small Things" are **lies** (trivial chitchat used to cover up the ugly truth).
 
 **C. The Link to the Tragedy** This scene foreshadows the end.
+
 - Because the family cares more about **appearance** (a Big Thing) than **honesty** (a Small Thing), they are unable to protect their own children.
 - Sophie Mol creates a stir because she is a "Big Thing"—she represents Englishness, whiteness, and success. The twins are treated as "Small Things"—insignificant and interchangeable.
 - The quote implies that **ignoring the Big Things doesn't make them go away.** They "lurk inside." This lurking energy eventually manifests as the betrayal of Velutha.
@@ -164,6 +178,7 @@ However, if anyone spoke of these "Big Things," the family unit would explode. S
 You asked: _Does the novel suggest that "Small Things" are weak?_
 
 **Yes and No.**
+
 1. **Socially Weak:** Yes. In the face of the "Big God" (The Police/History), the "Small God" (Velutha) is powerless. A toy boat cannot stop a tank. Love cannot stop a lathi charge.
 2. **Existentially Superior:** No. Roy suggests that the Small Things are the **only things that matter.**
     - The "Big Things" (History/Caste) are portrayed as hollow, rotting, and cruel.
@@ -174,6 +189,7 @@ You asked: _Does the novel suggest that "Small Things" are weak?_
 
 ### **Velutha as the "God"**
 In this scene, we finally see why he is the God of Small Things. He doesn't offer Ammu safety, money, or a future (Big Things). He offers her:
+
 - _A ridge of muscle on his back._
 - _The taste of the river on his skin._
 - _Being seen._
@@ -193,15 +209,19 @@ On Innocence vs. Ignorance:
 i think induibitably theres abit of both, like when the twins start to talk backwards in the police station near the end and the police has increased sympathy for them and when they retain their childishness even in a tense situation where they laugh when he burps after drinking the cola, and the misuse of language is done ironically and shows their mastery over the english language, using their perspective on the pronunciation of words to make fun of social customs that the big adult world practices, related to mianzi and a need to keep up social norms. And the children's childishness and need to sing in the theatre lead to him being exploited by the soda pop man and he failed to see the harash reality of what was happening because he was too innocent and failed to see the consequences until after the entire event
 
 On Silence:
+
 - there are many types of "silences" broadly speaking, from the traditional dancer being silenced when his artform is condensed into a 20min palatable local flavor, or when Mamacchi is forced to endure the beatings or when her husband does not speak or make a fuss after he is stopped by his son. Or "silence" when comrade pillaf does not give all the details of the facts of the matter when he goes to see the police. Or when the workers at the factory are outside when sophie mol arrives. Silence is mainly illustrated as a shield in this book, nobody uses the silent treatment in the book, oh does mamachi's husband not talk to her anymore after the beatings stopped, ok maybe that is one instance. But in the rest of the book, silence is used... ok i mean baby also sent ammu away to silence her, but it was to protect herself so idk in this case would it be considered a shield or a weapon, but ok food for thought help me expand on this
 
 On Sympathy for the Villain:
+
 - uhhh yeah i think intelligible, good people can do bad things, but it seems that baby is just bad, she seeks to poison every situation that she is in and sow discord among all parties acting solely in her best interests, in the end she does not even get her just desserts arguablely since she finds her joy in tv or it could be argued that it is just a distraction from the bad things that she has done. Her bitterness was the culmination of not getting what she wanted, her love for Father Mulligan and having experienced the small things in the short duration that she spent with him and losing it after, she resolved to poison the small things, which is i think not a rational decision a good person would make, she could have sought out other small things in life instead of trying to poison everything
 
 Chacko says they are a family of "Anglophiles"—trapped in the wrong history. How does the characters' obsession with English culture (The Sound of Music, quoting Shakespeare) alienate them from their own reality in Kerala?
+
 - Kerala is undergoing a communist revolution and their obsession with english culture and the idea of a civilised and bougie society or existence direclty conflates with that of their surroundings, which is one of uncouth behaviour and poverty. Their need to associate themselves with english culture puts them in the destructive path of the communist revolution and in their obsession they fail to see that, leading to the family's demise.
 
 Why is Velutha the God of Small Things? If he is a "God," why is he so powerless against the "Big Things"? Does the novel suggest that "Small Things" are weak, or that they are the only things that actually matter?
+
 - yeah so i don't really know what the small things are, are they just small things in general, things that are inconsequential or small movements? Of plants of animals? of society? But yeah i think with the story of the dances and the son being the god of light, it shows that there are greater and lesser gods, much like in hindu culture and I would think the god of small things is much weaker than the god of big things, compared to the anglo god which is all powerful and all knowing. And i think this parallels the idea that even if Ammu thinks that he was a god, in the anglo sense, she had to return to her roots and accept the idea that hindu gods are not all powerful and not all knowing in the same way that the anglo gods are. The novel suggests that small things are important, from the way Velutha makes the children feel seen, i don't know if it suggests that the small things are weak, but it shows that small things don't really matter in the larger scale of things, until they do, small things like the children are not recognised, until they kill sophie mol, their absence was not realised until much later. Small things like the fish biting Velutha, like quips that the children say, are not heard and ignored. 
 
 could you help to analyze the scene when they come back from the airport and it is said that "big things were not spoken, only small things" how does that link to the overall idea of small things and big things and the god of small things

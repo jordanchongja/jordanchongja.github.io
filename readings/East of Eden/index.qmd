@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,9 @@ include-before-body:
   }
 </style>
 
-# East of Eden
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
 
 ## Summary
 Yeah book was really good and sometimes its was a hard read because as a third party you know what is going to happen and its like watching a train wreck but overall the book was really good. Good, realistic characters with good development and character arcs. Was really frustrating seeing Adam make bad decisions again and again but I guess that is just how life works, from Cathy to the Cabbage to his children, it seems he's always floating and never really there but its an interesting element. And Steinbeck has this mastery over the side characters and how he gives them time to breathe and full form, like how he gave Joe his own mind and actions when in reality the purpose of Joe was to make sure that the will saw the light of day and in performing this one purpose, he was given a mind to scheme against Cathy and his anxiety and his confidence and his hubris and at the end of all that, his sudden and uneventful death. 
@@ -32,6 +36,7 @@ Anyway so maybe a short summary, started with the Antangonist, which I would say
 Anyways so she gets beaten up and she goes to Adam and UHHHH idk his brother. And his brother is able to sense the same thing as Cathy. OH I think essentially Cathy is the Devil LOL ok i need to insert the story of Cain and Abel because that is essentially the story repeated twice, and how people have the TIMSHEL - 'thou mayest' symbolizing the power of free will and choice, humans have the choice to overcome their circumstances or "rule over sin". This is in direct contrast to Cathy and how she resigned herself to her own fate of being "evil" and lacking the basic faculties for love. We see this manifest in Charles, with his murderous nature, and in Cal, in his inability to behave as Aron has. We see Adam repeating the mistakes of his own father, by showing favoritism to Aron over Cal, and in doing so, inadvertently perpetuating the mistakes of his father. But one interesting thing to note, rather than the silent mother that only acts as a bystander to the damage, Lee, takes action and illustrates Timshel, making Adam forgive Cal and in doing so, undoes the damage or at the very least mitigates the damage done by Adam. 
 
 But yes ok so a broad summary of the story:
+
 1. Introduction of Cathy and how evil she is
 2. Introduction of Samuel Hamilton and the Hamilton family and shows how even in poverty, a family can be rich, juxtaposed to the Trask family with somewhat the inverse
 3. Cathy interacting with Trask family 

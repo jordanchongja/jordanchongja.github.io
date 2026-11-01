@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★
 rating: 1
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# The Fountainhead
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Didnt even finish the book, got to where I left it off last time and gave up yet again.
 
 Note: Four main branches of philosophy: Metaphysics, epistemology, logic, and ethics.[6]

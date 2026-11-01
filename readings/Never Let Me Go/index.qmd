@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★ | 20th anniversary edition
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,9 @@ include-before-body:
   }
 </style>
 
-# Never Let Me Go
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
 
 ## Key Themes
 ### Core Theme: The "Concertinaed" Life (Mortality on Fast-Forward)
@@ -145,16 +149,19 @@ A thirty-one-year-old woman named Kathy narrates this haunting tale, drawing the
 ## Thoughts from Gemini
 ### Part 1: General Feedback on Your Critique
 **1. The "Boring" Focus vs. Sci-Fi Plot**
+
 - **Your thought:** You felt the book focused too much on teenage relationships and withholding information, rather than the societal mechanics of cloning.
 - **Analysis:** You are right that this is frustrating if you expect traditional sci-fi. However, Ishiguro is writing **Speculative Fiction** focused on the human condition.
 - **The Counter-Point:** The author doesn't care about _how_ the cloning works; he cares about **how we deal with mortality.** The clones are a metaphor for all humans. We all know we are going to die (complete), yet we distract ourselves with petty interpersonal drama, love triangles, and art. The "boring" parts are the point: even in the face of doom, humans prioritize relationships.
     
 **2. Why don't they escape? (The "Logic" Gap)**
+
 - **Your thought:** It makes no sense that they don't run away or that they aren't kept in a factory.
 - **The Missing Piece:** This is the most chilling part of the book, often called **hegemony** or **institutionalization**.
 - **Explanation:** Think of an elephant tied to a stake with a thin rope. It could break the rope, but it learned as a baby it couldn't, so it stops trying. The clones are indoctrinated. They are told their "purpose" is to donate. They don't run away because they don't believe they _deserve_ to survive. They believe the system is inevitable. This mirrors how real humans accept unjust systems (capitalism, caste systems, slavery) because "that's just how the world is."
     
 **3. The "Uncanny Valley" and Disgust**
+
 - **Your thought:** It doesn't make sense that normal people are disgusted by them if they look human.
 - **The Nuance:** The disgust isn't physical; it is **moral guilt**.
 - **Explanation:** Society knows they are murdering these "students" for organs. To live with that guilt, society _must_ view them as soulless monsters (like spiders, as Madame says). If they admitted the clones were just like them, they would have to stop the organ harvesting (and let their own children die of cancer). The disgust is a defense mechanism.
@@ -191,11 +198,13 @@ Here are pointers on specific questions where you asked for clarification or fel
         
 ### Summary of Your Reflection
 **Strengths:**
+
 - You accurately identified the book's pacing and structural quirks (the "hush hush" nature).
 - Your comparison to _God of Small Things_ is excellent—Roy reveals the tragedy early to focus on the _how_, whereas Ishiguro hides it to focus on the _denial_.
 - You correctly identified that the characters feel powerless (pawns in a game).
     
 **Areas for Deeper Consideration:**
+
 - **Shift your lens from Literal to Metaphorical:** The book fails as a logical sci-fi manual (factory farming makes more sense economically). It succeeds as a metaphor for how humans ignore the suffering of others (sweatshops, slaughterhouses) to enjoy a comfortable life.
     
 - **The "Pointless" Life:** You asked, "If the clones didn't have a point... then life as we know it wouldn't have a point." **That is exactly the author's point.** We are all Kathy. We are all going to "complete." The tragedy is not that they die young; the tragedy is that they (and we) accept our fate so passively.

@@ -9,7 +9,9 @@ categories:
 image: cover.png
 subtitle: ★★★★★ | Stories
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -21,7 +23,9 @@ include-before-body:
   }
 </style>
 
-# Ministry of Moral Panic
+::: {.media-cover}
+![](cover.png){fig-alt="Cover"}
+:::
 
 Amazing book - need to sit down and write a review on this fr
 

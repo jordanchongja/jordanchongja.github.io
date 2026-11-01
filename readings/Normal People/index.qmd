@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★ | One million copies sold
 rating: 3
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# Normal People
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Really nice ending, mid part was very draggy but perhaps intentional, fact that it is a bestseller shows that perhaps there is more to people than I would like to think. At the end of the day, maybe we’re not so different.
 
 -They continued eating then, as if they were acting out an argument in which both sides were equally compelling, and they had chosen their positions more or less at random, only in order to have the discussion out. 

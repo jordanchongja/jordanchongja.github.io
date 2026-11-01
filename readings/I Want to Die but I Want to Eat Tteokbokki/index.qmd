@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | The International bestseller
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,8 +22,12 @@ include-before-body:
   }
 </style>
 
-# I Want to Die but I Want to Eat Tteokbokki
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Loved it
+
 - So sad that the author died... I think at some point things are just too much, and if they were so much that you had to write a book on it just to deal with it then there will a come again, another point where it is also just. Too much.
 
 

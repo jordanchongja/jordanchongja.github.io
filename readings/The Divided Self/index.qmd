@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★ | An Existential Study in Sanity and Madness
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# The Divided Self
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 ## Definitions
 1. Schizoid - A person who is caught between the desire to be connected and the fear of losing himself if he connects 
 	1. There is a chasm in relation with his world
@@ -216,6 +221,7 @@ This passage describes a pivotal moment, or perhaps a re-conceptualization, in R
 The divorce of the self from the body is both something which is painful to be borne, and which the sufferer desperately longs for someone to help mend, but it is also utilised as the basic means of defence. This in fact defines the essential dilemma. The self wishes to be wedded to and embedded in the body, yet is constantly afraid to lodge in the body for fear of there being subject to attacks and dangers which it cannot escape. Yet the self finds that though it is outside the body it cannot sustain the advantages that it might hope for in this position. 
 
 What happens in this scenario:
+
 1. Its orientation is a primitive oral one, concerned with the dilemma of sustaining its aliveness, while being terrified to 'take in' anything. It becomes parched with thirst, and desolate. 
 2. It becomes charged with hatred of all that is there. The only way of destroying and of not destroying what is there may be felt to be to destroy itself.
 3. The attempt to kill the self may be undertaken intentionally. It is partly defensive ('If I'm dead, I can't be killed'); partly an attempt to endorse the crushing sense of guilt that oppresses the individual (no sense of a right to be alive).

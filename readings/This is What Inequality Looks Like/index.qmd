@@ -8,7 +8,9 @@ categories:
 image: cover.jpg
 subtitle: ★★★★★
 rating: 5
-body-class: project-detail-view
+body-classes: project-detail-view
+language:
+  title-block-published: Added
 include-before-body:
   text: '<div style=''margin-top: 50px;''></div>'
 ---
@@ -20,7 +22,10 @@ include-before-body:
   }
 </style>
 
-# This is What Inequality Looks Like
+::: {.media-cover}
+![](cover.jpg){fig-alt="Cover"}
+:::
+
 Really insightful read into the face of inequality in singapore and the systemic factors that have lead to this and what we can do about it  //Maybe sweden is different. Of course sweden is different. But within our own culture—past and present—live values, beliefs, habits, aspirations, that we can fight to own. This is what inequality looks like. Now what? Now we refuse
 
 ## Reading Journey
