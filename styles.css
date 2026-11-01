@@ -145,3 +145,244 @@ body {
 .project-detail-view .callout-note {
   border-left-width: 5px;
 }
+
+/* ==========================================================================
+   SECTION 4: MEDIA LISTINGS (Readings & Watched grids)
+   Targeting class: .media-listing-view  (+ the featured readings on the homepage)
+   ========================================================================== */
+
+/* Book covers and film posters are portrait: show them whole, not as a thin cropped strip */
+.media-listing-view .quarto-grid-item .thumbnail-image,
+#listing-featured-readings .quarto-grid-item .thumbnail-image {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+
+.media-listing-view .quarto-grid-item {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.media-listing-view .quarto-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* The stars are already in the subtitle; the raw "rating 5" row is only needed for sorting */
+.media-listing-view .card-other-values {
+  display: none;
+}
+
+.media-listing-view .listing-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   SECTION 5: DETAIL PAGES (book / film)
+   ========================================================================== */
+
+.media-cover figure,
+.media-cover p,
+.media-cover .quarto-figure {
+  margin: 0;
+}
+
+.media-cover img {
+  width: 200px !important;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+  .media-cover {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION 6: PHONES (< 768px)
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+
+  /* Two covers per row instead of one giant card per screen */
+  .media-listing-view .list.grid,
+  #listing-featured-readings .list.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .media-listing-view .list.grid > *,
+  #listing-featured-readings .list.grid > * {
+    grid-column: auto !important;
+  }
+
+  .media-listing-view .listing-description {
+    display: none;
+  }
+
+  .media-listing-view .card-body {
+    padding: 0.5rem 0.6rem 0.6rem;
+  }
+
+  .media-listing-view .listing-title {
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin-bottom: 0.2rem;
+  }
+
+  .media-listing-view .listing-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .media-listing-view .listing-author {
+    font-size: 0.7rem;
+  }
+
+  /* Sort + filter controls: full width, stacked */
+  .quarto-listing .listing-actions-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .quarto-listing .listing-actions-group > * {
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+  }
+
+  /* Homepage section headers ("Featured Projects  [View all →]") */
+  .featured-header-row {
+    flex-wrap: wrap;
+    align-items: center !important;
+    gap: 0.5rem;
+    margin-top: 1.5rem !important;
+  }
+
+  .featured-header-row > div {
+    font-size: 1.35rem !important;
+  }
+
+  .featured-header-row .btn {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  /* The Roosevelt quote is very long on a phone */
+  .homepage-view blockquote {
+    font-size: 0.95rem;
+    padding-left: 0.9rem;
+  }
+
+  .media-cover {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .media-cover img {
+    width: 150px !important;
+  }
+}
+
+
+/* ==========================================================================
+   SECTION 7: STAT CARDS + YEAR SECTIONS (Readings & Watched)
+   ========================================================================== */
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0.5rem 0 2.5rem;
+}
+
+.stat-card {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: #fff;
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-of {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-top: 0.15rem;
+}
+
+.stat-bar {
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 3px;
+  margin-top: 0.6rem;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: #0d6efd;
+  border-radius: 3px;
+}
+
+.media-listing-view h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  border-bottom: none;
+}
+
+.year-count {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6c757d;
+  background: #f1f3f5;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
+
+@media (max-width: 767.98px) {
+  .stat-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
