@@ -294,3 +294,95 @@ body {
     width: 150px !important;
   }
 }
+
+
+/* ==========================================================================
+   SECTION 7: STAT CARDS + YEAR SECTIONS (Readings & Watched)
+   ========================================================================== */
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0.5rem 0 2.5rem;
+}
+
+.stat-card {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: #fff;
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-of {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-top: 0.15rem;
+}
+
+.stat-bar {
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 3px;
+  margin-top: 0.6rem;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: #0d6efd;
+  border-radius: 3px;
+}
+
+.media-listing-view h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  border-bottom: none;
+}
+
+.year-count {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6c757d;
+  background: #f1f3f5;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
+
+@media (max-width: 767.98px) {
+  .stat-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
