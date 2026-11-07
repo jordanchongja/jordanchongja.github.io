@@ -12,7 +12,7 @@ body-classes: "review-view"
 Other years: **2026** · [2025](2025.qmd)
 
 ```{=html}
-<div class="stat-cards"><div class="stat-card"><div class="stat-value">14<span class="stat-of"> / 20</span></div><div class="stat-label">Books finished</div></div><div class="stat-card"><div class="stat-value">46</div><div class="stat-label">Hours read</div></div><div class="stat-card"><div class="stat-value">3,100</div><div class="stat-label">Pages turned</div></div><div class="stat-card"><div class="stat-value">78</div><div class="stat-label">Reading days</div></div><div class="stat-card"><div class="stat-value">7 days</div><div class="stat-label">Longest streak</div></div><div class="stat-card"><div class="stat-value">4.0★</div><div class="stat-label">Avg rating</div></div><div class="stat-card"><div class="stat-value">166</div><div class="stat-label">Films logged</div></div></div>
+<div class="stat-cards"><div class="stat-card"><div class="stat-value">14<span class="stat-of"> / 20</span></div><div class="stat-label">Books finished</div></div><div class="stat-card"><div class="stat-value">46</div><div class="stat-label">Hours read</div></div><div class="stat-card"><div class="stat-value">3,100</div><div class="stat-label">Pages turned</div></div><div class="stat-card"><div class="stat-value">78</div><div class="stat-label">Reading days</div></div><div class="stat-card"><div class="stat-value">7 days</div><div class="stat-label">Longest streak</div></div><div class="stat-card"><div class="stat-value">4.0★</div><div class="stat-label">Avg rating</div></div><div class="stat-card"><div class="stat-value">173</div><div class="stat-label">Films logged</div></div></div>
 ```
 
 ## Month by month
