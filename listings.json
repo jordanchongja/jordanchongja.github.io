@@ -1,5 +1,44 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
+      "/projects/iran-war-geopolitical-shock-analysis/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/sg-insurance-model/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/kobostatisticsdatareader/index.html",
+      "/projects/options-research/index.html"
+    ]
+  },
+  {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/posts/paper-attention_is_all_I_need/index.html",
+      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
+      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
+      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
+      "/notes/posts/black-scholes-derivation/index.html",
+      "/notes/posts/options-pricing-models/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/readings/Klara and the Sun/index.html",
+      "/readings/The Bell Jar/index.html",
+      "/readings/I Want to Die but I Want to Eat Tteokbokki/index.html",
+      "/readings/Wild Swans/index.html",
+      "/readings/East of Eden/index.html",
+      "/readings/Tuesdays With Morrie/index.html",
+      "/readings/The God of Small Things/index.html",
+      "/readings/Notes on a Nervous Planet/index.html",
+      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
+      "/projects/gap-challenge-solver/index.html",
+      "/projects/options-research/index.html"
+    ]
+  },
+  {
     "listing": "/readings/index.html",
     "items": [
       "/readings/Notes on a Nervous Planet/index.html",
@@ -58,47 +97,15 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/readings/Klara and the Sun/index.html",
-      "/readings/The Bell Jar/index.html",
-      "/readings/I Want to Die but I Want to Eat Tteokbokki/index.html",
-      "/readings/Wild Swans/index.html",
-      "/readings/East of Eden/index.html",
-      "/readings/Tuesdays With Morrie/index.html",
-      "/readings/The God of Small Things/index.html",
-      "/readings/Notes on a Nervous Planet/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/options-research/index.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/posts/paper-attention_is_all_I_need/index.html",
-      "/notes/posts/indonesia-regulatory-equity-ownership-analysis/index.html",
-      "/notes/posts/paper-high-frequency-trading-in-a-limit-order-book/index.html",
-      "/notes/posts/options-numerical-methods-for-black-scholes/BS_NumericalMethods.html",
-      "/notes/posts/black-scholes-derivation/index.html",
-      "/notes/posts/options-pricing-models/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/image-compression-linear-algebra/HaarWaveletTransform.html",
-      "/projects/iran-war-geopolitical-shock-analysis/index.html",
-      "/projects/avellaneda-stoikov-mm-single-limit-order/index.html",
-      "/projects/sg-insurance-model/index.html",
-      "/projects/gap-challenge-solver/index.html",
-      "/projects/kobostatisticsdatareader/index.html",
-      "/projects/options-research/index.html"
-    ]
-  },
-  {
     "listing": "/watched/index.html",
     "items": [
+      "/watched/American Sniper (2014)/index.html",
+      "/watched/Fantastic Beasts The Crimes of Grindelwald (2018)/index.html",
+      "/watched/Fury (2014)/index.html",
+      "/watched/Over the Hedge (2006)/index.html",
+      "/watched/Robots (2005)/index.html",
+      "/watched/The Housemaid (2025)/index.html",
+      "/watched/The Sheep Detectives (2026)/index.html",
       "/watched/2 Fast 2 Furious (2003)/index.html",
       "/watched/3 Idiots (2009)/index.html",
       "/watched/About Time (2013)/index.html",
